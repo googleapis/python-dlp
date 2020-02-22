@@ -2614,7 +2614,6 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
     conjunction with a field on the transformation such as
     ``surrogate_info_type``. This CustomInfoType does not support the use of
     ``detection_rules``.
-    
     """,
                 # @@protoc_insertion_point(class_scope:google.privacy.dlp.v2.CustomInfoType.SurrogateType)
             ),

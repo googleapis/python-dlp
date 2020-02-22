@@ -15229,8 +15229,7 @@ AnalyzeDataSourceRiskDetails = _reflection.GeneratedProtocolMessageType(
                     dict(
                         DESCRIPTOR=_ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYEQUIVALENCECLASS,
                         __module__="google.cloud.dlp_v2.proto.dlp_pb2",
-                        __doc__="""The set of columns' values that share the same ldiversity
-      value
+                        __doc__="""The set of columns' values that share the same ldiversity value
       
       
       Attributes:
