@@ -40,8 +40,10 @@ from google.cloud.dlp_v2.proto import dlp_pb2_grpc
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
-
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-dlp").version
+try:
+  _GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-dlp").version
+except pkg_resources.DistributionNotFound:
+  _GAPIC_LIBRARY_VERSION = "0.14.0"
 
 
 class DlpServiceClient(object):
