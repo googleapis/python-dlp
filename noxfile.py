@@ -111,7 +111,7 @@ def system(session):
     # Install all test dependencies, then install this package into the
     # virtualenv's dist-packages.
     session.install("mock", "pytest")
-
+    session.install("git+https://github.com/googleapis/python-test-utils")
     session.install("-e", "test_utils")
     session.install("-e", ".")
 

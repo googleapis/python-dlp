@@ -25,10 +25,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.privacy.dlp.v2",
     syntax="proto3",
     serialized_options=_b(
-        "\n\031com.google.privacy.dlp.v2B\nDlpStorageP\001Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\252\002\023Google.Cloud.Dlp.V2\312\002\023Google\\Cloud\\Dlp\\V2"
+        "\n\031com.google.privacy.dlp.v2B\nDlpStorageP\001Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\252\002\023Google.Cloud.Dlp.V2\312\002\023Google\\Cloud\\Dlp\\V2\352\002\026Google::Cloud::Dlp::V2"
     ),
     serialized_pb=_b(
-        '\n/google/cloud/privacy/dlp_v2/proto/storage.proto\x12\x15google.privacy.dlp.v2\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\x18\n\x08InfoType\x12\x0c\n\x04name\x18\x01 \x01(\t"K\n\nStoredType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\xc8\x0b\n\x0e\x43ustomInfoType\x12\x32\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x35\n\nlikelihood\x18\x06 \x01(\x0e\x32!.google.privacy.dlp.v2.Likelihood\x12\x46\n\ndictionary\x18\x02 \x01(\x0b\x32\x30.google.privacy.dlp.v2.CustomInfoType.DictionaryH\x00\x12<\n\x05regex\x18\x03 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.RegexH\x00\x12M\n\x0esurrogate_type\x18\x04 \x01(\x0b\x32\x33.google.privacy.dlp.v2.CustomInfoType.SurrogateTypeH\x00\x12\x38\n\x0bstored_type\x18\x05 \x01(\x0b\x32!.google.privacy.dlp.v2.StoredTypeH\x00\x12L\n\x0f\x64\x65tection_rules\x18\x07 \x03(\x0b\x32\x33.google.privacy.dlp.v2.CustomInfoType.DetectionRule\x12K\n\x0e\x65xclusion_type\x18\x08 \x01(\x0e\x32\x33.google.privacy.dlp.v2.CustomInfoType.ExclusionType\x1a\xc8\x01\n\nDictionary\x12N\n\tword_list\x18\x01 \x01(\x0b\x32\x39.google.privacy.dlp.v2.CustomInfoType.Dictionary.WordListH\x00\x12\x45\n\x12\x63loud_storage_path\x18\x03 \x01(\x0b\x32\'.google.privacy.dlp.v2.CloudStoragePathH\x00\x1a\x19\n\x08WordList\x12\r\n\x05words\x18\x01 \x03(\tB\x08\n\x06source\x1a/\n\x05Regex\x12\x0f\n\x07pattern\x18\x01 \x01(\t\x12\x15\n\rgroup_indexes\x18\x02 \x03(\x05\x1a\x0f\n\rSurrogateType\x1a\xbe\x04\n\rDetectionRule\x12W\n\x0chotword_rule\x18\x01 \x01(\x0b\x32?.google.privacy.dlp.v2.CustomInfoType.DetectionRule.HotwordRuleH\x00\x1a\x38\n\tProximity\x12\x15\n\rwindow_before\x18\x01 \x01(\x05\x12\x14\n\x0cwindow_after\x18\x02 \x01(\x05\x1a\x82\x01\n\x14LikelihoodAdjustment\x12=\n\x10\x66ixed_likelihood\x18\x01 \x01(\x0e\x32!.google.privacy.dlp.v2.LikelihoodH\x00\x12\x1d\n\x13relative_likelihood\x18\x02 \x01(\x05H\x00\x42\x0c\n\nadjustment\x1a\x8c\x02\n\x0bHotwordRule\x12\x42\n\rhotword_regex\x18\x01 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.Regex\x12P\n\tproximity\x18\x02 \x01(\x0b\x32=.google.privacy.dlp.v2.CustomInfoType.DetectionRule.Proximity\x12g\n\x15likelihood_adjustment\x18\x03 \x01(\x0b\x32H.google.privacy.dlp.v2.CustomInfoType.DetectionRule.LikelihoodAdjustmentB\x06\n\x04type"K\n\rExclusionType\x12\x1e\n\x1a\x45XCLUSION_TYPE_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x45XCLUSION_TYPE_EXCLUDE\x10\x01\x42\x06\n\x04type"\x17\n\x07\x46ieldId\x12\x0c\n\x04name\x18\x01 \x01(\t"7\n\x0bPartitionId\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x14\n\x0cnamespace_id\x18\x04 \x01(\t"\x1e\n\x0eKindExpression\x12\x0c\n\x04name\x18\x01 \x01(\t"\x81\x01\n\x10\x44\x61tastoreOptions\x12\x38\n\x0cpartition_id\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.PartitionId\x12\x33\n\x04kind\x18\x02 \x01(\x0b\x32%.google.privacy.dlp.v2.KindExpression"]\n\x18\x43loudStorageRegexFileSet\x12\x13\n\x0b\x62ucket_name\x18\x01 \x01(\t\x12\x15\n\rinclude_regex\x18\x02 \x03(\t\x12\x15\n\rexclude_regex\x18\x03 \x03(\t"\xec\x03\n\x13\x43loudStorageOptions\x12\x44\n\x08\x66ile_set\x18\x01 \x01(\x0b\x32\x32.google.privacy.dlp.v2.CloudStorageOptions.FileSet\x12\x1c\n\x14\x62ytes_limit_per_file\x18\x04 \x01(\x03\x12$\n\x1c\x62ytes_limit_per_file_percent\x18\x08 \x01(\x05\x12\x33\n\nfile_types\x18\x05 \x03(\x0e\x32\x1f.google.privacy.dlp.v2.FileType\x12N\n\rsample_method\x18\x06 \x01(\x0e\x32\x37.google.privacy.dlp.v2.CloudStorageOptions.SampleMethod\x12\x1b\n\x13\x66iles_limit_percent\x18\x07 \x01(\x05\x1a_\n\x07\x46ileSet\x12\x0b\n\x03url\x18\x01 \x01(\t\x12G\n\x0eregex_file_set\x18\x02 \x01(\x0b\x32/.google.privacy.dlp.v2.CloudStorageRegexFileSet"H\n\x0cSampleMethod\x12\x1d\n\x19SAMPLE_METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\x10\n\x0cRANDOM_START\x10\x02""\n\x13\x43loudStorageFileSet\x12\x0b\n\x03url\x18\x01 \x01(\t" \n\x10\x43loudStoragePath\x12\x0c\n\x04path\x18\x01 \x01(\t"\x8b\x03\n\x0f\x42igQueryOptions\x12=\n\x0ftable_reference\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12:\n\x12identifying_fields\x18\x02 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x12\n\nrows_limit\x18\x03 \x01(\x03\x12\x1a\n\x12rows_limit_percent\x18\x06 \x01(\x05\x12J\n\rsample_method\x18\x04 \x01(\x0e\x32\x33.google.privacy.dlp.v2.BigQueryOptions.SampleMethod\x12\x37\n\x0f\x65xcluded_fields\x18\x05 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"H\n\x0cSampleMethod\x12\x1d\n\x19SAMPLE_METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\x10\n\x0cRANDOM_START\x10\x02"\xda\x04\n\rStorageConfig\x12\x44\n\x11\x64\x61tastore_options\x18\x02 \x01(\x0b\x32\'.google.privacy.dlp.v2.DatastoreOptionsH\x00\x12K\n\x15\x63loud_storage_options\x18\x03 \x01(\x0b\x32*.google.privacy.dlp.v2.CloudStorageOptionsH\x00\x12\x43\n\x11\x62ig_query_options\x18\x04 \x01(\x0b\x32&.google.privacy.dlp.v2.BigQueryOptionsH\x00\x12>\n\x0ehybrid_options\x18\t \x01(\x0b\x32$.google.privacy.dlp.v2.HybridOptionsH\x00\x12L\n\x0ftimespan_config\x18\x06 \x01(\x0b\x32\x33.google.privacy.dlp.v2.StorageConfig.TimespanConfig\x1a\xda\x01\n\x0eTimespanConfig\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x0ftimestamp_field\x18\x03 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x31\n)enable_auto_population_of_timespan_config\x18\x04 \x01(\x08\x42\x06\n\x04type"\xf6\x01\n\rHybridOptions\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12#\n\x1brequired_finding_label_keys\x18\x02 \x03(\t\x12@\n\x06labels\x18\x03 \x03(\x0b\x32\x30.google.privacy.dlp.v2.HybridOptions.LabelsEntry\x12:\n\rtable_options\x18\x04 \x01(\x0b\x32#.google.privacy.dlp.v2.TableOptions\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01"`\n\x0b\x42igQueryKey\x12=\n\x0ftable_reference\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12\x12\n\nrow_number\x18\x02 \x01(\x03">\n\x0c\x44\x61tastoreKey\x12.\n\nentity_key\x18\x01 \x01(\x0b\x32\x1a.google.privacy.dlp.v2.Key"\xbb\x01\n\x03Key\x12\x38\n\x0cpartition_id\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.PartitionId\x12\x34\n\x04path\x18\x02 \x03(\x0b\x32&.google.privacy.dlp.v2.Key.PathElement\x1a\x44\n\x0bPathElement\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0c\n\x02id\x18\x02 \x01(\x03H\x00\x12\x0e\n\x04name\x18\x03 \x01(\tH\x00\x42\t\n\x07id_type"\xa1\x01\n\tRecordKey\x12<\n\rdatastore_key\x18\x02 \x01(\x0b\x32#.google.privacy.dlp.v2.DatastoreKeyH\x00\x12;\n\rbig_query_key\x18\x03 \x01(\x0b\x32".google.privacy.dlp.v2.BigQueryKeyH\x00\x12\x11\n\tid_values\x18\x05 \x03(\tB\x06\n\x04type"I\n\rBigQueryTable\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x12\n\ndataset_id\x18\x02 \x01(\t\x12\x10\n\x08table_id\x18\x03 \x01(\t"s\n\rBigQueryField\x12\x33\n\x05table\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12-\n\x05\x66ield\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"9\n\x08\x45ntityId\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"J\n\x0cTableOptions\x12:\n\x12identifying_fields\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId*t\n\nLikelihood\x12\x1a\n\x16LIKELIHOOD_UNSPECIFIED\x10\x00\x12\x11\n\rVERY_UNLIKELY\x10\x01\x12\x0c\n\x08UNLIKELY\x10\x02\x12\x0c\n\x08POSSIBLE\x10\x03\x12\n\n\x06LIKELY\x10\x04\x12\x0f\n\x0bVERY_LIKELY\x10\x05*Z\n\x08\x46ileType\x12\x19\n\x15\x46ILE_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x42INARY_FILE\x10\x01\x12\r\n\tTEXT_FILE\x10\x02\x12\t\n\x05IMAGE\x10\x03\x12\x08\n\x04\x41VRO\x10\x07\x42\x8f\x01\n\x19\x63om.google.privacy.dlp.v2B\nDlpStorageP\x01Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\xaa\x02\x13Google.Cloud.Dlp.V2\xca\x02\x13Google\\Cloud\\Dlp\\V2b\x06proto3'
+        '\n/google/cloud/privacy/dlp_v2/proto/storage.proto\x12\x15google.privacy.dlp.v2\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto"\x18\n\x08InfoType\x12\x0c\n\x04name\x18\x01 \x01(\t"K\n\nStoredType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp"\xc8\x0b\n\x0e\x43ustomInfoType\x12\x32\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x35\n\nlikelihood\x18\x06 \x01(\x0e\x32!.google.privacy.dlp.v2.Likelihood\x12\x46\n\ndictionary\x18\x02 \x01(\x0b\x32\x30.google.privacy.dlp.v2.CustomInfoType.DictionaryH\x00\x12<\n\x05regex\x18\x03 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.RegexH\x00\x12M\n\x0esurrogate_type\x18\x04 \x01(\x0b\x32\x33.google.privacy.dlp.v2.CustomInfoType.SurrogateTypeH\x00\x12\x38\n\x0bstored_type\x18\x05 \x01(\x0b\x32!.google.privacy.dlp.v2.StoredTypeH\x00\x12L\n\x0f\x64\x65tection_rules\x18\x07 \x03(\x0b\x32\x33.google.privacy.dlp.v2.CustomInfoType.DetectionRule\x12K\n\x0e\x65xclusion_type\x18\x08 \x01(\x0e\x32\x33.google.privacy.dlp.v2.CustomInfoType.ExclusionType\x1a\xc8\x01\n\nDictionary\x12N\n\tword_list\x18\x01 \x01(\x0b\x32\x39.google.privacy.dlp.v2.CustomInfoType.Dictionary.WordListH\x00\x12\x45\n\x12\x63loud_storage_path\x18\x03 \x01(\x0b\x32\'.google.privacy.dlp.v2.CloudStoragePathH\x00\x1a\x19\n\x08WordList\x12\r\n\x05words\x18\x01 \x03(\tB\x08\n\x06source\x1a/\n\x05Regex\x12\x0f\n\x07pattern\x18\x01 \x01(\t\x12\x15\n\rgroup_indexes\x18\x02 \x03(\x05\x1a\x0f\n\rSurrogateType\x1a\xbe\x04\n\rDetectionRule\x12W\n\x0chotword_rule\x18\x01 \x01(\x0b\x32?.google.privacy.dlp.v2.CustomInfoType.DetectionRule.HotwordRuleH\x00\x1a\x38\n\tProximity\x12\x15\n\rwindow_before\x18\x01 \x01(\x05\x12\x14\n\x0cwindow_after\x18\x02 \x01(\x05\x1a\x82\x01\n\x14LikelihoodAdjustment\x12=\n\x10\x66ixed_likelihood\x18\x01 \x01(\x0e\x32!.google.privacy.dlp.v2.LikelihoodH\x00\x12\x1d\n\x13relative_likelihood\x18\x02 \x01(\x05H\x00\x42\x0c\n\nadjustment\x1a\x8c\x02\n\x0bHotwordRule\x12\x42\n\rhotword_regex\x18\x01 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.Regex\x12P\n\tproximity\x18\x02 \x01(\x0b\x32=.google.privacy.dlp.v2.CustomInfoType.DetectionRule.Proximity\x12g\n\x15likelihood_adjustment\x18\x03 \x01(\x0b\x32H.google.privacy.dlp.v2.CustomInfoType.DetectionRule.LikelihoodAdjustmentB\x06\n\x04type"K\n\rExclusionType\x12\x1e\n\x1a\x45XCLUSION_TYPE_UNSPECIFIED\x10\x00\x12\x1a\n\x16\x45XCLUSION_TYPE_EXCLUDE\x10\x01\x42\x06\n\x04type"\x17\n\x07\x46ieldId\x12\x0c\n\x04name\x18\x01 \x01(\t"7\n\x0bPartitionId\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x14\n\x0cnamespace_id\x18\x04 \x01(\t"\x1e\n\x0eKindExpression\x12\x0c\n\x04name\x18\x01 \x01(\t"\x81\x01\n\x10\x44\x61tastoreOptions\x12\x38\n\x0cpartition_id\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.PartitionId\x12\x33\n\x04kind\x18\x02 \x01(\x0b\x32%.google.privacy.dlp.v2.KindExpression"]\n\x18\x43loudStorageRegexFileSet\x12\x13\n\x0b\x62ucket_name\x18\x01 \x01(\t\x12\x15\n\rinclude_regex\x18\x02 \x03(\t\x12\x15\n\rexclude_regex\x18\x03 \x03(\t"\xec\x03\n\x13\x43loudStorageOptions\x12\x44\n\x08\x66ile_set\x18\x01 \x01(\x0b\x32\x32.google.privacy.dlp.v2.CloudStorageOptions.FileSet\x12\x1c\n\x14\x62ytes_limit_per_file\x18\x04 \x01(\x03\x12$\n\x1c\x62ytes_limit_per_file_percent\x18\x08 \x01(\x05\x12\x33\n\nfile_types\x18\x05 \x03(\x0e\x32\x1f.google.privacy.dlp.v2.FileType\x12N\n\rsample_method\x18\x06 \x01(\x0e\x32\x37.google.privacy.dlp.v2.CloudStorageOptions.SampleMethod\x12\x1b\n\x13\x66iles_limit_percent\x18\x07 \x01(\x05\x1a_\n\x07\x46ileSet\x12\x0b\n\x03url\x18\x01 \x01(\t\x12G\n\x0eregex_file_set\x18\x02 \x01(\x0b\x32/.google.privacy.dlp.v2.CloudStorageRegexFileSet"H\n\x0cSampleMethod\x12\x1d\n\x19SAMPLE_METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\x10\n\x0cRANDOM_START\x10\x02""\n\x13\x43loudStorageFileSet\x12\x0b\n\x03url\x18\x01 \x01(\t" \n\x10\x43loudStoragePath\x12\x0c\n\x04path\x18\x01 \x01(\t"\x8b\x03\n\x0f\x42igQueryOptions\x12=\n\x0ftable_reference\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12:\n\x12identifying_fields\x18\x02 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x12\n\nrows_limit\x18\x03 \x01(\x03\x12\x1a\n\x12rows_limit_percent\x18\x06 \x01(\x05\x12J\n\rsample_method\x18\x04 \x01(\x0e\x32\x33.google.privacy.dlp.v2.BigQueryOptions.SampleMethod\x12\x37\n\x0f\x65xcluded_fields\x18\x05 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"H\n\x0cSampleMethod\x12\x1d\n\x19SAMPLE_METHOD_UNSPECIFIED\x10\x00\x12\x07\n\x03TOP\x10\x01\x12\x10\n\x0cRANDOM_START\x10\x02"\xda\x04\n\rStorageConfig\x12\x44\n\x11\x64\x61tastore_options\x18\x02 \x01(\x0b\x32\'.google.privacy.dlp.v2.DatastoreOptionsH\x00\x12K\n\x15\x63loud_storage_options\x18\x03 \x01(\x0b\x32*.google.privacy.dlp.v2.CloudStorageOptionsH\x00\x12\x43\n\x11\x62ig_query_options\x18\x04 \x01(\x0b\x32&.google.privacy.dlp.v2.BigQueryOptionsH\x00\x12>\n\x0ehybrid_options\x18\t \x01(\x0b\x32$.google.privacy.dlp.v2.HybridOptionsH\x00\x12L\n\x0ftimespan_config\x18\x06 \x01(\x0b\x32\x33.google.privacy.dlp.v2.StorageConfig.TimespanConfig\x1a\xda\x01\n\x0eTimespanConfig\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x37\n\x0ftimestamp_field\x18\x03 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x31\n)enable_auto_population_of_timespan_config\x18\x04 \x01(\x08\x42\x06\n\x04type"\xf6\x01\n\rHybridOptions\x12\x13\n\x0b\x64\x65scription\x18\x01 \x01(\t\x12#\n\x1brequired_finding_label_keys\x18\x02 \x03(\t\x12@\n\x06labels\x18\x03 \x03(\x0b\x32\x30.google.privacy.dlp.v2.HybridOptions.LabelsEntry\x12:\n\rtable_options\x18\x04 \x01(\x0b\x32#.google.privacy.dlp.v2.TableOptions\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01"`\n\x0b\x42igQueryKey\x12=\n\x0ftable_reference\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12\x12\n\nrow_number\x18\x02 \x01(\x03">\n\x0c\x44\x61tastoreKey\x12.\n\nentity_key\x18\x01 \x01(\x0b\x32\x1a.google.privacy.dlp.v2.Key"\xbb\x01\n\x03Key\x12\x38\n\x0cpartition_id\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.PartitionId\x12\x34\n\x04path\x18\x02 \x03(\x0b\x32&.google.privacy.dlp.v2.Key.PathElement\x1a\x44\n\x0bPathElement\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0c\n\x02id\x18\x02 \x01(\x03H\x00\x12\x0e\n\x04name\x18\x03 \x01(\tH\x00\x42\t\n\x07id_type"\xa1\x01\n\tRecordKey\x12<\n\rdatastore_key\x18\x02 \x01(\x0b\x32#.google.privacy.dlp.v2.DatastoreKeyH\x00\x12;\n\rbig_query_key\x18\x03 \x01(\x0b\x32".google.privacy.dlp.v2.BigQueryKeyH\x00\x12\x11\n\tid_values\x18\x05 \x03(\tB\x06\n\x04type"I\n\rBigQueryTable\x12\x12\n\nproject_id\x18\x01 \x01(\t\x12\x12\n\ndataset_id\x18\x02 \x01(\t\x12\x10\n\x08table_id\x18\x03 \x01(\t"s\n\rBigQueryField\x12\x33\n\x05table\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12-\n\x05\x66ield\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"9\n\x08\x45ntityId\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"J\n\x0cTableOptions\x12:\n\x12identifying_fields\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId*t\n\nLikelihood\x12\x1a\n\x16LIKELIHOOD_UNSPECIFIED\x10\x00\x12\x11\n\rVERY_UNLIKELY\x10\x01\x12\x0c\n\x08UNLIKELY\x10\x02\x12\x0c\n\x08POSSIBLE\x10\x03\x12\n\n\x06LIKELY\x10\x04\x12\x0f\n\x0bVERY_LIKELY\x10\x05*Z\n\x08\x46ileType\x12\x19\n\x15\x46ILE_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0b\x42INARY_FILE\x10\x01\x12\r\n\tTEXT_FILE\x10\x02\x12\t\n\x05IMAGE\x10\x03\x12\x08\n\x04\x41VRO\x10\x07\x42\xa8\x01\n\x19\x63om.google.privacy.dlp.v2B\nDlpStorageP\x01Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\xaa\x02\x13Google.Cloud.Dlp.V2\xca\x02\x13Google\\Cloud\\Dlp\\V2\xea\x02\x16Google::Cloud::Dlp::V2b\x06proto3'
     ),
     dependencies=[
         google_dot_api_dot_resource__pb2.DESCRIPTOR,
@@ -2694,15 +2694,13 @@ InfoType = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_INFOTYPE,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Type of information detected by the API.
-  
-  
   Attributes:
       name:
           Name of the information type. Either a name of your choosing
           when creating a CustomInfoType, or one of the names listed at
           https://cloud.google.com/dlp/docs/infotypes-reference when
           specifying a built-in type. InfoType names should conform to
-          the pattern [a-zA-Z0-9\_]{1,64}.
+          the pattern ``[a-zA-Z0-9_]{1,64}``.
   """,
         # @@protoc_insertion_point(class_scope:google.privacy.dlp.v2.InfoType)
     ),
@@ -2716,8 +2714,6 @@ StoredType = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_STOREDTYPE,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""A reference to a StoredInfoType to use with scanning.
-  
-  
   Attributes:
       name:
           Resource name of the requested ``StoredInfoType``, for example
@@ -2747,10 +2743,7 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                     dict(
                         DESCRIPTOR=_CUSTOMINFOTYPE_DICTIONARY_WORDLIST,
                         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                        __doc__="""Message defining a list of words or phrases to search for
-      in the data.
-      
-      
+                        __doc__="""Message defining a list of words or phrases to search for in the data.
       Attributes:
           words:
               Words or phrases defining the dictionary. The dictionary must
@@ -2762,31 +2755,26 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                 ),
                 DESCRIPTOR=_CUSTOMINFOTYPE_DICTIONARY,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                __doc__="""Custom information type based on a dictionary of words or
-    phrases. This can be used to match sensitive information specific to the
-    data, such as a list of employee IDs or job titles.
-    
-    Dictionary words are case-insensitive and all characters other than
-    letters and digits in the unicode `Basic Multilingual
-    Plane <https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane>`__
-    will be replaced with whitespace when scanning for matches, so the
-    dictionary phrase "Sam Johnson" will match all three phrases "sam
-    johnson", "Sam, Johnson", and "Sam (Johnson)". Additionally, the
-    characters surrounding any match must be of a different type than the
-    adjacent characters within the word, so letters must be next to
-    non-letters and digits next to non-digits. For example, the dictionary
-    word "jen" will match the first three letters of the text "jen123" but
-    will return no matches for "jennifer".
-    
-    Dictionary words containing a large number of characters that are not
-    letters or digits may result in unexpected findings because such
-    characters are treated as whitespace. The
+                __doc__="""Custom information type based on a dictionary of words or phrases.
+    This can be used to match sensitive information specific to the data,
+    such as a list of employee IDs or job titles.  Dictionary words are
+    case-insensitive and all characters other than letters and digits in
+    the unicode `Basic Multilingual Plane <https://en.wikipedia.org/wiki/P
+    lane_%28Unicode%29#Basic_Multilingual_Plane>`__ will be replaced with
+    whitespace when scanning for matches, so the dictionary phrase "Sam
+    Johnson" will match all three phrases "sam johnson", "Sam, Johnson",
+    and "Sam (Johnson)". Additionally, the characters surrounding any
+    match must be of a different type than the adjacent characters within
+    the word, so letters must be next to non-letters and digits next to
+    non-digits. For example, the dictionary word "jen" will match the
+    first three letters of the text "jen123" but will return no matches
+    for "jennifer".  Dictionary words containing a large number of
+    characters that are not letters or digits may result in unexpected
+    findings because such characters are treated as whitespace. The
     `limits <https://cloud.google.com/dlp/limits>`__ page contains details
-    about the size limits of dictionaries. For dictionaries that do not fit
-    within these constraints, consider using ``LargeCustomDictionaryConfig``
-    in the ``StoredInfoType`` API.
-    
-    
+    about the size limits of dictionaries. For dictionaries that do not
+    fit within these constraints, consider using
+    ``LargeCustomDictionaryConfig`` in the ``StoredInfoType`` API.
     Attributes:
         word_list:
             List of words or phrases to search for.
@@ -2804,8 +2792,6 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                 DESCRIPTOR=_CUSTOMINFOTYPE_REGEX,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
                 __doc__="""Message defining a custom regular expression.
-    
-    
     Attributes:
         pattern:
             Pattern defining the regular expression. Its syntax
@@ -2825,16 +2811,14 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
             dict(
                 DESCRIPTOR=_CUSTOMINFOTYPE_SURROGATETYPE,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                __doc__="""Message for detecting output from deidentification
-    transformations such as
-    ```CryptoReplaceFfxFpeConfig`` </dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig>`__.
-    These types of transformations are those that perform pseudonymization,
+                __doc__="""Message for detecting output from deidentification transformations
+    such as ```CryptoReplaceFfxFpeConfig`` </dlp/docs/reference/rest/v2/or
+    ganizations.deidentifyTemplates#cryptoreplaceffxfpeconfig>`__. These
+    types of transformations are those that perform pseudonymization,
     thereby producing a "surrogate" as output. This should be used in
     conjunction with a field on the transformation such as
-    ``surrogate_info_type``. This CustomInfoType does not support the use of
-    ``detection_rules``.
-    
-    """,
+    ``surrogate_info_type``. This CustomInfoType does not support the use
+    of ``detection_rules``.""",
                 # @@protoc_insertion_point(class_scope:google.privacy.dlp.v2.CustomInfoType.SurrogateType)
             ),
         ),
@@ -2848,10 +2832,8 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                     dict(
                         DESCRIPTOR=_CUSTOMINFOTYPE_DETECTIONRULE_PROXIMITY,
                         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                        __doc__="""Message for specifying a window around a finding to apply
-      a detection rule.
-      
-      
+                        __doc__="""Message for specifying a window around a finding to apply a detection
+      rule.
       Attributes:
           window_before:
               Number of characters before the finding to consider.
@@ -2867,10 +2849,8 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                     dict(
                         DESCRIPTOR=_CUSTOMINFOTYPE_DETECTIONRULE_LIKELIHOODADJUSTMENT,
                         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                        __doc__="""Message for specifying an adjustment to the likelihood of
-      a finding as part of a detection rule.
-      
-      
+                        __doc__="""Message for specifying an adjustment to the likelihood of a finding as
+      part of a detection rule.
       Attributes:
           fixed_likelihood:
               Set the likelihood of a finding to a fixed value.
@@ -2894,10 +2874,8 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                     dict(
                         DESCRIPTOR=_CUSTOMINFOTYPE_DETECTIONRULE_HOTWORDRULE,
                         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                        __doc__="""The rule that adjusts the likelihood of findings within a
-      certain proximity of hotwords.
-      
-      
+                        __doc__="""The rule that adjusts the likelihood of findings within a certain
+      proximity of hotwords.
       Attributes:
           hotword_regex: \
               Regular expression pattern defining what qualifies as a \
@@ -2921,12 +2899,10 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
                 ),
                 DESCRIPTOR=_CUSTOMINFOTYPE_DETECTIONRULE,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                __doc__="""Deprecated; use ``InspectionRuleSet`` instead. Rule for
-    modifying a ``CustomInfoType`` to alter behavior under certain
-    circumstances, depending on the specific details of the rule. Not
-    supported for the ``surrogate_type`` custom infoType.
-    
-    
+                __doc__="""Deprecated; use ``InspectionRuleSet`` instead. Rule for modifying a
+    ``CustomInfoType`` to alter behavior under certain circumstances,
+    depending on the specific details of the rule. Not supported for the
+    ``surrogate_type`` custom infoType.
     Attributes:
         hotword_rule:
             Hotword-based detection rule.
@@ -2936,11 +2912,8 @@ CustomInfoType = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_CUSTOMINFOTYPE,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Custom information type provided by the user. Used to find
-  domain-specific sensitive information configurable to the data in
-  question.
-  
-  
+        __doc__="""Custom information type provided by the user. Used to find domain-
+  specific sensitive information configurable to the data in question.
   Attributes:
       info_type:
           CustomInfoType can either be a new infoType, or an extension
@@ -2996,8 +2969,6 @@ FieldId = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_FIELDID,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""General identifier of a data field in a storage service.
-  
-  
   Attributes:
       name:
           Name describing the field.
@@ -3013,13 +2984,10 @@ PartitionId = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_PARTITIONID,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Datastore partition ID. A partition ID identifies a
-  grouping of entities. The grouping is always by project and namespace,
-  however the namespace ID may be empty.
-  
-  A partition ID contains several dimensions: project ID and namespace ID.
-  
-  
+        __doc__="""Datastore partition ID. A partition ID identifies a grouping of
+  entities. The grouping is always by project and namespace, however the
+  namespace ID may be empty.  A partition ID contains several
+  dimensions: project ID and namespace ID.
   Attributes:
       project_id:
           The ID of the project to which the entities belong.
@@ -3039,8 +3007,6 @@ KindExpression = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_KINDEXPRESSION,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""A representation of a Datastore kind.
-  
-  
   Attributes:
       name:
           The name of the kind.
@@ -3057,8 +3023,6 @@ DatastoreOptions = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_DATASTOREOPTIONS,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Options defining a data set within Google Cloud Datastore.
-  
-  
   Attributes:
       partition_id:
           A partition ID identifies a grouping of entities. The grouping
@@ -3078,39 +3042,29 @@ CloudStorageRegexFileSet = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_CLOUDSTORAGEREGEXFILESET,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Message representing a set of files in a Cloud Storage
-  bucket. Regular expressions are used to allow fine-grained control over
-  which files in the bucket to include.
-  
-  Included files are those that match at least one item in
-  ``include_regex`` and do not match any items in ``exclude_regex``. Note
-  that a file that matches items from both lists will *not* be included.
-  For a match to occur, the entire file path (i.e., everything in the url
-  after the bucket name) must match the regular expression.
-  
-  For example, given the input
-  ``{bucket_name: "mybucket", include_regex: ["directory1/.*"], exclude_regex: ["directory1/excluded.*"]}``:
-  
-  -  ``gs://mybucket/directory1/myfile`` will be included
-  -  ``gs://mybucket/directory1/directory2/myfile`` will be included
-     (``.*`` matches across ``/``)
-  -  ``gs://mybucket/directory0/directory1/myfile`` will *not* be included
-     (the full path doesn't match any items in ``include_regex``)
-  -  ``gs://mybucket/directory1/excludedfile`` will *not* be included (the
-     path matches an item in ``exclude_regex``)
-  
-  If ``include_regex`` is left empty, it will match all files by default
-  (this is equivalent to setting ``include_regex: [".*"]``).
-  
-  Some other common use cases:
-  
-  -  ``{bucket_name: "mybucket", exclude_regex: [".*\.pdf"]}`` will
-     include all files in ``mybucket`` except for .pdf files
-  -  ``{bucket_name: "mybucket", include_regex: ["directory/[^/]+"]}``
-     will include all files directly under ``gs://mybucket/directory/``,
-     without matching across ``/``
-  
-  
+        __doc__="""Message representing a set of files in a Cloud Storage bucket. Regular
+  expressions are used to allow fine-grained control over which files in
+  the bucket to include.  Included files are those that match at least
+  one item in ``include_regex`` and do not match any items in
+  ``exclude_regex``. Note that a file that matches items from both lists
+  will *not* be included. For a match to occur, the entire file path
+  (i.e., everything in the url after the bucket name) must match the
+  regular expression.  For example, given the input ``{bucket_name:
+  "mybucket", include_regex: ["directory1/.*"], exclude_regex:
+  ["directory1/excluded.*"]}``:  -  ``gs://mybucket/directory1/myfile``
+  will be included -  ``gs://mybucket/directory1/directory2/myfile``
+  will be included    (``.*`` matches across ``/``) -
+  ``gs://mybucket/directory0/directory1/myfile`` will *not* be included
+  (the full path doesn't match any items in ``include_regex``) -
+  ``gs://mybucket/directory1/excludedfile`` will *not* be included (the
+  path matches an item in ``exclude_regex``)  If ``include_regex`` is
+  left empty, it will match all files by default (this is equivalent to
+  setting ``include_regex: [".*"]``).  Some other common use cases:  -
+  ``{bucket_name: "mybucket", exclude_regex: [".*\.pdf"]}`` will
+  include all files in ``mybucket`` except for .pdf files -
+  ``{bucket_name: "mybucket", include_regex: ["directory/[^/]+"]}``
+  will include all files directly under ``gs://mybucket/directory/``,
+  without matching across ``/``
   Attributes:
       bucket_name:
           The name of a Cloud Storage bucket. Required.
@@ -3148,8 +3102,6 @@ CloudStorageOptions = _reflection.GeneratedProtocolMessageType(
                 DESCRIPTOR=_CLOUDSTORAGEOPTIONS_FILESET,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
                 __doc__="""Set of files to scan.
-    
-    
     Attributes:
         url:
             The Cloud Storage url of the file(s) to scan, in the format
@@ -3170,10 +3122,8 @@ CloudStorageOptions = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_CLOUDSTORAGEOPTIONS,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Options defining a file or a set of files within a Google
-  Cloud Storage bucket.
-  
-  
+        __doc__="""Options defining a file or a set of files within a Google Cloud
+  Storage bucket.
   Attributes:
       file_set:
           The set of one or more files to scan.
@@ -3212,8 +3162,6 @@ CloudStorageFileSet = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_CLOUDSTORAGEFILESET,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Message representing a set of files in Cloud Storage.
-  
-  
   Attributes:
       url:
           The url, in the format ``gs://<bucket>/<path>``. Trailing
@@ -3230,10 +3178,7 @@ CloudStoragePath = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_CLOUDSTORAGEPATH,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Message representing a single file or path in Cloud
-  Storage.
-  
-  
+        __doc__="""Message representing a single file or path in Cloud Storage.
   Attributes:
       path:
           A url representing a file or path (no wildcards) in Cloud
@@ -3251,8 +3196,6 @@ BigQueryOptions = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_BIGQUERYOPTIONS,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Options defining BigQuery table and row identifiers.
-  
-  
   Attributes:
       table_reference:
           Complete BigQuery table reference.
@@ -3295,11 +3238,9 @@ StorageConfig = _reflection.GeneratedProtocolMessageType(
             dict(
                 DESCRIPTOR=_STORAGECONFIG_TIMESPANCONFIG,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                __doc__="""Configuration of the timespan of the items to include in
-    scanning. Currently only supported when inspecting Google Cloud Storage
-    and BigQuery.
-    
-    
+                __doc__="""Configuration of the timespan of the items to include in scanning.
+    Currently only supported when inspecting Google Cloud Storage and
+    BigQuery.
     Attributes:
         start_time:
             Exclude files or rows older than this value.
@@ -3331,8 +3272,6 @@ StorageConfig = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_STORAGECONFIG,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Shared message indicating Cloud storage type.
-  
-  
   Attributes:
       datastore_options:
           Google Cloud Datastore options.
@@ -3367,10 +3306,8 @@ HybridOptions = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_HYBRIDOPTIONS,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Configuration to control jobs where the content being
-  inspected is outside of Google Cloud Platform.
-  
-  
+        __doc__="""Configuration to control jobs where the content being inspected is
+  outside of Google Cloud Platform.
   Attributes:
       description:
           A short description of where the data is coming from. Will be
@@ -3381,17 +3318,17 @@ HybridOptions = _reflection.GeneratedProtocolMessageType(
           others, but any missing one of these will be rejected.  Label
           keys must be between 1 and 63 characters long and must conform
           to the following regular expression:
-          [a-z]([-a-z0-9]\*[a-z0-9])?.  No more than 10 keys can be
+          ``[a-z]([-a-z0-9]*[a-z0-9])?``.  No more than 10 keys can be
           required.
       labels:
           To organize findings, these labels will be added to each
           finding.  Label keys must be between 1 and 63 characters long
           and must conform to the following regular expression:
-          [a-z]([-a-z0-9]\*[a-z0-9])?.  Label values must be between 0
-          and 63 characters long and must conform to the regular
-          expression ([a-z]([-a-z0-9]\*[a-z0-9])?)?.  No more than 10
-          labels can be associated with a given finding.  Example:
-          "environment" : "production" Example: "pipeline" : "etl"
+          ``[a-z]([-a-z0-9]*[a-z0-9])?``.  Label values must be between
+          0 and 63 characters long and must conform to the regular
+          expression ``([a-z]([-a-z0-9]*[a-z0-9])?)?``.  No more than 10
+          labels can be associated with a given finding.  Examples: \*
+          ``"environment" : "production"`` \* ``"pipeline" : "etl"``
       table_options:
           If the container is a table, additional information to make
           findings meaningful such as the columns that are primary keys.
@@ -3409,8 +3346,6 @@ BigQueryKey = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_BIGQUERYKEY,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Row key for identifying a record in BigQuery table.
-  
-  
   Attributes:
       table_reference:
           Complete BigQuery table reference.
@@ -3433,8 +3368,6 @@ DatastoreKey = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_DATASTOREKEY,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Record key for a finding in Cloud Datastore.
-  
-  
   Attributes:
       entity_key:
           Datastore entity key.
@@ -3454,12 +3387,9 @@ Key = _reflection.GeneratedProtocolMessageType(
             dict(
                 DESCRIPTOR=_KEY_PATHELEMENT,
                 __module__="google.cloud.dlp_v2.proto.storage_pb2",
-                __doc__="""A (kind, ID/name) pair used to construct a key path.
-    
-    If either name or ID is set, the element is complete. If neither is set,
-    the element is incomplete.
-    
-    
+                __doc__="""A (kind, ID/name) pair used to construct a key path.  If either name
+    or ID is set, the element is complete. If neither is set, the element
+    is incomplete.
     Attributes:
         kind:
             The kind of the entity. A kind matching regex ``__.*__`` is
@@ -3481,12 +3411,10 @@ Key = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_KEY,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""A unique identifier for a Datastore entity. If a key's
-  partition ID or any of its path kinds or names are reserved/read-only,
-  the key is reserved/read-only. A reserved/read-only key is forbidden in
-  certain documented contexts.
-  
-  
+        __doc__="""A unique identifier for a Datastore entity. If a key's partition ID or
+  any of its path kinds or names are reserved/read-only, the key is
+  reserved/read-only. A reserved/read-only key is forbidden in certain
+  documented contexts.
   Attributes:
       partition_id:
           Entities are partitioned into subsets, currently identified by
@@ -3515,10 +3443,7 @@ RecordKey = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_RECORDKEY,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Message for a unique key indicating a record that contains
-  a finding.
-  
-  
+        __doc__="""Message for a unique key indicating a record that contains a finding.
   Attributes:
       id_values:
           Values of identifying columns in the given row. Order of
@@ -3536,13 +3461,11 @@ BigQueryTable = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_BIGQUERYTABLE,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""Message defining the location of a BigQuery table. A table
-  is uniquely identified by its project\_id, dataset\_id, and table\_name.
-  Within a query a table is often referenced with a string in the format
-  of: ``<project_id>:<dataset_id>.<table_id>`` or
+        __doc__="""Message defining the location of a BigQuery table. A table is uniquely
+  identified by its project\_id, dataset\_id, and table\_name. Within a
+  query a table is often referenced with a string in the format of:
+  ``<project_id>:<dataset_id>.<table_id>`` or
   ``<project_id>.<dataset_id>.<table_id>``.
-  
-  
   Attributes:
       project_id:
           The Google Cloud Platform project ID of the project containing
@@ -3565,8 +3488,6 @@ BigQueryField = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_BIGQUERYFIELD,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Message defining a field of a BigQuery table.
-  
-  
   Attributes:
       table:
           Source table of the field.
@@ -3584,14 +3505,12 @@ EntityId = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_ENTITYID,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
-        __doc__="""An entity in a dataset is a field or set of fields that
-  correspond to a single person. For example, in medical records the
-  ``EntityId`` might be a patient identifier, or for financial records it
-  might be an account identifier. This message is used when
-  generalizations or analysis must take into account that multiple rows
-  correspond to the same entity.
-  
-  
+        __doc__="""An entity in a dataset is a field or set of fields that correspond to
+  a single person. For example, in medical records the ``EntityId``
+  might be a patient identifier, or for financial records it might be an
+  account identifier. This message is used when generalizations or
+  analysis must take into account that multiple rows correspond to the
+  same entity.
   Attributes:
       field:
           Composite key indicating which field contains the entity
@@ -3609,8 +3528,6 @@ TableOptions = _reflection.GeneratedProtocolMessageType(
         DESCRIPTOR=_TABLEOPTIONS,
         __module__="google.cloud.dlp_v2.proto.storage_pb2",
         __doc__="""Instructions regarding the table content being inspected.
-  
-  
   Attributes:
       identifying_fields:
           The columns that are the primary keys for table objects

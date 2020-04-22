@@ -85,10 +85,46 @@ class DlpServiceClient(object):
     from_service_account_json = from_service_account_file
 
     @classmethod
+    def deidentify_template_path(cls, organization, deidentify_template):
+        """Return a fully-qualified deidentify_template string."""
+        return google.api_core.path_template.expand(
+            "organizations/{organization}/deidentifyTemplates/{deidentify_template}",
+            organization=organization,
+            deidentify_template=deidentify_template,
+        )
+
+    @classmethod
     def dlp_job_path(cls, project, dlp_job):
         """Return a fully-qualified dlp_job string."""
         return google.api_core.path_template.expand(
             "projects/{project}/dlpJobs/{dlp_job}", project=project, dlp_job=dlp_job
+        )
+
+    @classmethod
+    def inspect_template_path(cls, organization, inspect_template):
+        """Return a fully-qualified inspect_template string."""
+        return google.api_core.path_template.expand(
+            "organizations/{organization}/inspectTemplates/{inspect_template}",
+            organization=organization,
+            inspect_template=inspect_template,
+        )
+
+    @classmethod
+    def job_trigger_path(cls, project, job_trigger):
+        """Return a fully-qualified job_trigger string."""
+        return google.api_core.path_template.expand(
+            "projects/{project}/jobTriggers/{job_trigger}",
+            project=project,
+            job_trigger=job_trigger,
+        )
+
+    @classmethod
+    def location_path(cls, project, location):
+        """Return a fully-qualified location string."""
+        return google.api_core.path_template.expand(
+            "projects/{project}/locations/{location}",
+            project=project,
+            location=location,
         )
 
     @classmethod
@@ -114,6 +150,15 @@ class DlpServiceClient(object):
             "organizations/{organization}/inspectTemplates/{inspect_template}",
             organization=organization,
             inspect_template=inspect_template,
+        )
+
+    @classmethod
+    def organization_location_path(cls, organization, location):
+        """Return a fully-qualified organization_location string."""
+        return google.api_core.path_template.expand(
+            "organizations/{organization}/locations/{location}",
+            organization=organization,
+            location=location,
         )
 
     @classmethod
@@ -165,6 +210,15 @@ class DlpServiceClient(object):
         return google.api_core.path_template.expand(
             "projects/{project}/storedInfoTypes/{stored_info_type}",
             project=project,
+            stored_info_type=stored_info_type,
+        )
+
+    @classmethod
+    def stored_info_type_path(cls, organization, stored_info_type):
+        """Return a fully-qualified stored_info_type string."""
+        return google.api_core.path_template.expand(
+            "organizations/{organization}/storedInfoTypes/{stored_info_type}",
+            organization=organization,
             stored_info_type=stored_info_type,
         )
 
@@ -283,7 +337,7 @@ class DlpServiceClient(object):
     # Service calls
     def inspect_content(
         self,
-        parent,
+        parent=None,
         inspect_config=None,
         item=None,
         inspect_template_name=None,
@@ -308,9 +362,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
-            >>>
-            >>> response = client.inspect_content(parent)
+            >>> response = client.inspect_content()
 
         Args:
             parent (str): The parent resource name, for example projects/my-project-id.
@@ -386,7 +438,7 @@ class DlpServiceClient(object):
 
     def redact_image(
         self,
-        parent,
+        parent=None,
         location_id=None,
         inspect_config=None,
         image_redaction_configs=None,
@@ -411,9 +463,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
-            >>>
-            >>> response = client.redact_image(parent)
+            >>> response = client.redact_image()
 
         Args:
             parent (str): The parent resource name, for example projects/my-project-id.
@@ -490,7 +540,7 @@ class DlpServiceClient(object):
 
     def deidentify_content(
         self,
-        parent,
+        parent=None,
         deidentify_config=None,
         inspect_config=None,
         item=None,
@@ -516,9 +566,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.project_path('[PROJECT]')
-            >>>
-            >>> response = client.deidentify_content(parent)
+            >>> response = client.deidentify_content()
 
         Args:
             parent (str): The parent resource name, for example projects/my-project-id.
@@ -806,7 +854,7 @@ class DlpServiceClient(object):
     def create_inspect_template(
         self,
         parent,
-        inspect_template=None,
+        inspect_template,
         template_id=None,
         location_id=None,
         retry=google.api_core.gapic_v1.method.DEFAULT,
@@ -823,9 +871,12 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
-            >>> response = client.create_inspect_template(parent)
+            >>> # TODO: Initialize `inspect_template`:
+            >>> inspect_template = {}
+            >>>
+            >>> response = client.create_inspect_template(parent, inspect_template)
 
         Args:
             parent (str): Required. The parent resource name, for example projects/my-project-id or
@@ -980,7 +1031,7 @@ class DlpServiceClient(object):
 
     def get_inspect_template(
         self,
-        name=None,
+        name,
         retry=google.api_core.gapic_v1.method.DEFAULT,
         timeout=google.api_core.gapic_v1.method.DEFAULT,
         metadata=None,
@@ -994,7 +1045,9 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> response = client.get_inspect_template()
+            >>> name = client.organization_inspect_template_path('[ORGANIZATION]', '[INSPECT_TEMPLATE]')
+            >>>
+            >>> response = client.get_inspect_template(name)
 
         Args:
             name (str): Required. Resource name of the organization and inspectTemplate to be
@@ -1067,7 +1120,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_inspect_templates(parent):
@@ -1245,7 +1298,7 @@ class DlpServiceClient(object):
     def create_deidentify_template(
         self,
         parent,
-        deidentify_template=None,
+        deidentify_template,
         template_id=None,
         location_id=None,
         retry=google.api_core.gapic_v1.method.DEFAULT,
@@ -1263,9 +1316,12 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
-            >>> response = client.create_deidentify_template(parent)
+            >>> # TODO: Initialize `deidentify_template`:
+            >>> deidentify_template = {}
+            >>>
+            >>> response = client.create_deidentify_template(parent, deidentify_template)
 
         Args:
             parent (str): Required. The parent resource name, for example projects/my-project-id or
@@ -1517,7 +1573,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_deidentify_templates(parent):
@@ -1693,6 +1749,560 @@ class DlpServiceClient(object):
             metadata.append(routing_metadata)
 
         self._inner_api_calls["delete_deidentify_template"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def create_job_trigger(
+        self,
+        parent,
+        job_trigger,
+        trigger_id=None,
+        location_id=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Creates a job trigger to run DLP actions such as scanning storage for
+        sensitive information on a set schedule.
+        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> parent = client.project_path('[PROJECT]')
+            >>>
+            >>> # TODO: Initialize `job_trigger`:
+            >>> job_trigger = {}
+            >>>
+            >>> response = client.create_job_trigger(parent, job_trigger)
+
+        Args:
+            parent (str): Required. The parent resource name, for example projects/my-project-id.
+            job_trigger (Union[dict, ~google.cloud.dlp_v2.types.JobTrigger]): Required. The JobTrigger to create.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.dlp_v2.types.JobTrigger`
+            trigger_id (str): The trigger id can contain uppercase and lowercase letters, numbers, and
+                hyphens; that is, it must match the regular expression:
+                ``[a-zA-Z\\d-_]+``. The maximum length is 100 characters. Can be empty
+                to allow the system to generate one.
+            location_id (str): The geographic location to store the job trigger. Reserved for
+                future extensions.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "create_job_trigger" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "create_job_trigger"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.create_job_trigger,
+                default_retry=self._method_configs["CreateJobTrigger"].retry,
+                default_timeout=self._method_configs["CreateJobTrigger"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.CreateJobTriggerRequest(
+            parent=parent,
+            job_trigger=job_trigger,
+            trigger_id=trigger_id,
+            location_id=location_id,
+        )
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("parent", parent)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["create_job_trigger"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def update_job_trigger(
+        self,
+        name,
+        job_trigger=None,
+        update_mask=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Updates a job trigger.
+        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
+            >>>
+            >>> response = client.update_job_trigger(name)
+
+        Args:
+            name (str): Required. Resource name of the project and the triggeredJob, for example
+                ``projects/dlp-test-project/jobTriggers/53234423``.
+            job_trigger (Union[dict, ~google.cloud.dlp_v2.types.JobTrigger]): New JobTrigger value.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.dlp_v2.types.JobTrigger`
+            update_mask (Union[dict, ~google.cloud.dlp_v2.types.FieldMask]): Mask to control which fields get updated.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.dlp_v2.types.FieldMask`
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "update_job_trigger" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "update_job_trigger"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.update_job_trigger,
+                default_retry=self._method_configs["UpdateJobTrigger"].retry,
+                default_timeout=self._method_configs["UpdateJobTrigger"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.UpdateJobTriggerRequest(
+            name=name, job_trigger=job_trigger, update_mask=update_mask
+        )
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["update_job_trigger"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def hybrid_inspect_job_trigger(
+        self,
+        name,
+        hybrid_item=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Inspect hybrid content and store findings to a trigger. The inspection
+        will be processed asynchronously. To review the findings monitor the
+        jobs within the trigger.
+        Early access feature is in a pre-release state and might change or have
+        limited support. For more information, see
+        https://cloud.google.com/products#product-launch-stages.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
+            >>>
+            >>> response = client.hybrid_inspect_job_trigger(name)
+
+        Args:
+            name (str): Required. Resource name of the trigger to execute a hybrid inspect on,
+                for example ``projects/dlp-test-project/jobTriggers/53234423``.
+            hybrid_item (Union[dict, ~google.cloud.dlp_v2.types.HybridContentItem]): The item to inspect.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.dlp_v2.types.HybridContentItem`
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.dlp_v2.types.HybridInspectResponse` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "hybrid_inspect_job_trigger" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "hybrid_inspect_job_trigger"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.hybrid_inspect_job_trigger,
+                default_retry=self._method_configs["HybridInspectJobTrigger"].retry,
+                default_timeout=self._method_configs["HybridInspectJobTrigger"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.HybridInspectJobTriggerRequest(
+            name=name, hybrid_item=hybrid_item
+        )
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["hybrid_inspect_job_trigger"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def get_job_trigger(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Gets a job trigger.
+        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
+            >>>
+            >>> response = client.get_job_trigger(name)
+
+        Args:
+            name (str): Required. Resource name of the project and the triggeredJob, for example
+                ``projects/dlp-test-project/jobTriggers/53234423``.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "get_job_trigger" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "get_job_trigger"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.get_job_trigger,
+                default_retry=self._method_configs["GetJobTrigger"].retry,
+                default_timeout=self._method_configs["GetJobTrigger"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.GetJobTriggerRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["get_job_trigger"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def list_job_triggers(
+        self,
+        parent,
+        page_size=None,
+        order_by=None,
+        filter_=None,
+        location_id=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Lists job triggers.
+        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> parent = client.project_path('[PROJECT]')
+            >>>
+            >>> # Iterate over all results
+            >>> for element in client.list_job_triggers(parent):
+            ...     # process element
+            ...     pass
+            >>>
+            >>>
+            >>> # Alternatively:
+            >>>
+            >>> # Iterate over results one page at a time
+            >>> for page in client.list_job_triggers(parent).pages:
+            ...     for element in page:
+            ...         # process element
+            ...         pass
+
+        Args:
+            parent (str): Required. The parent resource name, for example
+                ``projects/my-project-id``.
+            page_size (int): The maximum number of resources contained in the
+                underlying API response. If page streaming is performed per-
+                resource, this parameter does not affect the return value. If page
+                streaming is performed per-page, this determines the maximum number
+                of resources in a page.
+            order_by (str): Comma separated list of triggeredJob fields to order by, followed by
+                ``asc`` or ``desc`` postfix. This list is case-insensitive, default
+                sorting order is ascending, redundant space characters are
+                insignificant.
+
+                Example: ``name asc,update_time, create_time desc``
+
+                Supported fields are:
+
+                -  ``create_time``: corresponds to time the JobTrigger was created.
+                -  ``update_time``: corresponds to time the JobTrigger was last updated.
+                -  ``last_run_time``: corresponds to the last time the JobTrigger ran.
+                -  ``name``: corresponds to JobTrigger's name.
+                -  ``display_name``: corresponds to JobTrigger's display name.
+                -  ``status``: corresponds to JobTrigger's status.
+            filter_ (str): Allows filtering.
+
+                Supported syntax:
+
+                -  Filter expressions are made up of one or more restrictions.
+                -  Restrictions can be combined by ``AND`` or ``OR`` logical operators.
+                   A sequence of restrictions implicitly uses ``AND``.
+                -  A restriction has the form of ``{field} {operator} {value}``.
+                -  Supported fields/values for inspect jobs:
+
+                   -  ``status`` - HEALTHY\|PAUSED\|CANCELLED
+                   -  ``inspected_storage`` - DATASTORE\|CLOUD\_STORAGE\|BIGQUERY
+                   -  'last\_run\_time\` - RFC 3339 formatted timestamp, surrounded by
+                      quotation marks. Nanoseconds are ignored.
+                   -  'error\_count' - Number of errors that have occurred while
+                      running.
+
+                -  The operator must be ``=`` or ``!=`` for status and
+                   inspected\_storage.
+
+                Examples:
+
+                -  inspected\_storage = cloud\_storage AND status = HEALTHY
+                -  inspected\_storage = cloud\_storage OR inspected\_storage = bigquery
+                -  inspected\_storage = cloud\_storage AND (state = PAUSED OR state =
+                   HEALTHY)
+                -  last\_run\_time > "2017-12-12T00:00:00+00:00"
+
+                The length of this field should be no more than 500 characters.
+            location_id (str): The geographic location where job triggers will be retrieved from. Use
+                ``-`` for all locations. Reserved for future extensions.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.api_core.page_iterator.PageIterator` instance.
+            An iterable of :class:`~google.cloud.dlp_v2.types.JobTrigger` instances.
+            You can also iterate over the pages of the response
+            using its `pages` property.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "list_job_triggers" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "list_job_triggers"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.list_job_triggers,
+                default_retry=self._method_configs["ListJobTriggers"].retry,
+                default_timeout=self._method_configs["ListJobTriggers"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.ListJobTriggersRequest(
+            parent=parent,
+            page_size=page_size,
+            order_by=order_by,
+            filter=filter_,
+            location_id=location_id,
+        )
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("parent", parent)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        iterator = google.api_core.page_iterator.GRPCIterator(
+            client=None,
+            method=functools.partial(
+                self._inner_api_calls["list_job_triggers"],
+                retry=retry,
+                timeout=timeout,
+                metadata=metadata,
+            ),
+            request=request,
+            items_field="job_triggers",
+            request_token_field="page_token",
+            response_token_field="next_page_token",
+        )
+        return iterator
+
+    def delete_job_trigger(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Deletes a job trigger.
+        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
+            >>>
+            >>> client.delete_job_trigger(name)
+
+        Args:
+            name (str): Required. Resource name of the project and the triggeredJob, for example
+                ``projects/dlp-test-project/jobTriggers/53234423``.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "delete_job_trigger" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "delete_job_trigger"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.delete_job_trigger,
+                default_retry=self._method_configs["DeleteJobTrigger"].retry,
+                default_timeout=self._method_configs["DeleteJobTrigger"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.DeleteJobTriggerRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["delete_job_trigger"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
@@ -1981,7 +2591,8 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> name = client.dlp_job_path('[PROJECT]', '[DLP_JOB]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> response = client.get_dlp_job(name)
 
@@ -2054,7 +2665,8 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> name = client.dlp_job_path('[PROJECT]', '[DLP_JOB]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> client.delete_dlp_job(name)
 
@@ -2124,7 +2736,8 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> name = client.dlp_job_path('[PROJECT]', '[DLP_JOB]')
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
             >>>
             >>> client.cancel_dlp_job(name)
 
@@ -2175,714 +2788,10 @@ class DlpServiceClient(object):
             request, retry=retry, timeout=timeout, metadata=metadata
         )
 
-    def finish_dlp_job(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Finish a running hybrid DlpJob. Triggers the finalization steps and running
-        of any enabled actions that have not yet run.
-        Early access feature is in a pre-release state and might change or have
-        limited support. For more information, see
-        https://cloud.google.com/products#product-launch-stages.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> name = client.dlp_job_path('[PROJECT]', '[DLP_JOB]')
-            >>>
-            >>> client.finish_dlp_job(name)
-
-        Args:
-            name (str): Required. The name of the DlpJob resource to be cancelled.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "finish_dlp_job" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "finish_dlp_job"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.finish_dlp_job,
-                default_retry=self._method_configs["FinishDlpJob"].retry,
-                default_timeout=self._method_configs["FinishDlpJob"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.FinishDlpJobRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["finish_dlp_job"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def hybrid_inspect_dlp_job(
-        self,
-        name,
-        hybrid_item=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Inspect hybrid content and store findings to a job.
-        To review the findings inspect the job. Inspection will occur
-        asynchronously.
-        Early access feature is in a pre-release state and might change or have
-        limited support. For more information, see
-        https://cloud.google.com/products#product-launch-stages.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> # TODO: Initialize `name`:
-            >>> name = ''
-            >>>
-            >>> response = client.hybrid_inspect_dlp_job(name)
-
-        Args:
-            name (str): Required. Resource name of the job to execute a hybrid inspect on, for
-                example ``projects/dlp-test-project/dlpJob/53234423``.
-            hybrid_item (Union[dict, ~google.cloud.dlp_v2.types.HybridContentItem]): The item to inspect.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.dlp_v2.types.HybridContentItem`
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.dlp_v2.types.HybridInspectResponse` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "hybrid_inspect_dlp_job" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "hybrid_inspect_dlp_job"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.hybrid_inspect_dlp_job,
-                default_retry=self._method_configs["HybridInspectDlpJob"].retry,
-                default_timeout=self._method_configs["HybridInspectDlpJob"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.HybridInspectDlpJobRequest(name=name, hybrid_item=hybrid_item)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["hybrid_inspect_dlp_job"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def list_job_triggers(
-        self,
-        parent,
-        page_size=None,
-        order_by=None,
-        filter_=None,
-        location_id=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Lists job triggers.
-        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> parent = client.project_path('[PROJECT]')
-            >>>
-            >>> # Iterate over all results
-            >>> for element in client.list_job_triggers(parent):
-            ...     # process element
-            ...     pass
-            >>>
-            >>>
-            >>> # Alternatively:
-            >>>
-            >>> # Iterate over results one page at a time
-            >>> for page in client.list_job_triggers(parent).pages:
-            ...     for element in page:
-            ...         # process element
-            ...         pass
-
-        Args:
-            parent (str): Required. The parent resource name, for example
-                ``projects/my-project-id``.
-            page_size (int): The maximum number of resources contained in the
-                underlying API response. If page streaming is performed per-
-                resource, this parameter does not affect the return value. If page
-                streaming is performed per-page, this determines the maximum number
-                of resources in a page.
-            order_by (str): Comma separated list of triggeredJob fields to order by, followed by
-                ``asc`` or ``desc`` postfix. This list is case-insensitive, default
-                sorting order is ascending, redundant space characters are
-                insignificant.
-
-                Example: ``name asc,update_time, create_time desc``
-
-                Supported fields are:
-
-                -  ``create_time``: corresponds to time the JobTrigger was created.
-                -  ``update_time``: corresponds to time the JobTrigger was last updated.
-                -  ``last_run_time``: corresponds to the last time the JobTrigger ran.
-                -  ``name``: corresponds to JobTrigger's name.
-                -  ``display_name``: corresponds to JobTrigger's display name.
-                -  ``status``: corresponds to JobTrigger's status.
-            filter_ (str): Allows filtering.
-
-                Supported syntax:
-
-                -  Filter expressions are made up of one or more restrictions.
-                -  Restrictions can be combined by ``AND`` or ``OR`` logical operators.
-                   A sequence of restrictions implicitly uses ``AND``.
-                -  A restriction has the form of ``{field} {operator} {value}``.
-                -  Supported fields/values for inspect jobs:
-
-                   -  ``status`` - HEALTHY\|PAUSED\|CANCELLED
-                   -  ``inspected_storage`` - DATASTORE\|CLOUD\_STORAGE\|BIGQUERY
-                   -  'last\_run\_time\` - RFC 3339 formatted timestamp, surrounded by
-                      quotation marks. Nanoseconds are ignored.
-                   -  'error\_count' - Number of errors that have occurred while
-                      running.
-
-                -  The operator must be ``=`` or ``!=`` for status and
-                   inspected\_storage.
-
-                Examples:
-
-                -  inspected\_storage = cloud\_storage AND status = HEALTHY
-                -  inspected\_storage = cloud\_storage OR inspected\_storage = bigquery
-                -  inspected\_storage = cloud\_storage AND (state = PAUSED OR state =
-                   HEALTHY)
-                -  last\_run\_time > "2017-12-12T00:00:00+00:00"
-
-                The length of this field should be no more than 500 characters.
-            location_id (str): The geographic location where job triggers will be retrieved from. Use
-                ``-`` for all locations. Reserved for future extensions.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.api_core.page_iterator.PageIterator` instance.
-            An iterable of :class:`~google.cloud.dlp_v2.types.JobTrigger` instances.
-            You can also iterate over the pages of the response
-            using its `pages` property.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "list_job_triggers" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "list_job_triggers"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.list_job_triggers,
-                default_retry=self._method_configs["ListJobTriggers"].retry,
-                default_timeout=self._method_configs["ListJobTriggers"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.ListJobTriggersRequest(
-            parent=parent,
-            page_size=page_size,
-            order_by=order_by,
-            filter=filter_,
-            location_id=location_id,
-        )
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("parent", parent)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        iterator = google.api_core.page_iterator.GRPCIterator(
-            client=None,
-            method=functools.partial(
-                self._inner_api_calls["list_job_triggers"],
-                retry=retry,
-                timeout=timeout,
-                metadata=metadata,
-            ),
-            request=request,
-            items_field="job_triggers",
-            request_token_field="page_token",
-            response_token_field="next_page_token",
-        )
-        return iterator
-
-    def get_job_trigger(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Gets a job trigger.
-        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
-            >>>
-            >>> response = client.get_job_trigger(name)
-
-        Args:
-            name (str): Required. Resource name of the project and the triggeredJob, for example
-                ``projects/dlp-test-project/jobTriggers/53234423``.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "get_job_trigger" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "get_job_trigger"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.get_job_trigger,
-                default_retry=self._method_configs["GetJobTrigger"].retry,
-                default_timeout=self._method_configs["GetJobTrigger"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.GetJobTriggerRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["get_job_trigger"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def delete_job_trigger(
-        self,
-        name,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Deletes a job trigger.
-        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> # TODO: Initialize `name`:
-            >>> name = ''
-            >>>
-            >>> client.delete_job_trigger(name)
-
-        Args:
-            name (str): Required. Resource name of the project and the triggeredJob, for example
-                ``projects/dlp-test-project/jobTriggers/53234423``.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "delete_job_trigger" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "delete_job_trigger"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.delete_job_trigger,
-                default_retry=self._method_configs["DeleteJobTrigger"].retry,
-                default_timeout=self._method_configs["DeleteJobTrigger"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.DeleteJobTriggerRequest(name=name)
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        self._inner_api_calls["delete_job_trigger"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def hybrid_inspect_job_trigger(
-        self,
-        name,
-        hybrid_item=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Inspect hybrid content and store findings to a trigger. The inspection
-        will be processed asynchronously. To review the findings monitor the
-        jobs within the trigger.
-        Early access feature is in a pre-release state and might change or have
-        limited support. For more information, see
-        https://cloud.google.com/products#product-launch-stages.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> # TODO: Initialize `name`:
-            >>> name = ''
-            >>>
-            >>> response = client.hybrid_inspect_job_trigger(name)
-
-        Args:
-            name (str): Required. Resource name of the trigger to execute a hybrid inspect on,
-                for example ``projects/dlp-test-project/jobTriggers/53234423``.
-            hybrid_item (Union[dict, ~google.cloud.dlp_v2.types.HybridContentItem]): The item to inspect.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.dlp_v2.types.HybridContentItem`
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.dlp_v2.types.HybridInspectResponse` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "hybrid_inspect_job_trigger" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "hybrid_inspect_job_trigger"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.hybrid_inspect_job_trigger,
-                default_retry=self._method_configs["HybridInspectJobTrigger"].retry,
-                default_timeout=self._method_configs["HybridInspectJobTrigger"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.HybridInspectJobTriggerRequest(
-            name=name, hybrid_item=hybrid_item
-        )
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["hybrid_inspect_job_trigger"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def update_job_trigger(
-        self,
-        name,
-        job_trigger=None,
-        update_mask=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Updates a job trigger.
-        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> name = client.project_job_trigger_path('[PROJECT]', '[JOB_TRIGGER]')
-            >>>
-            >>> response = client.update_job_trigger(name)
-
-        Args:
-            name (str): Required. Resource name of the project and the triggeredJob, for example
-                ``projects/dlp-test-project/jobTriggers/53234423``.
-            job_trigger (Union[dict, ~google.cloud.dlp_v2.types.JobTrigger]): New JobTrigger value.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.dlp_v2.types.JobTrigger`
-            update_mask (Union[dict, ~google.cloud.dlp_v2.types.FieldMask]): Mask to control which fields get updated.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.dlp_v2.types.FieldMask`
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "update_job_trigger" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "update_job_trigger"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.update_job_trigger,
-                default_retry=self._method_configs["UpdateJobTrigger"].retry,
-                default_timeout=self._method_configs["UpdateJobTrigger"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.UpdateJobTriggerRequest(
-            name=name, job_trigger=job_trigger, update_mask=update_mask
-        )
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("name", name)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["update_job_trigger"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
-    def create_job_trigger(
-        self,
-        parent,
-        job_trigger=None,
-        trigger_id=None,
-        location_id=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
-        """
-        Creates a job trigger to run DLP actions such as scanning storage for
-        sensitive information on a set schedule.
-        See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
-
-        Example:
-            >>> from google.cloud import dlp_v2
-            >>>
-            >>> client = dlp_v2.DlpServiceClient()
-            >>>
-            >>> parent = client.project_path('[PROJECT]')
-            >>>
-            >>> response = client.create_job_trigger(parent)
-
-        Args:
-            parent (str): Required. The parent resource name, for example projects/my-project-id.
-            job_trigger (Union[dict, ~google.cloud.dlp_v2.types.JobTrigger]): Required. The JobTrigger to create.
-
-                If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.dlp_v2.types.JobTrigger`
-            trigger_id (str): The trigger id can contain uppercase and lowercase letters, numbers, and
-                hyphens; that is, it must match the regular expression:
-                ``[a-zA-Z\\d-_]+``. The maximum length is 100 characters. Can be empty
-                to allow the system to generate one.
-            location_id (str): The geographic location to store the job trigger. Reserved for
-                future extensions.
-            retry (Optional[google.api_core.retry.Retry]):  A retry object used
-                to retry requests. If ``None`` is specified, requests will
-                be retried using a default configuration.
-            timeout (Optional[float]): The amount of time, in seconds, to wait
-                for the request to complete. Note that if ``retry`` is
-                specified, the timeout applies to each individual attempt.
-            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
-                that is provided to the method.
-
-        Returns:
-            A :class:`~google.cloud.dlp_v2.types.JobTrigger` instance.
-
-        Raises:
-            google.api_core.exceptions.GoogleAPICallError: If the request
-                    failed for any reason.
-            google.api_core.exceptions.RetryError: If the request failed due
-                    to a retryable error and retry attempts failed.
-            ValueError: If the parameters are invalid.
-        """
-        # Wrap the transport method to add retry and timeout logic.
-        if "create_job_trigger" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "create_job_trigger"
-            ] = google.api_core.gapic_v1.method.wrap_method(
-                self.transport.create_job_trigger,
-                default_retry=self._method_configs["CreateJobTrigger"].retry,
-                default_timeout=self._method_configs["CreateJobTrigger"].timeout,
-                client_info=self._client_info,
-            )
-
-        request = dlp_pb2.CreateJobTriggerRequest(
-            parent=parent,
-            job_trigger=job_trigger,
-            trigger_id=trigger_id,
-            location_id=location_id,
-        )
-        if metadata is None:
-            metadata = []
-        metadata = list(metadata)
-        try:
-            routing_header = [("parent", parent)]
-        except AttributeError:
-            pass
-        else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
-            metadata.append(routing_metadata)
-
-        return self._inner_api_calls["create_job_trigger"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
-
     def create_stored_info_type(
         self,
         parent,
-        config=None,
+        config,
         stored_info_type_id=None,
         location_id=None,
         retry=google.api_core.gapic_v1.method.DEFAULT,
@@ -2899,9 +2808,12 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
-            >>> response = client.create_stored_info_type(parent)
+            >>> # TODO: Initialize `config`:
+            >>> config = {}
+            >>>
+            >>> response = client.create_stored_info_type(parent, config)
 
         Args:
             parent (str): Required. The parent resource name, for example projects/my-project-id or
@@ -3151,7 +3063,7 @@ class DlpServiceClient(object):
             >>>
             >>> client = dlp_v2.DlpServiceClient()
             >>>
-            >>> parent = client.organization_path('[ORGANIZATION]')
+            >>> parent = client.project_path('[PROJECT]')
             >>>
             >>> # Iterate over all results
             >>> for element in client.list_stored_info_types(parent):
@@ -3325,5 +3237,157 @@ class DlpServiceClient(object):
             metadata.append(routing_metadata)
 
         self._inner_api_calls["delete_stored_info_type"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def hybrid_inspect_dlp_job(
+        self,
+        name,
+        hybrid_item=None,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Inspect hybrid content and store findings to a job.
+        To review the findings inspect the job. Inspection will occur
+        asynchronously.
+        Early access feature is in a pre-release state and might change or have
+        limited support. For more information, see
+        https://cloud.google.com/products#product-launch-stages.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> response = client.hybrid_inspect_dlp_job(name)
+
+        Args:
+            name (str): Required. Resource name of the job to execute a hybrid inspect on, for
+                example ``projects/dlp-test-project/dlpJob/53234423``.
+            hybrid_item (Union[dict, ~google.cloud.dlp_v2.types.HybridContentItem]): The item to inspect.
+
+                If a dict is provided, it must be of the same form as the protobuf
+                message :class:`~google.cloud.dlp_v2.types.HybridContentItem`
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Returns:
+            A :class:`~google.cloud.dlp_v2.types.HybridInspectResponse` instance.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "hybrid_inspect_dlp_job" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "hybrid_inspect_dlp_job"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.hybrid_inspect_dlp_job,
+                default_retry=self._method_configs["HybridInspectDlpJob"].retry,
+                default_timeout=self._method_configs["HybridInspectDlpJob"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.HybridInspectDlpJobRequest(name=name, hybrid_item=hybrid_item)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        return self._inner_api_calls["hybrid_inspect_dlp_job"](
+            request, retry=retry, timeout=timeout, metadata=metadata
+        )
+
+    def finish_dlp_job(
+        self,
+        name,
+        retry=google.api_core.gapic_v1.method.DEFAULT,
+        timeout=google.api_core.gapic_v1.method.DEFAULT,
+        metadata=None,
+    ):
+        """
+        Finish a running hybrid DlpJob. Triggers the finalization steps and running
+        of any enabled actions that have not yet run.
+        Early access feature is in a pre-release state and might change or have
+        limited support. For more information, see
+        https://cloud.google.com/products#product-launch-stages.
+
+        Example:
+            >>> from google.cloud import dlp_v2
+            >>>
+            >>> client = dlp_v2.DlpServiceClient()
+            >>>
+            >>> # TODO: Initialize `name`:
+            >>> name = ''
+            >>>
+            >>> client.finish_dlp_job(name)
+
+        Args:
+            name (str): Required. The name of the DlpJob resource to be cancelled.
+            retry (Optional[google.api_core.retry.Retry]):  A retry object used
+                to retry requests. If ``None`` is specified, requests will
+                be retried using a default configuration.
+            timeout (Optional[float]): The amount of time, in seconds, to wait
+                for the request to complete. Note that if ``retry`` is
+                specified, the timeout applies to each individual attempt.
+            metadata (Optional[Sequence[Tuple[str, str]]]): Additional metadata
+                that is provided to the method.
+
+        Raises:
+            google.api_core.exceptions.GoogleAPICallError: If the request
+                    failed for any reason.
+            google.api_core.exceptions.RetryError: If the request failed due
+                    to a retryable error and retry attempts failed.
+            ValueError: If the parameters are invalid.
+        """
+        # Wrap the transport method to add retry and timeout logic.
+        if "finish_dlp_job" not in self._inner_api_calls:
+            self._inner_api_calls[
+                "finish_dlp_job"
+            ] = google.api_core.gapic_v1.method.wrap_method(
+                self.transport.finish_dlp_job,
+                default_retry=self._method_configs["FinishDlpJob"].retry,
+                default_timeout=self._method_configs["FinishDlpJob"].timeout,
+                client_info=self._client_info,
+            )
+
+        request = dlp_pb2.FinishDlpJobRequest(name=name)
+        if metadata is None:
+            metadata = []
+        metadata = list(metadata)
+        try:
+            routing_header = [("name", name)]
+        except AttributeError:
+            pass
+        else:
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
+                routing_header
+            )
+            metadata.append(routing_metadata)
+
+        self._inner_api_calls["finish_dlp_job"](
             request, retry=retry, timeout=timeout, metadata=metadata
         )
