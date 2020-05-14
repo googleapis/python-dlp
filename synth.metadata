@@ -4,22 +4,22 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-dlp.git",
-        "sha": "41445d1746f2bb8911f7182433c044cce9f2864a"
+        "sha": "7973a441ae2226ce7c597cb5e7eebfa0e38cd94b"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "89e89786896d256c70f43e68a975470c4f4f220e",
-        "internalRef": "311239362"
+        "sha": "57253ab4c0a78d2351cff0aa638ff81b89b19afc",
+        "internalRef": "311352758"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "84c4156c49be9dcabacc8fd7b0585b6fd789ae47"
+        "sha": "7b7f386b393947a542b87707499f4458136f4f61"
       }
     }
   ],
