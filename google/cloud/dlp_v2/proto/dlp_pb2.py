@@ -36,6 +36,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package="google.privacy.dlp.v2",
     syntax="proto3",
     serialized_options=b"\n\031com.google.privacy.dlp.v2B\010DlpProtoP\001Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\252\002\023Google.Cloud.Dlp.V2\312\002\023Google\\Cloud\\Dlp\\V2\352\002\026Google::Cloud::Dlp::V2\352A\\\n'dlp.googleapis.com/OrganizationLocation\0221organizations/{organization}/locations/{location}",
+    create_key=_descriptor._internal_create_key,
     serialized_pb=b'\n#google/cloud/dlp_v2/proto/dlp.proto\x12\x15google.privacy.dlp.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/dlp_v2/proto/storage.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x16google/type/date.proto\x1a\x1bgoogle/type/dayofweek.proto\x1a\x1bgoogle/type/timeofday.proto"G\n\x10\x45xcludeInfoTypes\x12\x33\n\ninfo_types\x18\x01 \x03(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType"\xa0\x02\n\rExclusionRule\x12\x46\n\ndictionary\x18\x01 \x01(\x0b\x32\x30.google.privacy.dlp.v2.CustomInfoType.DictionaryH\x00\x12<\n\x05regex\x18\x02 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.RegexH\x00\x12\x45\n\x12\x65xclude_info_types\x18\x03 \x01(\x0b\x32\'.google.privacy.dlp.v2.ExcludeInfoTypesH\x00\x12:\n\rmatching_type\x18\x04 \x01(\x0e\x32#.google.privacy.dlp.v2.MatchingTypeB\x06\n\x04type"\xb1\x01\n\x0eInspectionRule\x12W\n\x0chotword_rule\x18\x01 \x01(\x0b\x32?.google.privacy.dlp.v2.CustomInfoType.DetectionRule.HotwordRuleH\x00\x12>\n\x0e\x65xclusion_rule\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.ExclusionRuleH\x00\x42\x06\n\x04type"~\n\x11InspectionRuleSet\x12\x33\n\ninfo_types\x18\x01 \x03(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x34\n\x05rules\x18\x02 \x03(\x0b\x32%.google.privacy.dlp.v2.InspectionRule"\xc7\x05\n\rInspectConfig\x12\x33\n\ninfo_types\x18\x01 \x03(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x39\n\x0emin_likelihood\x18\x02 \x01(\x0e\x32!.google.privacy.dlp.v2.Likelihood\x12\x42\n\x06limits\x18\x03 \x01(\x0b\x32\x32.google.privacy.dlp.v2.InspectConfig.FindingLimits\x12\x15\n\rinclude_quote\x18\x04 \x01(\x08\x12\x1a\n\x12\x65xclude_info_types\x18\x05 \x01(\x08\x12@\n\x11\x63ustom_info_types\x18\x06 \x03(\x0b\x32%.google.privacy.dlp.v2.CustomInfoType\x12=\n\x0f\x63ontent_options\x18\x08 \x03(\x0e\x32$.google.privacy.dlp.v2.ContentOption\x12:\n\x08rule_set\x18\n \x03(\x0b\x32(.google.privacy.dlp.v2.InspectionRuleSet\x1a\x91\x02\n\rFindingLimits\x12\x1d\n\x15max_findings_per_item\x18\x01 \x01(\x05\x12 \n\x18max_findings_per_request\x18\x02 \x01(\x05\x12\x64\n\x1amax_findings_per_info_type\x18\x03 \x03(\x0b\x32@.google.privacy.dlp.v2.InspectConfig.FindingLimits.InfoTypeLimit\x1aY\n\rInfoTypeLimit\x12\x32\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x14\n\x0cmax_findings\x18\x02 \x01(\x05"\x86\x02\n\x0f\x42yteContentItem\x12>\n\x04type\x18\x01 \x01(\x0e\x32\x30.google.privacy.dlp.v2.ByteContentItem.BytesType\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c"\xa4\x01\n\tBytesType\x12\x1a\n\x16\x42YTES_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05IMAGE\x10\x06\x12\x0e\n\nIMAGE_JPEG\x10\x01\x12\r\n\tIMAGE_BMP\x10\x02\x12\r\n\tIMAGE_PNG\x10\x03\x12\r\n\tIMAGE_SVG\x10\x04\x12\r\n\tTEXT_UTF8\x10\x05\x12\x11\n\rWORD_DOCUMENT\x10\x07\x12\x07\n\x03PDF\x10\x08\x12\x08\n\x04\x41VRO\x10\x0b"\x97\x01\n\x0b\x43ontentItem\x12\x0f\n\x05value\x18\x03 \x01(\tH\x00\x12-\n\x05table\x18\x04 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.TableH\x00\x12;\n\tbyte_item\x18\x05 \x01(\x0b\x32&.google.privacy.dlp.v2.ByteContentItemH\x00\x42\x0b\n\tdata_item"\x9d\x01\n\x05Table\x12/\n\x07headers\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12.\n\x04rows\x18\x02 \x03(\x0b\x32 .google.privacy.dlp.v2.Table.Row\x1a\x33\n\x03Row\x12,\n\x06values\x18\x01 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value"]\n\rInspectResult\x12\x30\n\x08\x66indings\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.Finding\x12\x1a\n\x12\x66indings_truncated\x18\x02 \x01(\x08"\xcb\x05\n\x07\x46inding\x12\x0c\n\x04name\x18\x0e \x01(\t\x12\r\n\x05quote\x18\x01 \x01(\t\x12\x32\n\tinfo_type\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\x35\n\nlikelihood\x18\x03 \x01(\x0e\x32!.google.privacy.dlp.v2.Likelihood\x12\x31\n\x08location\x18\x04 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.Location\x12/\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\nquote_info\x18\x07 \x01(\x0b\x32 .google.privacy.dlp.v2.QuoteInfo\x12\x35\n\rresource_name\x18\x08 \x01(\tB\x1e\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob\x12\x38\n\x0ctrigger_name\x18\t \x01(\tB"\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger\x12:\n\x06labels\x18\n \x03(\x0b\x32*.google.privacy.dlp.v2.Finding.LabelsEntry\x12\x33\n\x0fjob_create_time\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x30\n\x08job_name\x18\r \x01(\tB\x1e\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:[\xea\x41X\n\x1a\x64lp.googleapis.com/Finding\x12:projects/{project}/locations/{location}/findings/{finding}"\xeb\x01\n\x08Location\x12\x30\n\nbyte_range\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Range\x12\x35\n\x0f\x63odepoint_range\x18\x02 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Range\x12\x41\n\x11\x63ontent_locations\x18\x07 \x03(\x0b\x32&.google.privacy.dlp.v2.ContentLocation\x12\x33\n\tcontainer\x18\x08 \x01(\x0b\x32 .google.privacy.dlp.v2.Container"\x97\x03\n\x0f\x43ontentLocation\x12\x16\n\x0e\x63ontainer_name\x18\x01 \x01(\t\x12@\n\x0frecord_location\x18\x02 \x01(\x0b\x32%.google.privacy.dlp.v2.RecordLocationH\x00\x12>\n\x0eimage_location\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.ImageLocationH\x00\x12\x44\n\x11\x64ocument_location\x18\x05 \x01(\x0b\x32\'.google.privacy.dlp.v2.DocumentLocationH\x00\x12\x44\n\x11metadata_location\x18\x08 \x01(\x0b\x32\'.google.privacy.dlp.v2.MetadataLocationH\x00\x12\x37\n\x13\x63ontainer_timestamp\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x19\n\x11\x63ontainer_version\x18\x07 \x01(\tB\n\n\x08location"\x94\x01\n\x10MetadataLocation\x12\x31\n\x04type\x18\x01 \x01(\x0e\x32#.google.privacy.dlp.v2.MetadataType\x12\x44\n\rstorage_label\x18\x03 \x01(\x0b\x32+.google.privacy.dlp.v2.StorageMetadataLabelH\x00\x42\x07\n\x05label"#\n\x14StorageMetadataLabel\x12\x0b\n\x03key\x18\x01 \x01(\t"\'\n\x10\x44ocumentLocation\x12\x13\n\x0b\x66ile_offset\x18\x01 \x01(\x03"\xb6\x01\n\x0eRecordLocation\x12\x34\n\nrecord_key\x18\x01 \x01(\x0b\x32 .google.privacy.dlp.v2.RecordKey\x12\x30\n\x08\x66ield_id\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12<\n\x0etable_location\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.TableLocation""\n\rTableLocation\x12\x11\n\trow_index\x18\x01 \x01(\x03"\xac\x01\n\tContainer\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x11\n\tfull_path\x18\x03 \x01(\t\x12\x11\n\troot_path\x18\x04 \x01(\t\x12\x15\n\rrelative_path\x18\x05 \x01(\t\x12/\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07version\x18\x07 \x01(\t"#\n\x05Range\x12\r\n\x05start\x18\x01 \x01(\x03\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x03"K\n\rImageLocation\x12:\n\x0e\x62ounding_boxes\x18\x01 \x03(\x0b\x32".google.privacy.dlp.v2.BoundingBox"G\n\x0b\x42oundingBox\x12\x0b\n\x03top\x18\x01 \x01(\x05\x12\x0c\n\x04left\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\x12\x0e\n\x06height\x18\x04 \x01(\x05"\x8a\x04\n\x12RedactImageRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x13\n\x0blocation_id\x18\x08 \x01(\t\x12<\n\x0einspect_config\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig\x12_\n\x17image_redaction_configs\x18\x05 \x03(\x0b\x32>.google.privacy.dlp.v2.RedactImageRequest.ImageRedactionConfig\x12\x18\n\x10include_findings\x18\x06 \x01(\x08\x12\x39\n\tbyte_item\x18\x07 \x01(\x0b\x32&.google.privacy.dlp.v2.ByteContentItem\x1a\xa8\x01\n\x14ImageRedactionConfig\x12\x34\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoTypeH\x00\x12\x19\n\x0fredact_all_text\x18\x02 \x01(\x08H\x00\x12\x35\n\x0fredaction_color\x18\x03 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.ColorB\x08\n\x06target"1\n\x05\x43olor\x12\x0b\n\x03red\x18\x01 \x01(\x02\x12\r\n\x05green\x18\x02 \x01(\x02\x12\x0c\n\x04\x62lue\x18\x03 \x01(\x02"\x83\x01\n\x13RedactImageResponse\x12\x16\n\x0eredacted_image\x18\x01 \x01(\x0c\x12\x16\n\x0e\x65xtracted_text\x18\x02 \x01(\t\x12<\n\x0einspect_result\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectResult"\xe6\x02\n\x18\x44\x65identifyContentRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x42\n\x11\x64\x65identify_config\x18\x02 \x01(\x0b\x32\'.google.privacy.dlp.v2.DeidentifyConfig\x12<\n\x0einspect_config\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig\x12\x30\n\x04item\x18\x04 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12\x1d\n\x15inspect_template_name\x18\x05 \x01(\t\x12 \n\x18\x64\x65identify_template_name\x18\x06 \x01(\t\x12\x13\n\x0blocation_id\x18\x07 \x01(\t"\x8e\x01\n\x19\x44\x65identifyContentResponse\x12\x30\n\x04item\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12?\n\x08overview\x18\x02 \x01(\x0b\x32-.google.privacy.dlp.v2.TransformationOverview"\xe9\x02\n\x18ReidentifyContentRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x42\n\x11reidentify_config\x18\x02 \x01(\x0b\x32\'.google.privacy.dlp.v2.DeidentifyConfig\x12<\n\x0einspect_config\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig\x12\x30\n\x04item\x18\x04 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12\x1d\n\x15inspect_template_name\x18\x05 \x01(\t\x12 \n\x18reidentify_template_name\x18\x06 \x01(\t\x12\x13\n\x0blocation_id\x18\x07 \x01(\t"\x8e\x01\n\x19ReidentifyContentResponse\x12\x30\n\x04item\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12?\n\x08overview\x18\x02 \x01(\x0b\x32-.google.privacy.dlp.v2.TransformationOverview"\xfd\x01\n\x15InspectContentRequest\x12@\n\x06parent\x18\x01 \x01(\tB0\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12<\n\x0einspect_config\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig\x12\x30\n\x04item\x18\x03 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12\x1d\n\x15inspect_template_name\x18\x04 \x01(\t\x12\x13\n\x0blocation_id\x18\x05 \x01(\t"N\n\x16InspectContentResponse\x12\x34\n\x06result\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectResult"\xb7\x02\n\x13OutputStorageConfig\x12\x35\n\x05table\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTableH\x00\x12N\n\routput_schema\x18\x03 \x01(\x0e\x32\x37.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema"\x90\x01\n\x0cOutputSchema\x12\x1d\n\x19OUTPUT_SCHEMA_UNSPECIFIED\x10\x00\x12\x11\n\rBASIC_COLUMNS\x10\x01\x12\x0f\n\x0bGCS_COLUMNS\x10\x02\x12\x15\n\x11\x44\x41TASTORE_COLUMNS\x10\x03\x12\x15\n\x11\x42IG_QUERY_COLUMNS\x10\x04\x12\x0f\n\x0b\x41LL_COLUMNS\x10\x05\x42\x06\n\x04type"R\n\rInfoTypeStats\x12\x32\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12\r\n\x05\x63ount\x18\x02 \x01(\x03"\xa4\x04\n\x18InspectDataSourceDetails\x12[\n\x11requested_options\x18\x02 \x01(\x0b\x32@.google.privacy.dlp.v2.InspectDataSourceDetails.RequestedOptions\x12\x46\n\x06result\x18\x03 \x01(\x0b\x32\x36.google.privacy.dlp.v2.InspectDataSourceDetails.Result\x1a\x9a\x01\n\x10RequestedOptions\x12I\n\x19snapshot_inspect_template\x18\x01 \x01(\x0b\x32&.google.privacy.dlp.v2.InspectTemplate\x12;\n\njob_config\x18\x03 \x01(\x0b\x32\'.google.privacy.dlp.v2.InspectJobConfig\x1a\xc5\x01\n\x06Result\x12\x17\n\x0fprocessed_bytes\x18\x01 \x01(\x03\x12\x1d\n\x15total_estimated_bytes\x18\x02 \x01(\x03\x12=\n\x0finfo_type_stats\x18\x03 \x03(\x0b\x32$.google.privacy.dlp.v2.InfoTypeStats\x12\x44\n\x0chybrid_stats\x18\x07 \x01(\x0b\x32..google.privacy.dlp.v2.HybridInspectStatistics"`\n\x17HybridInspectStatistics\x12\x17\n\x0fprocessed_count\x18\x01 \x01(\x03\x12\x15\n\raborted_count\x18\x02 \x01(\x03\x12\x15\n\rpending_count\x18\x03 \x01(\x03"\x90\x01\n\x13InfoTypeDescription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12@\n\x0csupported_by\x18\x03 \x03(\x0e\x32*.google.privacy.dlp.v2.InfoTypeSupportedBy\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t"b\n\x14ListInfoTypesRequest\x12\x0e\n\x06parent\x18\x04 \x01(\t\x12\x15\n\rlanguage_code\x18\x01 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x02 \x01(\t\x12\x13\n\x0blocation_id\x18\x03 \x01(\t"W\n\x15ListInfoTypesResponse\x12>\n\ninfo_types\x18\x01 \x03(\x0b\x32*.google.privacy.dlp.v2.InfoTypeDescription"\xc1\x01\n\x15RiskAnalysisJobConfig\x12<\n\x0eprivacy_metric\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.PrivacyMetric\x12:\n\x0csource_table\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12.\n\x07\x61\x63tions\x18\x03 \x03(\x0b\x32\x1d.google.privacy.dlp.v2.Action"\xbc\x01\n\x07QuasiId\x12\x32\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x12\x34\n\tinfo_type\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoTypeH\x00\x12\x14\n\ncustom_tag\x18\x03 \x01(\tH\x00\x12*\n\x08inferred\x18\x04 \x01(\x0b\x32\x16.google.protobuf.EmptyH\x00\x42\x05\n\x03tag"\xbe\x02\n\x10StatisticalTable\x12\x38\n\x05table\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTableB\x03\xe0\x41\x02\x12T\n\tquasi_ids\x18\x01 \x03(\x0b\x32<.google.privacy.dlp.v2.StatisticalTable.QuasiIdentifierFieldB\x03\xe0\x41\x02\x12?\n\x12relative_frequency\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x1aY\n\x14QuasiIdentifierField\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x12\n\ncustom_tag\x18\x02 \x01(\t"\x93\x0f\n\rPrivacyMetric\x12[\n\x16numerical_stats_config\x18\x01 \x01(\x0b\x32\x39.google.privacy.dlp.v2.PrivacyMetric.NumericalStatsConfigH\x00\x12_\n\x18\x63\x61tegorical_stats_config\x18\x02 \x01(\x0b\x32;.google.privacy.dlp.v2.PrivacyMetric.CategoricalStatsConfigH\x00\x12S\n\x12k_anonymity_config\x18\x03 \x01(\x0b\x32\x35.google.privacy.dlp.v2.PrivacyMetric.KAnonymityConfigH\x00\x12S\n\x12l_diversity_config\x18\x04 \x01(\x0b\x32\x35.google.privacy.dlp.v2.PrivacyMetric.LDiversityConfigH\x00\x12\\\n\x17k_map_estimation_config\x18\x05 \x01(\x0b\x32\x39.google.privacy.dlp.v2.PrivacyMetric.KMapEstimationConfigH\x00\x12n\n delta_presence_estimation_config\x18\x06 \x01(\x0b\x32\x42.google.privacy.dlp.v2.PrivacyMetric.DeltaPresenceEstimationConfigH\x00\x1a\x45\n\x14NumericalStatsConfig\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x1aG\n\x16\x43\x61tegoricalStatsConfig\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x1ay\n\x10KAnonymityConfig\x12\x31\n\tquasi_ids\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x32\n\tentity_id\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.EntityId\x1a\x82\x01\n\x10LDiversityConfig\x12\x31\n\tquasi_ids\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12;\n\x13sensitive_attribute\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x1a\x81\x06\n\x14KMapEstimationConfig\x12]\n\tquasi_ids\x18\x01 \x03(\x0b\x32\x45.google.privacy.dlp.v2.PrivacyMetric.KMapEstimationConfig.TaggedFieldB\x03\xe0\x41\x02\x12\x13\n\x0bregion_code\x18\x02 \x01(\t\x12\x62\n\x10\x61uxiliary_tables\x18\x03 \x03(\x0b\x32H.google.privacy.dlp.v2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable\x1a\xc0\x01\n\x0bTaggedField\x12\x32\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x12\x34\n\tinfo_type\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoTypeH\x00\x12\x14\n\ncustom_tag\x18\x03 \x01(\tH\x00\x12*\n\x08inferred\x18\x04 \x01(\x0b\x32\x16.google.protobuf.EmptyH\x00\x42\x05\n\x03tag\x1a\xcd\x02\n\x0e\x41uxiliaryTable\x12\x38\n\x05table\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTableB\x03\xe0\x41\x02\x12m\n\tquasi_ids\x18\x01 \x03(\x0b\x32U.google.privacy.dlp.v2.PrivacyMetric.KMapEstimationConfig.AuxiliaryTable.QuasiIdFieldB\x03\xe0\x41\x02\x12?\n\x12relative_frequency\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x1aQ\n\x0cQuasiIdField\x12-\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x12\n\ncustom_tag\x18\x02 \x01(\t\x1a\xaf\x01\n\x1d\x44\x65ltaPresenceEstimationConfig\x12\x36\n\tquasi_ids\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.QuasiIdB\x03\xe0\x41\x02\x12\x13\n\x0bregion_code\x18\x02 \x01(\t\x12\x41\n\x10\x61uxiliary_tables\x18\x03 \x03(\x0b\x32\'.google.privacy.dlp.v2.StatisticalTableB\x06\n\x04type"\xf2\x1d\n\x1c\x41nalyzeDataSourceRiskDetails\x12\x46\n\x18requested_privacy_metric\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.PrivacyMetric\x12\x44\n\x16requested_source_table\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryTable\x12j\n\x16numerical_stats_result\x18\x03 \x01(\x0b\x32H.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.NumericalStatsResultH\x00\x12n\n\x18\x63\x61tegorical_stats_result\x18\x04 \x01(\x0b\x32J.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.CategoricalStatsResultH\x00\x12\x62\n\x12k_anonymity_result\x18\x05 \x01(\x0b\x32\x44.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KAnonymityResultH\x00\x12\x62\n\x12l_diversity_result\x18\x06 \x01(\x0b\x32\x44.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.LDiversityResultH\x00\x12k\n\x17k_map_estimation_result\x18\x07 \x01(\x0b\x32H.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KMapEstimationResultH\x00\x12}\n delta_presence_estimation_result\x18\t \x01(\x0b\x32Q.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResultH\x00\x1a\xaf\x01\n\x14NumericalStatsResult\x12/\n\tmin_value\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12/\n\tmax_value\x18\x02 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x35\n\x0fquantile_values\x18\x04 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x1a\x8d\x03\n\x16\x43\x61tegoricalStatsResult\x12\x95\x01\n!value_frequency_histogram_buckets\x18\x05 \x03(\x0b\x32j.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.CategoricalStatsResult.CategoricalStatsHistogramBucket\x1a\xda\x01\n\x1f\x43\x61tegoricalStatsHistogramBucket\x12#\n\x1bvalue_frequency_lower_bound\x18\x01 \x01(\x03\x12#\n\x1bvalue_frequency_upper_bound\x18\x02 \x01(\x03\x12\x13\n\x0b\x62ucket_size\x18\x03 \x01(\x03\x12<\n\rbucket_values\x18\x04 \x03(\x0b\x32%.google.privacy.dlp.v2.ValueFrequency\x12\x1a\n\x12\x62ucket_value_count\x18\x05 \x01(\x03\x1a\xb5\x04\n\x10KAnonymityResult\x12\x8b\x01\n#equivalence_class_histogram_buckets\x18\x05 \x03(\x0b\x32^.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityHistogramBucket\x1at\n\x1aKAnonymityEquivalenceClass\x12\x36\n\x10quasi_ids_values\x18\x01 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x1e\n\x16\x65quivalence_class_size\x18\x02 \x01(\x03\x1a\x9c\x02\n\x19KAnonymityHistogramBucket\x12*\n"equivalence_class_size_lower_bound\x18\x01 \x01(\x03\x12*\n"equivalence_class_size_upper_bound\x18\x02 \x01(\x03\x12\x13\n\x0b\x62ucket_size\x18\x03 \x01(\x03\x12v\n\rbucket_values\x18\x04 \x03(\x0b\x32_.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KAnonymityResult.KAnonymityEquivalenceClass\x12\x1a\n\x12\x62ucket_value_count\x18\x05 \x01(\x03\x1a\xb0\x05\n\x10LDiversityResult\x12\x93\x01\n+sensitive_value_frequency_histogram_buckets\x18\x05 \x03(\x0b\x32^.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityHistogramBucket\x1a\xe0\x01\n\x1aLDiversityEquivalenceClass\x12\x36\n\x10quasi_ids_values\x18\x01 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x1e\n\x16\x65quivalence_class_size\x18\x02 \x01(\x03\x12%\n\x1dnum_distinct_sensitive_values\x18\x03 \x01(\x03\x12\x43\n\x14top_sensitive_values\x18\x04 \x03(\x0b\x32%.google.privacy.dlp.v2.ValueFrequency\x1a\xa2\x02\n\x19LDiversityHistogramBucket\x12-\n%sensitive_value_frequency_lower_bound\x18\x01 \x01(\x03\x12-\n%sensitive_value_frequency_upper_bound\x18\x02 \x01(\x03\x12\x13\n\x0b\x62ucket_size\x18\x03 \x01(\x03\x12v\n\rbucket_values\x18\x04 \x03(\x0b\x32_.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.LDiversityResult.LDiversityEquivalenceClass\x12\x1a\n\x12\x62ucket_value_count\x18\x05 \x01(\x03\x1a\x95\x04\n\x14KMapEstimationResult\x12\x8a\x01\n\x1ak_map_estimation_histogram\x18\x01 \x03(\x0b\x32\x66.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationHistogramBucket\x1ar\n\x1bKMapEstimationQuasiIdValues\x12\x36\n\x10quasi_ids_values\x18\x01 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x1b\n\x13\x65stimated_anonymity\x18\x02 \x01(\x03\x1a\xfb\x01\n\x1dKMapEstimationHistogramBucket\x12\x15\n\rmin_anonymity\x18\x01 \x01(\x03\x12\x15\n\rmax_anonymity\x18\x02 \x01(\x03\x12\x13\n\x0b\x62ucket_size\x18\x05 \x01(\x03\x12{\n\rbucket_values\x18\x06 \x03(\x0b\x32\x64.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.KMapEstimationResult.KMapEstimationQuasiIdValues\x12\x1a\n\x12\x62ucket_value_count\x18\x07 \x01(\x03\x1a\xe4\x04\n\x1d\x44\x65ltaPresenceEstimationResult\x12\xa5\x01\n#delta_presence_estimation_histogram\x18\x01 \x03(\x0b\x32x.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationHistogramBucket\x1a}\n$DeltaPresenceEstimationQuasiIdValues\x12\x36\n\x10quasi_ids_values\x18\x01 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x1d\n\x15\x65stimated_probability\x18\x02 \x01(\x01\x1a\x9b\x02\n&DeltaPresenceEstimationHistogramBucket\x12\x17\n\x0fmin_probability\x18\x01 \x01(\x01\x12\x17\n\x0fmax_probability\x18\x02 \x01(\x01\x12\x13\n\x0b\x62ucket_size\x18\x05 \x01(\x03\x12\x8d\x01\n\rbucket_values\x18\x06 \x03(\x0b\x32v.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.DeltaPresenceEstimationResult.DeltaPresenceEstimationQuasiIdValues\x12\x1a\n\x12\x62ucket_value_count\x18\x07 \x01(\x03\x42\x08\n\x06result"L\n\x0eValueFrequency\x12+\n\x05value\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\r\n\x05\x63ount\x18\x02 \x01(\x03"\xb3\x02\n\x05Value\x12\x17\n\rinteger_value\x18\x01 \x01(\x03H\x00\x12\x15\n\x0b\x66loat_value\x18\x02 \x01(\x01H\x00\x12\x16\n\x0cstring_value\x18\x03 \x01(\tH\x00\x12\x17\n\rboolean_value\x18\x04 \x01(\x08H\x00\x12\x35\n\x0ftimestamp_value\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12,\n\ntime_value\x18\x06 \x01(\x0b\x32\x16.google.type.TimeOfDayH\x00\x12\'\n\ndate_value\x18\x07 \x01(\x0b\x32\x11.google.type.DateH\x00\x12\x33\n\x11\x64\x61y_of_week_value\x18\x08 \x01(\x0e\x32\x16.google.type.DayOfWeekH\x00\x42\x06\n\x04type"Q\n\tQuoteInfo\x12\x34\n\tdate_time\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.DateTimeH\x00\x42\x0e\n\x0cparsed_quote"\xdf\x01\n\x08\x44\x61teTime\x12\x1f\n\x04\x64\x61te\x18\x01 \x01(\x0b\x32\x11.google.type.Date\x12+\n\x0b\x64\x61y_of_week\x18\x02 \x01(\x0e\x32\x16.google.type.DayOfWeek\x12$\n\x04time\x18\x03 \x01(\x0b\x32\x16.google.type.TimeOfDay\x12;\n\ttime_zone\x18\x04 \x01(\x0b\x32(.google.privacy.dlp.v2.DateTime.TimeZone\x1a"\n\x08TimeZone\x12\x16\n\x0eoffset_minutes\x18\x01 \x01(\x05"\xa4\x02\n\x10\x44\x65identifyConfig\x12S\n\x19info_type_transformations\x18\x01 \x01(\x0b\x32..google.privacy.dlp.v2.InfoTypeTransformationsH\x00\x12N\n\x16record_transformations\x18\x02 \x01(\x0b\x32,.google.privacy.dlp.v2.RecordTransformationsH\x00\x12Y\n\x1dtransformation_error_handling\x18\x03 \x01(\x0b\x32\x32.google.privacy.dlp.v2.TransformationErrorHandlingB\x10\n\x0etransformation"\x85\x02\n\x1bTransformationErrorHandling\x12T\n\x0bthrow_error\x18\x01 \x01(\x0b\x32=.google.privacy.dlp.v2.TransformationErrorHandling.ThrowErrorH\x00\x12\x64\n\x13leave_untransformed\x18\x02 \x01(\x0b\x32\x45.google.privacy.dlp.v2.TransformationErrorHandling.LeaveUntransformedH\x00\x1a\x0c\n\nThrowError\x1a\x14\n\x12LeaveUntransformedB\x06\n\x04mode"\xf5\x06\n\x17PrimitiveTransformation\x12\x43\n\x0ereplace_config\x18\x01 \x01(\x0b\x32).google.privacy.dlp.v2.ReplaceValueConfigH\x00\x12<\n\rredact_config\x18\x02 \x01(\x0b\x32#.google.privacy.dlp.v2.RedactConfigH\x00\x12K\n\x15\x63haracter_mask_config\x18\x03 \x01(\x0b\x32*.google.privacy.dlp.v2.CharacterMaskConfigH\x00\x12Y\n\x1d\x63rypto_replace_ffx_fpe_config\x18\x04 \x01(\x0b\x32\x30.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfigH\x00\x12V\n\x1b\x66ixed_size_bucketing_config\x18\x05 \x01(\x0b\x32/.google.privacy.dlp.v2.FixedSizeBucketingConfigH\x00\x12\x42\n\x10\x62ucketing_config\x18\x06 \x01(\x0b\x32&.google.privacy.dlp.v2.BucketingConfigH\x00\x12Y\n\x1dreplace_with_info_type_config\x18\x07 \x01(\x0b\x32\x30.google.privacy.dlp.v2.ReplaceWithInfoTypeConfigH\x00\x12\x41\n\x10time_part_config\x18\x08 \x01(\x0b\x32%.google.privacy.dlp.v2.TimePartConfigH\x00\x12\x45\n\x12\x63rypto_hash_config\x18\t \x01(\x0b\x32\'.google.privacy.dlp.v2.CryptoHashConfigH\x00\x12\x43\n\x11\x64\x61te_shift_config\x18\x0b \x01(\x0b\x32&.google.privacy.dlp.v2.DateShiftConfigH\x00\x12W\n\x1b\x63rypto_deterministic_config\x18\x0c \x01(\x0b\x32\x30.google.privacy.dlp.v2.CryptoDeterministicConfigH\x00\x42\x10\n\x0etransformation"\xdc\x01\n\x0eTimePartConfig\x12G\n\x0fpart_to_extract\x18\x01 \x01(\x0e\x32..google.privacy.dlp.v2.TimePartConfig.TimePart"\x80\x01\n\x08TimePart\x12\x19\n\x15TIME_PART_UNSPECIFIED\x10\x00\x12\x08\n\x04YEAR\x10\x01\x12\t\n\x05MONTH\x10\x02\x12\x10\n\x0c\x44\x41Y_OF_MONTH\x10\x03\x12\x0f\n\x0b\x44\x41Y_OF_WEEK\x10\x04\x12\x10\n\x0cWEEK_OF_YEAR\x10\x05\x12\x0f\n\x0bHOUR_OF_DAY\x10\x06"H\n\x10\x43ryptoHashConfig\x12\x34\n\ncrypto_key\x18\x01 \x01(\x0b\x32 .google.privacy.dlp.v2.CryptoKey"\xc0\x01\n\x19\x43ryptoDeterministicConfig\x12\x34\n\ncrypto_key\x18\x01 \x01(\x0b\x32 .google.privacy.dlp.v2.CryptoKey\x12<\n\x13surrogate_info_type\x18\x02 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12/\n\x07\x63ontext\x18\x03 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId"E\n\x12ReplaceValueConfig\x12/\n\tnew_value\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value"\x1b\n\x19ReplaceWithInfoTypeConfig"\x0e\n\x0cRedactConfig"\xb6\x02\n\rCharsToIgnore\x12\x1c\n\x12\x63haracters_to_skip\x18\x01 \x01(\tH\x00\x12_\n\x1b\x63ommon_characters_to_ignore\x18\x02 \x01(\x0e\x32\x38.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnoreH\x00"\x97\x01\n\x13\x43ommonCharsToIgnore\x12&\n"COMMON_CHARS_TO_IGNORE_UNSPECIFIED\x10\x00\x12\x0b\n\x07NUMERIC\x10\x01\x12\x14\n\x10\x41LPHA_UPPER_CASE\x10\x02\x12\x14\n\x10\x41LPHA_LOWER_CASE\x10\x03\x12\x0f\n\x0bPUNCTUATION\x10\x04\x12\x0e\n\nWHITESPACE\x10\x05\x42\x0c\n\ncharacters"\xa3\x01\n\x13\x43haracterMaskConfig\x12\x19\n\x11masking_character\x18\x01 \x01(\t\x12\x16\n\x0enumber_to_mask\x18\x02 \x01(\x05\x12\x15\n\rreverse_order\x18\x03 \x01(\x08\x12\x42\n\x14\x63haracters_to_ignore\x18\x04 \x03(\x0b\x32$.google.privacy.dlp.v2.CharsToIgnore"\xa4\x01\n\x18\x46ixedSizeBucketingConfig\x12\x36\n\x0blower_bound\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.ValueB\x03\xe0\x41\x02\x12\x36\n\x0bupper_bound\x18\x02 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.ValueB\x03\xe0\x41\x02\x12\x18\n\x0b\x62ucket_size\x18\x03 \x01(\x01\x42\x03\xe0\x41\x02"\xeb\x01\n\x0f\x42ucketingConfig\x12>\n\x07\x62uckets\x18\x01 \x03(\x0b\x32-.google.privacy.dlp.v2.BucketingConfig.Bucket\x1a\x97\x01\n\x06\x42ucket\x12)\n\x03min\x18\x01 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12)\n\x03max\x18\x02 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x12\x37\n\x11replacement_value\x18\x03 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value"\xf9\x03\n\x19\x43ryptoReplaceFfxFpeConfig\x12\x39\n\ncrypto_key\x18\x01 \x01(\x0b\x32 .google.privacy.dlp.v2.CryptoKeyB\x03\xe0\x41\x02\x12/\n\x07\x63ontext\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x63\n\x0f\x63ommon_alphabet\x18\x04 \x01(\x0e\x32H.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabetH\x00\x12\x19\n\x0f\x63ustom_alphabet\x18\x05 \x01(\tH\x00\x12\x0f\n\x05radix\x18\x06 \x01(\x05H\x00\x12<\n\x13surrogate_info_type\x18\x08 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType"\x94\x01\n\x17\x46\x66xCommonNativeAlphabet\x12*\n&FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED\x10\x00\x12\x0b\n\x07NUMERIC\x10\x01\x12\x0f\n\x0bHEXADECIMAL\x10\x02\x12\x1c\n\x18UPPER_CASE_ALPHA_NUMERIC\x10\x03\x12\x11\n\rALPHA_NUMERIC\x10\x04\x42\n\n\x08\x61lphabet"\xd8\x01\n\tCryptoKey\x12>\n\ttransient\x18\x01 \x01(\x0b\x32).google.privacy.dlp.v2.TransientCryptoKeyH\x00\x12>\n\tunwrapped\x18\x02 \x01(\x0b\x32).google.privacy.dlp.v2.UnwrappedCryptoKeyH\x00\x12\x41\n\x0bkms_wrapped\x18\x03 \x01(\x0b\x32*.google.privacy.dlp.v2.KmsWrappedCryptoKeyH\x00\x42\x08\n\x06source"\'\n\x12TransientCryptoKey\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02"&\n\x12UnwrappedCryptoKey\x12\x10\n\x03key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x02"M\n\x13KmsWrappedCryptoKey\x12\x18\n\x0bwrapped_key\x18\x01 \x01(\x0c\x42\x03\xe0\x41\x02\x12\x1c\n\x0f\x63rypto_key_name\x18\x02 \x01(\tB\x03\xe0\x41\x02"\xc2\x01\n\x0f\x44\x61teShiftConfig\x12\x1d\n\x10upper_bound_days\x18\x01 \x01(\x05\x42\x03\xe0\x41\x02\x12\x1d\n\x10lower_bound_days\x18\x02 \x01(\x05\x42\x03\xe0\x41\x02\x12/\n\x07\x63ontext\x18\x03 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x36\n\ncrypto_key\x18\x04 \x01(\x0b\x32 .google.privacy.dlp.v2.CryptoKeyH\x00\x42\x08\n\x06method"\xa5\x02\n\x17InfoTypeTransformations\x12\x63\n\x0ftransformations\x18\x01 \x03(\x0b\x32\x45.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformationB\x03\xe0\x41\x02\x1a\xa4\x01\n\x16InfoTypeTransformation\x12\x33\n\ninfo_types\x18\x01 \x03(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12U\n\x18primitive_transformation\x18\x02 \x01(\x0b\x32..google.privacy.dlp.v2.PrimitiveTransformationB\x03\xe0\x41\x02"\xc0\x02\n\x13\x46ieldTransformation\x12\x33\n\x06\x66ields\x18\x01 \x03(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x12\x39\n\tcondition\x18\x03 \x01(\x0b\x32&.google.privacy.dlp.v2.RecordCondition\x12R\n\x18primitive_transformation\x18\x04 \x01(\x0b\x32..google.privacy.dlp.v2.PrimitiveTransformationH\x00\x12S\n\x19info_type_transformations\x18\x05 \x01(\x0b\x32..google.privacy.dlp.v2.InfoTypeTransformationsH\x00\x42\x10\n\x0etransformation"\xa9\x01\n\x15RecordTransformations\x12I\n\x15\x66ield_transformations\x18\x01 \x03(\x0b\x32*.google.privacy.dlp.v2.FieldTransformation\x12\x45\n\x13record_suppressions\x18\x02 \x03(\x0b\x32(.google.privacy.dlp.v2.RecordSuppression"N\n\x11RecordSuppression\x12\x39\n\tcondition\x18\x01 \x01(\x0b\x32&.google.privacy.dlp.v2.RecordCondition"\xdc\x04\n\x0fRecordCondition\x12G\n\x0b\x65xpressions\x18\x03 \x01(\x0b\x32\x32.google.privacy.dlp.v2.RecordCondition.Expressions\x1a\xae\x01\n\tCondition\x12\x32\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldIdB\x03\xe0\x41\x02\x12@\n\x08operator\x18\x03 \x01(\x0e\x32).google.privacy.dlp.v2.RelationalOperatorB\x03\xe0\x41\x02\x12+\n\x05value\x18\x04 \x01(\x0b\x32\x1c.google.privacy.dlp.v2.Value\x1aR\n\nConditions\x12\x44\n\nconditions\x18\x01 \x03(\x0b\x32\x30.google.privacy.dlp.v2.RecordCondition.Condition\x1a\xfa\x01\n\x0b\x45xpressions\x12\\\n\x10logical_operator\x18\x01 \x01(\x0e\x32\x42.google.privacy.dlp.v2.RecordCondition.Expressions.LogicalOperator\x12G\n\nconditions\x18\x03 \x01(\x0b\x32\x31.google.privacy.dlp.v2.RecordCondition.ConditionsH\x00"<\n\x0fLogicalOperator\x12 \n\x1cLOGICAL_OPERATOR_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41ND\x10\x01\x42\x06\n\x04type"\x83\x01\n\x16TransformationOverview\x12\x19\n\x11transformed_bytes\x18\x02 \x01(\x03\x12N\n\x18transformation_summaries\x18\x03 \x03(\x0b\x32,.google.privacy.dlp.v2.TransformationSummary"\x9f\x05\n\x15TransformationSummary\x12\x32\n\tinfo_type\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.InfoType\x12-\n\x05\x66ield\x18\x02 \x01(\x0b\x32\x1e.google.privacy.dlp.v2.FieldId\x12\x46\n\x0etransformation\x18\x03 \x01(\x0b\x32..google.privacy.dlp.v2.PrimitiveTransformation\x12I\n\x15\x66ield_transformations\x18\x05 \x03(\x0b\x32*.google.privacy.dlp.v2.FieldTransformation\x12\x41\n\x0frecord_suppress\x18\x06 \x01(\x0b\x32(.google.privacy.dlp.v2.RecordSuppression\x12K\n\x07results\x18\x04 \x03(\x0b\x32:.google.privacy.dlp.v2.TransformationSummary.SummaryResult\x12\x19\n\x11transformed_bytes\x18\x07 \x01(\x03\x1a\x84\x01\n\rSummaryResult\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12S\n\x04\x63ode\x18\x02 \x01(\x0e\x32\x45.google.privacy.dlp.v2.TransformationSummary.TransformationResultCode\x12\x0f\n\x07\x64\x65tails\x18\x03 \x01(\t"^\n\x18TransformationResultCode\x12*\n&TRANSFORMATION_RESULT_CODE_UNSPECIFIED\x10\x00\x12\x0b\n\x07SUCCESS\x10\x01\x12\t\n\x05\x45RROR\x10\x02"U\n\x08Schedule\x12?\n\x1arecurrence_period_duration\x18\x01 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x42\x08\n\x06option"\x08\n\x06Manual"\xc2\x04\n\x0fInspectTemplate\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12<\n\x0einspect_config\x18\x06 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig:\xc6\x02\xea\x41\xc2\x02\n"dlp.googleapis.com/InspectTemplate\x12@organizations/{organization}/inspectTemplates/{inspect_template}\x12\x36projects/{project}/inspectTemplates/{inspect_template}\x12Uorganizations/{organization}/locations/{location}/inspectTemplates/{inspect_template}\x12Kprojects/{project}/locations/{location}/inspectTemplates/{inspect_template}"\xe6\x04\n\x12\x44\x65identifyTemplate\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x42\n\x11\x64\x65identify_config\x18\x06 \x01(\x0b\x32\'.google.privacy.dlp.v2.DeidentifyConfig:\xe1\x02\xea\x41\xdd\x02\n%dlp.googleapis.com/DeidentifyTemplate\x12\x46organizations/{organization}/deidentifyTemplates/{deidentify_template}\x12<projects/{project}/deidentifyTemplates/{deidentify_template}\x12[organizations/{organization}/locations/{location}/deidentifyTemplates/{deidentify_template}\x12Qprojects/{project}/locations/{location}/deidentifyTemplates/{deidentify_template}"\\\n\x05\x45rror\x12#\n\x07\x64\x65tails\x18\x01 \x01(\x0b\x32\x12.google.rpc.Status\x12.\n\ntimestamps\x18\x02 \x03(\x0b\x32\x1a.google.protobuf.Timestamp"\xbc\x06\n\nJobTrigger\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12>\n\x0binspect_job\x18\x04 \x01(\x0b\x32\'.google.privacy.dlp.v2.InspectJobConfigH\x00\x12;\n\x08triggers\x18\x05 \x03(\x0b\x32).google.privacy.dlp.v2.JobTrigger.Trigger\x12\x31\n\x06\x65rrors\x18\x06 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.ErrorB\x03\xe0\x41\x03\x12\x34\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x36\n\rlast_run_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12=\n\x06status\x18\n \x01(\x0e\x32(.google.privacy.dlp.v2.JobTrigger.StatusB\x03\xe0\x41\x02\x1az\n\x07Trigger\x12\x33\n\x08schedule\x18\x01 \x01(\x0b\x32\x1f.google.privacy.dlp.v2.ScheduleH\x00\x12/\n\x06manual\x18\x02 \x01(\x0b\x32\x1d.google.privacy.dlp.v2.ManualH\x00\x42\t\n\x07trigger"H\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07HEALTHY\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\r\n\tCANCELLED\x10\x03:\x94\x01\xea\x41\x90\x01\n\x1d\x64lp.googleapis.com/JobTrigger\x12,projects/{project}/jobTriggers/{job_trigger}\x12\x41projects/{project}/locations/{location}/jobTriggers/{job_trigger}B\x05\n\x03job"\xf4\x05\n\x06\x41\x63tion\x12\x43\n\rsave_findings\x18\x01 \x01(\x0b\x32*.google.privacy.dlp.v2.Action.SaveFindingsH\x00\x12@\n\x07pub_sub\x18\x02 \x01(\x0b\x32-.google.privacy.dlp.v2.Action.PublishToPubSubH\x00\x12U\n\x17publish_summary_to_cscc\x18\x03 \x01(\x0b\x32\x32.google.privacy.dlp.v2.Action.PublishSummaryToCsccH\x00\x12q\n&publish_findings_to_cloud_data_catalog\x18\x05 \x01(\x0b\x32?.google.privacy.dlp.v2.Action.PublishFindingsToCloudDataCatalogH\x00\x12V\n\x17job_notification_emails\x18\x08 \x01(\x0b\x32\x33.google.privacy.dlp.v2.Action.JobNotificationEmailsH\x00\x12T\n\x16publish_to_stackdriver\x18\t \x01(\x0b\x32\x32.google.privacy.dlp.v2.Action.PublishToStackdriverH\x00\x1aQ\n\x0cSaveFindings\x12\x41\n\routput_config\x18\x01 \x01(\x0b\x32*.google.privacy.dlp.v2.OutputStorageConfig\x1a \n\x0fPublishToPubSub\x12\r\n\x05topic\x18\x01 \x01(\t\x1a\x16\n\x14PublishSummaryToCscc\x1a#\n!PublishFindingsToCloudDataCatalog\x1a\x17\n\x15JobNotificationEmails\x1a\x16\n\x14PublishToStackdriverB\x08\n\x06\x61\x63tion"\xcb\x01\n\x1c\x43reateInspectTemplateRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12"dlp.googleapis.com/InspectTemplate\x12\x45\n\x10inspect_template\x18\x02 \x01(\x0b\x32&.google.privacy.dlp.v2.InspectTemplateB\x03\xe0\x41\x02\x12\x13\n\x0btemplate_id\x18\x03 \x01(\t\x12\x13\n\x0blocation_id\x18\x04 \x01(\t"\xcb\x01\n\x1cUpdateInspectTemplateRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n"dlp.googleapis.com/InspectTemplate\x12@\n\x10inspect_template\x18\x02 \x01(\x0b\x32&.google.privacy.dlp.v2.InspectTemplate\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"U\n\x19GetInspectTemplateRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n"dlp.googleapis.com/InspectTemplate"\xa7\x01\n\x1bListInspectTemplatesRequest\x12:\n\x06parent\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\x12"dlp.googleapis.com/InspectTemplate\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x13\n\x0blocation_id\x18\x05 \x01(\t"z\n\x1cListInspectTemplatesResponse\x12\x41\n\x11inspect_templates\x18\x01 \x03(\x0b\x32&.google.privacy.dlp.v2.InspectTemplate\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"X\n\x1c\x44\x65leteInspectTemplateRequest\x12\x38\n\x04name\x18\x01 \x01(\tB*\xe0\x41\x02\xfa\x41$\n"dlp.googleapis.com/InspectTemplate"\xc4\x01\n\x17\x43reateJobTriggerRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12;\n\x0bjob_trigger\x18\x02 \x01(\x0b\x32!.google.privacy.dlp.v2.JobTriggerB\x03\xe0\x41\x02\x12\x12\n\ntrigger_id\x18\x03 \x01(\t\x12\x13\n\x0blocation_id\x18\x04 \x01(\t"P\n\x19\x41\x63tivateJobTriggerRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger"\xb7\x01\n\x17UpdateJobTriggerRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger\x12\x36\n\x0bjob_trigger\x18\x02 \x01(\x0b\x32!.google.privacy.dlp.v2.JobTrigger\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"K\n\x14GetJobTriggerRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger"\x88\x02\n\x13\x43reateDlpJobRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12>\n\x0binspect_job\x18\x02 \x01(\x0b\x32\'.google.privacy.dlp.v2.InspectJobConfigH\x00\x12@\n\x08risk_job\x18\x03 \x01(\x0b\x32,.google.privacy.dlp.v2.RiskAnalysisJobConfigH\x00\x12\x0e\n\x06job_id\x18\x04 \x01(\t\x12\x13\n\x0blocation_id\x18\x05 \x01(\tB\x05\n\x03job"\xbb\x01\n\x16ListJobTriggersRequest\x12\x43\n\x06parent\x18\x01 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\x12\x13\n\x0blocation_id\x18\x07 \x01(\t"k\n\x17ListJobTriggersResponse\x12\x37\n\x0cjob_triggers\x18\x01 \x03(\x0b\x32!.google.privacy.dlp.v2.JobTrigger\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"N\n\x17\x44\x65leteJobTriggerRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger"\xdd\x01\n\x10InspectJobConfig\x12<\n\x0estorage_config\x18\x01 \x01(\x0b\x32$.google.privacy.dlp.v2.StorageConfig\x12<\n\x0einspect_config\x18\x02 \x01(\x0b\x32$.google.privacy.dlp.v2.InspectConfig\x12\x1d\n\x15inspect_template_name\x18\x03 \x01(\t\x12.\n\x07\x61\x63tions\x18\x04 \x03(\x0b\x32\x1d.google.privacy.dlp.v2.Action"\xeb\x05\n\x06\x44lpJob\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x04type\x18\x02 \x01(\x0e\x32!.google.privacy.dlp.v2.DlpJobType\x12\x35\n\x05state\x18\x03 \x01(\x0e\x32&.google.privacy.dlp.v2.DlpJob.JobState\x12K\n\x0crisk_details\x18\x04 \x01(\x0b\x32\x33.google.privacy.dlp.v2.AnalyzeDataSourceRiskDetailsH\x00\x12J\n\x0finspect_details\x18\x05 \x01(\x0b\x32/.google.privacy.dlp.v2.InspectDataSourceDetailsH\x00\x12/\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nstart_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x18\n\x10job_trigger_name\x18\n \x01(\t\x12,\n\x06\x65rrors\x18\x0b \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Error"o\n\x08JobState\x12\x19\n\x15JOB_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0b\n\x07RUNNING\x10\x02\x12\x08\n\x04\x44ONE\x10\x03\x12\x0c\n\x08\x43\x41NCELED\x10\x04\x12\n\n\x06\x46\x41ILED\x10\x05\x12\n\n\x06\x41\x43TIVE\x10\x06:\x7f\xea\x41|\n\x19\x64lp.googleapis.com/DlpJob\x12$projects/{project}/dlpJobs/{dlp_job}\x12\x39projects/{project}/locations/{location}/dlpJobs/{dlp_job}B\t\n\x07\x64\x65tails"C\n\x10GetDlpJobRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob"\xe8\x01\n\x12ListDlpJobsRequest\x12\x43\n\x06parent\x18\x04 \x01(\tB3\xe0\x41\x02\xfa\x41-\n+cloudresourcemanager.googleapis.com/Project\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12/\n\x04type\x18\x05 \x01(\x0e\x32!.google.privacy.dlp.v2.DlpJobType\x12\x10\n\x08order_by\x18\x06 \x01(\t\x12\x13\n\x0blocation_id\x18\x07 \x01(\t"[\n\x13ListDlpJobsResponse\x12+\n\x04jobs\x18\x01 \x03(\x0b\x32\x1d.google.privacy.dlp.v2.DlpJob\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"F\n\x13\x43\x61ncelDlpJobRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob"F\n\x13\x46inishDlpJobRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob"F\n\x13\x44\x65leteDlpJobRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob"\xd7\x01\n\x1f\x43reateDeidentifyTemplateRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dlp.googleapis.com/DeidentifyTemplate\x12K\n\x13\x64\x65identify_template\x18\x02 \x01(\x0b\x32).google.privacy.dlp.v2.DeidentifyTemplateB\x03\xe0\x41\x02\x12\x13\n\x0btemplate_id\x18\x03 \x01(\t\x12\x13\n\x0blocation_id\x18\x04 \x01(\t"\xd7\x01\n\x1fUpdateDeidentifyTemplateRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dlp.googleapis.com/DeidentifyTemplate\x12\x46\n\x13\x64\x65identify_template\x18\x02 \x01(\x0b\x32).google.privacy.dlp.v2.DeidentifyTemplate\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"[\n\x1cGetDeidentifyTemplateRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dlp.googleapis.com/DeidentifyTemplate"\xad\x01\n\x1eListDeidentifyTemplatesRequest\x12=\n\x06parent\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\x12%dlp.googleapis.com/DeidentifyTemplate\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x13\n\x0blocation_id\x18\x05 \x01(\t"\x83\x01\n\x1fListDeidentifyTemplatesResponse\x12G\n\x14\x64\x65identify_templates\x18\x01 \x03(\x0b\x32).google.privacy.dlp.v2.DeidentifyTemplate\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"^\n\x1f\x44\x65leteDeidentifyTemplateRequest\x12;\n\x04name\x18\x01 \x01(\tB-\xe0\x41\x02\xfa\x41\'\n%dlp.googleapis.com/DeidentifyTemplate"\xf4\x01\n\x1bLargeCustomDictionaryConfig\x12<\n\x0boutput_path\x18\x01 \x01(\x0b\x32\'.google.privacy.dlp.v2.CloudStoragePath\x12L\n\x16\x63loud_storage_file_set\x18\x02 \x01(\x0b\x32*.google.privacy.dlp.v2.CloudStorageFileSetH\x00\x12?\n\x0f\x62ig_query_field\x18\x03 \x01(\x0b\x32$.google.privacy.dlp.v2.BigQueryFieldH\x00\x42\x08\n\x06source"8\n\x1aLargeCustomDictionaryStats\x12\x1a\n\x12\x61pprox_num_phrases\x18\x01 \x01(\x03"\xa6\x02\n\x14StoredInfoTypeConfig\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12U\n\x17large_custom_dictionary\x18\x03 \x01(\x0b\x32\x32.google.privacy.dlp.v2.LargeCustomDictionaryConfigH\x00\x12\x46\n\ndictionary\x18\x04 \x01(\x0b\x32\x30.google.privacy.dlp.v2.CustomInfoType.DictionaryH\x00\x12<\n\x05regex\x18\x05 \x01(\x0b\x32+.google.privacy.dlp.v2.CustomInfoType.RegexH\x00\x42\x06\n\x04type"s\n\x13StoredInfoTypeStats\x12T\n\x17large_custom_dictionary\x18\x01 \x01(\x0b\x32\x31.google.privacy.dlp.v2.LargeCustomDictionaryStatsH\x00\x42\x06\n\x04type"\xa9\x02\n\x15StoredInfoTypeVersion\x12;\n\x06\x63onfig\x18\x01 \x01(\x0b\x32+.google.privacy.dlp.v2.StoredInfoTypeConfig\x12/\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x39\n\x05state\x18\x03 \x01(\x0e\x32*.google.privacy.dlp.v2.StoredInfoTypeState\x12,\n\x06\x65rrors\x18\x04 \x03(\x0b\x32\x1c.google.privacy.dlp.v2.Error\x12\x39\n\x05stats\x18\x05 \x01(\x0b\x32*.google.privacy.dlp.v2.StoredInfoTypeStats"\xf1\x03\n\x0eStoredInfoType\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x45\n\x0f\x63urrent_version\x18\x02 \x01(\x0b\x32,.google.privacy.dlp.v2.StoredInfoTypeVersion\x12\x46\n\x10pending_versions\x18\x03 \x03(\x0b\x32,.google.privacy.dlp.v2.StoredInfoTypeVersion:\xc1\x02\xea\x41\xbd\x02\n!dlp.googleapis.com/StoredInfoType\x12?organizations/{organization}/storedInfoTypes/{stored_info_type}\x12\x35projects/{project}/storedInfoTypes/{stored_info_type}\x12Torganizations/{organization}/locations/{location}/storedInfoTypes/{stored_info_type}\x12Jprojects/{project}/locations/{location}/storedInfoTypes/{stored_info_type}"\xcc\x01\n\x1b\x43reateStoredInfoTypeRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dlp.googleapis.com/StoredInfoType\x12@\n\x06\x63onfig\x18\x02 \x01(\x0b\x32+.google.privacy.dlp.v2.StoredInfoTypeConfigB\x03\xe0\x41\x02\x12\x1b\n\x13stored_info_type_id\x18\x03 \x01(\t\x12\x13\n\x0blocation_id\x18\x04 \x01(\t"\xc4\x01\n\x1bUpdateStoredInfoTypeRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dlp.googleapis.com/StoredInfoType\x12;\n\x06\x63onfig\x18\x02 \x01(\x0b\x32+.google.privacy.dlp.v2.StoredInfoTypeConfig\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask"S\n\x18GetStoredInfoTypeRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dlp.googleapis.com/StoredInfoType"\xa5\x01\n\x1aListStoredInfoTypesRequest\x12\x39\n\x06parent\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\x12!dlp.googleapis.com/StoredInfoType\x12\x12\n\npage_token\x18\x02 \x01(\t\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x10\n\x08order_by\x18\x04 \x01(\t\x12\x13\n\x0blocation_id\x18\x05 \x01(\t"x\n\x1bListStoredInfoTypesResponse\x12@\n\x11stored_info_types\x18\x01 \x03(\x0b\x32%.google.privacy.dlp.v2.StoredInfoType\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t"V\n\x1b\x44\x65leteStoredInfoTypeRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!dlp.googleapis.com/StoredInfoType"\x94\x01\n\x1eHybridInspectJobTriggerRequest\x12\x33\n\x04name\x18\x01 \x01(\tB%\xe0\x41\x02\xfa\x41\x1f\n\x1d\x64lp.googleapis.com/JobTrigger\x12=\n\x0bhybrid_item\x18\x03 \x01(\x0b\x32(.google.privacy.dlp.v2.HybridContentItem"\x8c\x01\n\x1aHybridInspectDlpJobRequest\x12/\n\x04name\x18\x01 \x01(\tB!\xe0\x41\x02\xfa\x41\x1b\n\x19\x64lp.googleapis.com/DlpJob\x12=\n\x0bhybrid_item\x18\x03 \x01(\x0b\x32(.google.privacy.dlp.v2.HybridContentItem"\x8b\x01\n\x11HybridContentItem\x12\x30\n\x04item\x18\x01 \x01(\x0b\x32".google.privacy.dlp.v2.ContentItem\x12\x44\n\x0f\x66inding_details\x18\x02 \x01(\x0b\x32+.google.privacy.dlp.v2.HybridFindingDetails"\xb0\x02\n\x14HybridFindingDetails\x12;\n\x11\x63ontainer_details\x18\x01 \x01(\x0b\x32 .google.privacy.dlp.v2.Container\x12\x13\n\x0b\x66ile_offset\x18\x02 \x01(\x03\x12\x12\n\nrow_offset\x18\x03 \x01(\x03\x12:\n\rtable_options\x18\x04 \x01(\x0b\x32#.google.privacy.dlp.v2.TableOptions\x12G\n\x06labels\x18\x05 \x03(\x0b\x32\x37.google.privacy.dlp.v2.HybridFindingDetails.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01"\x17\n\x15HybridInspectResponse*\xbb\x01\n\x12RelationalOperator\x12#\n\x1fRELATIONAL_OPERATOR_UNSPECIFIED\x10\x00\x12\x0c\n\x08\x45QUAL_TO\x10\x01\x12\x10\n\x0cNOT_EQUAL_TO\x10\x02\x12\x10\n\x0cGREATER_THAN\x10\x03\x12\r\n\tLESS_THAN\x10\x04\x12\x1a\n\x16GREATER_THAN_OR_EQUALS\x10\x05\x12\x17\n\x13LESS_THAN_OR_EQUALS\x10\x06\x12\n\n\x06\x45XISTS\x10\x07*\x8d\x01\n\x0cMatchingType\x12\x1d\n\x19MATCHING_TYPE_UNSPECIFIED\x10\x00\x12\x1c\n\x18MATCHING_TYPE_FULL_MATCH\x10\x01\x12\x1f\n\x1bMATCHING_TYPE_PARTIAL_MATCH\x10\x02\x12\x1f\n\x1bMATCHING_TYPE_INVERSE_MATCH\x10\x03*M\n\rContentOption\x12\x17\n\x13\x43ONTENT_UNSPECIFIED\x10\x00\x12\x10\n\x0c\x43ONTENT_TEXT\x10\x01\x12\x11\n\rCONTENT_IMAGE\x10\x02*B\n\x0cMetadataType\x12\x1c\n\x18METADATATYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10STORAGE_METADATA\x10\x02*P\n\x13InfoTypeSupportedBy\x12\x19\n\x15\x45NUM_TYPE_UNSPECIFIED\x10\x00\x12\x0b\n\x07INSPECT\x10\x01\x12\x11\n\rRISK_ANALYSIS\x10\x02*R\n\nDlpJobType\x12\x1c\n\x18\x44LP_JOB_TYPE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bINSPECT_JOB\x10\x01\x12\x15\n\x11RISK_ANALYSIS_JOB\x10\x02*n\n\x13StoredInfoTypeState\x12&\n"STORED_INFO_TYPE_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\t\n\x05READY\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x12\x0b\n\x07INVALID\x10\x04\x32\xc3I\n\nDlpService\x12\xdb\x01\n\x0eInspectContent\x12,.google.privacy.dlp.v2.InspectContentRequest\x1a-.google.privacy.dlp.v2.InspectContentResponse"l\x82\xd3\xe4\x93\x02\x66"\'/v2/{parent=projects/*}/content:inspect:\x01*Z8"3/v2/{parent=projects/*/locations/*}/content:inspect:\x01*\x12\xcc\x01\n\x0bRedactImage\x12).google.privacy.dlp.v2.RedactImageRequest\x1a*.google.privacy.dlp.v2.RedactImageResponse"f\x82\xd3\xe4\x93\x02`"$/v2/{parent=projects/*}/image:redact:\x01*Z5"0/v2/{parent=projects/*/locations/*}/image:redact:\x01*\x12\xea\x01\n\x11\x44\x65identifyContent\x12/.google.privacy.dlp.v2.DeidentifyContentRequest\x1a\x30.google.privacy.dlp.v2.DeidentifyContentResponse"r\x82\xd3\xe4\x93\x02l"*/v2/{parent=projects/*}/content:deidentify:\x01*Z;"6/v2/{parent=projects/*/locations/*}/content:deidentify:\x01*\x12\xea\x01\n\x11ReidentifyContent\x12/.google.privacy.dlp.v2.ReidentifyContentRequest\x1a\x30.google.privacy.dlp.v2.ReidentifyContentResponse"r\x82\xd3\xe4\x93\x02l"*/v2/{parent=projects/*}/content:reidentify:\x01*Z;"6/v2/{parent=projects/*/locations/*}/content:reidentify:\x01*\x12\xb0\x01\n\rListInfoTypes\x12+.google.privacy.dlp.v2.ListInfoTypesRequest\x1a,.google.privacy.dlp.v2.ListInfoTypesResponse"D\x82\xd3\xe4\x93\x02\x35\x12\r/v2/infoTypesZ$\x12"/v2/{parent=locations/*}/infoTypes\xda\x41\x06parent\x12\xf4\x02\n\x15\x43reateInspectTemplate\x12\x33.google.privacy.dlp.v2.CreateInspectTemplateRequest\x1a&.google.privacy.dlp.v2.InspectTemplate"\xfd\x01\x82\xd3\xe4\x93\x02\xdc\x01"-/v2/{parent=organizations/*}/inspectTemplates:\x01*Z>"9/v2/{parent=organizations/*/locations/*}/inspectTemplates:\x01*Z-"(/v2/{parent=projects/*}/inspectTemplates:\x01*Z9"4/v2/{parent=projects/*/locations/*}/inspectTemplates:\x01*\xda\x41\x17parent,inspect_template\x12\xfe\x02\n\x15UpdateInspectTemplate\x12\x33.google.privacy.dlp.v2.UpdateInspectTemplateRequest\x1a&.google.privacy.dlp.v2.InspectTemplate"\x87\x02\x82\xd3\xe4\x93\x02\xdc\x01\x32-/v2/{name=organizations/*/inspectTemplates/*}:\x01*Z>29/v2/{name=organizations/*/locations/*/inspectTemplates/*}:\x01*Z-2(/v2/{name=projects/*/inspectTemplates/*}:\x01*Z924/v2/{name=projects/*/locations/*/inspectTemplates/*}:\x01*\xda\x41!name,inspect_template,update_mask\x12\xcf\x02\n\x12GetInspectTemplate\x12\x30.google.privacy.dlp.v2.GetInspectTemplateRequest\x1a&.google.privacy.dlp.v2.InspectTemplate"\xde\x01\x82\xd3\xe4\x93\x02\xd0\x01\x12-/v2/{name=organizations/*/inspectTemplates/*}Z;\x12\x39/v2/{name=organizations/*/locations/*/inspectTemplates/*}Z*\x12(/v2/{name=projects/*/inspectTemplates/*}Z6\x12\x34/v2/{name=projects/*/locations/*/inspectTemplates/*}\xda\x41\x04name\x12\xe2\x02\n\x14ListInspectTemplates\x12\x32.google.privacy.dlp.v2.ListInspectTemplatesRequest\x1a\x33.google.privacy.dlp.v2.ListInspectTemplatesResponse"\xe0\x01\x82\xd3\xe4\x93\x02\xd0\x01\x12-/v2/{parent=organizations/*}/inspectTemplatesZ;\x12\x39/v2/{parent=organizations/*/locations/*}/inspectTemplatesZ*\x12(/v2/{parent=projects/*}/inspectTemplatesZ6\x12\x34/v2/{parent=projects/*/locations/*}/inspectTemplates\xda\x41\x06parent\x12\xc5\x02\n\x15\x44\x65leteInspectTemplate\x12\x33.google.privacy.dlp.v2.DeleteInspectTemplateRequest\x1a\x16.google.protobuf.Empty"\xde\x01\x82\xd3\xe4\x93\x02\xd0\x01*-/v2/{name=organizations/*/inspectTemplates/*}Z;*9/v2/{name=organizations/*/locations/*/inspectTemplates/*}Z**(/v2/{name=projects/*/inspectTemplates/*}Z6*4/v2/{name=projects/*/locations/*/inspectTemplates/*}\xda\x41\x04name\x12\x8c\x03\n\x18\x43reateDeidentifyTemplate\x12\x36.google.privacy.dlp.v2.CreateDeidentifyTemplateRequest\x1a).google.privacy.dlp.v2.DeidentifyTemplate"\x8c\x02\x82\xd3\xe4\x93\x02\xe8\x01"0/v2/{parent=organizations/*}/deidentifyTemplates:\x01*ZA"</v2/{parent=organizations/*/locations/*}/deidentifyTemplates:\x01*Z0"+/v2/{parent=projects/*}/deidentifyTemplates:\x01*Z<"7/v2/{parent=projects/*/locations/*}/deidentifyTemplates:\x01*\xda\x41\x1aparent,deidentify_template\x12\x96\x03\n\x18UpdateDeidentifyTemplate\x12\x36.google.privacy.dlp.v2.UpdateDeidentifyTemplateRequest\x1a).google.privacy.dlp.v2.DeidentifyTemplate"\x96\x02\x82\xd3\xe4\x93\x02\xe8\x01\x32\x30/v2/{name=organizations/*/deidentifyTemplates/*}:\x01*ZA2</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}:\x01*Z02+/v2/{name=projects/*/deidentifyTemplates/*}:\x01*Z<27/v2/{name=projects/*/locations/*/deidentifyTemplates/*}:\x01*\xda\x41$name,deidentify_template,update_mask\x12\xe4\x02\n\x15GetDeidentifyTemplate\x12\x33.google.privacy.dlp.v2.GetDeidentifyTemplateRequest\x1a).google.privacy.dlp.v2.DeidentifyTemplate"\xea\x01\x82\xd3\xe4\x93\x02\xdc\x01\x12\x30/v2/{name=organizations/*/deidentifyTemplates/*}Z>\x12</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}Z-\x12+/v2/{name=projects/*/deidentifyTemplates/*}Z9\x12\x37/v2/{name=projects/*/locations/*/deidentifyTemplates/*}\xda\x41\x04name\x12\xf7\x02\n\x17ListDeidentifyTemplates\x12\x35.google.privacy.dlp.v2.ListDeidentifyTemplatesRequest\x1a\x36.google.privacy.dlp.v2.ListDeidentifyTemplatesResponse"\xec\x01\x82\xd3\xe4\x93\x02\xdc\x01\x12\x30/v2/{parent=organizations/*}/deidentifyTemplatesZ>\x12</v2/{parent=organizations/*/locations/*}/deidentifyTemplatesZ-\x12+/v2/{parent=projects/*}/deidentifyTemplatesZ9\x12\x37/v2/{parent=projects/*/locations/*}/deidentifyTemplates\xda\x41\x06parent\x12\xd7\x02\n\x18\x44\x65leteDeidentifyTemplate\x12\x36.google.privacy.dlp.v2.DeleteDeidentifyTemplateRequest\x1a\x16.google.protobuf.Empty"\xea\x01\x82\xd3\xe4\x93\x02\xdc\x01*0/v2/{name=organizations/*/deidentifyTemplates/*}Z>*</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}Z-*+/v2/{name=projects/*/deidentifyTemplates/*}Z9*7/v2/{name=projects/*/locations/*/deidentifyTemplates/*}\xda\x41\x04name\x12\xe0\x01\n\x10\x43reateJobTrigger\x12..google.privacy.dlp.v2.CreateJobTriggerRequest\x1a!.google.privacy.dlp.v2.JobTrigger"y\x82\xd3\xe4\x93\x02^"#/v2/{parent=projects/*}/jobTriggers:\x01*Z4"//v2/{parent=projects/*/locations/*}/jobTriggers:\x01*\xda\x41\x12parent,job_trigger\x12\xeb\x01\n\x10UpdateJobTrigger\x12..google.privacy.dlp.v2.UpdateJobTriggerRequest\x1a!.google.privacy.dlp.v2.JobTrigger"\x83\x01\x82\xd3\xe4\x93\x02^2#/v2/{name=projects/*/jobTriggers/*}:\x01*Z42//v2/{name=projects/*/locations/*/jobTriggers/*}:\x01*\xda\x41\x1cname,job_trigger,update_mask\x12\xcf\x01\n\x17HybridInspectJobTrigger\x12\x35.google.privacy.dlp.v2.HybridInspectJobTriggerRequest\x1a,.google.privacy.dlp.v2.HybridInspectResponse"O\x82\xd3\xe4\x93\x02\x42"=/v2/{name=projects/*/locations/*/jobTriggers/*}:hybridInspect:\x01*\xda\x41\x04name\x12\xc6\x01\n\rGetJobTrigger\x12+.google.privacy.dlp.v2.GetJobTriggerRequest\x1a!.google.privacy.dlp.v2.JobTrigger"e\x82\xd3\xe4\x93\x02X\x12#/v2/{name=projects/*/jobTriggers/*}Z1\x12//v2/{name=projects/*/locations/*/jobTriggers/*}\xda\x41\x04name\x12\xd9\x01\n\x0fListJobTriggers\x12-.google.privacy.dlp.v2.ListJobTriggersRequest\x1a..google.privacy.dlp.v2.ListJobTriggersResponse"g\x82\xd3\xe4\x93\x02X\x12#/v2/{parent=projects/*}/jobTriggersZ1\x12//v2/{parent=projects/*/locations/*}/jobTriggers\xda\x41\x06parent\x12\xc1\x01\n\x10\x44\x65leteJobTrigger\x12..google.privacy.dlp.v2.DeleteJobTriggerRequest\x1a\x16.google.protobuf.Empty"e\x82\xd3\xe4\x93\x02X*#/v2/{name=projects/*/jobTriggers/*}Z1*//v2/{name=projects/*/locations/*/jobTriggers/*}\xda\x41\x04name\x12\xdd\x01\n\x12\x41\x63tivateJobTrigger\x12\x30.google.privacy.dlp.v2.ActivateJobTriggerRequest\x1a\x1d.google.privacy.dlp.v2.DlpJob"v\x82\xd3\xe4\x93\x02p",/v2/{name=projects/*/jobTriggers/*}:activate:\x01*Z="8/v2/{name=projects/*/locations/*/jobTriggers/*}:activate:\x01*\x12\xdf\x01\n\x0c\x43reateDlpJob\x12*.google.privacy.dlp.v2.CreateDlpJobRequest\x1a\x1d.google.privacy.dlp.v2.DlpJob"\x83\x01\x82\xd3\xe4\x93\x02V"\x1f/v2/{parent=projects/*}/dlpJobs:\x01*Z0"+/v2/{parent=projects/*/locations/*}/dlpJobs:\x01*\xda\x41\x12parent,inspect_job\xda\x41\x0fparent,risk_job\x12\xc5\x01\n\x0bListDlpJobs\x12).google.privacy.dlp.v2.ListDlpJobsRequest\x1a*.google.privacy.dlp.v2.ListDlpJobsResponse"_\x82\xd3\xe4\x93\x02P\x12\x1f/v2/{parent=projects/*}/dlpJobsZ-\x12+/v2/{parent=projects/*/locations/*}/dlpJobs\xda\x41\x06parent\x12\xb2\x01\n\tGetDlpJob\x12\'.google.privacy.dlp.v2.GetDlpJobRequest\x1a\x1d.google.privacy.dlp.v2.DlpJob"]\x82\xd3\xe4\x93\x02P\x12\x1f/v2/{name=projects/*/dlpJobs/*}Z-\x12+/v2/{name=projects/*/locations/*/dlpJobs/*}\xda\x41\x04name\x12\xb1\x01\n\x0c\x44\x65leteDlpJob\x12*.google.privacy.dlp.v2.DeleteDlpJobRequest\x1a\x16.google.protobuf.Empty"]\x82\xd3\xe4\x93\x02P*\x1f/v2/{name=projects/*/dlpJobs/*}Z-*+/v2/{name=projects/*/locations/*/dlpJobs/*}\xda\x41\x04name\x12\xbe\x01\n\x0c\x43\x61ncelDlpJob\x12*.google.privacy.dlp.v2.CancelDlpJobRequest\x1a\x16.google.protobuf.Empty"j\x82\xd3\xe4\x93\x02\x64"&/v2/{name=projects/*/dlpJobs/*}:cancel:\x01*Z7"2/v2/{name=projects/*/locations/*/dlpJobs/*}:cancel:\x01*\x12\xe3\x02\n\x14\x43reateStoredInfoType\x12\x32.google.privacy.dlp.v2.CreateStoredInfoTypeRequest\x1a%.google.privacy.dlp.v2.StoredInfoType"\xef\x01\x82\xd3\xe4\x93\x02\xd8\x01",/v2/{parent=organizations/*}/storedInfoTypes:\x01*Z="8/v2/{parent=organizations/*/locations/*}/storedInfoTypes:\x01*Z,"\'/v2/{parent=projects/*}/storedInfoTypes:\x01*Z8"3/v2/{parent=projects/*/locations/*}/storedInfoTypes:\x01*\xda\x41\rparent,config\x12\xed\x02\n\x14UpdateStoredInfoType\x12\x32.google.privacy.dlp.v2.UpdateStoredInfoTypeRequest\x1a%.google.privacy.dlp.v2.StoredInfoType"\xf9\x01\x82\xd3\xe4\x93\x02\xd8\x01\x32,/v2/{name=organizations/*/storedInfoTypes/*}:\x01*Z=28/v2/{name=organizations/*/locations/*/storedInfoTypes/*}:\x01*Z,2\'/v2/{name=projects/*/storedInfoTypes/*}:\x01*Z823/v2/{name=projects/*/locations/*/storedInfoTypes/*}:\x01*\xda\x41\x17name,config,update_mask\x12\xc8\x02\n\x11GetStoredInfoType\x12/.google.privacy.dlp.v2.GetStoredInfoTypeRequest\x1a%.google.privacy.dlp.v2.StoredInfoType"\xda\x01\x82\xd3\xe4\x93\x02\xcc\x01\x12,/v2/{name=organizations/*/storedInfoTypes/*}Z:\x12\x38/v2/{name=organizations/*/locations/*/storedInfoTypes/*}Z)\x12\'/v2/{name=projects/*/storedInfoTypes/*}Z5\x12\x33/v2/{name=projects/*/locations/*/storedInfoTypes/*}\xda\x41\x04name\x12\xdb\x02\n\x13ListStoredInfoTypes\x12\x31.google.privacy.dlp.v2.ListStoredInfoTypesRequest\x1a\x32.google.privacy.dlp.v2.ListStoredInfoTypesResponse"\xdc\x01\x82\xd3\xe4\x93\x02\xcc\x01\x12,/v2/{parent=organizations/*}/storedInfoTypesZ:\x12\x38/v2/{parent=organizations/*/locations/*}/storedInfoTypesZ)\x12\'/v2/{parent=projects/*}/storedInfoTypesZ5\x12\x33/v2/{parent=projects/*/locations/*}/storedInfoTypes\xda\x41\x06parent\x12\xbf\x02\n\x14\x44\x65leteStoredInfoType\x12\x32.google.privacy.dlp.v2.DeleteStoredInfoTypeRequest\x1a\x16.google.protobuf.Empty"\xda\x01\x82\xd3\xe4\x93\x02\xcc\x01*,/v2/{name=organizations/*/storedInfoTypes/*}Z:*8/v2/{name=organizations/*/locations/*/storedInfoTypes/*}Z)*\'/v2/{name=projects/*/storedInfoTypes/*}Z5*3/v2/{name=projects/*/locations/*/storedInfoTypes/*}\xda\x41\x04name\x12\xc3\x01\n\x13HybridInspectDlpJob\x12\x31.google.privacy.dlp.v2.HybridInspectDlpJobRequest\x1a,.google.privacy.dlp.v2.HybridInspectResponse"K\x82\xd3\xe4\x93\x02>"9/v2/{name=projects/*/locations/*/dlpJobs/*}:hybridInspect:\x01*\xda\x41\x04name\x12\x91\x01\n\x0c\x46inishDlpJob\x12*.google.privacy.dlp.v2.FinishDlpJobRequest\x1a\x16.google.protobuf.Empty"=\x82\xd3\xe4\x93\x02\x37"2/v2/{name=projects/*/locations/*/dlpJobs/*}:finish:\x01*\x1a\x46\xca\x41\x12\x64lp.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\x85\x02\n\x19\x63om.google.privacy.dlp.v2B\x08\x44lpProtoP\x01Z8google.golang.org/genproto/googleapis/privacy/dlp/v2;dlp\xaa\x02\x13Google.Cloud.Dlp.V2\xca\x02\x13Google\\Cloud\\Dlp\\V2\xea\x02\x16Google::Cloud::Dlp::V2\xea\x41\\\n\'dlp.googleapis.com/OrganizationLocation\x12\x31organizations/{organization}/locations/{location}b\x06proto3',
     dependencies=[
         google_dot_api_dot_annotations__pb2.DESCRIPTOR,
@@ -59,6 +60,7 @@ _RELATIONALOPERATOR = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.RelationalOperator",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="RELATIONAL_OPERATOR_UNSPECIFIED",
@@ -66,18 +68,39 @@ _RELATIONALOPERATOR = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EQUAL_TO", index=1, number=1, serialized_options=None, type=None
+            name="EQUAL_TO",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NOT_EQUAL_TO", index=2, number=2, serialized_options=None, type=None
+            name="NOT_EQUAL_TO",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="GREATER_THAN", index=3, number=3, serialized_options=None, type=None
+            name="GREATER_THAN",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="LESS_THAN", index=4, number=4, serialized_options=None, type=None
+            name="LESS_THAN",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="GREATER_THAN_OR_EQUALS",
@@ -85,6 +108,7 @@ _RELATIONALOPERATOR = _descriptor.EnumDescriptor(
             number=5,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="LESS_THAN_OR_EQUALS",
@@ -92,9 +116,15 @@ _RELATIONALOPERATOR = _descriptor.EnumDescriptor(
             number=6,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="EXISTS", index=7, number=7, serialized_options=None, type=None
+            name="EXISTS",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -110,6 +140,7 @@ _MATCHINGTYPE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.MatchingType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="MATCHING_TYPE_UNSPECIFIED",
@@ -117,6 +148,7 @@ _MATCHINGTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MATCHING_TYPE_FULL_MATCH",
@@ -124,6 +156,7 @@ _MATCHINGTYPE = _descriptor.EnumDescriptor(
             number=1,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MATCHING_TYPE_PARTIAL_MATCH",
@@ -131,6 +164,7 @@ _MATCHINGTYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="MATCHING_TYPE_INVERSE_MATCH",
@@ -138,6 +172,7 @@ _MATCHINGTYPE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -153,6 +188,7 @@ _CONTENTOPTION = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.ContentOption",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="CONTENT_UNSPECIFIED",
@@ -160,12 +196,23 @@ _CONTENTOPTION = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CONTENT_TEXT", index=1, number=1, serialized_options=None, type=None
+            name="CONTENT_TEXT",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CONTENT_IMAGE", index=2, number=2, serialized_options=None, type=None
+            name="CONTENT_IMAGE",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -181,6 +228,7 @@ _METADATATYPE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.MetadataType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="METADATATYPE_UNSPECIFIED",
@@ -188,6 +236,7 @@ _METADATATYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="STORAGE_METADATA",
@@ -195,6 +244,7 @@ _METADATATYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -210,6 +260,7 @@ _INFOTYPESUPPORTEDBY = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.InfoTypeSupportedBy",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="ENUM_TYPE_UNSPECIFIED",
@@ -217,12 +268,23 @@ _INFOTYPESUPPORTEDBY = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INSPECT", index=1, number=1, serialized_options=None, type=None
+            name="INSPECT",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="RISK_ANALYSIS", index=2, number=2, serialized_options=None, type=None
+            name="RISK_ANALYSIS",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -238,6 +300,7 @@ _DLPJOBTYPE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.DlpJobType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="DLP_JOB_TYPE_UNSPECIFIED",
@@ -245,9 +308,15 @@ _DLPJOBTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INSPECT_JOB", index=1, number=1, serialized_options=None, type=None
+            name="INSPECT_JOB",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="RISK_ANALYSIS_JOB",
@@ -255,6 +324,7 @@ _DLPJOBTYPE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -270,6 +340,7 @@ _STOREDINFOTYPESTATE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.StoredInfoTypeState",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="STORED_INFO_TYPE_STATE_UNSPECIFIED",
@@ -277,18 +348,39 @@ _STOREDINFOTYPESTATE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PENDING", index=1, number=1, serialized_options=None, type=None
+            name="PENDING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="READY", index=2, number=2, serialized_options=None, type=None
+            name="READY",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FAILED", index=3, number=3, serialized_options=None, type=None
+            name="FAILED",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="INVALID", index=4, number=4, serialized_options=None, type=None
+            name="INVALID",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -334,6 +426,7 @@ _BYTECONTENTITEM_BYTESTYPE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.ByteContentItem.BytesType",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="BYTES_TYPE_UNSPECIFIED",
@@ -341,33 +434,79 @@ _BYTECONTENTITEM_BYTESTYPE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMAGE", index=1, number=6, serialized_options=None, type=None
+            name="IMAGE",
+            index=1,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMAGE_JPEG", index=2, number=1, serialized_options=None, type=None
+            name="IMAGE_JPEG",
+            index=2,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMAGE_BMP", index=3, number=2, serialized_options=None, type=None
+            name="IMAGE_BMP",
+            index=3,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMAGE_PNG", index=4, number=3, serialized_options=None, type=None
+            name="IMAGE_PNG",
+            index=4,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="IMAGE_SVG", index=5, number=4, serialized_options=None, type=None
+            name="IMAGE_SVG",
+            index=5,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="TEXT_UTF8", index=6, number=5, serialized_options=None, type=None
+            name="TEXT_UTF8",
+            index=6,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WORD_DOCUMENT", index=7, number=7, serialized_options=None, type=None
+            name="WORD_DOCUMENT",
+            index=7,
+            number=7,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PDF", index=8, number=8, serialized_options=None, type=None
+            name="PDF",
+            index=8,
+            number=8,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="AVRO", index=9, number=11, serialized_options=None, type=None
+            name="AVRO",
+            index=9,
+            number=11,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -382,6 +521,7 @@ _OUTPUTSTORAGECONFIG_OUTPUTSCHEMA = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.OutputStorageConfig.OutputSchema",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="OUTPUT_SCHEMA_UNSPECIFIED",
@@ -389,12 +529,23 @@ _OUTPUTSTORAGECONFIG_OUTPUTSCHEMA = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="BASIC_COLUMNS", index=1, number=1, serialized_options=None, type=None
+            name="BASIC_COLUMNS",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="GCS_COLUMNS", index=2, number=2, serialized_options=None, type=None
+            name="GCS_COLUMNS",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="DATASTORE_COLUMNS",
@@ -402,6 +553,7 @@ _OUTPUTSTORAGECONFIG_OUTPUTSCHEMA = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="BIG_QUERY_COLUMNS",
@@ -409,9 +561,15 @@ _OUTPUTSTORAGECONFIG_OUTPUTSCHEMA = _descriptor.EnumDescriptor(
             number=4,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ALL_COLUMNS", index=5, number=5, serialized_options=None, type=None
+            name="ALL_COLUMNS",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -426,6 +584,7 @@ _TIMEPARTCONFIG_TIMEPART = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.TimePartConfig.TimePart",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="TIME_PART_UNSPECIFIED",
@@ -433,24 +592,55 @@ _TIMEPARTCONFIG_TIMEPART = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="YEAR", index=1, number=1, serialized_options=None, type=None
+            name="YEAR",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="MONTH", index=2, number=2, serialized_options=None, type=None
+            name="MONTH",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DAY_OF_MONTH", index=3, number=3, serialized_options=None, type=None
+            name="DAY_OF_MONTH",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DAY_OF_WEEK", index=4, number=4, serialized_options=None, type=None
+            name="DAY_OF_WEEK",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WEEK_OF_YEAR", index=5, number=5, serialized_options=None, type=None
+            name="WEEK_OF_YEAR",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HOUR_OF_DAY", index=6, number=6, serialized_options=None, type=None
+            name="HOUR_OF_DAY",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -465,6 +655,7 @@ _CHARSTOIGNORE_COMMONCHARSTOIGNORE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="COMMON_CHARS_TO_IGNORE_UNSPECIFIED",
@@ -472,9 +663,15 @@ _CHARSTOIGNORE_COMMONCHARSTOIGNORE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NUMERIC", index=1, number=1, serialized_options=None, type=None
+            name="NUMERIC",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ALPHA_UPPER_CASE",
@@ -482,6 +679,7 @@ _CHARSTOIGNORE_COMMONCHARSTOIGNORE = _descriptor.EnumDescriptor(
             number=2,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="ALPHA_LOWER_CASE",
@@ -489,12 +687,23 @@ _CHARSTOIGNORE_COMMONCHARSTOIGNORE = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PUNCTUATION", index=4, number=4, serialized_options=None, type=None
+            name="PUNCTUATION",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="WHITESPACE", index=5, number=5, serialized_options=None, type=None
+            name="WHITESPACE",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -509,6 +718,7 @@ _CRYPTOREPLACEFFXFPECONFIG_FFXCOMMONNATIVEALPHABET = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED",
@@ -516,12 +726,23 @@ _CRYPTOREPLACEFFXFPECONFIG_FFXCOMMONNATIVEALPHABET = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="NUMERIC", index=1, number=1, serialized_options=None, type=None
+            name="NUMERIC",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HEXADECIMAL", index=2, number=2, serialized_options=None, type=None
+            name="HEXADECIMAL",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
             name="UPPER_CASE_ALPHA_NUMERIC",
@@ -529,9 +750,15 @@ _CRYPTOREPLACEFFXFPECONFIG_FFXCOMMONNATIVEALPHABET = _descriptor.EnumDescriptor(
             number=3,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ALPHA_NUMERIC", index=4, number=4, serialized_options=None, type=None
+            name="ALPHA_NUMERIC",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -546,6 +773,7 @@ _RECORDCONDITION_EXPRESSIONS_LOGICALOPERATOR = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.RecordCondition.Expressions.LogicalOperator",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="LOGICAL_OPERATOR_UNSPECIFIED",
@@ -553,9 +781,15 @@ _RECORDCONDITION_EXPRESSIONS_LOGICALOPERATOR = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="AND", index=1, number=1, serialized_options=None, type=None
+            name="AND",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -570,6 +804,7 @@ _TRANSFORMATIONSUMMARY_TRANSFORMATIONRESULTCODE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.TransformationSummary.TransformationResultCode",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="TRANSFORMATION_RESULT_CODE_UNSPECIFIED",
@@ -577,12 +812,23 @@ _TRANSFORMATIONSUMMARY_TRANSFORMATIONRESULTCODE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="SUCCESS", index=1, number=1, serialized_options=None, type=None
+            name="SUCCESS",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ERROR", index=2, number=2, serialized_options=None, type=None
+            name="ERROR",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -597,6 +843,7 @@ _JOBTRIGGER_STATUS = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.JobTrigger.Status",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="STATUS_UNSPECIFIED",
@@ -604,15 +851,31 @@ _JOBTRIGGER_STATUS = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="HEALTHY", index=1, number=1, serialized_options=None, type=None
+            name="HEALTHY",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PAUSED", index=2, number=2, serialized_options=None, type=None
+            name="PAUSED",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CANCELLED", index=3, number=3, serialized_options=None, type=None
+            name="CANCELLED",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -627,6 +890,7 @@ _DLPJOB_JOBSTATE = _descriptor.EnumDescriptor(
     full_name="google.privacy.dlp.v2.DlpJob.JobState",
     filename=None,
     file=DESCRIPTOR,
+    create_key=_descriptor._internal_create_key,
     values=[
         _descriptor.EnumValueDescriptor(
             name="JOB_STATE_UNSPECIFIED",
@@ -634,24 +898,55 @@ _DLPJOB_JOBSTATE = _descriptor.EnumDescriptor(
             number=0,
             serialized_options=None,
             type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="PENDING", index=1, number=1, serialized_options=None, type=None
+            name="PENDING",
+            index=1,
+            number=1,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="RUNNING", index=2, number=2, serialized_options=None, type=None
+            name="RUNNING",
+            index=2,
+            number=2,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="DONE", index=3, number=3, serialized_options=None, type=None
+            name="DONE",
+            index=3,
+            number=3,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="CANCELED", index=4, number=4, serialized_options=None, type=None
+            name="CANCELED",
+            index=4,
+            number=4,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="FAILED", index=5, number=5, serialized_options=None, type=None
+            name="FAILED",
+            index=5,
+            number=5,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.EnumValueDescriptor(
-            name="ACTIVE", index=6, number=6, serialized_options=None, type=None
+            name="ACTIVE",
+            index=6,
+            number=6,
+            serialized_options=None,
+            type=None,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     containing_type=None,
@@ -668,6 +963,7 @@ _EXCLUDEINFOTYPES = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_types",
@@ -686,6 +982,7 @@ _EXCLUDEINFOTYPES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -707,6 +1004,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="dictionary",
@@ -725,6 +1023,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="regex",
@@ -743,6 +1042,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="exclude_info_types",
@@ -761,6 +1061,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="matching_type",
@@ -779,6 +1080,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -794,6 +1096,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.ExclusionRule.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -808,6 +1111,7 @@ _INSPECTIONRULE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="hotword_rule",
@@ -826,6 +1130,7 @@ _INSPECTIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="exclusion_rule",
@@ -844,6 +1149,7 @@ _INSPECTIONRULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -859,6 +1165,7 @@ _INSPECTIONRULE = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.InspectionRule.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -873,6 +1180,7 @@ _INSPECTIONRULESET = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_types",
@@ -891,6 +1199,7 @@ _INSPECTIONRULESET = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="rules",
@@ -909,6 +1218,7 @@ _INSPECTIONRULESET = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -930,6 +1240,7 @@ _INSPECTCONFIG_FINDINGLIMITS_INFOTYPELIMIT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -948,6 +1259,7 @@ _INSPECTCONFIG_FINDINGLIMITS_INFOTYPELIMIT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_findings",
@@ -966,6 +1278,7 @@ _INSPECTCONFIG_FINDINGLIMITS_INFOTYPELIMIT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -986,6 +1299,7 @@ _INSPECTCONFIG_FINDINGLIMITS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="max_findings_per_item",
@@ -1004,6 +1318,7 @@ _INSPECTCONFIG_FINDINGLIMITS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_findings_per_request",
@@ -1022,6 +1337,7 @@ _INSPECTCONFIG_FINDINGLIMITS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_findings_per_info_type",
@@ -1040,6 +1356,7 @@ _INSPECTCONFIG_FINDINGLIMITS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1060,6 +1377,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_types",
@@ -1078,6 +1396,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="min_likelihood",
@@ -1096,6 +1415,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="limits",
@@ -1114,6 +1434,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="include_quote",
@@ -1132,6 +1453,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="exclude_info_types",
@@ -1150,6 +1472,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_info_types",
@@ -1168,6 +1491,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="content_options",
@@ -1186,6 +1510,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="rule_set",
@@ -1204,6 +1529,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1225,6 +1551,7 @@ _BYTECONTENTITEM = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -1243,6 +1570,7 @@ _BYTECONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="data",
@@ -1261,6 +1589,7 @@ _BYTECONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1282,6 +1611,7 @@ _CONTENTITEM = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="value",
@@ -1300,6 +1630,7 @@ _CONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="table",
@@ -1318,6 +1649,7 @@ _CONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="byte_item",
@@ -1336,6 +1668,7 @@ _CONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1351,6 +1684,7 @@ _CONTENTITEM = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.ContentItem.data_item",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -1365,6 +1699,7 @@ _TABLE_ROW = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="values",
@@ -1383,6 +1718,7 @@ _TABLE_ROW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -1403,6 +1739,7 @@ _TABLE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="headers",
@@ -1421,6 +1758,7 @@ _TABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="rows",
@@ -1439,6 +1777,7 @@ _TABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1460,6 +1799,7 @@ _INSPECTRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="findings",
@@ -1478,6 +1818,7 @@ _INSPECTRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="findings_truncated",
@@ -1496,6 +1837,7 @@ _INSPECTRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1517,6 +1859,7 @@ _FINDING_LABELSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -1535,6 +1878,7 @@ _FINDING_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -1553,6 +1897,7 @@ _FINDING_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1573,6 +1918,7 @@ _FINDING = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -1591,6 +1937,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="quote",
@@ -1609,6 +1956,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -1627,6 +1975,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="likelihood",
@@ -1645,6 +1994,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location",
@@ -1663,6 +2013,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -1681,6 +2032,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="quote_info",
@@ -1699,6 +2051,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="resource_name",
@@ -1717,6 +2070,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="trigger_name",
@@ -1735,6 +2089,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="labels",
@@ -1753,6 +2108,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_create_time",
@@ -1771,6 +2127,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_name",
@@ -1789,6 +2146,7 @@ _FINDING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1810,6 +2168,7 @@ _LOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="byte_range",
@@ -1828,6 +2187,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="codepoint_range",
@@ -1846,6 +2206,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="content_locations",
@@ -1864,6 +2225,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="container",
@@ -1882,6 +2244,7 @@ _LOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -1903,6 +2266,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="container_name",
@@ -1921,6 +2285,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="record_location",
@@ -1939,6 +2304,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="image_location",
@@ -1957,6 +2323,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="document_location",
@@ -1975,6 +2342,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="metadata_location",
@@ -1993,6 +2361,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="container_timestamp",
@@ -2011,6 +2380,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="container_version",
@@ -2029,6 +2399,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2044,6 +2415,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.ContentLocation.location",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -2058,6 +2430,7 @@ _METADATALOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -2076,6 +2449,7 @@ _METADATALOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="storage_label",
@@ -2094,6 +2468,7 @@ _METADATALOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2109,6 +2484,7 @@ _METADATALOCATION = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.MetadataLocation.label",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -2123,6 +2499,7 @@ _STORAGEMETADATALABEL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -2141,6 +2518,7 @@ _STORAGEMETADATALABEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -2162,6 +2540,7 @@ _DOCUMENTLOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="file_offset",
@@ -2180,6 +2559,7 @@ _DOCUMENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -2201,6 +2581,7 @@ _RECORDLOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="record_key",
@@ -2219,6 +2600,7 @@ _RECORDLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="field_id",
@@ -2237,6 +2619,7 @@ _RECORDLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="table_location",
@@ -2255,6 +2638,7 @@ _RECORDLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2276,6 +2660,7 @@ _TABLELOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="row_index",
@@ -2294,6 +2679,7 @@ _TABLELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -2315,6 +2701,7 @@ _CONTAINER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="type",
@@ -2333,6 +2720,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="project_id",
@@ -2351,6 +2739,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="full_path",
@@ -2369,6 +2758,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="root_path",
@@ -2387,6 +2777,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="relative_path",
@@ -2405,6 +2796,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -2423,6 +2815,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="version",
@@ -2441,6 +2834,7 @@ _CONTAINER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2462,6 +2856,7 @@ _RANGE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="start",
@@ -2480,6 +2875,7 @@ _RANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end",
@@ -2498,6 +2894,7 @@ _RANGE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2519,6 +2916,7 @@ _IMAGELOCATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="bounding_boxes",
@@ -2537,6 +2935,7 @@ _IMAGELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -2558,6 +2957,7 @@ _BOUNDINGBOX = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="top",
@@ -2576,6 +2976,7 @@ _BOUNDINGBOX = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="left",
@@ -2594,6 +2995,7 @@ _BOUNDINGBOX = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="width",
@@ -2612,6 +3014,7 @@ _BOUNDINGBOX = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="height",
@@ -2630,6 +3033,7 @@ _BOUNDINGBOX = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2651,6 +3055,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -2669,6 +3074,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="redact_all_text",
@@ -2687,6 +3093,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="redaction_color",
@@ -2705,6 +3112,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2720,6 +3128,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.RedactImageRequest.ImageRedactionConfig.target",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -2733,6 +3142,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -2751,6 +3161,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -2769,6 +3180,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -2787,6 +3199,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="image_redaction_configs",
@@ -2805,6 +3218,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="include_findings",
@@ -2823,6 +3237,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="byte_item",
@@ -2841,6 +3256,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2862,6 +3278,7 @@ _COLOR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="red",
@@ -2880,6 +3297,7 @@ _COLOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="green",
@@ -2898,6 +3316,7 @@ _COLOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="blue",
@@ -2916,6 +3335,7 @@ _COLOR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -2937,6 +3357,7 @@ _REDACTIMAGERESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="redacted_image",
@@ -2955,6 +3376,7 @@ _REDACTIMAGERESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="extracted_text",
@@ -2973,6 +3395,7 @@ _REDACTIMAGERESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_result",
@@ -2991,6 +3414,7 @@ _REDACTIMAGERESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3012,6 +3436,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -3030,6 +3455,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deidentify_config",
@@ -3048,6 +3474,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -3066,6 +3493,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="item",
@@ -3084,6 +3512,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template_name",
@@ -3102,6 +3531,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deidentify_template_name",
@@ -3120,6 +3550,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -3138,6 +3569,7 @@ _DEIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3159,6 +3591,7 @@ _DEIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="item",
@@ -3177,6 +3610,7 @@ _DEIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="overview",
@@ -3195,6 +3629,7 @@ _DEIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3216,6 +3651,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -3234,6 +3670,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="reidentify_config",
@@ -3252,6 +3689,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -3270,6 +3708,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="item",
@@ -3288,6 +3727,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template_name",
@@ -3306,6 +3746,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="reidentify_template_name",
@@ -3324,6 +3765,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -3342,6 +3784,7 @@ _REIDENTIFYCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3363,6 +3806,7 @@ _REIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="item",
@@ -3381,6 +3825,7 @@ _REIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="overview",
@@ -3399,6 +3844,7 @@ _REIDENTIFYCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3420,6 +3866,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -3438,6 +3885,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -3456,6 +3904,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="item",
@@ -3474,6 +3923,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template_name",
@@ -3492,6 +3942,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -3510,6 +3961,7 @@ _INSPECTCONTENTREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3531,6 +3983,7 @@ _INSPECTCONTENTRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="result",
@@ -3549,6 +4002,7 @@ _INSPECTCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -3570,6 +4024,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="table",
@@ -3588,6 +4043,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="output_schema",
@@ -3606,6 +4062,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3621,6 +4078,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.OutputStorageConfig.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -3635,6 +4093,7 @@ _INFOTYPESTATS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -3653,6 +4112,7 @@ _INFOTYPESTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="count",
@@ -3671,6 +4131,7 @@ _INFOTYPESTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3692,6 +4153,7 @@ _INSPECTDATASOURCEDETAILS_REQUESTEDOPTIONS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="snapshot_inspect_template",
@@ -3710,6 +4172,7 @@ _INSPECTDATASOURCEDETAILS_REQUESTEDOPTIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_config",
@@ -3728,6 +4191,7 @@ _INSPECTDATASOURCEDETAILS_REQUESTEDOPTIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3748,6 +4212,7 @@ _INSPECTDATASOURCEDETAILS_RESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="processed_bytes",
@@ -3766,6 +4231,7 @@ _INSPECTDATASOURCEDETAILS_RESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="total_estimated_bytes",
@@ -3784,6 +4250,7 @@ _INSPECTDATASOURCEDETAILS_RESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="info_type_stats",
@@ -3802,6 +4269,7 @@ _INSPECTDATASOURCEDETAILS_RESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="hybrid_stats",
@@ -3820,6 +4288,7 @@ _INSPECTDATASOURCEDETAILS_RESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3840,6 +4309,7 @@ _INSPECTDATASOURCEDETAILS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="requested_options",
@@ -3858,6 +4328,7 @@ _INSPECTDATASOURCEDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="result",
@@ -3876,6 +4347,7 @@ _INSPECTDATASOURCEDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3900,6 +4372,7 @@ _HYBRIDINSPECTSTATISTICS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="processed_count",
@@ -3918,6 +4391,7 @@ _HYBRIDINSPECTSTATISTICS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="aborted_count",
@@ -3936,6 +4410,7 @@ _HYBRIDINSPECTSTATISTICS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="pending_count",
@@ -3954,6 +4429,7 @@ _HYBRIDINSPECTSTATISTICS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -3975,6 +4451,7 @@ _INFOTYPEDESCRIPTION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -3993,6 +4470,7 @@ _INFOTYPEDESCRIPTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -4011,6 +4489,7 @@ _INFOTYPEDESCRIPTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="supported_by",
@@ -4029,6 +4508,7 @@ _INFOTYPEDESCRIPTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -4047,6 +4527,7 @@ _INFOTYPEDESCRIPTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4068,6 +4549,7 @@ _LISTINFOTYPESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -4086,6 +4568,7 @@ _LISTINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="language_code",
@@ -4104,6 +4587,7 @@ _LISTINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -4122,6 +4606,7 @@ _LISTINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -4140,6 +4625,7 @@ _LISTINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4161,6 +4647,7 @@ _LISTINFOTYPESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_types",
@@ -4179,6 +4666,7 @@ _LISTINFOTYPESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -4200,6 +4688,7 @@ _RISKANALYSISJOBCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="privacy_metric",
@@ -4218,6 +4707,7 @@ _RISKANALYSISJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="source_table",
@@ -4236,6 +4726,7 @@ _RISKANALYSISJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="actions",
@@ -4254,6 +4745,7 @@ _RISKANALYSISJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4275,6 +4767,7 @@ _QUASIID = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4293,6 +4786,7 @@ _QUASIID = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -4311,6 +4805,7 @@ _QUASIID = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_tag",
@@ -4329,6 +4824,7 @@ _QUASIID = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inferred",
@@ -4347,6 +4843,7 @@ _QUASIID = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4362,6 +4859,7 @@ _QUASIID = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.QuasiId.tag",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -4376,6 +4874,7 @@ _STATISTICALTABLE_QUASIIDENTIFIERFIELD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4394,6 +4893,7 @@ _STATISTICALTABLE_QUASIIDENTIFIERFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_tag",
@@ -4412,6 +4912,7 @@ _STATISTICALTABLE_QUASIIDENTIFIERFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4432,6 +4933,7 @@ _STATISTICALTABLE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="table",
@@ -4450,6 +4952,7 @@ _STATISTICALTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -4468,6 +4971,7 @@ _STATISTICALTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="relative_frequency",
@@ -4486,6 +4990,7 @@ _STATISTICALTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4507,6 +5012,7 @@ _PRIVACYMETRIC_NUMERICALSTATSCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4525,6 +5031,7 @@ _PRIVACYMETRIC_NUMERICALSTATSCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -4545,6 +5052,7 @@ _PRIVACYMETRIC_CATEGORICALSTATSCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4563,6 +5071,7 @@ _PRIVACYMETRIC_CATEGORICALSTATSCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -4583,6 +5092,7 @@ _PRIVACYMETRIC_KANONYMITYCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -4601,6 +5111,7 @@ _PRIVACYMETRIC_KANONYMITYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="entity_id",
@@ -4619,6 +5130,7 @@ _PRIVACYMETRIC_KANONYMITYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4639,6 +5151,7 @@ _PRIVACYMETRIC_LDIVERSITYCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -4657,6 +5170,7 @@ _PRIVACYMETRIC_LDIVERSITYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="sensitive_attribute",
@@ -4675,6 +5189,7 @@ _PRIVACYMETRIC_LDIVERSITYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4695,6 +5210,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4713,6 +5229,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -4731,6 +5248,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_tag",
@@ -4749,6 +5267,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inferred",
@@ -4767,6 +5286,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4782,6 +5302,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.PrivacyMetric.KMapEstimationConfig.TaggedField.tag",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -4795,6 +5316,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE_QUASIIDFIELD = _descriptor.De
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -4813,6 +5335,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE_QUASIIDFIELD = _descriptor.De
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_tag",
@@ -4831,6 +5354,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE_QUASIIDFIELD = _descriptor.De
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4851,6 +5375,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="table",
@@ -4869,6 +5394,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -4887,6 +5413,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="relative_frequency",
@@ -4905,6 +5432,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -4925,6 +5453,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -4943,6 +5472,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="region_code",
@@ -4961,6 +5491,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="auxiliary_tables",
@@ -4979,6 +5510,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5002,6 +5534,7 @@ _PRIVACYMETRIC_DELTAPRESENCEESTIMATIONCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids",
@@ -5020,6 +5553,7 @@ _PRIVACYMETRIC_DELTAPRESENCEESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="region_code",
@@ -5038,6 +5572,7 @@ _PRIVACYMETRIC_DELTAPRESENCEESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="auxiliary_tables",
@@ -5056,6 +5591,7 @@ _PRIVACYMETRIC_DELTAPRESENCEESTIMATIONCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5076,6 +5612,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="numerical_stats_config",
@@ -5094,6 +5631,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="categorical_stats_config",
@@ -5112,6 +5650,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="k_anonymity_config",
@@ -5130,6 +5669,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="l_diversity_config",
@@ -5148,6 +5688,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="k_map_estimation_config",
@@ -5166,6 +5707,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="delta_presence_estimation_config",
@@ -5184,6 +5726,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5206,6 +5749,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.PrivacyMetric.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -5220,6 +5764,7 @@ _ANALYZEDATASOURCERISKDETAILS_NUMERICALSTATSRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="min_value",
@@ -5238,6 +5783,7 @@ _ANALYZEDATASOURCERISKDETAILS_NUMERICALSTATSRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_value",
@@ -5256,6 +5802,7 @@ _ANALYZEDATASOURCERISKDETAILS_NUMERICALSTATSRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="quantile_values",
@@ -5274,6 +5821,7 @@ _ANALYZEDATASOURCERISKDETAILS_NUMERICALSTATSRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5294,6 +5842,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="value_frequency_lower_bound",
@@ -5312,6 +5861,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value_frequency_upper_bound",
@@ -5330,6 +5880,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -5348,6 +5899,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_values",
@@ -5366,6 +5918,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_value_count",
@@ -5384,6 +5937,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBU
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5404,6 +5958,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="value_frequency_histogram_buckets",
@@ -5422,6 +5977,7 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -5444,6 +6000,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYEQUIVALENCECLASS = _des
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids_values",
@@ -5462,6 +6019,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="equivalence_class_size",
@@ -5480,6 +6038,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5500,6 +6059,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="equivalence_class_size_lower_bound",
@@ -5518,6 +6078,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="equivalence_class_size_upper_bound",
@@ -5536,6 +6097,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -5554,6 +6116,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_values",
@@ -5572,6 +6135,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_value_count",
@@ -5590,6 +6154,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT_KANONYMITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5610,6 +6175,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="equivalence_class_histogram_buckets",
@@ -5628,6 +6194,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -5651,6 +6218,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYEQUIVALENCECLASS = _des
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids_values",
@@ -5669,6 +6237,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="equivalence_class_size",
@@ -5687,6 +6256,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="num_distinct_sensitive_values",
@@ -5705,6 +6275,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="top_sensitive_values",
@@ -5723,6 +6294,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYEQUIVALENCECLASS = _des
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5743,6 +6315,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="sensitive_value_frequency_lower_bound",
@@ -5761,6 +6334,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="sensitive_value_frequency_upper_bound",
@@ -5779,6 +6353,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -5797,6 +6372,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_values",
@@ -5815,6 +6391,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_value_count",
@@ -5833,6 +6410,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT_LDIVERSITYHISTOGRAMBUCKET = _desc
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5853,6 +6431,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="sensitive_value_frequency_histogram_buckets",
@@ -5871,6 +6450,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -5894,6 +6474,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONQUASIIDVALUES =
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids_values",
@@ -5912,6 +6493,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONQUASIIDVALUES =
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="estimated_anonymity",
@@ -5930,6 +6512,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONQUASIIDVALUES =
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -5950,6 +6533,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="min_anonymity",
@@ -5968,6 +6552,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_anonymity",
@@ -5986,6 +6571,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -6004,6 +6590,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_values",
@@ -6022,6 +6609,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_value_count",
@@ -6040,6 +6628,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT_KMAPESTIMATIONHISTOGRAMBUCKET
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6060,6 +6649,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="k_map_estimation_histogram",
@@ -6078,6 +6668,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -6101,6 +6692,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="quasi_ids_values",
@@ -6119,6 +6711,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="estimated_probability",
@@ -6137,6 +6730,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6157,6 +6751,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="min_probability",
@@ -6175,6 +6770,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max_probability",
@@ -6193,6 +6789,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -6211,6 +6808,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_values",
@@ -6229,6 +6827,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_value_count",
@@ -6247,6 +6846,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT_DELTAPRESENCEESTIMAT
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6267,6 +6867,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT = _descriptor.Descri
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="delta_presence_estimation_histogram",
@@ -6285,6 +6886,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT = _descriptor.Descri
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -6308,6 +6910,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="requested_privacy_metric",
@@ -6326,6 +6929,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="requested_source_table",
@@ -6344,6 +6948,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="numerical_stats_result",
@@ -6362,6 +6967,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="categorical_stats_result",
@@ -6380,6 +6986,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="k_anonymity_result",
@@ -6398,6 +7005,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="l_diversity_result",
@@ -6416,6 +7024,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="k_map_estimation_result",
@@ -6434,6 +7043,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="delta_presence_estimation_result",
@@ -6452,6 +7062,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6474,6 +7085,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.AnalyzeDataSourceRiskDetails.result",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -6488,6 +7100,7 @@ _VALUEFREQUENCY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="value",
@@ -6506,6 +7119,7 @@ _VALUEFREQUENCY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="count",
@@ -6524,6 +7138,7 @@ _VALUEFREQUENCY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6545,6 +7160,7 @@ _VALUE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="integer_value",
@@ -6563,6 +7179,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="float_value",
@@ -6581,6 +7198,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="string_value",
@@ -6599,6 +7217,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="boolean_value",
@@ -6617,6 +7236,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="timestamp_value",
@@ -6635,6 +7255,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_value",
@@ -6653,6 +7274,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="date_value",
@@ -6671,6 +7293,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="day_of_week_value",
@@ -6689,6 +7312,7 @@ _VALUE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6704,6 +7328,7 @@ _VALUE = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.Value.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -6718,6 +7343,7 @@ _QUOTEINFO = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="date_time",
@@ -6736,6 +7362,7 @@ _QUOTEINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -6751,6 +7378,7 @@ _QUOTEINFO = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.QuoteInfo.parsed_quote",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -6765,6 +7393,7 @@ _DATETIME_TIMEZONE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="offset_minutes",
@@ -6783,6 +7412,7 @@ _DATETIME_TIMEZONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -6803,6 +7433,7 @@ _DATETIME = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="date",
@@ -6821,6 +7452,7 @@ _DATETIME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="day_of_week",
@@ -6839,6 +7471,7 @@ _DATETIME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time",
@@ -6857,6 +7490,7 @@ _DATETIME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_zone",
@@ -6875,6 +7509,7 @@ _DATETIME = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6896,6 +7531,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_type_transformations",
@@ -6914,6 +7550,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="record_transformations",
@@ -6932,6 +7569,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transformation_error_handling",
@@ -6950,6 +7588,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -6965,6 +7604,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.DeidentifyConfig.transformation",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -6979,6 +7619,7 @@ _TRANSFORMATIONERRORHANDLING_THROWERROR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -6998,6 +7639,7 @@ _TRANSFORMATIONERRORHANDLING_LEAVEUNTRANSFORMED = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -7017,6 +7659,7 @@ _TRANSFORMATIONERRORHANDLING = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="throw_error",
@@ -7035,6 +7678,7 @@ _TRANSFORMATIONERRORHANDLING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="leave_untransformed",
@@ -7053,6 +7697,7 @@ _TRANSFORMATIONERRORHANDLING = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7071,6 +7716,7 @@ _TRANSFORMATIONERRORHANDLING = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.TransformationErrorHandling.mode",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -7085,6 +7731,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="replace_config",
@@ -7103,6 +7750,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="redact_config",
@@ -7121,6 +7769,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="character_mask_config",
@@ -7139,6 +7788,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="crypto_replace_ffx_fpe_config",
@@ -7157,6 +7807,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="fixed_size_bucketing_config",
@@ -7175,6 +7826,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucketing_config",
@@ -7193,6 +7845,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="replace_with_info_type_config",
@@ -7211,6 +7864,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="time_part_config",
@@ -7229,6 +7883,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="crypto_hash_config",
@@ -7247,6 +7902,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="date_shift_config",
@@ -7265,6 +7921,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="crypto_deterministic_config",
@@ -7283,6 +7940,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7298,6 +7956,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.PrimitiveTransformation.transformation",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -7312,6 +7971,7 @@ _TIMEPARTCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="part_to_extract",
@@ -7330,6 +7990,7 @@ _TIMEPARTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -7351,6 +8012,7 @@ _CRYPTOHASHCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="crypto_key",
@@ -7369,6 +8031,7 @@ _CRYPTOHASHCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -7390,6 +8053,7 @@ _CRYPTODETERMINISTICCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="crypto_key",
@@ -7408,6 +8072,7 @@ _CRYPTODETERMINISTICCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="surrogate_info_type",
@@ -7426,6 +8091,7 @@ _CRYPTODETERMINISTICCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -7444,6 +8110,7 @@ _CRYPTODETERMINISTICCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7465,6 +8132,7 @@ _REPLACEVALUECONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="new_value",
@@ -7483,6 +8151,7 @@ _REPLACEVALUECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -7504,6 +8173,7 @@ _REPLACEWITHINFOTYPECONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -7524,6 +8194,7 @@ _REDACTCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -7544,6 +8215,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="characters_to_skip",
@@ -7562,6 +8234,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="common_characters_to_ignore",
@@ -7580,6 +8253,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7595,6 +8269,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.CharsToIgnore.characters",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -7609,6 +8284,7 @@ _CHARACTERMASKCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="masking_character",
@@ -7627,6 +8303,7 @@ _CHARACTERMASKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="number_to_mask",
@@ -7645,6 +8322,7 @@ _CHARACTERMASKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="reverse_order",
@@ -7663,6 +8341,7 @@ _CHARACTERMASKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="characters_to_ignore",
@@ -7681,6 +8360,7 @@ _CHARACTERMASKCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7702,6 +8382,7 @@ _FIXEDSIZEBUCKETINGCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="lower_bound",
@@ -7720,6 +8401,7 @@ _FIXEDSIZEBUCKETINGCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="upper_bound",
@@ -7738,6 +8420,7 @@ _FIXEDSIZEBUCKETINGCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="bucket_size",
@@ -7756,6 +8439,7 @@ _FIXEDSIZEBUCKETINGCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7777,6 +8461,7 @@ _BUCKETINGCONFIG_BUCKET = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="min",
@@ -7795,6 +8480,7 @@ _BUCKETINGCONFIG_BUCKET = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="max",
@@ -7813,6 +8499,7 @@ _BUCKETINGCONFIG_BUCKET = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="replacement_value",
@@ -7831,6 +8518,7 @@ _BUCKETINGCONFIG_BUCKET = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -7851,6 +8539,7 @@ _BUCKETINGCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="buckets",
@@ -7869,6 +8558,7 @@ _BUCKETINGCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -7890,6 +8580,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="crypto_key",
@@ -7908,6 +8599,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -7926,6 +8618,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="common_alphabet",
@@ -7944,6 +8637,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="custom_alphabet",
@@ -7962,6 +8656,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="radix",
@@ -7980,6 +8675,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="surrogate_info_type",
@@ -7998,6 +8694,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8013,6 +8710,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.alphabet",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -8027,6 +8725,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transient",
@@ -8045,6 +8744,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="unwrapped",
@@ -8063,6 +8763,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="kms_wrapped",
@@ -8081,6 +8782,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8096,6 +8798,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.CryptoKey.source",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -8110,6 +8813,7 @@ _TRANSIENTCRYPTOKEY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -8128,6 +8832,7 @@ _TRANSIENTCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8149,6 +8854,7 @@ _UNWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -8167,6 +8873,7 @@ _UNWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8188,6 +8895,7 @@ _KMSWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="wrapped_key",
@@ -8206,6 +8914,7 @@ _KMSWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="crypto_key_name",
@@ -8224,6 +8933,7 @@ _KMSWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8245,6 +8955,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="upper_bound_days",
@@ -8263,6 +8974,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="lower_bound_days",
@@ -8281,6 +8993,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="context",
@@ -8299,6 +9012,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="crypto_key",
@@ -8317,6 +9031,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8332,6 +9047,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.DateShiftConfig.method",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -8346,6 +9062,7 @@ _INFOTYPETRANSFORMATIONS_INFOTYPETRANSFORMATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_types",
@@ -8364,6 +9081,7 @@ _INFOTYPETRANSFORMATIONS_INFOTYPETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="primitive_transformation",
@@ -8382,6 +9100,7 @@ _INFOTYPETRANSFORMATIONS_INFOTYPETRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8402,6 +9121,7 @@ _INFOTYPETRANSFORMATIONS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transformations",
@@ -8420,6 +9140,7 @@ _INFOTYPETRANSFORMATIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8441,6 +9162,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="fields",
@@ -8459,6 +9181,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="condition",
@@ -8477,6 +9200,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="primitive_transformation",
@@ -8495,6 +9219,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="info_type_transformations",
@@ -8513,6 +9238,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8528,6 +9254,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.FieldTransformation.transformation",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -8542,6 +9269,7 @@ _RECORDTRANSFORMATIONS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field_transformations",
@@ -8560,6 +9288,7 @@ _RECORDTRANSFORMATIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="record_suppressions",
@@ -8578,6 +9307,7 @@ _RECORDTRANSFORMATIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8599,6 +9329,7 @@ _RECORDSUPPRESSION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="condition",
@@ -8617,6 +9348,7 @@ _RECORDSUPPRESSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8638,6 +9370,7 @@ _RECORDCONDITION_CONDITION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="field",
@@ -8656,6 +9389,7 @@ _RECORDCONDITION_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="operator",
@@ -8674,6 +9408,7 @@ _RECORDCONDITION_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -8692,6 +9427,7 @@ _RECORDCONDITION_CONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8712,6 +9448,7 @@ _RECORDCONDITION_CONDITIONS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="conditions",
@@ -8730,6 +9467,7 @@ _RECORDCONDITION_CONDITIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8750,6 +9488,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="logical_operator",
@@ -8768,6 +9507,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="conditions",
@@ -8786,6 +9526,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8801,6 +9542,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.RecordCondition.Expressions.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -8814,6 +9556,7 @@ _RECORDCONDITION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="expressions",
@@ -8832,6 +9575,7 @@ _RECORDCONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -8857,6 +9601,7 @@ _TRANSFORMATIONOVERVIEW = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="transformed_bytes",
@@ -8875,6 +9620,7 @@ _TRANSFORMATIONOVERVIEW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transformation_summaries",
@@ -8893,6 +9639,7 @@ _TRANSFORMATIONOVERVIEW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8914,6 +9661,7 @@ _TRANSFORMATIONSUMMARY_SUMMARYRESULT = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="count",
@@ -8932,6 +9680,7 @@ _TRANSFORMATIONSUMMARY_SUMMARYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="code",
@@ -8950,6 +9699,7 @@ _TRANSFORMATIONSUMMARY_SUMMARYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="details",
@@ -8968,6 +9718,7 @@ _TRANSFORMATIONSUMMARY_SUMMARYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -8988,6 +9739,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="info_type",
@@ -9006,6 +9758,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="field",
@@ -9024,6 +9777,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transformation",
@@ -9042,6 +9796,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="field_transformations",
@@ -9060,6 +9815,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="record_suppress",
@@ -9078,6 +9834,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="results",
@@ -9096,6 +9853,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="transformed_bytes",
@@ -9114,6 +9872,7 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9135,6 +9894,7 @@ _SCHEDULE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="recurrence_period_duration",
@@ -9153,6 +9913,7 @@ _SCHEDULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -9168,6 +9929,7 @@ _SCHEDULE = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.Schedule.option",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -9182,6 +9944,7 @@ _MANUAL = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -9202,6 +9965,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -9220,6 +9984,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -9238,6 +10003,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -9256,6 +10022,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -9274,6 +10041,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -9292,6 +10060,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -9310,6 +10079,7 @@ _INSPECTTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9331,6 +10101,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -9349,6 +10120,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -9367,6 +10139,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -9385,6 +10158,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -9403,6 +10177,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -9421,6 +10196,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deidentify_config",
@@ -9439,6 +10215,7 @@ _DEIDENTIFYTEMPLATE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9460,6 +10237,7 @@ _ERROR = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="details",
@@ -9478,6 +10256,7 @@ _ERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="timestamps",
@@ -9496,6 +10275,7 @@ _ERROR = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9517,6 +10297,7 @@ _JOBTRIGGER_TRIGGER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="schedule",
@@ -9535,6 +10316,7 @@ _JOBTRIGGER_TRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="manual",
@@ -9553,6 +10335,7 @@ _JOBTRIGGER_TRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9568,6 +10351,7 @@ _JOBTRIGGER_TRIGGER = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.JobTrigger.Trigger.trigger",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -9581,6 +10365,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -9599,6 +10384,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -9617,6 +10403,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -9635,6 +10422,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_job",
@@ -9653,6 +10441,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="triggers",
@@ -9671,6 +10460,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="errors",
@@ -9689,6 +10479,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -9707,6 +10498,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_time",
@@ -9725,6 +10517,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="last_run_time",
@@ -9743,6 +10536,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\003",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="status",
@@ -9761,6 +10555,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -9776,6 +10571,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.JobTrigger.job",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -9790,6 +10586,7 @@ _ACTION_SAVEFINDINGS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="output_config",
@@ -9808,6 +10605,7 @@ _ACTION_SAVEFINDINGS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -9828,6 +10626,7 @@ _ACTION_PUBLISHTOPUBSUB = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="topic",
@@ -9846,6 +10645,7 @@ _ACTION_PUBLISHTOPUBSUB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -9866,6 +10666,7 @@ _ACTION_PUBLISHSUMMARYTOCSCC = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -9885,6 +10686,7 @@ _ACTION_PUBLISHFINDINGSTOCLOUDDATACATALOG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -9904,6 +10706,7 @@ _ACTION_JOBNOTIFICATIONEMAILS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -9923,6 +10726,7 @@ _ACTION_PUBLISHTOSTACKDRIVER = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -9942,6 +10746,7 @@ _ACTION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="save_findings",
@@ -9960,6 +10765,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="pub_sub",
@@ -9978,6 +10784,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publish_summary_to_cscc",
@@ -9996,6 +10803,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publish_findings_to_cloud_data_catalog",
@@ -10014,6 +10822,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_notification_emails",
@@ -10032,6 +10841,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="publish_to_stackdriver",
@@ -10050,6 +10860,7 @@ _ACTION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10072,6 +10883,7 @@ _ACTION = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.Action.action",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -10086,6 +10898,7 @@ _CREATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -10104,6 +10917,7 @@ _CREATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\022"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template",
@@ -10122,6 +10936,7 @@ _CREATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="template_id",
@@ -10140,6 +10955,7 @@ _CREATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -10158,6 +10974,7 @@ _CREATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10179,6 +10996,7 @@ _UPDATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10197,6 +11015,7 @@ _UPDATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\n"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template",
@@ -10215,6 +11034,7 @@ _UPDATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -10233,6 +11053,7 @@ _UPDATEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10254,6 +11075,7 @@ _GETINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10272,6 +11094,7 @@ _GETINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\n"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -10293,6 +11116,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -10311,6 +11135,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\022"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -10329,6 +11154,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -10347,6 +11173,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -10365,6 +11192,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -10383,6 +11211,7 @@ _LISTINSPECTTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10404,6 +11233,7 @@ _LISTINSPECTTEMPLATESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="inspect_templates",
@@ -10422,6 +11252,7 @@ _LISTINSPECTTEMPLATESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -10440,6 +11271,7 @@ _LISTINSPECTTEMPLATESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10461,6 +11293,7 @@ _DELETEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10479,6 +11312,7 @@ _DELETEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\n"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -10500,6 +11334,7 @@ _CREATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -10518,6 +11353,7 @@ _CREATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_trigger",
@@ -10536,6 +11372,7 @@ _CREATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="trigger_id",
@@ -10554,6 +11391,7 @@ _CREATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -10572,6 +11410,7 @@ _CREATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10593,6 +11432,7 @@ _ACTIVATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10611,6 +11451,7 @@ _ACTIVATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -10632,6 +11473,7 @@ _UPDATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10650,6 +11492,7 @@ _UPDATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_trigger",
@@ -10668,6 +11511,7 @@ _UPDATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -10686,6 +11530,7 @@ _UPDATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10707,6 +11552,7 @@ _GETJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -10725,6 +11571,7 @@ _GETJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -10746,6 +11593,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -10764,6 +11612,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_job",
@@ -10782,6 +11631,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="risk_job",
@@ -10800,6 +11650,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_id",
@@ -10818,6 +11669,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -10836,6 +11688,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10851,6 +11704,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.CreateDlpJobRequest.job",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -10865,6 +11719,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -10883,6 +11738,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -10901,6 +11757,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -10919,6 +11776,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -10937,6 +11795,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -10955,6 +11814,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -10973,6 +11833,7 @@ _LISTJOBTRIGGERSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -10994,6 +11855,7 @@ _LISTJOBTRIGGERSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="job_triggers",
@@ -11012,6 +11874,7 @@ _LISTJOBTRIGGERSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -11030,6 +11893,7 @@ _LISTJOBTRIGGERSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11051,6 +11915,7 @@ _DELETEJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11069,6 +11934,7 @@ _DELETEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11090,6 +11956,7 @@ _INSPECTJOBCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="storage_config",
@@ -11108,6 +11975,7 @@ _INSPECTJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_config",
@@ -11126,6 +11994,7 @@ _INSPECTJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_template_name",
@@ -11144,6 +12013,7 @@ _INSPECTJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="actions",
@@ -11162,6 +12032,7 @@ _INSPECTJOBCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11183,6 +12054,7 @@ _DLPJOB = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11201,6 +12073,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="type",
@@ -11219,6 +12092,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="state",
@@ -11237,6 +12111,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="risk_details",
@@ -11255,6 +12130,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="inspect_details",
@@ -11273,6 +12149,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -11291,6 +12168,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="start_time",
@@ -11309,6 +12187,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="end_time",
@@ -11327,6 +12206,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="job_trigger_name",
@@ -11345,6 +12225,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="errors",
@@ -11363,6 +12244,7 @@ _DLPJOB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11378,6 +12260,7 @@ _DLPJOB = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.DlpJob.details",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -11392,6 +12275,7 @@ _GETDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11410,6 +12294,7 @@ _GETDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11431,6 +12316,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -11449,6 +12335,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A-\n+cloudresourcemanager.googleapis.com/Project",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="filter",
@@ -11467,6 +12354,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -11485,6 +12373,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -11503,6 +12392,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="type",
@@ -11521,6 +12411,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -11539,6 +12430,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -11557,6 +12449,7 @@ _LISTDLPJOBSREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11578,6 +12471,7 @@ _LISTDLPJOBSRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="jobs",
@@ -11596,6 +12490,7 @@ _LISTDLPJOBSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -11614,6 +12509,7 @@ _LISTDLPJOBSRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11635,6 +12531,7 @@ _CANCELDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11653,6 +12550,7 @@ _CANCELDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11674,6 +12572,7 @@ _FINISHDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11692,6 +12591,7 @@ _FINISHDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11713,6 +12613,7 @@ _DELETEDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11731,6 +12632,7 @@ _DELETEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11752,6 +12654,7 @@ _CREATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -11770,6 +12673,7 @@ _CREATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\022%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deidentify_template",
@@ -11788,6 +12692,7 @@ _CREATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="template_id",
@@ -11806,6 +12711,7 @@ _CREATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -11824,6 +12730,7 @@ _CREATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11845,6 +12752,7 @@ _UPDATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11863,6 +12771,7 @@ _UPDATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="deidentify_template",
@@ -11881,6 +12790,7 @@ _UPDATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -11899,6 +12809,7 @@ _UPDATEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -11920,6 +12831,7 @@ _GETDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -11938,6 +12850,7 @@ _GETDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -11959,6 +12872,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -11977,6 +12891,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\022%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -11995,6 +12910,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -12013,6 +12929,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -12031,6 +12948,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -12049,6 +12967,7 @@ _LISTDEIDENTIFYTEMPLATESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12070,6 +12989,7 @@ _LISTDEIDENTIFYTEMPLATESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="deidentify_templates",
@@ -12088,6 +13008,7 @@ _LISTDEIDENTIFYTEMPLATESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -12106,6 +13027,7 @@ _LISTDEIDENTIFYTEMPLATESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12127,6 +13049,7 @@ _DELETEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -12145,6 +13068,7 @@ _DELETEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -12166,6 +13090,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="output_path",
@@ -12184,6 +13109,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="cloud_storage_file_set",
@@ -12202,6 +13128,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="big_query_field",
@@ -12220,6 +13147,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12235,6 +13163,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.LargeCustomDictionaryConfig.source",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -12249,6 +13178,7 @@ _LARGECUSTOMDICTIONARYSTATS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="approx_num_phrases",
@@ -12267,6 +13197,7 @@ _LARGECUSTOMDICTIONARYSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -12288,6 +13219,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="display_name",
@@ -12306,6 +13238,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="description",
@@ -12324,6 +13257,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="large_custom_dictionary",
@@ -12342,6 +13276,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="dictionary",
@@ -12360,6 +13295,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="regex",
@@ -12378,6 +13314,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12393,6 +13330,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.StoredInfoTypeConfig.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -12407,6 +13345,7 @@ _STOREDINFOTYPESTATS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="large_custom_dictionary",
@@ -12425,6 +13364,7 @@ _STOREDINFOTYPESTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -12440,6 +13380,7 @@ _STOREDINFOTYPESTATS = _descriptor.Descriptor(
             full_name="google.privacy.dlp.v2.StoredInfoTypeStats.type",
             index=0,
             containing_type=None,
+            create_key=_descriptor._internal_create_key,
             fields=[],
         )
     ],
@@ -12454,6 +13395,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="config",
@@ -12472,6 +13414,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="create_time",
@@ -12490,6 +13433,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="state",
@@ -12508,6 +13452,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="errors",
@@ -12526,6 +13471,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="stats",
@@ -12544,6 +13490,7 @@ _STOREDINFOTYPEVERSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12565,6 +13512,7 @@ _STOREDINFOTYPE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -12583,6 +13531,7 @@ _STOREDINFOTYPE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="current_version",
@@ -12601,6 +13550,7 @@ _STOREDINFOTYPE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="pending_versions",
@@ -12619,6 +13569,7 @@ _STOREDINFOTYPE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12640,6 +13591,7 @@ _CREATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -12658,6 +13610,7 @@ _CREATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\022!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="config",
@@ -12676,6 +13629,7 @@ _CREATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="stored_info_type_id",
@@ -12694,6 +13648,7 @@ _CREATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -12712,6 +13667,7 @@ _CREATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12733,6 +13689,7 @@ _UPDATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -12751,6 +13708,7 @@ _UPDATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="config",
@@ -12769,6 +13727,7 @@ _UPDATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="update_mask",
@@ -12787,6 +13746,7 @@ _UPDATESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12808,6 +13768,7 @@ _GETSTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -12826,6 +13787,7 @@ _GETSTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -12847,6 +13809,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="parent",
@@ -12865,6 +13828,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\022!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_token",
@@ -12883,6 +13847,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="page_size",
@@ -12901,6 +13866,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="order_by",
@@ -12919,6 +13885,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="location_id",
@@ -12937,6 +13904,7 @@ _LISTSTOREDINFOTYPESREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -12958,6 +13926,7 @@ _LISTSTOREDINFOTYPESRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="stored_info_types",
@@ -12976,6 +13945,7 @@ _LISTSTOREDINFOTYPESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="next_page_token",
@@ -12994,6 +13964,7 @@ _LISTSTOREDINFOTYPESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13015,6 +13986,7 @@ _DELETESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -13033,6 +14005,7 @@ _DELETESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         )
     ],
     extensions=[],
@@ -13054,6 +14027,7 @@ _HYBRIDINSPECTJOBTRIGGERREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -13072,6 +14046,7 @@ _HYBRIDINSPECTJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="hybrid_item",
@@ -13090,6 +14065,7 @@ _HYBRIDINSPECTJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13111,6 +14087,7 @@ _HYBRIDINSPECTDLPJOBREQUEST = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="name",
@@ -13129,6 +14106,7 @@ _HYBRIDINSPECTDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="hybrid_item",
@@ -13147,6 +14125,7 @@ _HYBRIDINSPECTDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13168,6 +14147,7 @@ _HYBRIDCONTENTITEM = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="item",
@@ -13186,6 +14166,7 @@ _HYBRIDCONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="finding_details",
@@ -13204,6 +14185,7 @@ _HYBRIDCONTENTITEM = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13225,6 +14207,7 @@ _HYBRIDFINDINGDETAILS_LABELSENTRY = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="key",
@@ -13243,6 +14226,7 @@ _HYBRIDFINDINGDETAILS_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="value",
@@ -13261,6 +14245,7 @@ _HYBRIDFINDINGDETAILS_LABELSENTRY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13281,6 +14266,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
             name="container_details",
@@ -13299,6 +14285,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="file_offset",
@@ -13317,6 +14304,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="row_offset",
@@ -13335,6 +14323,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="table_options",
@@ -13353,6 +14342,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
             name="labels",
@@ -13371,6 +14361,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
         ),
     ],
     extensions=[],
@@ -13392,6 +14383,7 @@ _HYBRIDINSPECTRESPONSE = _descriptor.Descriptor(
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
+    create_key=_descriptor._internal_create_key,
     fields=[],
     extensions=[],
     nested_types=[],
@@ -19256,6 +20248,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     serialized_options=b"\312A\022dlp.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform",
+    create_key=_descriptor._internal_create_key,
     serialized_start=33110,
     serialized_end=42521,
     methods=[
@@ -19267,6 +20260,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_INSPECTCONTENTREQUEST,
             output_type=_INSPECTCONTENTRESPONSE,
             serialized_options=b'\202\323\344\223\002f"\'/v2/{parent=projects/*}/content:inspect:\001*Z8"3/v2/{parent=projects/*/locations/*}/content:inspect:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="RedactImage",
@@ -19276,6 +20270,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_REDACTIMAGEREQUEST,
             output_type=_REDACTIMAGERESPONSE,
             serialized_options=b'\202\323\344\223\002`"$/v2/{parent=projects/*}/image:redact:\001*Z5"0/v2/{parent=projects/*/locations/*}/image:redact:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeidentifyContent",
@@ -19285,6 +20280,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DEIDENTIFYCONTENTREQUEST,
             output_type=_DEIDENTIFYCONTENTRESPONSE,
             serialized_options=b'\202\323\344\223\002l"*/v2/{parent=projects/*}/content:deidentify:\001*Z;"6/v2/{parent=projects/*/locations/*}/content:deidentify:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ReidentifyContent",
@@ -19294,6 +20290,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_REIDENTIFYCONTENTREQUEST,
             output_type=_REIDENTIFYCONTENTRESPONSE,
             serialized_options=b'\202\323\344\223\002l"*/v2/{parent=projects/*}/content:reidentify:\001*Z;"6/v2/{parent=projects/*/locations/*}/content:reidentify:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListInfoTypes",
@@ -19303,6 +20300,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTINFOTYPESREQUEST,
             output_type=_LISTINFOTYPESRESPONSE,
             serialized_options=b'\202\323\344\223\0025\022\r/v2/infoTypesZ$\022"/v2/{parent=locations/*}/infoTypes\332A\006parent',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateInspectTemplate",
@@ -19312,6 +20310,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEINSPECTTEMPLATEREQUEST,
             output_type=_INSPECTTEMPLATE,
             serialized_options=b'\202\323\344\223\002\334\001"-/v2/{parent=organizations/*}/inspectTemplates:\001*Z>"9/v2/{parent=organizations/*/locations/*}/inspectTemplates:\001*Z-"(/v2/{parent=projects/*}/inspectTemplates:\001*Z9"4/v2/{parent=projects/*/locations/*}/inspectTemplates:\001*\332A\027parent,inspect_template',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateInspectTemplate",
@@ -19321,6 +20320,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEINSPECTTEMPLATEREQUEST,
             output_type=_INSPECTTEMPLATE,
             serialized_options=b"\202\323\344\223\002\334\0012-/v2/{name=organizations/*/inspectTemplates/*}:\001*Z>29/v2/{name=organizations/*/locations/*/inspectTemplates/*}:\001*Z-2(/v2/{name=projects/*/inspectTemplates/*}:\001*Z924/v2/{name=projects/*/locations/*/inspectTemplates/*}:\001*\332A!name,inspect_template,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetInspectTemplate",
@@ -19330,6 +20330,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETINSPECTTEMPLATEREQUEST,
             output_type=_INSPECTTEMPLATE,
             serialized_options=b"\202\323\344\223\002\320\001\022-/v2/{name=organizations/*/inspectTemplates/*}Z;\0229/v2/{name=organizations/*/locations/*/inspectTemplates/*}Z*\022(/v2/{name=projects/*/inspectTemplates/*}Z6\0224/v2/{name=projects/*/locations/*/inspectTemplates/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListInspectTemplates",
@@ -19339,6 +20340,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTINSPECTTEMPLATESREQUEST,
             output_type=_LISTINSPECTTEMPLATESRESPONSE,
             serialized_options=b"\202\323\344\223\002\320\001\022-/v2/{parent=organizations/*}/inspectTemplatesZ;\0229/v2/{parent=organizations/*/locations/*}/inspectTemplatesZ*\022(/v2/{parent=projects/*}/inspectTemplatesZ6\0224/v2/{parent=projects/*/locations/*}/inspectTemplates\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteInspectTemplate",
@@ -19348,6 +20350,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEINSPECTTEMPLATEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002\320\001*-/v2/{name=organizations/*/inspectTemplates/*}Z;*9/v2/{name=organizations/*/locations/*/inspectTemplates/*}Z**(/v2/{name=projects/*/inspectTemplates/*}Z6*4/v2/{name=projects/*/locations/*/inspectTemplates/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateDeidentifyTemplate",
@@ -19357,6 +20360,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEDEIDENTIFYTEMPLATEREQUEST,
             output_type=_DEIDENTIFYTEMPLATE,
             serialized_options=b'\202\323\344\223\002\350\001"0/v2/{parent=organizations/*}/deidentifyTemplates:\001*ZA"</v2/{parent=organizations/*/locations/*}/deidentifyTemplates:\001*Z0"+/v2/{parent=projects/*}/deidentifyTemplates:\001*Z<"7/v2/{parent=projects/*/locations/*}/deidentifyTemplates:\001*\332A\032parent,deidentify_template',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateDeidentifyTemplate",
@@ -19366,6 +20370,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEDEIDENTIFYTEMPLATEREQUEST,
             output_type=_DEIDENTIFYTEMPLATE,
             serialized_options=b"\202\323\344\223\002\350\00120/v2/{name=organizations/*/deidentifyTemplates/*}:\001*ZA2</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}:\001*Z02+/v2/{name=projects/*/deidentifyTemplates/*}:\001*Z<27/v2/{name=projects/*/locations/*/deidentifyTemplates/*}:\001*\332A$name,deidentify_template,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetDeidentifyTemplate",
@@ -19375,6 +20380,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETDEIDENTIFYTEMPLATEREQUEST,
             output_type=_DEIDENTIFYTEMPLATE,
             serialized_options=b"\202\323\344\223\002\334\001\0220/v2/{name=organizations/*/deidentifyTemplates/*}Z>\022</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}Z-\022+/v2/{name=projects/*/deidentifyTemplates/*}Z9\0227/v2/{name=projects/*/locations/*/deidentifyTemplates/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListDeidentifyTemplates",
@@ -19384,6 +20390,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTDEIDENTIFYTEMPLATESREQUEST,
             output_type=_LISTDEIDENTIFYTEMPLATESRESPONSE,
             serialized_options=b"\202\323\344\223\002\334\001\0220/v2/{parent=organizations/*}/deidentifyTemplatesZ>\022</v2/{parent=organizations/*/locations/*}/deidentifyTemplatesZ-\022+/v2/{parent=projects/*}/deidentifyTemplatesZ9\0227/v2/{parent=projects/*/locations/*}/deidentifyTemplates\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteDeidentifyTemplate",
@@ -19393,6 +20400,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEDEIDENTIFYTEMPLATEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002\334\001*0/v2/{name=organizations/*/deidentifyTemplates/*}Z>*</v2/{name=organizations/*/locations/*/deidentifyTemplates/*}Z-*+/v2/{name=projects/*/deidentifyTemplates/*}Z9*7/v2/{name=projects/*/locations/*/deidentifyTemplates/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateJobTrigger",
@@ -19402,6 +20410,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEJOBTRIGGERREQUEST,
             output_type=_JOBTRIGGER,
             serialized_options=b'\202\323\344\223\002^"#/v2/{parent=projects/*}/jobTriggers:\001*Z4"//v2/{parent=projects/*/locations/*}/jobTriggers:\001*\332A\022parent,job_trigger',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateJobTrigger",
@@ -19411,6 +20420,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATEJOBTRIGGERREQUEST,
             output_type=_JOBTRIGGER,
             serialized_options=b"\202\323\344\223\002^2#/v2/{name=projects/*/jobTriggers/*}:\001*Z42//v2/{name=projects/*/locations/*/jobTriggers/*}:\001*\332A\034name,job_trigger,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="HybridInspectJobTrigger",
@@ -19420,6 +20430,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_HYBRIDINSPECTJOBTRIGGERREQUEST,
             output_type=_HYBRIDINSPECTRESPONSE,
             serialized_options=b'\202\323\344\223\002B"=/v2/{name=projects/*/locations/*/jobTriggers/*}:hybridInspect:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetJobTrigger",
@@ -19429,6 +20440,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETJOBTRIGGERREQUEST,
             output_type=_JOBTRIGGER,
             serialized_options=b"\202\323\344\223\002X\022#/v2/{name=projects/*/jobTriggers/*}Z1\022//v2/{name=projects/*/locations/*/jobTriggers/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListJobTriggers",
@@ -19438,6 +20450,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTJOBTRIGGERSREQUEST,
             output_type=_LISTJOBTRIGGERSRESPONSE,
             serialized_options=b"\202\323\344\223\002X\022#/v2/{parent=projects/*}/jobTriggersZ1\022//v2/{parent=projects/*/locations/*}/jobTriggers\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteJobTrigger",
@@ -19447,6 +20460,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEJOBTRIGGERREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002X*#/v2/{name=projects/*/jobTriggers/*}Z1*//v2/{name=projects/*/locations/*/jobTriggers/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ActivateJobTrigger",
@@ -19456,6 +20470,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_ACTIVATEJOBTRIGGERREQUEST,
             output_type=_DLPJOB,
             serialized_options=b'\202\323\344\223\002p",/v2/{name=projects/*/jobTriggers/*}:activate:\001*Z="8/v2/{name=projects/*/locations/*/jobTriggers/*}:activate:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateDlpJob",
@@ -19465,6 +20480,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATEDLPJOBREQUEST,
             output_type=_DLPJOB,
             serialized_options=b'\202\323\344\223\002V"\037/v2/{parent=projects/*}/dlpJobs:\001*Z0"+/v2/{parent=projects/*/locations/*}/dlpJobs:\001*\332A\022parent,inspect_job\332A\017parent,risk_job',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListDlpJobs",
@@ -19474,6 +20490,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTDLPJOBSREQUEST,
             output_type=_LISTDLPJOBSRESPONSE,
             serialized_options=b"\202\323\344\223\002P\022\037/v2/{parent=projects/*}/dlpJobsZ-\022+/v2/{parent=projects/*/locations/*}/dlpJobs\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetDlpJob",
@@ -19483,6 +20500,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETDLPJOBREQUEST,
             output_type=_DLPJOB,
             serialized_options=b"\202\323\344\223\002P\022\037/v2/{name=projects/*/dlpJobs/*}Z-\022+/v2/{name=projects/*/locations/*/dlpJobs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteDlpJob",
@@ -19492,6 +20510,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETEDLPJOBREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002P*\037/v2/{name=projects/*/dlpJobs/*}Z-*+/v2/{name=projects/*/locations/*/dlpJobs/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CancelDlpJob",
@@ -19501,6 +20520,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CANCELDLPJOBREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b'\202\323\344\223\002d"&/v2/{name=projects/*/dlpJobs/*}:cancel:\001*Z7"2/v2/{name=projects/*/locations/*/dlpJobs/*}:cancel:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="CreateStoredInfoType",
@@ -19510,6 +20530,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_CREATESTOREDINFOTYPEREQUEST,
             output_type=_STOREDINFOTYPE,
             serialized_options=b'\202\323\344\223\002\330\001",/v2/{parent=organizations/*}/storedInfoTypes:\001*Z="8/v2/{parent=organizations/*/locations/*}/storedInfoTypes:\001*Z,"\'/v2/{parent=projects/*}/storedInfoTypes:\001*Z8"3/v2/{parent=projects/*/locations/*}/storedInfoTypes:\001*\332A\rparent,config',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="UpdateStoredInfoType",
@@ -19519,6 +20540,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_UPDATESTOREDINFOTYPEREQUEST,
             output_type=_STOREDINFOTYPE,
             serialized_options=b"\202\323\344\223\002\330\0012,/v2/{name=organizations/*/storedInfoTypes/*}:\001*Z=28/v2/{name=organizations/*/locations/*/storedInfoTypes/*}:\001*Z,2'/v2/{name=projects/*/storedInfoTypes/*}:\001*Z823/v2/{name=projects/*/locations/*/storedInfoTypes/*}:\001*\332A\027name,config,update_mask",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="GetStoredInfoType",
@@ -19528,6 +20550,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_GETSTOREDINFOTYPEREQUEST,
             output_type=_STOREDINFOTYPE,
             serialized_options=b"\202\323\344\223\002\314\001\022,/v2/{name=organizations/*/storedInfoTypes/*}Z:\0228/v2/{name=organizations/*/locations/*/storedInfoTypes/*}Z)\022'/v2/{name=projects/*/storedInfoTypes/*}Z5\0223/v2/{name=projects/*/locations/*/storedInfoTypes/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="ListStoredInfoTypes",
@@ -19537,6 +20560,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_LISTSTOREDINFOTYPESREQUEST,
             output_type=_LISTSTOREDINFOTYPESRESPONSE,
             serialized_options=b"\202\323\344\223\002\314\001\022,/v2/{parent=organizations/*}/storedInfoTypesZ:\0228/v2/{parent=organizations/*/locations/*}/storedInfoTypesZ)\022'/v2/{parent=projects/*}/storedInfoTypesZ5\0223/v2/{parent=projects/*/locations/*}/storedInfoTypes\332A\006parent",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="DeleteStoredInfoType",
@@ -19546,6 +20570,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_DELETESTOREDINFOTYPEREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b"\202\323\344\223\002\314\001*,/v2/{name=organizations/*/storedInfoTypes/*}Z:*8/v2/{name=organizations/*/locations/*/storedInfoTypes/*}Z)*'/v2/{name=projects/*/storedInfoTypes/*}Z5*3/v2/{name=projects/*/locations/*/storedInfoTypes/*}\332A\004name",
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="HybridInspectDlpJob",
@@ -19555,6 +20580,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_HYBRIDINSPECTDLPJOBREQUEST,
             output_type=_HYBRIDINSPECTRESPONSE,
             serialized_options=b'\202\323\344\223\002>"9/v2/{name=projects/*/locations/*/dlpJobs/*}:hybridInspect:\001*\332A\004name',
+            create_key=_descriptor._internal_create_key,
         ),
         _descriptor.MethodDescriptor(
             name="FinishDlpJob",
@@ -19564,6 +20590,7 @@ _DLPSERVICE = _descriptor.ServiceDescriptor(
             input_type=_FINISHDLPJOBREQUEST,
             output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
             serialized_options=b'\202\323\344\223\0027"2/v2/{name=projects/*/locations/*/dlpJobs/*}:finish:\001*',
+            create_key=_descriptor._internal_create_key,
         ),
     ],
 )
