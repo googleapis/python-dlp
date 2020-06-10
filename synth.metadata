@@ -1,41 +1,25 @@
 {
-  "updateTime": "2020-02-20T23:03:49.988023Z",
   "sources": [
-    {
-      "generator": {
-        "name": "artman",
-        "version": "0.45.0",
-        "dockerImage": "googleapis/artman@sha256:6aec9c34db0e4be221cdaf6faba27bdc07cfea846808b3d3b964dfce3a9a0f9b"
-      }
-    },
     {
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-dlp.git",
-        "sha": "909a0677d3fce69dac4a4f8813cf4e7c8a108449"
+        "sha": "7973a441ae2226ce7c597cb5e7eebfa0e38cd94b"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "3eaaaf8626ce5b0c0bc7eee05e143beffa373b01",
-        "internalRef": "296274723",
-        "log": "3eaaaf8626ce5b0c0bc7eee05e143beffa373b01\nAdd BUILD.bazel for v1 secretmanager.googleapis.com\n\nPiperOrigin-RevId: 296274723\n\ne76149c3d992337f85eeb45643106aacae7ede82\nMove securitycenter v1 to use generate from annotations.\n\nPiperOrigin-RevId: 296266862\n\n203740c78ac69ee07c3bf6be7408048751f618f8\nAdd StackdriverLoggingConfig field to Cloud Tasks v2 API.\n\nPiperOrigin-RevId: 296256388\n\ne4117d5e9ed8bbca28da4a60a94947ca51cb2083\nCreate a Bazel BUILD file for the google.actions.type export.\n\nPiperOrigin-RevId: 296212567\n\na9639a0a9854fd6e1be08bba1ac3897f4f16cb2f\nAdd secretmanager.googleapis.com v1 protos\n\nPiperOrigin-RevId: 295983266\n\n"
+        "sha": "dec3204175104cef49bf21d685d5517caaf0058f",
+        "internalRef": "312689208"
       }
     },
     {
       "git": {
         "name": "synthtool",
-        "remote": "rpc://devrel/cloud/libraries/tools/autosynth",
-        "sha": "706a38c26db42299845396cdae55db635c38794a"
-      }
-    },
-    {
-      "template": {
-        "name": "python_split_library",
-        "origin": "synthtool.gcp",
-        "version": "2020.2.4"
+        "remote": "https://github.com/googleapis/synthtool.git",
+        "sha": "d2364eb80b840a36136c8ce12f1c6efabcc9600e"
       }
     }
   ],
@@ -46,8 +30,7 @@
         "apiName": "dlp",
         "apiVersion": "v2",
         "language": "python",
-        "generator": "gapic",
-        "config": "google/privacy/dlp/artman_dlp_v2.yaml"
+        "generator": "bazel"
       }
     }
   ]
