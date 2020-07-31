@@ -53,7 +53,7 @@ class DlpServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                "The `channel` and `credentials` arguments are mutually " "exclusive."
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -71,7 +71,9 @@ class DlpServiceGrpcTransport(object):
 
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
-        self._stubs = {"dlp_service_stub": dlp_pb2_grpc.DlpServiceStub(channel)}
+        self._stubs = {
+            "dlp_service_stub": dlp_pb2_grpc.DlpServiceStub(channel),
+        }
 
     @classmethod
     def create_channel(

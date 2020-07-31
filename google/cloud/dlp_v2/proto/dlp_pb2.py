@@ -686,7 +686,7 @@ _EXCLUDEINFOTYPES = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -795,7 +795,7 @@ _EXCLUSIONRULE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=527,
     serialized_end=815,
@@ -860,7 +860,7 @@ _INSPECTIONRULE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=818,
     serialized_end=995,
@@ -1043,7 +1043,7 @@ _INSPECTCONFIG_FINDINGLIMITS = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_INSPECTCONFIG_FINDINGLIMITS_INFOTYPELIMIT],
+    nested_types=[_INSPECTCONFIG_FINDINGLIMITS_INFOTYPELIMIT,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -1207,7 +1207,7 @@ _INSPECTCONFIG = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_INSPECTCONFIG_FINDINGLIMITS],
+    nested_types=[_INSPECTCONFIG_FINDINGLIMITS,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -1265,7 +1265,7 @@ _BYTECONTENTITEM = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_BYTECONTENTITEM_BYTESTYPE],
+    enum_types=[_BYTECONTENTITEM_BYTESTYPE,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -1352,7 +1352,7 @@ _CONTENTITEM = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=2105,
     serialized_end=2256,
@@ -1383,7 +1383,7 @@ _TABLE_ROW = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -1442,7 +1442,7 @@ _TABLE = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_TABLE_ROW],
+    nested_types=[_TABLE_ROW,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -1792,7 +1792,7 @@ _FINDING = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_FINDING_LABELSENTRY],
+    nested_types=[_FINDING_LABELSENTRY,],
     enum_types=[],
     serialized_options=b"\352AX\n\032dlp.googleapis.com/Finding\022:projects/{project}/locations/{location}/findings/{finding}",
     is_extendable=False,
@@ -2045,7 +2045,7 @@ _CONTENTLOCATION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=3470,
     serialized_end=3877,
@@ -2110,7 +2110,7 @@ _METADATALOCATION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=3880,
     serialized_end=4028,
@@ -2141,7 +2141,7 @@ _STORAGEMETADATALABEL = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -2180,7 +2180,7 @@ _DOCUMENTLOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -2294,7 +2294,7 @@ _TABLELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -2537,7 +2537,7 @@ _IMAGELOCATION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -2721,7 +2721,7 @@ _REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=5046,
     serialized_end=5214,
@@ -2844,7 +2844,7 @@ _REDACTIMAGEREQUEST = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG],
+    nested_types=[_REDACTIMAGEREQUEST_IMAGEREDACTIONCONFIG,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -3549,7 +3549,7 @@ _INSPECTCONTENTRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -3610,7 +3610,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_OUTPUTSTORAGECONFIG_OUTPUTSCHEMA],
+    enum_types=[_OUTPUTSTORAGECONFIG_OUTPUTSCHEMA,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -3622,7 +3622,7 @@ _OUTPUTSTORAGECONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=6753,
     serialized_end=7064,
@@ -4179,7 +4179,7 @@ _LISTINFOTYPESRESPONSE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -4363,7 +4363,7 @@ _QUASIID = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=8332,
     serialized_end=8520,
@@ -4489,7 +4489,7 @@ _STATISTICALTABLE = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_STATISTICALTABLE_QUASIIDENTIFIERFIELD],
+    nested_types=[_STATISTICALTABLE_QUASIIDENTIFIERFIELD,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -4525,7 +4525,7 @@ _PRIVACYMETRIC_NUMERICALSTATSCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -4563,7 +4563,7 @@ _PRIVACYMETRIC_CATEGORICALSTATSCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -4783,7 +4783,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_TAGGEDFIELD = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=10069,
     serialized_end=10261,
@@ -4908,7 +4908,7 @@ _PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE_QUASIIDFIELD],
+    nested_types=[_PRIVACYMETRIC_KMAPESTIMATIONCONFIG_AUXILIARYTABLE_QUASIIDFIELD,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -5207,7 +5207,7 @@ _PRIVACYMETRIC = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=8844,
     serialized_end=10783,
@@ -5422,11 +5422,11 @@ _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
-        _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBUCKET
+        _ANALYZEDATASOURCERISKDETAILS_CATEGORICALSTATSRESULT_CATEGORICALSTATSHISTOGRAMBUCKET,
     ],
     enum_types=[],
     serialized_options=None,
@@ -5628,7 +5628,7 @@ _ANALYZEDATASOURCERISKDETAILS_KANONYMITYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
@@ -5871,7 +5871,7 @@ _ANALYZEDATASOURCERISKDETAILS_LDIVERSITYRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
@@ -6078,7 +6078,7 @@ _ANALYZEDATASOURCERISKDETAILS_KMAPESTIMATIONRESULT = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
@@ -6285,7 +6285,7 @@ _ANALYZEDATASOURCERISKDETAILS_DELTAPRESENCEESTIMATIONRESULT = _descriptor.Descri
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
@@ -6475,7 +6475,7 @@ _ANALYZEDATASOURCERISKDETAILS = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=10786,
     serialized_end=14612,
@@ -6705,7 +6705,7 @@ _VALUE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=14693,
     serialized_end=15000,
@@ -6736,7 +6736,7 @@ _QUOTEINFO = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -6752,7 +6752,7 @@ _QUOTEINFO = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=15002,
     serialized_end=15083,
@@ -6783,7 +6783,7 @@ _DATETIME_TIMEZONE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -6878,7 +6878,7 @@ _DATETIME = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_DATETIME_TIMEZONE],
+    nested_types=[_DATETIME_TIMEZONE,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -6966,7 +6966,7 @@ _DEIDENTIFYCONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=15312,
     serialized_end=15604,
@@ -7072,7 +7072,7 @@ _TRANSFORMATIONERRORHANDLING = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=15607,
     serialized_end=15868,
@@ -7299,7 +7299,7 @@ _PRIMITIVETRANSFORMATION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=15871,
     serialized_end=16756,
@@ -7330,11 +7330,11 @@ _TIMEPARTCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_TIMEPARTCONFIG_TIMEPART],
+    enum_types=[_TIMEPARTCONFIG_TIMEPART,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -7369,7 +7369,7 @@ _CRYPTOHASHCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -7483,7 +7483,7 @@ _REPLACEVALUECONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -7584,7 +7584,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_CHARSTOIGNORE_COMMONCHARSTOIGNORE],
+    enum_types=[_CHARSTOIGNORE_COMMONCHARSTOIGNORE,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -7596,7 +7596,7 @@ _CHARSTOIGNORE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=17367,
     serialized_end=17677,
@@ -7869,10 +7869,10 @@ _BUCKETINGCONFIG = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
-    nested_types=[_BUCKETINGCONFIG_BUCKET],
+    nested_types=[_BUCKETINGCONFIG_BUCKET,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -8002,7 +8002,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_CRYPTOREPLACEFFXFPECONFIG_FFXCOMMONNATIVEALPHABET],
+    enum_types=[_CRYPTOREPLACEFFXFPECONFIG_FFXCOMMONNATIVEALPHABET,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -8014,7 +8014,7 @@ _CRYPTOREPLACEFFXFPECONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=18251,
     serialized_end=18756,
@@ -8097,7 +8097,7 @@ _CRYPTOKEY = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=18759,
     serialized_end=18975,
@@ -8128,7 +8128,7 @@ _TRANSIENTCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -8167,7 +8167,7 @@ _UNWRAPPEDCRYPTOKEY = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -8333,7 +8333,7 @@ _DATESHIFTCONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=19138,
     serialized_end=19332,
@@ -8420,10 +8420,10 @@ _INFOTYPETRANSFORMATIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
-    nested_types=[_INFOTYPETRANSFORMATIONS_INFOTYPETRANSFORMATION],
+    nested_types=[_INFOTYPETRANSFORMATIONS_INFOTYPETRANSFORMATION,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,
@@ -8529,7 +8529,7 @@ _FIELDTRANSFORMATION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=19631,
     serialized_end=19951,
@@ -8617,7 +8617,7 @@ _RECORDSUPPRESSION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -8730,7 +8730,7 @@ _RECORDCONDITION_CONDITIONS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -8790,7 +8790,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_RECORDCONDITION_EXPRESSIONS_LOGICALOPERATOR],
+    enum_types=[_RECORDCONDITION_EXPRESSIONS_LOGICALOPERATOR,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -8802,7 +8802,7 @@ _RECORDCONDITION_EXPRESSIONS = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=20560,
     serialized_end=20810,
@@ -8832,7 +8832,7 @@ _RECORDCONDITION = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[
@@ -9117,8 +9117,8 @@ _TRANSFORMATIONSUMMARY = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_TRANSFORMATIONSUMMARY_SUMMARYRESULT],
-    enum_types=[_TRANSFORMATIONSUMMARY_TRANSFORMATIONRESULTCODE],
+    nested_types=[_TRANSFORMATIONSUMMARY_SUMMARYRESULT,],
+    enum_types=[_TRANSFORMATIONSUMMARY_TRANSFORMATIONRESULTCODE,],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -9153,7 +9153,7 @@ _SCHEDULE = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -9169,7 +9169,7 @@ _SCHEDULE = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=21620,
     serialized_end=21705,
@@ -9569,7 +9569,7 @@ _JOBTRIGGER_TRIGGER = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=23484,
     serialized_end=23606,
@@ -9764,8 +9764,8 @@ _JOBTRIGGER = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_JOBTRIGGER_TRIGGER],
-    enum_types=[_JOBTRIGGER_STATUS],
+    nested_types=[_JOBTRIGGER_TRIGGER,],
+    enum_types=[_JOBTRIGGER_STATUS,],
     serialized_options=b"\352A\220\001\n\035dlp.googleapis.com/JobTrigger\022,projects/{project}/jobTriggers/{job_trigger}\022Aprojects/{project}/locations/{location}/jobTriggers/{job_trigger}",
     is_extendable=False,
     syntax="proto3",
@@ -9777,7 +9777,7 @@ _JOBTRIGGER = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=23010,
     serialized_end=23838,
@@ -9808,7 +9808,7 @@ _ACTION_SAVEFINDINGS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -9846,7 +9846,7 @@ _ACTION_PUBLISHTOPUBSUB = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -10073,7 +10073,7 @@ _ACTION = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=23841,
     serialized_end=24597,
@@ -10272,7 +10272,7 @@ _GETINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\n"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -10479,7 +10479,7 @@ _DELETEINSPECTTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b'\340A\002\372A$\n"dlp.googleapis.com/InspectTemplate',
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -10611,7 +10611,7 @@ _ACTIVATEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -10725,7 +10725,7 @@ _GETJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -10852,7 +10852,7 @@ _CREATEDLPJOBREQUEST = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=26027,
     serialized_end=26291,
@@ -11069,7 +11069,7 @@ _DELETEJOBTRIGGERREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\037\n\035dlp.googleapis.com/JobTrigger",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -11367,7 +11367,7 @@ _DLPJOB = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_DLPJOB_JOBSTATE],
+    enum_types=[_DLPJOB_JOBSTATE,],
     serialized_options=b"\352A|\n\031dlp.googleapis.com/DlpJob\022$projects/{project}/dlpJobs/{dlp_job}\0229projects/{project}/locations/{location}/dlpJobs/{dlp_job}",
     is_extendable=False,
     syntax="proto3",
@@ -11379,7 +11379,7 @@ _DLPJOB = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=26897,
     serialized_end=27644,
@@ -11410,7 +11410,7 @@ _GETDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -11653,7 +11653,7 @@ _CANCELDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -11692,7 +11692,7 @@ _FINISHDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -11731,7 +11731,7 @@ _DELETEDLPJOBREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A\033\n\031dlp.googleapis.com/DlpJob",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -11938,7 +11938,7 @@ _GETDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -12145,7 +12145,7 @@ _DELETEDEIDENTIFYTEMPLATEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A'\n%dlp.googleapis.com/DeidentifyTemplate",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -12236,7 +12236,7 @@ _LARGECUSTOMDICTIONARYCONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=29195,
     serialized_end=29439,
@@ -12267,7 +12267,7 @@ _LARGECUSTOMDICTIONARYSTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -12394,7 +12394,7 @@ _STOREDINFOTYPECONFIG = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=29500,
     serialized_end=29794,
@@ -12425,7 +12425,7 @@ _STOREDINFOTYPESTATS = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=None,
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -12441,7 +12441,7 @@ _STOREDINFOTYPESTATS = _descriptor.Descriptor(
             index=0,
             containing_type=None,
             fields=[],
-        )
+        ),
     ],
     serialized_start=29796,
     serialized_end=29911,
@@ -12826,7 +12826,7 @@ _GETSTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -13033,7 +13033,7 @@ _DELETESTOREDINFOTYPEREQUEST = _descriptor.Descriptor(
             extension_scope=None,
             serialized_options=b"\340A\002\372A#\n!dlp.googleapis.com/StoredInfoType",
             file=DESCRIPTOR,
-        )
+        ),
     ],
     extensions=[],
     nested_types=[],
@@ -13374,7 +13374,7 @@ _HYBRIDFINDINGDETAILS = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_HYBRIDFINDINGDETAILS_LABELSENTRY],
+    nested_types=[_HYBRIDFINDINGDETAILS_LABELSENTRY,],
     enum_types=[],
     serialized_options=None,
     is_extendable=False,

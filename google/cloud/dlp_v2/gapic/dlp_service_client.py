@@ -41,7 +41,7 @@ from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-dlp").version
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-dlp",).version
 
 
 class DlpServiceClient(object):
@@ -97,7 +97,7 @@ class DlpServiceClient(object):
     def dlp_job_path(cls, project, dlp_job):
         """Return a fully-qualified dlp_job string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/dlpJobs/{dlp_job}", project=project, dlp_job=dlp_job
+            "projects/{project}/dlpJobs/{dlp_job}", project=project, dlp_job=dlp_job,
         )
 
     @classmethod
@@ -131,7 +131,7 @@ class DlpServiceClient(object):
     def organization_path(cls, organization):
         """Return a fully-qualified organization string."""
         return google.api_core.path_template.expand(
-            "organizations/{organization}", organization=organization
+            "organizations/{organization}", organization=organization,
         )
 
     @classmethod
@@ -174,7 +174,7 @@ class DlpServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project
+            "projects/{project}", project=project,
         )
 
     @classmethod
@@ -309,12 +309,12 @@ class DlpServiceClient(object):
                 self.transport = transport
         else:
             self.transport = dlp_service_grpc_transport.DlpServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+                address=api_endpoint, channel=channel, credentials=credentials,
             )
 
         if client_info is None:
             client_info = google.api_core.gapic_v1.client_info.ClientInfo(
-                gapic_version=_GAPIC_LIBRARY_VERSION
+                gapic_version=_GAPIC_LIBRARY_VERSION,
             )
         else:
             client_info.gapic_version = _GAPIC_LIBRARY_VERSION
@@ -325,7 +325,7 @@ class DlpServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME]
+            client_config["interfaces"][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -1012,7 +1012,7 @@ class DlpServiceClient(object):
             )
 
         request = dlp_pb2.UpdateInspectTemplateRequest(
-            name=name, inspect_template=inspect_template, update_mask=update_mask
+            name=name, inspect_template=inspect_template, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -1086,7 +1086,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.GetInspectTemplateRequest(name=name)
+        request = dlp_pb2.GetInspectTemplateRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1280,7 +1280,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.DeleteInspectTemplateRequest(name=name)
+        request = dlp_pb2.DeleteInspectTemplateRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1463,7 +1463,7 @@ class DlpServiceClient(object):
             )
 
         request = dlp_pb2.UpdateDeidentifyTemplateRequest(
-            name=name, deidentify_template=deidentify_template, update_mask=update_mask
+            name=name, deidentify_template=deidentify_template, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -1538,7 +1538,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.GetDeidentifyTemplateRequest(name=name)
+        request = dlp_pb2.GetDeidentifyTemplateRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1736,7 +1736,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.DeleteDeidentifyTemplateRequest(name=name)
+        request = dlp_pb2.DeleteDeidentifyTemplateRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -1833,7 +1833,7 @@ class DlpServiceClient(object):
         # Sanity check: We have some fields which are mutually exclusive;
         # raise ValueError if more than one is sent.
         google.api_core.protobuf_helpers.check_oneof(
-            inspect_job=inspect_job, risk_job=risk_job
+            inspect_job=inspect_job, risk_job=risk_job,
         )
 
         request = dlp_pb2.CreateDlpJobRequest(
@@ -2078,7 +2078,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.GetDlpJobRequest(name=name)
+        request = dlp_pb2.GetDlpJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2149,7 +2149,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.DeleteDlpJobRequest(name=name)
+        request = dlp_pb2.DeleteDlpJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2220,7 +2220,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.CancelDlpJobRequest(name=name)
+        request = dlp_pb2.CancelDlpJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2291,7 +2291,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.FinishDlpJobRequest(name=name)
+        request = dlp_pb2.FinishDlpJobRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2372,7 +2372,9 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.HybridInspectDlpJobRequest(name=name, hybrid_item=hybrid_item)
+        request = dlp_pb2.HybridInspectDlpJobRequest(
+            name=name, hybrid_item=hybrid_item,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2600,7 +2602,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.GetJobTriggerRequest(name=name)
+        request = dlp_pb2.GetJobTriggerRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2668,7 +2670,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.DeleteJobTriggerRequest(name=name)
+        request = dlp_pb2.DeleteJobTriggerRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -2749,7 +2751,7 @@ class DlpServiceClient(object):
             )
 
         request = dlp_pb2.HybridInspectJobTriggerRequest(
-            name=name, hybrid_item=hybrid_item
+            name=name, hybrid_item=hybrid_item,
         )
         if metadata is None:
             metadata = []
@@ -2832,7 +2834,7 @@ class DlpServiceClient(object):
             )
 
         request = dlp_pb2.UpdateJobTriggerRequest(
-            name=name, job_trigger=job_trigger, update_mask=update_mask
+            name=name, job_trigger=job_trigger, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -3107,7 +3109,7 @@ class DlpServiceClient(object):
             )
 
         request = dlp_pb2.UpdateStoredInfoTypeRequest(
-            name=name, config=config, update_mask=update_mask
+            name=name, config=config, update_mask=update_mask,
         )
         if metadata is None:
             metadata = []
@@ -3181,7 +3183,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.GetStoredInfoTypeRequest(name=name)
+        request = dlp_pb2.GetStoredInfoTypeRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)
@@ -3378,7 +3380,7 @@ class DlpServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = dlp_pb2.DeleteStoredInfoTypeRequest(name=name)
+        request = dlp_pb2.DeleteStoredInfoTypeRequest(name=name,)
         if metadata is None:
             metadata = []
         metadata = list(metadata)

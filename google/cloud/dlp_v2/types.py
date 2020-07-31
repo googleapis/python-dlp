@@ -43,7 +43,10 @@ _shared_modules = [
     timeofday_pb2,
 ]
 
-_local_modules = [dlp_pb2, storage_pb2]
+_local_modules = [
+    dlp_pb2,
+    storage_pb2,
+]
 
 names = []
 
