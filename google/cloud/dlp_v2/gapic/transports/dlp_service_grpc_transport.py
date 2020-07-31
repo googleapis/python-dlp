@@ -28,14 +28,14 @@ class DlpServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
+
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
-    _OAUTH_SCOPES = (
-        'https://www.googleapis.com/auth/cloud-platform',
-    )
+    _OAUTH_SCOPES = ("https://www.googleapis.com/auth/cloud-platform",)
 
-    def __init__(self, channel=None, credentials=None,
-                 address='dlp.googleapis.com:443'):
+    def __init__(
+        self, channel=None, credentials=None, address="dlp.googleapis.com:443"
+    ):
         """Instantiate the transport class.
 
         Args:
@@ -53,8 +53,7 @@ class DlpServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                'The `channel` and `credentials` arguments are mutually '
-                'exclusive.',
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -63,8 +62,8 @@ class DlpServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    'grpc.max_send_message_length': -1,
-                    'grpc.max_receive_message_length': -1,
+                    "grpc.max_send_message_length": -1,
+                    "grpc.max_receive_message_length": -1,
                 }.items(),
             )
 
@@ -73,16 +72,13 @@ class DlpServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            'dlp_service_stub': dlp_pb2_grpc.DlpServiceStub(channel),
+            "dlp_service_stub": dlp_pb2_grpc.DlpServiceStub(channel),
         }
-
 
     @classmethod
     def create_channel(
-                cls,
-                address='dlp.googleapis.com:443',
-                credentials=None,
-                **kwargs):
+        cls, address="dlp.googleapis.com:443", credentials=None, **kwargs
+    ):
         """Create and return a gRPC channel object.
 
         Args:
@@ -99,10 +95,7 @@ class DlpServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address,
-            credentials=credentials,
-            scopes=cls._OAUTH_SCOPES,
-            **kwargs
+            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
         )
 
     @property
@@ -133,7 +126,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].InspectContent
+        return self._stubs["dlp_service_stub"].InspectContent
 
     @property
     def redact_image(self):
@@ -153,7 +146,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].RedactImage
+        return self._stubs["dlp_service_stub"].RedactImage
 
     @property
     def deidentify_content(self):
@@ -173,7 +166,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeidentifyContent
+        return self._stubs["dlp_service_stub"].DeidentifyContent
 
     @property
     def reidentify_content(self):
@@ -188,7 +181,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ReidentifyContent
+        return self._stubs["dlp_service_stub"].ReidentifyContent
 
     @property
     def list_info_types(self):
@@ -203,7 +196,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListInfoTypes
+        return self._stubs["dlp_service_stub"].ListInfoTypes
 
     @property
     def create_inspect_template(self):
@@ -218,7 +211,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CreateInspectTemplate
+        return self._stubs["dlp_service_stub"].CreateInspectTemplate
 
     @property
     def update_inspect_template(self):
@@ -232,7 +225,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].UpdateInspectTemplate
+        return self._stubs["dlp_service_stub"].UpdateInspectTemplate
 
     @property
     def get_inspect_template(self):
@@ -246,7 +239,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].GetInspectTemplate
+        return self._stubs["dlp_service_stub"].GetInspectTemplate
 
     @property
     def list_inspect_templates(self):
@@ -260,7 +253,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListInspectTemplates
+        return self._stubs["dlp_service_stub"].ListInspectTemplates
 
     @property
     def delete_inspect_template(self):
@@ -274,7 +267,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeleteInspectTemplate
+        return self._stubs["dlp_service_stub"].DeleteInspectTemplate
 
     @property
     def create_deidentify_template(self):
@@ -290,7 +283,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CreateDeidentifyTemplate
+        return self._stubs["dlp_service_stub"].CreateDeidentifyTemplate
 
     @property
     def update_deidentify_template(self):
@@ -305,7 +298,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].UpdateDeidentifyTemplate
+        return self._stubs["dlp_service_stub"].UpdateDeidentifyTemplate
 
     @property
     def get_deidentify_template(self):
@@ -320,7 +313,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].GetDeidentifyTemplate
+        return self._stubs["dlp_service_stub"].GetDeidentifyTemplate
 
     @property
     def list_deidentify_templates(self):
@@ -335,7 +328,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListDeidentifyTemplates
+        return self._stubs["dlp_service_stub"].ListDeidentifyTemplates
 
     @property
     def delete_deidentify_template(self):
@@ -350,7 +343,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeleteDeidentifyTemplate
+        return self._stubs["dlp_service_stub"].DeleteDeidentifyTemplate
 
     @property
     def create_dlp_job(self):
@@ -369,7 +362,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CreateDlpJob
+        return self._stubs["dlp_service_stub"].CreateDlpJob
 
     @property
     def list_dlp_jobs(self):
@@ -384,7 +377,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListDlpJobs
+        return self._stubs["dlp_service_stub"].ListDlpJobs
 
     @property
     def get_dlp_job(self):
@@ -399,7 +392,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].GetDlpJob
+        return self._stubs["dlp_service_stub"].GetDlpJob
 
     @property
     def delete_dlp_job(self):
@@ -416,7 +409,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeleteDlpJob
+        return self._stubs["dlp_service_stub"].DeleteDlpJob
 
     @property
     def cancel_dlp_job(self):
@@ -433,7 +426,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CancelDlpJob
+        return self._stubs["dlp_service_stub"].CancelDlpJob
 
     @property
     def finish_dlp_job(self):
@@ -450,7 +443,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].FinishDlpJob
+        return self._stubs["dlp_service_stub"].FinishDlpJob
 
     @property
     def hybrid_inspect_dlp_job(self):
@@ -468,7 +461,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].HybridInspectDlpJob
+        return self._stubs["dlp_service_stub"].HybridInspectDlpJob
 
     @property
     def list_job_triggers(self):
@@ -482,7 +475,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListJobTriggers
+        return self._stubs["dlp_service_stub"].ListJobTriggers
 
     @property
     def get_job_trigger(self):
@@ -496,7 +489,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].GetJobTrigger
+        return self._stubs["dlp_service_stub"].GetJobTrigger
 
     @property
     def delete_job_trigger(self):
@@ -510,7 +503,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeleteJobTrigger
+        return self._stubs["dlp_service_stub"].DeleteJobTrigger
 
     @property
     def hybrid_inspect_job_trigger(self):
@@ -528,7 +521,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].HybridInspectJobTrigger
+        return self._stubs["dlp_service_stub"].HybridInspectJobTrigger
 
     @property
     def update_job_trigger(self):
@@ -542,7 +535,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].UpdateJobTrigger
+        return self._stubs["dlp_service_stub"].UpdateJobTrigger
 
     @property
     def create_job_trigger(self):
@@ -557,7 +550,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CreateJobTrigger
+        return self._stubs["dlp_service_stub"].CreateJobTrigger
 
     @property
     def create_stored_info_type(self):
@@ -572,7 +565,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].CreateStoredInfoType
+        return self._stubs["dlp_service_stub"].CreateStoredInfoType
 
     @property
     def update_stored_info_type(self):
@@ -588,7 +581,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].UpdateStoredInfoType
+        return self._stubs["dlp_service_stub"].UpdateStoredInfoType
 
     @property
     def get_stored_info_type(self):
@@ -603,7 +596,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].GetStoredInfoType
+        return self._stubs["dlp_service_stub"].GetStoredInfoType
 
     @property
     def list_stored_info_types(self):
@@ -618,7 +611,7 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].ListStoredInfoTypes
+        return self._stubs["dlp_service_stub"].ListStoredInfoTypes
 
     @property
     def delete_stored_info_type(self):
@@ -633,4 +626,4 @@ class DlpServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['dlp_service_stub'].DeleteStoredInfoType
+        return self._stubs["dlp_service_stub"].DeleteStoredInfoType
