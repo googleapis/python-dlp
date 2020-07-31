@@ -23,7 +23,7 @@ from google.cloud.dlp_v2 import types
 
 
 __all__ = (
-    "enums",
-    "types",
-    "DlpServiceClient",
+    'enums',
+    'types',
+    'DlpServiceClient',
 )

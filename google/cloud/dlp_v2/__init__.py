@@ -26,12 +26,11 @@ from google.cloud.dlp_v2.gapic import enums
 
 if sys.version_info[:2] == (2, 7):
     message = (
-        "A future version of this library will drop support for Python 2.7."
-        "More details about Python 2 support for Google Cloud Client Libraries"
-        "can be found at https://cloud.google.com/python/docs/python2-sunset/"
+        'A future version of this library will drop support for Python 2.7.'
+        'More details about Python 2 support for Google Cloud Client Libraries'
+        'can be found at https://cloud.google.com/python/docs/python2-sunset/'
     )
     warnings.warn(message, DeprecationWarning)
-
 
 class DlpServiceClient(dlp_service_client.DlpServiceClient):
     __doc__ = dlp_service_client.DlpServiceClient.__doc__
@@ -39,7 +38,7 @@ class DlpServiceClient(dlp_service_client.DlpServiceClient):
 
 
 __all__ = (
-    "enums",
-    "types",
-    "DlpServiceClient",
+    'enums',
+    'types',
+    'DlpServiceClient',
 )
