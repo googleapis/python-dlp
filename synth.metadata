@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-dlp.git",
-        "sha": "9c6feba681fbd6ba438b6daa41e50ffa3b5ff17a"
+        "sha": "973bcc3783029e9b45b23fa13e52bcab4b6f2630"
       }
     },
     {
