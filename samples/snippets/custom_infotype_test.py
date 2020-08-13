@@ -16,7 +16,7 @@ import os
 
 import custom_infotype
 
-GCLOUD_PROJECT = os.getenv("GCLOUD_PROJECT")
+GCLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
 
 
 def test_omit_name_if_also_email(capsys):
