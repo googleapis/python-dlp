@@ -46,7 +46,7 @@ from google.cloud import dlp
 
 client = dlp.DlpServiceClient()
 
-template = client.get_inspect_template(request = {'name': "name"})
+template = client.get_inspect_template(request={"name": "name"})
 ```
 
 ### More Details
