@@ -43,12 +43,12 @@ def name_outside(client):
 
 @pytest.fixture(scope="module")
 def content_item():
-    return dlp_pb2.ContentItem(value="testing")
+    return dlp_v2.ContentItem(value="testing")
 
 
 @pytest.fixture(scope="module")
 def bytes_content_item():
-    return dlp_pb2.ByteContentItem(data=b"DEADBEEF")
+    return dlp_v2.ByteContentItem(data=b"DEADBEEF")
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -140,7 +140,7 @@ def inspect_template_path_outside(client):
 
 @pytest.fixture(scope="module")
 def inspect_template():
-    return dlp_pb2.InspectTemplate()
+    return dlp_v2.InspectTemplate()
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -234,7 +234,7 @@ def deidentify_template_path_outside(client):
 
 @pytest.fixture(scope="module")
 def deidentify_template():
-    return dlp_pb2.DeidentifyTemplate()
+    return dlp_v2.DeidentifyTemplate()
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -339,7 +339,7 @@ def job_path_outside(name_outside):
 
 @pytest.fixture(scope="module")
 def inspect_job():
-    return dlp_pb2.InspectJobConfig()
+    return dlp_v2.InspectJobConfig()
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -422,7 +422,7 @@ def job_trigger_path_outside(client):
 
 @pytest.fixture(scope="module")
 def job_trigger():
-    return dlp_pb2.JobTrigger()
+    return dlp_v2.JobTrigger()
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -494,22 +494,18 @@ class TestCRUDJobTrigger(object):
 @pytest.fixture(scope="module")
 def stored_info_type_path_inside(client):
     stored_info_type_id = 1234567
-    return client.stored_info_type_path(
-        vpcsc_config.project_inside, stored_info_type_id
-    )
+    return f"organizations/{vpcsc_config.project_inside}/storedInfoTypes/{stored_info_type_id}"
 
 
 @pytest.fixture(scope="module")
 def stored_info_type_path_outside(client):
     stored_info_type_id = 1234567
-    return client.stored_info_type_path(
-        vpcsc_config.project_outside, stored_info_type_id
-    )
+    return f"organizations/{vpcsc_config.project_outside}/storedInfoTypes/{stored_info_type_id}"
 
 
 @pytest.fixture(scope="module")
 def stored_info_type_config(client):
-    return dlp_pb2.StoredInfoTypeConfig()
+    return dlp_v2.StoredInfoTypeConfig()
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
