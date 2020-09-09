@@ -220,7 +220,7 @@ def deidentify_template_path_inside(client):
 @pytest.fixture(scope="module")
 def deidentify_template_path_outside(client):
     deidentify_template_id = 1234567
-    return f"projects/{vpcsc_config.project_outside}/deidentifyTemplates/{deidentify_template_id}""
+    return f"projects/{vpcsc_config.project_outside}/deidentifyTemplates/{deidentify_template_id}"
 
 
 @pytest.fixture(scope="module")
