@@ -214,7 +214,7 @@ class TestCRUDInspectTemplate(object):
 @pytest.fixture(scope="module")
 def deidentify_template_path_inside(client):
     deidentify_template_id = 1234567
-    return f"projects/{vpcsc_config.project_inside}/deidentifyTemplates/{deidentify_template_id}""
+    return f"projects/{vpcsc_config.project_inside}/deidentifyTemplates/{deidentify_template_id}"
 
 
 @pytest.fixture(scope="module")
