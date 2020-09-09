@@ -125,13 +125,16 @@ def test_reidentify_content_outside(client, name_outside, content_item):
 @pytest.fixture(scope="module")
 def inspect_template_path_inside(client):
     inspect_template_id = 1234567
-    return f"projects/{vpcsc_config.project_inside}/inspectTemplates/{inspect_template_id}"
+    return (
+        f"projects/{vpcsc_config.project_inside}/inspectTemplates/{inspect_template_id}"
+    )
 
 
 @pytest.fixture(scope="module")
 def inspect_template_path_outside(client):
     inspect_template_id = 1234567
     return f"projects/{vpcsc_config.project_outside}/inspectTemplates/{inspect_template_id}"
+
 
 @pytest.fixture(scope="module")
 def inspect_template():
