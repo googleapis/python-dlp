@@ -125,18 +125,13 @@ def test_reidentify_content_outside(client, name_outside, content_item):
 @pytest.fixture(scope="module")
 def inspect_template_path_inside(client):
     inspect_template_id = 1234567
-    return client.inspect_template_path(
-        vpcsc_config.project_inside, inspect_template_id
-    )
+    return f"projects/{vpcsc_config.project_inside}/inspectTemplates/{inspect_template_id}"
 
 
 @pytest.fixture(scope="module")
 def inspect_template_path_outside(client):
     inspect_template_id = 1234567
-    return client.inspect_template_path(
-        vpcsc_config.project_outside, inspect_template_id
-    )
-
+    return f"projects/{vpcsc_config.project_outside}/inspectTemplates/{inspect_template_id}"
 
 @pytest.fixture(scope="module")
 def inspect_template():
@@ -219,17 +214,13 @@ class TestCRUDInspectTemplate(object):
 @pytest.fixture(scope="module")
 def deidentify_template_path_inside(client):
     deidentify_template_id = 1234567
-    return client.deidentify_template_path(
-        vpcsc_config.project_inside, deidentify_template_id
-    )
+    return f"projects/{vpcsc_config.project_inside}/deidentifyTemplates/{deidentify_template_id}""
 
 
 @pytest.fixture(scope="module")
 def deidentify_template_path_outside(client):
     deidentify_template_id = 1234567
-    return client.deidentify_template_path(
-        vpcsc_config.project_outside, deidentify_template_id
-    )
+    return f"projects/{vpcsc_config.project_outside}/deidentifyTemplates/{deidentify_template_id}""
 
 
 @pytest.fixture(scope="module")
