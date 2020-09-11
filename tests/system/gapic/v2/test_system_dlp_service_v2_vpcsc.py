@@ -61,9 +61,7 @@ def test_inspect_content_inside(client, name_inside, content_item):
 @vpcsc_config.skip_unless_inside_vpcsc
 def test_inspect_content_outside(client, name_outside, content_item):
     with pytest.raises(exceptions.PermissionDenied) as exc:
-        client.inspect_content(
-            request={"parent": name_outside, "item": content_item}
-        )
+        client.inspect_content(request={"parent": name_outside, "item": content_item})
 
     assert _VPCSC_PROHIBITED_MESSAGE in exc.value.message
 
@@ -89,9 +87,7 @@ def test_redact_image_outside(client, name_outside, bytes_content_item):
 @vpcsc_config.skip_unless_inside_vpcsc
 def test_deidentify_content_inside(client, name_inside, content_item):
     with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-        client.deidentify_content(
-            request={"parent": name_inside, "item": content_item}
-        )
+        client.deidentify_content(request={"parent": name_inside, "item": content_item})
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -107,9 +103,7 @@ def test_deidentify_content_outside(client, name_outside, content_item):
 @vpcsc_config.skip_unless_inside_vpcsc
 def test_reidentify_content_inside(client, name_inside, content_item):
     with pytest.raises(exceptions.InvalidArgument):  # no perms issue
-        client.reidentify_content(
-            request={"parent": name_inside, "item": content_item}
-        )
+        client.reidentify_content(request={"parent": name_inside, "item": content_item})
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -488,13 +482,17 @@ class TestCRUDJobTrigger(object):
 @pytest.fixture(scope="module")
 def stored_info_type_path_inside(client):
     stored_info_type_id = 1234567
-    return f"projects/{vpcsc_config.project_inside}/storedInfoTypes/{stored_info_type_id}"
+    return (
+        f"projects/{vpcsc_config.project_inside}/storedInfoTypes/{stored_info_type_id}"
+    )
 
 
 @pytest.fixture(scope="module")
 def stored_info_type_path_outside(client):
     stored_info_type_id = 1234567
-    return f"projects/{vpcsc_config.project_outside}/storedInfoTypes/{stored_info_type_id}"
+    return (
+        f"projects/{vpcsc_config.project_outside}/storedInfoTypes/{stored_info_type_id}"
+    )
 
 
 @pytest.fixture(scope="module")
