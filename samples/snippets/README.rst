@@ -37,7 +37,7 @@ credentials for applications.
 Install Dependencies
 ++++++++++++++++++++
 
-#. Clone python-docs-samples and change directory to the sample directory you want to use.
+#. Clone python-dlp and change directory to the sample directory you want to use.
 
     .. code-block:: bash
 
