@@ -38,6 +38,17 @@ def test_inspect_string_with_exclusion_regex(capsys):
     assert "ironman" in out
 
 
+def test_inspect_string_with_exclusion_dict_substring(capsys):
+    custom_infotype.inspect_string_with_exclusion_dict_substring(
+        GCLOUD_PROJECT, "bob@example.com TEST@example.com TEST.com", ["TEST"]
+    )
+
+    out, _ = capsys.readouterr()
+    assert "TEST@example.com" not in out
+    assert "TEST.com" not in out
+    assert "bob@example.com" in out
+
+
 def test_omit_name_if_also_email(capsys):
     custom_infotype.omit_name_if_also_email(
         GCLOUD_PROJECT, "alice@example.com"
