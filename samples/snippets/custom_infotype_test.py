@@ -18,6 +18,16 @@ import custom_infotype
 
 GCLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
 
+def test_inspect_string_with_exclusion_dict(capsys):
+    custom_infotype.inspect_string_with_exclusion_dict(
+        GCLOUD_PROJECT, "gary@example.com, example@example.com", ["example@example.com"]
+    )
+
+    out, _ = capsys.readouterr()
+    assert "example@example.com" not in out
+    assert "gary@example.com" in out
+
+
 def test_inspect_string_with_exclusion_regex(capsys):
     custom_infotype.inspect_string_with_exclusion_regex(
         GCLOUD_PROJECT, "alice@example.com, ironman@avengers.net", ".+@example.com"
