@@ -18,15 +18,25 @@ import custom_infotype
 
 GCLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
 
+def test_inspect_string_with_exclusion_regex(capsys):
+    custom_infotype.inspect_string_with_exclusion_regex(
+        GCLOUD_PROJECT, "alice@example.com, ironman@avengers.net", ".+@example.com"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "alice" not in out
+    assert "ironman" in out
+
 
 def test_omit_name_if_also_email(capsys):
-    info_types = custom_infotype.omit_name_if_also_email(
+    custom_infotype.omit_name_if_also_email(
         GCLOUD_PROJECT, "alice@example.com"
     )
 
     # Ensure we found only EMAIL_ADDRESS, and not PERSON_NAME.
-    assert len(info_types) == 1
-    assert info_types[0] == "EMAIL_ADDRESS"
+    out, _ = capsys.readouterr()
+    assert "Info type: EMAIL_ADDRESS" in out
+    assert "Info type: PERSON_NAME" not in out
 
 
 def test_inspect_with_person_name_w_custom_hotword(capsys):

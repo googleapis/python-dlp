@@ -17,12 +17,92 @@ This file contains sample code that uses the Data Loss Prevention API to create
 custom infoType detectors to refine scan results.
 """
 
+# [START dlp_inspect_string_with_exclusion_regex]
+def inspect_string_with_exclusion_regex(
+    project, content_string, exclusion_regex=".+@example.com"
+):
+    """Inspects the provided text, avoiding matches specified in the exclusion regex
+
+    Uses the Data Loss Prevention API to omit matches on EMAIL_ADDRESS if they match
+    the specified exclusion regex.
+
+    Args:
+        project: The Google Cloud project id to use as a parent resource.
+        content_string: The string to inspect.
+        exclusion_regex: The regular expression to exclude matches on
+
+    Returns:
+        None; the response from the API is printed to the terminal.
+    """
+
+    # Import the client library.
+    import google.cloud.dlp
+
+    # Instantiate a client.
+    dlp = google.cloud.dlp_v2.DlpServiceClient()
+
+    # Construct a list of infoTypes for DLP to locate in `content_string`. See
+    # https://cloud.google.com/dlp/docs/concepts-infotypes for more information
+    # about supported infoTypes.
+    info_types_to_locate = [{"name": "EMAIL_ADDRESS"}]
+
+    # Construct a rule set that will only match on EMAIL_ADDRESS
+    # if the specified regex doesn't also match.
+    rule_set = [
+        {
+            "info_types": info_types_to_locate,
+            "rules": [
+                {
+                    "exclusion_rule": {
+                        "regex": {
+                            "pattern": exclusion_regex,
+                        },
+                        "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_FULL_MATCH,
+                    }
+                }
+            ],
+        }
+    ]
+
+    # Construct the configuration dictionary
+    inspect_config = {
+        "info_types": info_types_to_locate,
+        "rule_set": rule_set,
+        "include_quote": True,
+    }
+
+    # Construct the `item`.
+    item = {"value": content_string}
+
+    # Convert the project id into a full resource id.
+    parent = f"projects/{project}"
+
+    # Call the API.
+    response = dlp.inspect_content(
+        request={"parent": parent, "inspect_config": inspect_config, "item": item}
+    )
+
+    # Print out the results.
+    if response.result.findings:
+        for finding in response.result.findings:
+            try:
+                if finding.quote:
+                    print(f"Quote: {finding.quote}")
+            except AttributeError:
+                pass
+            print(f"Info type: {finding.info_type.name}")
+            print(f"Likelihood: {finding.likelihood}")
+    else:
+        print("No findings.")
+
+# [END dlp_inspect_string_with_exclusion_regex]
+
 
 # [START dlp_omit_name_if_also_email]
 def omit_name_if_also_email(
     project, content_string,
 ):
-    """Marches PERSON_NAME and EMAIL_ADDRESS, but not both.
+    """Matches PERSON_NAME and EMAIL_ADDRESS, but not both.
 
     Uses the Data Loss Prevention API omit matches on PERSON_NAME if the
     EMAIL_ADDRESS detector also matches.
@@ -79,8 +159,18 @@ def omit_name_if_also_email(
         request={"parent": parent, "inspect_config": inspect_config, "item": item}
     )
 
-    return [f.info_type.name for f in response.result.findings]
-
+    # Print out the results.
+    if response.result.findings:
+        for finding in response.result.findings:
+            try:
+                if finding.quote:
+                    print(f"Quote: {finding.quote}")
+            except AttributeError:
+                pass
+            print(f"Info type: {finding.info_type.name}")
+            print(f"Likelihood: {finding.likelihood}")
+    else:
+        print("No findings.")
 
 # [END dlp_omit_name_if_also_email]
 
