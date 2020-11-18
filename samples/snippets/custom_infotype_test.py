@@ -60,6 +60,16 @@ def test_omit_name_if_also_email(capsys):
     assert "Info type: PERSON_NAME" not in out
 
 
+def test_inspect_string_custom_excluding_substring(capsys):
+    custom_infotype.inspect_string_custom_excluding_substring(
+        GCLOUD_PROJECT, "Danger, Jimmy | Wayne, Bruce", ["Jimmy"]
+    )
+
+    out, _ = capsys.readouterr()
+    assert "Wayne, Bruce" in out
+    assert "Danger, Jimmy" not in out
+
+
 def test_inspect_with_person_name_w_custom_hotword(capsys):
     custom_infotype.inspect_with_person_name_w_custom_hotword(
         GCLOUD_PROJECT, "patient's name is John Doe.", "patient"
