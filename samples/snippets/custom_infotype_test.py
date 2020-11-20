@@ -70,6 +70,16 @@ def test_inspect_string_custom_excluding_substring(capsys):
     assert "Danger, Jimmy" not in out
 
 
+def test_inspect_string_custom_omit_overlap(capsys):
+    custom_infotype.inspect_string_custom_omit_overlap(
+        GCLOUD_PROJECT, "Larry Page and John Doe"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "Larry Page" not in out
+    assert "John Doe" in out
+
+
 def test_inspect_with_person_name_w_custom_hotword(capsys):
     custom_infotype.inspect_with_person_name_w_custom_hotword(
         GCLOUD_PROJECT, "patient's name is John Doe.", "patient"
