@@ -80,7 +80,14 @@ def test_omit_name_if_also_email(capsys):
     assert "Info type: PERSON_NAME" not in out
 
 
-# TODO: dlp_inspect_string_without_overlap
+def test_inspect_string_without_overlap(capsys):
+    custom_infotype.inspect_string_without_overlap(
+        GCLOUD_PROJECT, "example.com is a domain, james@example.org is an email."
+    )
+
+    out, _ = capsys.readouterr()
+    assert "example.com" in out
+    assert "example.org" not in out
 
 
 def test_inspect_with_person_name_w_custom_hotword(capsys):
