@@ -100,7 +100,40 @@ def test_inspect_with_person_name_w_custom_hotword(capsys):
     assert "Likelihood: 5" in out
 
 
-# TODO: dlp_inspect_string_multiple_rules
+def test_inspect_string_multiple_rules_patient(capsys):
+    custom_infotype.inspect_string_multiple_rules(
+        GCLOUD_PROJECT, "patient name: Jane Doe"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "Likelihood: 4" in out
+
+
+def test_inspect_string_multiple_rules_doctor(capsys):
+    custom_infotype.inspect_string_multiple_rules(
+        GCLOUD_PROJECT, "doctor: Jane Doe"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "No findings" in out
+
+
+def test_inspect_string_multiple_rules_quasimodo(capsys):
+    custom_infotype.inspect_string_multiple_rules(
+        GCLOUD_PROJECT, "patient name: quasimodo"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "No findings" in out
+
+
+def test_inspect_string_multiple_rules_redacted(capsys):
+    custom_infotype.inspect_string_multiple_rules(
+        GCLOUD_PROJECT, "name of patient: REDACTED"
+    )
+
+    out, _ = capsys.readouterr()
+    assert "No findings" in out
 
 
 def test_inspect_with_medical_record_number_custom_regex_detector(capsys):

@@ -444,6 +444,7 @@ def omit_name_if_also_email(
 
     Uses the Data Loss Prevention API omit matches on PERSON_NAME if the
     EMAIL_ADDRESS detector also matches.
+
     Args:
         project: The Google Cloud project id to use as a parent resource.
         content_string: The string to inspect.
@@ -611,10 +612,12 @@ def inspect_with_person_name_w_custom_hotword(
        PERSON_NAME if the user specified custom hotword is present. Only
        includes findings with the increased likelihood by setting a minimum
        likelihood threshold of VERY_LIKELY.
+
     Args:
         project: The Google Cloud project id to use as a parent resource.
         content_string: The string to inspect.
         custom_hotword: The custom hotword used for likelihood boosting.
+
     Returns:
         None; the response from the API is printed to the terminal.
     """
@@ -673,11 +676,105 @@ def inspect_with_person_name_w_custom_hotword(
     else:
         print("No findings.")
 
-
 # [END inspect_with_person_name_w_custom_hotword]
 
 
-# TODO: dlp_inspect_string_multiple_rules
+# [START dlp_inspect_string_multiple_rules]
+def inspect_string_multiple_rules(
+    project, content_string
+):
+    """Uses the Data Loss Prevention API to modify likelihood for matches on
+       PERSON_NAME combining multiple hotword and exclusion rules.
+
+    Args:
+        project: The Google Cloud project id to use as a parent resource.
+        content_string: The string to inspect.
+
+    Returns:
+        None; the response from the API is printed to the terminal.
+    """
+
+    # Import the client library.
+    import google.cloud.dlp
+
+    # Instantiate a client.
+    dlp = google.cloud.dlp_v2.DlpServiceClient()
+
+    # Construct hotword rules
+    patient_rule = {
+        "hotword_regex": {"pattern": "patient"},
+        "proximity": {"window_before": 10},
+        "likelihood_adjustment": {
+            "fixed_likelihood": google.cloud.dlp_v2.Likelihood.VERY_LIKELY
+        },
+    }
+    doctor_rule = {
+        "hotword_regex": {"pattern": "doctor"},
+        "proximity": {"window_before": 10},
+        "likelihood_adjustment": {
+            "fixed_likelihood": google.cloud.dlp_v2.Likelihood.UNLIKELY
+        },
+    }
+
+    # Construct exclusion rules
+    quasimodo_rule = {
+        "dictionary": {
+            "word_list": {
+                "words": ["quasimodo"]
+            },
+        },
+        "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
+    }
+    redacted_rule = {
+        "regex": {"pattern": "REDACTED"},
+        "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
+    }
+
+    # Construct the rule set, combining the above rules
+    rule_set = [
+        {
+            "info_types": [{"name": "PERSON_NAME"}],
+            "rules": [
+                {"hotword_rule": patient_rule},
+                {"hotword_rule": doctor_rule},
+                {"exclusion_rule": quasimodo_rule},
+                {"exclusion_rule": redacted_rule},
+            ],
+        }
+    ]
+
+    # Construct the configuration dictionary
+    inspect_config = {
+        "info_types": [{"name": "PERSON_NAME"}],
+        "rule_set": rule_set,
+        "include_quote": True,
+    }
+
+    # Construct the `item`.
+    item = {"value": content_string}
+
+    # Convert the project id into a full resource id.
+    parent = f"projects/{project}"
+
+    # Call the API.
+    response = dlp.inspect_content(
+        request={"parent": parent, "inspect_config": inspect_config, "item": item}
+    )
+
+    # Print out the results.
+    if response.result.findings:
+        for finding in response.result.findings:
+            try:
+                if finding.quote:
+                    print(f"Quote: {finding.quote}")
+            except AttributeError:
+                pass
+            print(f"Info type: {finding.info_type.name}")
+            print(f"Likelihood: {finding.likelihood}")
+    else:
+        print("No findings.")
+
+# [END dlp_inspect_string_multiple_rules]
 
 
 # [START dlp_inspect_with_medical_record_number_custom_regex_detector]
@@ -686,9 +783,11 @@ def inspect_with_medical_record_number_custom_regex_detector(
 ):
     """Uses the Data Loss Prevention API to analyze string with medical record
        number custom regex detector
+
     Args:
         project: The Google Cloud project id to use as a parent resource.
         content_string: The string to inspect.
+
     Returns:
         None; the response from the API is printed to the terminal.
     """
@@ -750,9 +849,11 @@ def inspect_with_medical_record_number_w_custom_hotwords(
     """Uses the Data Loss Prevention API to analyze string with medical record
        number custom regex detector, with custom hotwords rules to boost finding
        certainty under some circumstances.
+
     Args:
         project: The Google Cloud project id to use as a parent resource.
         content_string: The string to inspect.
+
     Returns:
         None; the response from the API is printed to the terminal.
     """
