@@ -264,83 +264,6 @@ def inspect_string_with_exclusion_dict_substring(
 # [END dlp_inspect_string_with_exclusion_dict_substring]
 
 
-# [START dlp_omit_name_if_also_email]
-def omit_name_if_also_email(
-    project, content_string,
-):
-    """Matches PERSON_NAME and EMAIL_ADDRESS, but not both.
-
-    Uses the Data Loss Prevention API omit matches on PERSON_NAME if the
-    EMAIL_ADDRESS detector also matches.
-    Args:
-        project: The Google Cloud project id to use as a parent resource.
-        content_string: The string to inspect.
-
-    Returns:
-        None; the response from the API is printed to the terminal.
-    """
-
-    # Import the client library.
-    import google.cloud.dlp
-
-    # Instantiate a client.
-    dlp = google.cloud.dlp_v2.DlpServiceClient()
-
-    # Construct a list of infoTypes for DLP to locate in `content_string`. See
-    # https://cloud.google.com/dlp/docs/concepts-infotypes for more information
-    # about supported infoTypes.
-    info_types_to_locate = [{"name": "PERSON_NAME"}, {"name": "EMAIL_ADDRESS"}]
-
-    # Construct the configuration dictionary that will only match on PERSON_NAME
-    # if the EMAIL_ADDRESS doesn't also match. This configuration helps reduce
-    # the total number of findings when there is a large overlap between different
-    # infoTypes.
-    inspect_config = {
-        "info_types": info_types_to_locate,
-        "rule_set": [
-            {
-                "info_types": [{"name": "PERSON_NAME"}],
-                "rules": [
-                    {
-                        "exclusion_rule": {
-                            "exclude_info_types": {
-                                "info_types": [{"name": "EMAIL_ADDRESS"}]
-                            },
-                            "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
-                        }
-                    }
-                ],
-            }
-        ],
-    }
-
-    # Construct the `item`.
-    item = {"value": content_string}
-
-    # Convert the project id into a full resource id.
-    parent = f"projects/{project}"
-
-    # Call the API.
-    response = dlp.inspect_content(
-        request={"parent": parent, "inspect_config": inspect_config, "item": item}
-    )
-
-    # Print out the results.
-    if response.result.findings:
-        for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
-            print(f"Info type: {finding.info_type.name}")
-            print(f"Likelihood: {finding.likelihood}")
-    else:
-        print("No findings.")
-
-# [END dlp_omit_name_if_also_email]
-
-
 # [START dlp_inspect_string_custom_excluding_substring]
 def inspect_string_custom_excluding_substring(
     project, content_string, exclusion_list=["jimmy"]
@@ -513,6 +436,86 @@ def inspect_string_custom_omit_overlap(
 # [END dlp_inspect_string_custom_omit_overlap]
 
 
+# [START dlp_omit_name_if_also_email]
+def omit_name_if_also_email(
+    project, content_string,
+):
+    """Matches PERSON_NAME and EMAIL_ADDRESS, but not both.
+
+    Uses the Data Loss Prevention API omit matches on PERSON_NAME if the
+    EMAIL_ADDRESS detector also matches.
+    Args:
+        project: The Google Cloud project id to use as a parent resource.
+        content_string: The string to inspect.
+
+    Returns:
+        None; the response from the API is printed to the terminal.
+    """
+
+    # Import the client library.
+    import google.cloud.dlp
+
+    # Instantiate a client.
+    dlp = google.cloud.dlp_v2.DlpServiceClient()
+
+    # Construct a list of infoTypes for DLP to locate in `content_string`. See
+    # https://cloud.google.com/dlp/docs/concepts-infotypes for more information
+    # about supported infoTypes.
+    info_types_to_locate = [{"name": "PERSON_NAME"}, {"name": "EMAIL_ADDRESS"}]
+
+    # Construct the configuration dictionary that will only match on PERSON_NAME
+    # if the EMAIL_ADDRESS doesn't also match. This configuration helps reduce
+    # the total number of findings when there is a large overlap between different
+    # infoTypes.
+    inspect_config = {
+        "info_types": info_types_to_locate,
+        "rule_set": [
+            {
+                "info_types": [{"name": "PERSON_NAME"}],
+                "rules": [
+                    {
+                        "exclusion_rule": {
+                            "exclude_info_types": {
+                                "info_types": [{"name": "EMAIL_ADDRESS"}]
+                            },
+                            "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
+                        }
+                    }
+                ],
+            }
+        ],
+    }
+
+    # Construct the `item`.
+    item = {"value": content_string}
+
+    # Convert the project id into a full resource id.
+    parent = f"projects/{project}"
+
+    # Call the API.
+    response = dlp.inspect_content(
+        request={"parent": parent, "inspect_config": inspect_config, "item": item}
+    )
+
+    # Print out the results.
+    if response.result.findings:
+        for finding in response.result.findings:
+            try:
+                if finding.quote:
+                    print(f"Quote: {finding.quote}")
+            except AttributeError:
+                pass
+            print(f"Info type: {finding.info_type.name}")
+            print(f"Likelihood: {finding.likelihood}")
+    else:
+        print("No findings.")
+
+# [END dlp_omit_name_if_also_email]
+
+
+# TODO: dlp_inspect_string_without_overlap
+
+
 # [START inspect_with_person_name_w_custom_hotword]
 def inspect_with_person_name_w_custom_hotword(
     project, content_string, custom_hotword="patient"
@@ -585,6 +588,9 @@ def inspect_with_person_name_w_custom_hotword(
 
 
 # [END inspect_with_person_name_w_custom_hotword]
+
+
+# TODO: dlp_inspect_string_multiple_rules
 
 
 # [START dlp_inspect_with_medical_record_number_custom_regex_detector]
