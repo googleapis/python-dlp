@@ -87,11 +87,7 @@ def inspect_string_with_exclusion_dict(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -168,11 +164,7 @@ def inspect_string_with_exclusion_regex(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -251,11 +243,7 @@ def inspect_string_with_exclusion_dict_substring(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -337,11 +325,7 @@ def inspect_string_custom_excluding_substring(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -423,11 +407,7 @@ def inspect_string_custom_omit_overlap(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -485,6 +465,7 @@ def omit_name_if_also_email(
                 ],
             }
         ],
+        "include_quote": True,
     }
 
     # Construct the `item`.
@@ -501,11 +482,7 @@ def omit_name_if_also_email(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -591,11 +568,7 @@ def inspect_string_without_overlap(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -650,6 +623,7 @@ def inspect_with_person_name_w_custom_hotword(
     inspect_config = {
         "rule_set": rule_set,
         "min_likelihood": google.cloud.dlp_v2.Likelihood.VERY_LIKELY,
+        "include_quote": True,
     }
 
     # Construct the `item`.
@@ -666,11 +640,7 @@ def inspect_with_person_name_w_custom_hotword(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -764,11 +734,7 @@ def inspect_string_multiple_rules(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -812,6 +778,7 @@ def inspect_with_medical_record_number_custom_regex_detector(
     # Construct the configuration dictionary with the custom regex info type.
     inspect_config = {
         "custom_info_types": custom_info_types,
+        "include_quote": True,
     }
 
     # Construct the `item`.
@@ -828,11 +795,7 @@ def inspect_with_medical_record_number_custom_regex_detector(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
@@ -894,6 +857,7 @@ def inspect_with_medical_record_number_w_custom_hotwords(
     inspect_config = {
         "custom_info_types": custom_info_types,
         "rule_set": rule_set,
+        "include_quote": True,
     }
 
     # Construct the `item`.
@@ -910,11 +874,7 @@ def inspect_with_medical_record_number_w_custom_hotwords(
     # Print out the results.
     if response.result.findings:
         for finding in response.result.findings:
-            try:
-                if finding.quote:
-                    print(f"Quote: {finding.quote}")
-            except AttributeError:
-                pass
+            print(f"Quote: {finding.quote}")
             print(f"Info type: {finding.info_type.name}")
             print(f"Likelihood: {finding.likelihood}")
     else:
