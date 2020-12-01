@@ -17,6 +17,7 @@ This file contains sample code that uses the Data Loss Prevention API to create
 custom infoType detectors to refine scan results.
 """
 
+
 # [START dlp_inspect_string_with_exclusion_dict]
 def inspect_string_with_exclusion_dict(
     project, content_string, exclusion_list=["example@example.com"]
