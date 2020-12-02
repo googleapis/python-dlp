@@ -4,6 +4,24 @@
 
 [1]: https://pypi.org/project/google-cloud-dlp/#history
 
+## [3.0.0](https://www.github.com/googleapis/python-dlp/compare/v2.0.0...v3.0.0) (2020-12-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* rename fields that collide with builtins; retrieve job config for risk analysis jobs (#75)
+
+### Bug Fixes
+
+* rename fields that collide with builtins; retrieve job config for risk analysis jobs ([#75](https://www.github.com/googleapis/python-dlp/issues/75)) ([4f3148e](https://www.github.com/googleapis/python-dlp/commit/4f3148e93ec3dfc9395aa38a3afc62498500a055))
+* **sample-test:** add backoff around the cleanup code ([#65](https://www.github.com/googleapis/python-dlp/issues/65)) ([4fd54ee](https://www.github.com/googleapis/python-dlp/commit/4fd54ee0b6f3abe44341d599bcbb5fb6c1d5187a))
+* fix vpcsc tests ([#51](https://www.github.com/googleapis/python-dlp/issues/51)) ([e05dd20](https://www.github.com/googleapis/python-dlp/commit/e05dd20bc2dcea47d3ef352ebf0377ff70302ac2))
+
+
+### Documentation
+
+* **samples:** fix README to accurately reflect the new repo after the move ([#72](https://www.github.com/googleapis/python-dlp/issues/72)) ([dc56806](https://www.github.com/googleapis/python-dlp/commit/dc56806b47f92227e396969d8a583b881aa41fd1))
+
 ## [2.0.0](https://www.github.com/googleapis/python-dlp/compare/v1.0.0...v2.0.0) (2020-08-18)
 
 
