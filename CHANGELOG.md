@@ -8,14 +8,18 @@
 
 
 ### ⚠ BREAKING CHANGES
-
-* rename fields that collide with builtins; retrieve job config for risk analysis jobs (#75)
+* rename fields that collide with builtins (#75)
+  * `ByteContentItem.type` -> `ByteContentItem.type_`
+  * `MetadataLocation.type` -> `MetadataLocation.type_`
+  * `Container.type` -> `Container.type_`
+  * `Bucket.min` -> `Bucket.min_`
+  * `Bucket.max `-> `Bucket.max_`
+  * `DlpJob.type` -> `DlpJob.type_`
+  * `GetDlpJobRequest.type` -> `GetDlpJobRequest.type_`
 
 ### Bug Fixes
 
 * rename fields that collide with builtins; retrieve job config for risk analysis jobs ([#75](https://www.github.com/googleapis/python-dlp/issues/75)) ([4f3148e](https://www.github.com/googleapis/python-dlp/commit/4f3148e93ec3dfc9395aa38a3afc62498500a055))
-* **sample-test:** add backoff around the cleanup code ([#65](https://www.github.com/googleapis/python-dlp/issues/65)) ([4fd54ee](https://www.github.com/googleapis/python-dlp/commit/4fd54ee0b6f3abe44341d599bcbb5fb6c1d5187a))
-* fix vpcsc tests ([#51](https://www.github.com/googleapis/python-dlp/issues/51)) ([e05dd20](https://www.github.com/googleapis/python-dlp/commit/e05dd20bc2dcea47d3ef352ebf0377ff70302ac2))
 
 
 ### Documentation
