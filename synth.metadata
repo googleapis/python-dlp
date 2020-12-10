@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-dlp.git",
-        "sha": "908a8d3e2ee741ebdbc78359a18c7e8a1255c5ea"
+        "sha": "fc7290c6340e213dc5134434e33afe84cbeae9d3"
       }
     },
     {
@@ -119,7 +119,6 @@
     "renovate.json",
     "samples/AUTHORING_GUIDE.md",
     "samples/CONTRIBUTING.md",
-    "samples/snippets/README.rst",
     "samples/snippets/noxfile.py",
     "scripts/decrypt-secrets.sh",
     "scripts/fixup_dlp_v2_keywords.py",
