@@ -99,6 +99,7 @@ class DlpServiceAsyncClient:
         DlpServiceClient.parse_common_location_path
     )
 
+    from_service_account_info = DlpServiceClient.from_service_account_info
     from_service_account_file = DlpServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
 
@@ -183,7 +184,7 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/inspecting-text,
 
         Args:
-            request (:class:`~.dlp.InspectContentRequest`):
+            request (:class:`google.cloud.dlp_v2.types.InspectContentRequest`):
                 The request object. Request to search for potentially
                 sensitive info in a ContentItem.
 
@@ -194,7 +195,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.InspectContentResponse:
+            google.cloud.dlp_v2.types.InspectContentResponse:
                 Results of inspecting an item.
         """
         # Create or coerce a protobuf request object.
@@ -249,7 +250,7 @@ class DlpServiceAsyncClient:
         may change over time as detectors are updated.
 
         Args:
-            request (:class:`~.dlp.RedactImageRequest`):
+            request (:class:`google.cloud.dlp_v2.types.RedactImageRequest`):
                 The request object. Request to search for potentially
                 sensitive info in an image and redact it by covering it
                 with a colored rectangle.
@@ -261,7 +262,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.RedactImageResponse:
+            google.cloud.dlp_v2.types.RedactImageResponse:
                 Results of redacting an image.
         """
         # Create or coerce a protobuf request object.
@@ -316,7 +317,7 @@ class DlpServiceAsyncClient:
         may change over time as detectors are updated.
 
         Args:
-            request (:class:`~.dlp.DeidentifyContentRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeidentifyContentRequest`):
                 The request object. Request to de-identify a list of
                 items.
 
@@ -327,7 +328,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DeidentifyContentResponse:
+            google.cloud.dlp_v2.types.DeidentifyContentResponse:
                 Results of de-identifying a
                 ContentItem.
 
@@ -377,7 +378,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.ReidentifyContentRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ReidentifyContentRequest`):
                 The request object. Request to re-identify an item.
 
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
@@ -387,7 +388,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.ReidentifyContentResponse:
+            google.cloud.dlp_v2.types.ReidentifyContentResponse:
                 Results of re-identifying a item.
         """
         # Create or coerce a protobuf request object.
@@ -437,7 +438,7 @@ class DlpServiceAsyncClient:
         learn more.
 
         Args:
-            request (:class:`~.dlp.ListInfoTypesRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListInfoTypesRequest`):
                 The request object. Request for the list of infoTypes.
             parent (:class:`str`):
                 The parent resource name.
@@ -447,6 +448,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     locations/<var>LOCATION_ID</var>
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -458,7 +460,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.ListInfoTypesResponse:
+            google.cloud.dlp_v2.types.ListInfoTypesResponse:
                 Response to the ListInfoTypes
                 request.
 
@@ -519,7 +521,7 @@ class DlpServiceAsyncClient:
         templates to learn more.
 
         Args:
-            request (:class:`~.dlp.CreateInspectTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CreateInspectTemplateRequest`):
                 The request object. Request message for
                 CreateInspectTemplate.
             parent (:class:`str`):
@@ -547,12 +549,14 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            inspect_template (:class:`~.dlp.InspectTemplate`):
+            inspect_template (:class:`google.cloud.dlp_v2.types.InspectTemplate`):
                 Required. The InspectTemplate to
                 create.
+
                 This corresponds to the ``inspect_template`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -564,7 +568,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.InspectTemplate:
+            google.cloud.dlp_v2.types.InspectTemplate:
                 The inspectTemplate contains a
                 configuration (set of types of sensitive
                 data to be detected) to be used anywhere
@@ -630,7 +634,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.UpdateInspectTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.UpdateInspectTemplateRequest`):
                 The request object. Request message for
                 UpdateInspectTemplate.
             name (:class:`str`):
@@ -638,17 +642,19 @@ class DlpServiceAsyncClient:
                 inspectTemplate to be updated, for example
                 ``organizations/433245324/inspectTemplates/432452342``
                 or projects/project-id/inspectTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            inspect_template (:class:`~.dlp.InspectTemplate`):
+            inspect_template (:class:`google.cloud.dlp_v2.types.InspectTemplate`):
                 New InspectTemplate value.
                 This corresponds to the ``inspect_template`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 Mask to control which fields get
                 updated.
+
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -660,7 +666,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.InspectTemplate:
+            google.cloud.dlp_v2.types.InspectTemplate:
                 The inspectTemplate contains a
                 configuration (set of types of sensitive
                 data to be detected) to be used anywhere
@@ -726,7 +732,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.GetInspectTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.GetInspectTemplateRequest`):
                 The request object. Request message for
                 GetInspectTemplate.
             name (:class:`str`):
@@ -734,6 +740,7 @@ class DlpServiceAsyncClient:
                 inspectTemplate to be read, for example
                 ``organizations/433245324/inspectTemplates/432452342``
                 or projects/project-id/inspectTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -745,7 +752,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.InspectTemplate:
+            google.cloud.dlp_v2.types.InspectTemplate:
                 The inspectTemplate contains a
                 configuration (set of types of sensitive
                 data to be detected) to be used anywhere
@@ -815,7 +822,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.ListInspectTemplatesRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListInspectTemplatesRequest`):
                 The request object. Request message for
                 ListInspectTemplates.
             parent (:class:`str`):
@@ -843,6 +850,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -854,7 +862,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListInspectTemplatesAsyncPager:
+            google.cloud.dlp_v2.services.dlp_service.pagers.ListInspectTemplatesAsyncPager:
                 Response message for
                 ListInspectTemplates.
                 Iterating over this object will yield
@@ -928,7 +936,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.DeleteInspectTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeleteInspectTemplateRequest`):
                 The request object. Request message for
                 DeleteInspectTemplate.
             name (:class:`str`):
@@ -936,6 +944,7 @@ class DlpServiceAsyncClient:
                 inspectTemplate to be deleted, for example
                 ``organizations/433245324/inspectTemplates/432452342``
                 or projects/project-id/inspectTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1008,7 +1017,7 @@ class DlpServiceAsyncClient:
         deid to learn more.
 
         Args:
-            request (:class:`~.dlp.CreateDeidentifyTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CreateDeidentifyTemplateRequest`):
                 The request object. Request message for
                 CreateDeidentifyTemplate.
             parent (:class:`str`):
@@ -1036,12 +1045,14 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            deidentify_template (:class:`~.dlp.DeidentifyTemplate`):
+            deidentify_template (:class:`google.cloud.dlp_v2.types.DeidentifyTemplate`):
                 Required. The DeidentifyTemplate to
                 create.
+
                 This corresponds to the ``deidentify_template`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1053,7 +1064,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DeidentifyTemplate:
+            google.cloud.dlp_v2.types.DeidentifyTemplate:
                 DeidentifyTemplates contains
                 instructions on how to de-identify
                 content. See
@@ -1117,7 +1128,7 @@ class DlpServiceAsyncClient:
         templates-deid to learn more.
 
         Args:
-            request (:class:`~.dlp.UpdateDeidentifyTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.UpdateDeidentifyTemplateRequest`):
                 The request object. Request message for
                 UpdateDeidentifyTemplate.
             name (:class:`str`):
@@ -1125,17 +1136,19 @@ class DlpServiceAsyncClient:
                 template to be updated, for example
                 ``organizations/433245324/deidentifyTemplates/432452342``
                 or projects/project-id/deidentifyTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            deidentify_template (:class:`~.dlp.DeidentifyTemplate`):
+            deidentify_template (:class:`google.cloud.dlp_v2.types.DeidentifyTemplate`):
                 New DeidentifyTemplate value.
                 This corresponds to the ``deidentify_template`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 Mask to control which fields get
                 updated.
+
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1147,7 +1160,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DeidentifyTemplate:
+            google.cloud.dlp_v2.types.DeidentifyTemplate:
                 DeidentifyTemplates contains
                 instructions on how to de-identify
                 content. See
@@ -1211,7 +1224,7 @@ class DlpServiceAsyncClient:
         templates-deid to learn more.
 
         Args:
-            request (:class:`~.dlp.GetDeidentifyTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.GetDeidentifyTemplateRequest`):
                 The request object. Request message for
                 GetDeidentifyTemplate.
             name (:class:`str`):
@@ -1219,6 +1232,7 @@ class DlpServiceAsyncClient:
                 deidentify template to be read, for example
                 ``organizations/433245324/deidentifyTemplates/432452342``
                 or projects/project-id/deidentifyTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1230,7 +1244,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DeidentifyTemplate:
+            google.cloud.dlp_v2.types.DeidentifyTemplate:
                 DeidentifyTemplates contains
                 instructions on how to de-identify
                 content. See
@@ -1298,7 +1312,7 @@ class DlpServiceAsyncClient:
         templates-deid to learn more.
 
         Args:
-            request (:class:`~.dlp.ListDeidentifyTemplatesRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListDeidentifyTemplatesRequest`):
                 The request object. Request message for
                 ListDeidentifyTemplates.
             parent (:class:`str`):
@@ -1326,6 +1340,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1337,7 +1352,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListDeidentifyTemplatesAsyncPager:
+            google.cloud.dlp_v2.services.dlp_service.pagers.ListDeidentifyTemplatesAsyncPager:
                 Response message for
                 ListDeidentifyTemplates.
                 Iterating over this object will yield
@@ -1411,7 +1426,7 @@ class DlpServiceAsyncClient:
         templates-deid to learn more.
 
         Args:
-            request (:class:`~.dlp.DeleteDeidentifyTemplateRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeleteDeidentifyTemplateRequest`):
                 The request object. Request message for
                 DeleteDeidentifyTemplate.
             name (:class:`str`):
@@ -1419,6 +1434,7 @@ class DlpServiceAsyncClient:
                 deidentify template to be deleted, for example
                 ``organizations/433245324/deidentifyTemplates/432452342``
                 or projects/project-id/deidentifyTemplates/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1491,7 +1507,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.CreateJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CreateJobTriggerRequest`):
                 The request object. Request message for
                 CreateJobTrigger.
             parent (:class:`str`):
@@ -1514,10 +1530,11 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            job_trigger (:class:`~.dlp.JobTrigger`):
+            job_trigger (:class:`google.cloud.dlp_v2.types.JobTrigger`):
                 Required. The JobTrigger to create.
                 This corresponds to the ``job_trigger`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -1530,7 +1547,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.JobTrigger:
+            google.cloud.dlp_v2.types.JobTrigger:
                 Contains a configuration to make dlp
                 api calls on a repeating basis. See
                 https://cloud.google.com/dlp/docs/concepts-
@@ -1593,24 +1610,26 @@ class DlpServiceAsyncClient:
         triggers to learn more.
 
         Args:
-            request (:class:`~.dlp.UpdateJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.UpdateJobTriggerRequest`):
                 The request object. Request message for
                 UpdateJobTrigger.
             name (:class:`str`):
                 Required. Resource name of the project and the
                 triggeredJob, for example
                 ``projects/dlp-test-project/jobTriggers/53234423``.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            job_trigger (:class:`~.dlp.JobTrigger`):
+            job_trigger (:class:`google.cloud.dlp_v2.types.JobTrigger`):
                 New JobTrigger value.
                 This corresponds to the ``job_trigger`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 Mask to control which fields get
                 updated.
+
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1622,7 +1641,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.JobTrigger:
+            google.cloud.dlp_v2.types.JobTrigger:
                 Contains a configuration to make dlp
                 api calls on a repeating basis. See
                 https://cloud.google.com/dlp/docs/concepts-
@@ -1690,13 +1709,14 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/products#product-launch-stages.
 
         Args:
-            request (:class:`~.dlp.HybridInspectJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.HybridInspectJobTriggerRequest`):
                 The request object. Request to search for potentially
                 sensitive info in a custom location.
             name (:class:`str`):
                 Required. Resource name of the trigger to execute a
                 hybrid inspect on, for example
                 ``projects/dlp-test-project/jobTriggers/53234423``.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1708,7 +1728,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.HybridInspectResponse:
+            google.cloud.dlp_v2.types.HybridInspectResponse:
                 Quota exceeded errors will be thrown
                 once quota has been met.
 
@@ -1765,12 +1785,13 @@ class DlpServiceAsyncClient:
         triggers to learn more.
 
         Args:
-            request (:class:`~.dlp.GetJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.GetJobTriggerRequest`):
                 The request object. Request message for GetJobTrigger.
             name (:class:`str`):
                 Required. Resource name of the project and the
                 triggeredJob, for example
                 ``projects/dlp-test-project/jobTriggers/53234423``.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1782,7 +1803,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.JobTrigger:
+            google.cloud.dlp_v2.types.JobTrigger:
                 Contains a configuration to make dlp
                 api calls on a repeating basis. See
                 https://cloud.google.com/dlp/docs/concepts-
@@ -1849,7 +1870,7 @@ class DlpServiceAsyncClient:
         triggers to learn more.
 
         Args:
-            request (:class:`~.dlp.ListJobTriggersRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListJobTriggersRequest`):
                 The request object. Request message for ListJobTriggers.
             parent (:class:`str`):
                 Required. Parent resource name.
@@ -1871,6 +1892,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1882,7 +1904,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListJobTriggersAsyncPager:
+            google.cloud.dlp_v2.services.dlp_service.pagers.ListJobTriggersAsyncPager:
                 Response message for ListJobTriggers.
                 Iterating over this object will yield
                 results and resolve additional pages
@@ -1955,13 +1977,14 @@ class DlpServiceAsyncClient:
         triggers to learn more.
 
         Args:
-            request (:class:`~.dlp.DeleteJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeleteJobTriggerRequest`):
                 The request object. Request message for
                 DeleteJobTrigger.
             name (:class:`str`):
                 Required. Resource name of the project and the
                 triggeredJob, for example
                 ``projects/dlp-test-project/jobTriggers/53234423``.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2030,7 +2053,7 @@ class DlpServiceAsyncClient:
         occur.
 
         Args:
-            request (:class:`~.dlp.ActivateJobTriggerRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ActivateJobTriggerRequest`):
                 The request object. Request message for
                 ActivateJobTrigger.
 
@@ -2041,7 +2064,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DlpJob:
+            google.cloud.dlp_v2.types.DlpJob:
                 Combines all of the information about
                 a DLP job.
 
@@ -2092,7 +2115,7 @@ class DlpServiceAsyncClient:
         may change over time as detectors are updated.
 
         Args:
-            request (:class:`~.dlp.CreateDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CreateDlpJobRequest`):
                 The request object. Request message for
                 CreateDlpJobRequest. Used to initiate long running jobs
                 such as calculating risk metrics or inspecting Google
@@ -2117,18 +2140,21 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            inspect_job (:class:`~.dlp.InspectJobConfig`):
+            inspect_job (:class:`google.cloud.dlp_v2.types.InspectJobConfig`):
                 Set to control what and how to
                 inspect.
+
                 This corresponds to the ``inspect_job`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            risk_job (:class:`~.dlp.RiskAnalysisJobConfig`):
+            risk_job (:class:`google.cloud.dlp_v2.types.RiskAnalysisJobConfig`):
                 Set to choose what metric to
                 calculate.
+
                 This corresponds to the ``risk_job`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2140,7 +2166,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DlpJob:
+            google.cloud.dlp_v2.types.DlpJob:
                 Combines all of the information about
                 a DLP job.
 
@@ -2203,7 +2229,7 @@ class DlpServiceAsyncClient:
         to learn more.
 
         Args:
-            request (:class:`~.dlp.ListDlpJobsRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListDlpJobsRequest`):
                 The request object. The request message for listing DLP
                 jobs.
             parent (:class:`str`):
@@ -2226,6 +2252,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2237,7 +2264,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListDlpJobsAsyncPager:
+            google.cloud.dlp_v2.services.dlp_service.pagers.ListDlpJobsAsyncPager:
                 The response message for listing DLP
                 jobs.
                 Iterating over this object will yield
@@ -2312,12 +2339,13 @@ class DlpServiceAsyncClient:
         analysis to learn more.
 
         Args:
-            request (:class:`~.dlp.GetDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.GetDlpJobRequest`):
                 The request object. The request message for
                 [DlpJobs.GetDlpJob][].
             name (:class:`str`):
                 Required. The name of the DlpJob
                 resource.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2329,7 +2357,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.DlpJob:
+            google.cloud.dlp_v2.types.DlpJob:
                 Combines all of the information about
                 a DLP job.
 
@@ -2397,12 +2425,13 @@ class DlpServiceAsyncClient:
         analysis to learn more.
 
         Args:
-            request (:class:`~.dlp.DeleteDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeleteDlpJobRequest`):
                 The request object. The request message for deleting a
                 DLP job.
             name (:class:`str`):
                 Required. The name of the DlpJob
                 resource to be deleted.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2474,7 +2503,7 @@ class DlpServiceAsyncClient:
         analysis to learn more.
 
         Args:
-            request (:class:`~.dlp.CancelDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CancelDlpJobRequest`):
                 The request object. The request message for canceling a
                 DLP job.
 
@@ -2523,7 +2552,7 @@ class DlpServiceAsyncClient:
         infotypes to learn more.
 
         Args:
-            request (:class:`~.dlp.CreateStoredInfoTypeRequest`):
+            request (:class:`google.cloud.dlp_v2.types.CreateStoredInfoTypeRequest`):
                 The request object. Request message for
                 CreateStoredInfoType.
             parent (:class:`str`):
@@ -2551,12 +2580,14 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            config (:class:`~.dlp.StoredInfoTypeConfig`):
+            config (:class:`google.cloud.dlp_v2.types.StoredInfoTypeConfig`):
                 Required. Configuration of the
                 storedInfoType to create.
+
                 This corresponds to the ``config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2568,7 +2599,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.StoredInfoType:
+            google.cloud.dlp_v2.types.StoredInfoType:
                 StoredInfoType resource message that
                 contains information about the current
                 version and any pending updates.
@@ -2632,7 +2663,7 @@ class DlpServiceAsyncClient:
         infotypes to learn more.
 
         Args:
-            request (:class:`~.dlp.UpdateStoredInfoTypeRequest`):
+            request (:class:`google.cloud.dlp_v2.types.UpdateStoredInfoTypeRequest`):
                 The request object. Request message for
                 UpdateStoredInfoType.
             name (:class:`str`):
@@ -2640,20 +2671,23 @@ class DlpServiceAsyncClient:
                 storedInfoType to be updated, for example
                 ``organizations/433245324/storedInfoTypes/432452342`` or
                 projects/project-id/storedInfoTypes/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            config (:class:`~.dlp.StoredInfoTypeConfig`):
+            config (:class:`google.cloud.dlp_v2.types.StoredInfoTypeConfig`):
                 Updated configuration for the
                 storedInfoType. If not provided, a new
                 version of the storedInfoType will be
                 created with the existing configuration.
+
                 This corresponds to the ``config`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            update_mask (:class:`~.field_mask.FieldMask`):
+            update_mask (:class:`google.protobuf.field_mask_pb2.FieldMask`):
                 Mask to control which fields get
                 updated.
+
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2665,7 +2699,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.StoredInfoType:
+            google.cloud.dlp_v2.types.StoredInfoType:
                 StoredInfoType resource message that
                 contains information about the current
                 version and any pending updates.
@@ -2727,7 +2761,7 @@ class DlpServiceAsyncClient:
         infotypes to learn more.
 
         Args:
-            request (:class:`~.dlp.GetStoredInfoTypeRequest`):
+            request (:class:`google.cloud.dlp_v2.types.GetStoredInfoTypeRequest`):
                 The request object. Request message for
                 GetStoredInfoType.
             name (:class:`str`):
@@ -2735,6 +2769,7 @@ class DlpServiceAsyncClient:
                 storedInfoType to be read, for example
                 ``organizations/433245324/storedInfoTypes/432452342`` or
                 projects/project-id/storedInfoTypes/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2746,7 +2781,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.StoredInfoType:
+            google.cloud.dlp_v2.types.StoredInfoType:
                 StoredInfoType resource message that
                 contains information about the current
                 version and any pending updates.
@@ -2812,7 +2847,7 @@ class DlpServiceAsyncClient:
         infotypes to learn more.
 
         Args:
-            request (:class:`~.dlp.ListStoredInfoTypesRequest`):
+            request (:class:`google.cloud.dlp_v2.types.ListStoredInfoTypesRequest`):
                 The request object. Request message for
                 ListStoredInfoTypes.
             parent (:class:`str`):
@@ -2840,6 +2875,7 @@ class DlpServiceAsyncClient:
                 ::
 
                     parent=projects/example-project/locations/europe-west3
+
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -2851,7 +2887,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.pagers.ListStoredInfoTypesAsyncPager:
+            google.cloud.dlp_v2.services.dlp_service.pagers.ListStoredInfoTypesAsyncPager:
                 Response message for
                 ListStoredInfoTypes.
                 Iterating over this object will yield
@@ -2925,7 +2961,7 @@ class DlpServiceAsyncClient:
         infotypes to learn more.
 
         Args:
-            request (:class:`~.dlp.DeleteStoredInfoTypeRequest`):
+            request (:class:`google.cloud.dlp_v2.types.DeleteStoredInfoTypeRequest`):
                 The request object. Request message for
                 DeleteStoredInfoType.
             name (:class:`str`):
@@ -2933,6 +2969,7 @@ class DlpServiceAsyncClient:
                 storedInfoType to be deleted, for example
                 ``organizations/433245324/storedInfoTypes/432452342`` or
                 projects/project-id/storedInfoTypes/432452342.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -3006,13 +3043,14 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/products#product-launch-stages.
 
         Args:
-            request (:class:`~.dlp.HybridInspectDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.HybridInspectDlpJobRequest`):
                 The request object. Request to search for potentially
                 sensitive info in a custom location.
             name (:class:`str`):
                 Required. Resource name of the job to execute a hybrid
                 inspect on, for example
                 ``projects/dlp-test-project/dlpJob/53234423``.
+
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -3024,7 +3062,7 @@ class DlpServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.dlp.HybridInspectResponse:
+            google.cloud.dlp_v2.types.HybridInspectResponse:
                 Quota exceeded errors will be thrown
                 once quota has been met.
 
@@ -3083,7 +3121,7 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/products#product-launch-stages.
 
         Args:
-            request (:class:`~.dlp.FinishDlpJobRequest`):
+            request (:class:`google.cloud.dlp_v2.types.FinishDlpJobRequest`):
                 The request object. The request message for finishing a
                 DLP hybrid job.
 
