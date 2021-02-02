@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-dlp.git",
-        "sha": "1911aad2b399102a9a00bdcf676598c241729cfb"
+        "sha": "ec50e3cc4c1b71d1ab0faae87d62052e0eb1ba46"
       }
     },
     {
@@ -117,6 +117,7 @@
     "google/cloud/dlp_v2/types/storage.py",
     "mypy.ini",
     "noxfile.py",
+    "privacy-dlp-v2-py.tar.gz",
     "renovate.json",
     "samples/AUTHORING_GUIDE.md",
     "samples/CONTRIBUTING.md",
