@@ -241,6 +241,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -308,6 +309,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -376,6 +378,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -434,6 +437,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -522,6 +526,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -819,6 +824,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -927,6 +933,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1012,6 +1019,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1309,6 +1317,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1417,6 +1426,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1502,6 +1512,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1867,6 +1878,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -1968,6 +1980,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2052,6 +2065,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2329,6 +2343,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2419,6 +2434,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2499,6 +2515,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2844,6 +2861,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -2952,6 +2970,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
@@ -3037,6 +3056,7 @@ class DlpServiceAsyncClient:
                 predicate=retries.if_exception_type(
                     exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
+                deadline=300.0,
             ),
             default_timeout=300.0,
             client_info=DEFAULT_CLIENT_INFO,
