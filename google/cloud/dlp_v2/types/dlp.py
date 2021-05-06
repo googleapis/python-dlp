@@ -587,7 +587,7 @@ class Finding(proto.Message):
     quote_info = proto.Field(proto.MESSAGE, number=7, message="QuoteInfo",)
     resource_name = proto.Field(proto.STRING, number=8,)
     trigger_name = proto.Field(proto.STRING, number=9,)
-    labels = proto.MapField(proto.STRING, proto.STRING, number=10,)
+    labels = proto.MapField(proto.STRING, proto.STRING, number=10)
     job_create_time = proto.Field(
         proto.MESSAGE, number=11, message=timestamp.Timestamp,
     )
@@ -4846,7 +4846,7 @@ class HybridFindingDetails(proto.Message):
     file_offset = proto.Field(proto.INT64, number=2,)
     row_offset = proto.Field(proto.INT64, number=3,)
     table_options = proto.Field(proto.MESSAGE, number=4, message=storage.TableOptions,)
-    labels = proto.MapField(proto.STRING, proto.STRING, number=5,)
+    labels = proto.MapField(proto.STRING, proto.STRING, number=5)
 
 
 class HybridInspectResponse(proto.Message):
