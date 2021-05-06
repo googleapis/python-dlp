@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,6 @@
 #
 
 from .services.dlp_service import DlpServiceClient
-
 from .types.dlp import Action
 from .types.dlp import ActivateJobTriggerRequest
 from .types.dlp import AnalyzeDataSourceRiskDetails
@@ -171,6 +171,7 @@ from .types.storage import RecordKey
 from .types.storage import StorageConfig
 from .types.storage import StoredType
 from .types.storage import TableOptions
+
 
 __all__ = (
     "Action",
