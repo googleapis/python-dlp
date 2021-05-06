@@ -29,7 +29,6 @@ from .types.dlp import Color
 from .types.dlp import Container
 from .types.dlp import ContentItem
 from .types.dlp import ContentLocation
-from .types.dlp import ContentOption
 from .types.dlp import CreateDeidentifyTemplateRequest
 from .types.dlp import CreateDlpJobRequest
 from .types.dlp import CreateInspectTemplateRequest
@@ -51,7 +50,6 @@ from .types.dlp import DeleteInspectTemplateRequest
 from .types.dlp import DeleteJobTriggerRequest
 from .types.dlp import DeleteStoredInfoTypeRequest
 from .types.dlp import DlpJob
-from .types.dlp import DlpJobType
 from .types.dlp import DocumentLocation
 from .types.dlp import Error
 from .types.dlp import ExcludeInfoTypes
@@ -74,17 +72,16 @@ from .types.dlp import HybridInspectStatistics
 from .types.dlp import ImageLocation
 from .types.dlp import InfoTypeDescription
 from .types.dlp import InfoTypeStats
-from .types.dlp import InfoTypeSupportedBy
 from .types.dlp import InfoTypeTransformations
 from .types.dlp import InspectConfig
 from .types.dlp import InspectContentRequest
 from .types.dlp import InspectContentResponse
 from .types.dlp import InspectDataSourceDetails
+from .types.dlp import InspectionRule
+from .types.dlp import InspectionRuleSet
 from .types.dlp import InspectJobConfig
 from .types.dlp import InspectResult
 from .types.dlp import InspectTemplate
-from .types.dlp import InspectionRule
-from .types.dlp import InspectionRuleSet
 from .types.dlp import JobTrigger
 from .types.dlp import KmsWrappedCryptoKey
 from .types.dlp import LargeCustomDictionaryConfig
@@ -103,9 +100,7 @@ from .types.dlp import ListStoredInfoTypesRequest
 from .types.dlp import ListStoredInfoTypesResponse
 from .types.dlp import Location
 from .types.dlp import Manual
-from .types.dlp import MatchingType
 from .types.dlp import MetadataLocation
-from .types.dlp import MetadataType
 from .types.dlp import OutputStorageConfig
 from .types.dlp import PrimitiveTransformation
 from .types.dlp import PrivacyMetric
@@ -121,7 +116,6 @@ from .types.dlp import RedactImageRequest
 from .types.dlp import RedactImageResponse
 from .types.dlp import ReidentifyContentRequest
 from .types.dlp import ReidentifyContentResponse
-from .types.dlp import RelationalOperator
 from .types.dlp import ReplaceValueConfig
 from .types.dlp import ReplaceWithInfoTypeConfig
 from .types.dlp import RiskAnalysisJobConfig
@@ -130,7 +124,6 @@ from .types.dlp import StatisticalTable
 from .types.dlp import StorageMetadataLabel
 from .types.dlp import StoredInfoType
 from .types.dlp import StoredInfoTypeConfig
-from .types.dlp import StoredInfoTypeState
 from .types.dlp import StoredInfoTypeStats
 from .types.dlp import StoredInfoTypeVersion
 from .types.dlp import Table
@@ -147,6 +140,13 @@ from .types.dlp import UpdateJobTriggerRequest
 from .types.dlp import UpdateStoredInfoTypeRequest
 from .types.dlp import Value
 from .types.dlp import ValueFrequency
+from .types.dlp import ContentOption
+from .types.dlp import DlpJobType
+from .types.dlp import InfoTypeSupportedBy
+from .types.dlp import MatchingType
+from .types.dlp import MetadataType
+from .types.dlp import RelationalOperator
+from .types.dlp import StoredInfoTypeState
 from .types.storage import BigQueryField
 from .types.storage import BigQueryKey
 from .types.storage import BigQueryOptions
@@ -160,41 +160,33 @@ from .types.storage import DatastoreKey
 from .types.storage import DatastoreOptions
 from .types.storage import EntityId
 from .types.storage import FieldId
-from .types.storage import FileType
 from .types.storage import HybridOptions
 from .types.storage import InfoType
 from .types.storage import Key
 from .types.storage import KindExpression
-from .types.storage import Likelihood
 from .types.storage import PartitionId
 from .types.storage import RecordKey
 from .types.storage import StorageConfig
 from .types.storage import StoredType
 from .types.storage import TableOptions
+from .types.storage import FileType
+from .types.storage import Likelihood
 
 __all__ = (
+    "DlpServiceClient",
     "Action",
     "ActivateJobTriggerRequest",
     "AnalyzeDataSourceRiskDetails",
-    "BigQueryField",
-    "BigQueryKey",
-    "BigQueryOptions",
-    "BigQueryTable",
     "BoundingBox",
     "BucketingConfig",
     "ByteContentItem",
     "CancelDlpJobRequest",
     "CharacterMaskConfig",
     "CharsToIgnore",
-    "CloudStorageFileSet",
-    "CloudStorageOptions",
-    "CloudStoragePath",
-    "CloudStorageRegexFileSet",
     "Color",
     "Container",
     "ContentItem",
     "ContentLocation",
-    "ContentOption",
     "CreateDeidentifyTemplateRequest",
     "CreateDlpJobRequest",
     "CreateInspectTemplateRequest",
@@ -204,9 +196,6 @@ __all__ = (
     "CryptoHashConfig",
     "CryptoKey",
     "CryptoReplaceFfxFpeConfig",
-    "CustomInfoType",
-    "DatastoreKey",
-    "DatastoreOptions",
     "DateShiftConfig",
     "DateTime",
     "DeidentifyConfig",
@@ -219,15 +208,11 @@ __all__ = (
     "DeleteJobTriggerRequest",
     "DeleteStoredInfoTypeRequest",
     "DlpJob",
-    "DlpJobType",
     "DocumentLocation",
-    "EntityId",
     "Error",
     "ExcludeInfoTypes",
     "ExclusionRule",
-    "FieldId",
     "FieldTransformation",
-    "FileType",
     "Finding",
     "FinishDlpJobRequest",
     "FixedSizeBucketingConfig",
@@ -242,29 +227,23 @@ __all__ = (
     "HybridInspectJobTriggerRequest",
     "HybridInspectResponse",
     "HybridInspectStatistics",
-    "HybridOptions",
     "ImageLocation",
-    "InfoType",
     "InfoTypeDescription",
     "InfoTypeStats",
-    "InfoTypeSupportedBy",
     "InfoTypeTransformations",
     "InspectConfig",
     "InspectContentRequest",
     "InspectContentResponse",
     "InspectDataSourceDetails",
+    "InspectionRule",
+    "InspectionRuleSet",
     "InspectJobConfig",
     "InspectResult",
     "InspectTemplate",
-    "InspectionRule",
-    "InspectionRuleSet",
     "JobTrigger",
-    "Key",
-    "KindExpression",
     "KmsWrappedCryptoKey",
     "LargeCustomDictionaryConfig",
     "LargeCustomDictionaryStats",
-    "Likelihood",
     "ListDeidentifyTemplatesRequest",
     "ListDeidentifyTemplatesResponse",
     "ListDlpJobsRequest",
@@ -279,18 +258,14 @@ __all__ = (
     "ListStoredInfoTypesResponse",
     "Location",
     "Manual",
-    "MatchingType",
     "MetadataLocation",
-    "MetadataType",
     "OutputStorageConfig",
-    "PartitionId",
     "PrimitiveTransformation",
     "PrivacyMetric",
     "QuasiId",
     "QuoteInfo",
     "Range",
     "RecordCondition",
-    "RecordKey",
     "RecordLocation",
     "RecordSuppression",
     "RecordTransformations",
@@ -299,23 +274,18 @@ __all__ = (
     "RedactImageResponse",
     "ReidentifyContentRequest",
     "ReidentifyContentResponse",
-    "RelationalOperator",
     "ReplaceValueConfig",
     "ReplaceWithInfoTypeConfig",
     "RiskAnalysisJobConfig",
     "Schedule",
     "StatisticalTable",
-    "StorageConfig",
     "StorageMetadataLabel",
     "StoredInfoType",
     "StoredInfoTypeConfig",
-    "StoredInfoTypeState",
     "StoredInfoTypeStats",
     "StoredInfoTypeVersion",
-    "StoredType",
     "Table",
     "TableLocation",
-    "TableOptions",
     "TimePartConfig",
     "TransformationErrorHandling",
     "TransformationOverview",
@@ -328,5 +298,35 @@ __all__ = (
     "UpdateStoredInfoTypeRequest",
     "Value",
     "ValueFrequency",
-    "DlpServiceClient",
+    "ContentOption",
+    "DlpJobType",
+    "InfoTypeSupportedBy",
+    "MatchingType",
+    "MetadataType",
+    "RelationalOperator",
+    "StoredInfoTypeState",
+    "BigQueryField",
+    "BigQueryKey",
+    "BigQueryOptions",
+    "BigQueryTable",
+    "CloudStorageFileSet",
+    "CloudStorageOptions",
+    "CloudStoragePath",
+    "CloudStorageRegexFileSet",
+    "CustomInfoType",
+    "DatastoreKey",
+    "DatastoreOptions",
+    "EntityId",
+    "FieldId",
+    "HybridOptions",
+    "InfoType",
+    "Key",
+    "KindExpression",
+    "PartitionId",
+    "RecordKey",
+    "StorageConfig",
+    "StoredType",
+    "TableOptions",
+    "FileType",
+    "Likelihood",
 )

@@ -767,7 +767,7 @@ class HybridOptions(proto.Message):
 
     description = proto.Field(proto.STRING, number=1,)
     required_finding_label_keys = proto.RepeatedField(proto.STRING, number=2,)
-    labels = proto.MapField(proto.STRING, proto.STRING, number=3)
+    labels = proto.MapField(proto.STRING, proto.STRING, number=3,)
     table_options = proto.Field(proto.MESSAGE, number=4, message="TableOptions",)
 
 
