@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import os
 import mock
+import packaging.version
 
 import grpc
 from grpc.experimental import aio
 import math
 import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
+
 
 from google import auth
 from google.api_core import client_options
@@ -36,6 +36,10 @@ from google.cloud.dlp_v2.services.dlp_service import DlpServiceAsyncClient
 from google.cloud.dlp_v2.services.dlp_service import DlpServiceClient
 from google.cloud.dlp_v2.services.dlp_service import pagers
 from google.cloud.dlp_v2.services.dlp_service import transports
+from google.cloud.dlp_v2.services.dlp_service.transports.base import _API_CORE_VERSION
+from google.cloud.dlp_v2.services.dlp_service.transports.base import (
+    _GOOGLE_AUTH_VERSION,
+)
 from google.cloud.dlp_v2.types import dlp
 from google.cloud.dlp_v2.types import storage
 from google.oauth2 import service_account
@@ -47,6 +51,29 @@ from google.rpc import status_pb2 as status  # type: ignore
 from google.type import date_pb2 as date  # type: ignore
 from google.type import dayofweek_pb2 as dayofweek  # type: ignore
 from google.type import timeofday_pb2 as timeofday  # type: ignore
+
+
+# TODO(busunkim): Once google-api-core >= 1.26.0 is required:
+# - Delete all the api-core and auth "less than" test cases
+# - Delete these pytest markers (Make the "greater than or equal to" tests the default).
+requires_google_auth_lt_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) >= packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth < 1.25.0",
+)
+requires_google_auth_gte_1_25_0 = pytest.mark.skipif(
+    packaging.version.parse(_GOOGLE_AUTH_VERSION) < packaging.version.parse("1.25.0"),
+    reason="This test requires google-auth >= 1.25.0",
+)
+
+requires_api_core_lt_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) >= packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core < 1.26.0",
+)
+
+requires_api_core_gte_1_26_0 = pytest.mark.skipif(
+    packaging.version.parse(_API_CORE_VERSION) < packaging.version.parse("1.26.0"),
+    reason="This test requires google-api-core >= 1.26.0",
+)
 
 
 def client_cert_source_callback():
@@ -453,17 +480,14 @@ def test_inspect_content(
     with mock.patch.object(type(client.transport.inspect_content), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.InspectContentResponse()
-
         response = client.inspect_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.InspectContentRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.InspectContentResponse)
 
 
@@ -483,7 +507,6 @@ def test_inspect_content_empty_call():
         client.inspect_content()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.InspectContentRequest()
 
 
@@ -505,13 +528,11 @@ async def test_inspect_content_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.InspectContentResponse()
         )
-
         response = await client.inspect_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.InspectContentRequest()
 
     # Establish that the response is the type that we expect.
@@ -529,12 +550,12 @@ def test_inspect_content_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.InspectContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.inspect_content), "__call__") as call:
         call.return_value = dlp.InspectContentResponse()
-
         client.inspect_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -554,6 +575,7 @@ async def test_inspect_content_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.InspectContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -561,7 +583,6 @@ async def test_inspect_content_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.InspectContentResponse()
         )
-
         await client.inspect_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -590,21 +611,16 @@ def test_redact_image(transport: str = "grpc", request_type=dlp.RedactImageReque
             redacted_image=b"redacted_image_blob",
             extracted_text="extracted_text_value",
         )
-
         response = client.redact_image(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.RedactImageRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.RedactImageResponse)
-
     assert response.redacted_image == b"redacted_image_blob"
-
     assert response.extracted_text == "extracted_text_value"
 
 
@@ -624,7 +640,6 @@ def test_redact_image_empty_call():
         client.redact_image()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.RedactImageRequest()
 
 
@@ -649,20 +664,16 @@ async def test_redact_image_async(
                 extracted_text="extracted_text_value",
             )
         )
-
         response = await client.redact_image(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.RedactImageRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.RedactImageResponse)
-
     assert response.redacted_image == b"redacted_image_blob"
-
     assert response.extracted_text == "extracted_text_value"
 
 
@@ -677,12 +688,12 @@ def test_redact_image_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.RedactImageRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.redact_image), "__call__") as call:
         call.return_value = dlp.RedactImageResponse()
-
         client.redact_image(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -702,6 +713,7 @@ async def test_redact_image_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.RedactImageRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -709,7 +721,6 @@ async def test_redact_image_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.RedactImageResponse()
         )
-
         await client.redact_image(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -739,17 +750,14 @@ def test_deidentify_content(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DeidentifyContentResponse()
-
         response = client.deidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeidentifyContentRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DeidentifyContentResponse)
 
 
@@ -771,7 +779,6 @@ def test_deidentify_content_empty_call():
         client.deidentify_content()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeidentifyContentRequest()
 
 
@@ -795,13 +802,11 @@ async def test_deidentify_content_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.DeidentifyContentResponse()
         )
-
         response = await client.deidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeidentifyContentRequest()
 
     # Establish that the response is the type that we expect.
@@ -819,6 +824,7 @@ def test_deidentify_content_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeidentifyContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -826,7 +832,6 @@ def test_deidentify_content_field_headers():
         type(client.transport.deidentify_content), "__call__"
     ) as call:
         call.return_value = dlp.DeidentifyContentResponse()
-
         client.deidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -846,6 +851,7 @@ async def test_deidentify_content_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeidentifyContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -855,7 +861,6 @@ async def test_deidentify_content_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.DeidentifyContentResponse()
         )
-
         await client.deidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -885,17 +890,14 @@ def test_reidentify_content(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ReidentifyContentResponse()
-
         response = client.reidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ReidentifyContentRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.ReidentifyContentResponse)
 
 
@@ -917,7 +919,6 @@ def test_reidentify_content_empty_call():
         client.reidentify_content()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ReidentifyContentRequest()
 
 
@@ -941,13 +942,11 @@ async def test_reidentify_content_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ReidentifyContentResponse()
         )
-
         response = await client.reidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ReidentifyContentRequest()
 
     # Establish that the response is the type that we expect.
@@ -965,6 +964,7 @@ def test_reidentify_content_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ReidentifyContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -972,7 +972,6 @@ def test_reidentify_content_field_headers():
         type(client.transport.reidentify_content), "__call__"
     ) as call:
         call.return_value = dlp.ReidentifyContentResponse()
-
         client.reidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -992,6 +991,7 @@ async def test_reidentify_content_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ReidentifyContentRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1001,7 +1001,6 @@ async def test_reidentify_content_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ReidentifyContentResponse()
         )
-
         await client.reidentify_content(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1029,17 +1028,14 @@ def test_list_info_types(
     with mock.patch.object(type(client.transport.list_info_types), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListInfoTypesResponse()
-
         response = client.list_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInfoTypesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.ListInfoTypesResponse)
 
 
@@ -1059,7 +1055,6 @@ def test_list_info_types_empty_call():
         client.list_info_types()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInfoTypesRequest()
 
 
@@ -1081,13 +1076,11 @@ async def test_list_info_types_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListInfoTypesResponse()
         )
-
         response = await client.list_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInfoTypesRequest()
 
     # Establish that the response is the type that we expect.
@@ -1106,7 +1099,6 @@ def test_list_info_types_flattened():
     with mock.patch.object(type(client.transport.list_info_types), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListInfoTypesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_info_types(parent="parent_value",)
@@ -1115,7 +1107,6 @@ def test_list_info_types_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1150,7 +1141,6 @@ async def test_list_info_types_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -1187,23 +1177,17 @@ def test_create_inspect_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.create_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1225,7 +1209,6 @@ def test_create_inspect_template_empty_call():
         client.create_inspect_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateInspectTemplateRequest()
 
 
@@ -1253,22 +1236,17 @@ async def test_create_inspect_template_async(
                 description="description_value",
             )
         )
-
         response = await client.create_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1283,6 +1261,7 @@ def test_create_inspect_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateInspectTemplateRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1290,7 +1269,6 @@ def test_create_inspect_template_field_headers():
         type(client.transport.create_inspect_template), "__call__"
     ) as call:
         call.return_value = dlp.InspectTemplate()
-
         client.create_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1310,6 +1288,7 @@ async def test_create_inspect_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateInspectTemplateRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1317,7 +1296,6 @@ async def test_create_inspect_template_field_headers_async():
         type(client.transport.create_inspect_template), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.InspectTemplate())
-
         await client.create_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1339,7 +1317,6 @@ def test_create_inspect_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.InspectTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_inspect_template(
@@ -1351,9 +1328,7 @@ def test_create_inspect_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].inspect_template == dlp.InspectTemplate(name="name_value")
 
 
@@ -1393,9 +1368,7 @@ async def test_create_inspect_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].inspect_template == dlp.InspectTemplate(name="name_value")
 
 
@@ -1434,23 +1407,17 @@ def test_update_inspect_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.update_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1472,7 +1439,6 @@ def test_update_inspect_template_empty_call():
         client.update_inspect_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateInspectTemplateRequest()
 
 
@@ -1500,22 +1466,17 @@ async def test_update_inspect_template_async(
                 description="description_value",
             )
         )
-
         response = await client.update_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1530,6 +1491,7 @@ def test_update_inspect_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1537,7 +1499,6 @@ def test_update_inspect_template_field_headers():
         type(client.transport.update_inspect_template), "__call__"
     ) as call:
         call.return_value = dlp.InspectTemplate()
-
         client.update_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1557,6 +1518,7 @@ async def test_update_inspect_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1564,7 +1526,6 @@ async def test_update_inspect_template_field_headers_async():
         type(client.transport.update_inspect_template), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.InspectTemplate())
-
         await client.update_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1586,7 +1547,6 @@ def test_update_inspect_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.InspectTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_inspect_template(
@@ -1599,11 +1559,8 @@ def test_update_inspect_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].inspect_template == dlp.InspectTemplate(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -1645,11 +1602,8 @@ async def test_update_inspect_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].inspect_template == dlp.InspectTemplate(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -1689,23 +1643,17 @@ def test_get_inspect_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.get_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1727,7 +1675,6 @@ def test_get_inspect_template_empty_call():
         client.get_inspect_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetInspectTemplateRequest()
 
 
@@ -1755,22 +1702,17 @@ async def test_get_inspect_template_async(
                 description="description_value",
             )
         )
-
         response = await client.get_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.InspectTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -1785,6 +1727,7 @@ def test_get_inspect_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1792,7 +1735,6 @@ def test_get_inspect_template_field_headers():
         type(client.transport.get_inspect_template), "__call__"
     ) as call:
         call.return_value = dlp.InspectTemplate()
-
         client.get_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1812,6 +1754,7 @@ async def test_get_inspect_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -1819,7 +1762,6 @@ async def test_get_inspect_template_field_headers_async():
         type(client.transport.get_inspect_template), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.InspectTemplate())
-
         await client.get_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -1841,7 +1783,6 @@ def test_get_inspect_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.InspectTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_inspect_template(name="name_value",)
@@ -1850,7 +1791,6 @@ def test_get_inspect_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1885,7 +1825,6 @@ async def test_get_inspect_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -1920,19 +1859,15 @@ def test_list_inspect_templates(
         call.return_value = dlp.ListInspectTemplatesResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_inspect_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInspectTemplatesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListInspectTemplatesPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -1954,7 +1889,6 @@ def test_list_inspect_templates_empty_call():
         client.list_inspect_templates()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInspectTemplatesRequest()
 
 
@@ -1978,18 +1912,15 @@ async def test_list_inspect_templates_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListInspectTemplatesResponse(next_page_token="next_page_token_value",)
         )
-
         response = await client.list_inspect_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListInspectTemplatesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListInspectTemplatesAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -2004,6 +1935,7 @@ def test_list_inspect_templates_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListInspectTemplatesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2011,7 +1943,6 @@ def test_list_inspect_templates_field_headers():
         type(client.transport.list_inspect_templates), "__call__"
     ) as call:
         call.return_value = dlp.ListInspectTemplatesResponse()
-
         client.list_inspect_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2031,6 +1962,7 @@ async def test_list_inspect_templates_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListInspectTemplatesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2040,7 +1972,6 @@ async def test_list_inspect_templates_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListInspectTemplatesResponse()
         )
-
         await client.list_inspect_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2062,7 +1993,6 @@ def test_list_inspect_templates_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListInspectTemplatesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_inspect_templates(parent="parent_value",)
@@ -2071,7 +2001,6 @@ def test_list_inspect_templates_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -2108,7 +2037,6 @@ async def test_list_inspect_templates_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -2295,13 +2223,11 @@ def test_delete_inspect_template(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
@@ -2326,7 +2252,6 @@ def test_delete_inspect_template_empty_call():
         client.delete_inspect_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteInspectTemplateRequest()
 
 
@@ -2348,13 +2273,11 @@ async def test_delete_inspect_template_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteInspectTemplateRequest()
 
     # Establish that the response is the type that we expect.
@@ -2372,6 +2295,7 @@ def test_delete_inspect_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2379,7 +2303,6 @@ def test_delete_inspect_template_field_headers():
         type(client.transport.delete_inspect_template), "__call__"
     ) as call:
         call.return_value = None
-
         client.delete_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2399,6 +2322,7 @@ async def test_delete_inspect_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteInspectTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2406,7 +2330,6 @@ async def test_delete_inspect_template_field_headers_async():
         type(client.transport.delete_inspect_template), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_inspect_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2428,7 +2351,6 @@ def test_delete_inspect_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_inspect_template(name="name_value",)
@@ -2437,7 +2359,6 @@ def test_delete_inspect_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -2472,7 +2393,6 @@ async def test_delete_inspect_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -2509,23 +2429,17 @@ def test_create_deidentify_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.create_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -2547,7 +2461,6 @@ def test_create_deidentify_template_empty_call():
         client.create_deidentify_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDeidentifyTemplateRequest()
 
 
@@ -2575,22 +2488,17 @@ async def test_create_deidentify_template_async(
                 description="description_value",
             )
         )
-
         response = await client.create_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -2605,6 +2513,7 @@ def test_create_deidentify_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateDeidentifyTemplateRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2612,7 +2521,6 @@ def test_create_deidentify_template_field_headers():
         type(client.transport.create_deidentify_template), "__call__"
     ) as call:
         call.return_value = dlp.DeidentifyTemplate()
-
         client.create_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2632,6 +2540,7 @@ async def test_create_deidentify_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateDeidentifyTemplateRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2641,7 +2550,6 @@ async def test_create_deidentify_template_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.DeidentifyTemplate()
         )
-
         await client.create_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2663,7 +2571,6 @@ def test_create_deidentify_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DeidentifyTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_deidentify_template(
@@ -2675,9 +2582,7 @@ def test_create_deidentify_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].deidentify_template == dlp.DeidentifyTemplate(name="name_value")
 
 
@@ -2719,9 +2624,7 @@ async def test_create_deidentify_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].deidentify_template == dlp.DeidentifyTemplate(name="name_value")
 
 
@@ -2760,23 +2663,17 @@ def test_update_deidentify_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.update_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -2798,7 +2695,6 @@ def test_update_deidentify_template_empty_call():
         client.update_deidentify_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateDeidentifyTemplateRequest()
 
 
@@ -2826,22 +2722,17 @@ async def test_update_deidentify_template_async(
                 description="description_value",
             )
         )
-
         response = await client.update_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -2856,6 +2747,7 @@ def test_update_deidentify_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2863,7 +2755,6 @@ def test_update_deidentify_template_field_headers():
         type(client.transport.update_deidentify_template), "__call__"
     ) as call:
         call.return_value = dlp.DeidentifyTemplate()
-
         client.update_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2883,6 +2774,7 @@ async def test_update_deidentify_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -2892,7 +2784,6 @@ async def test_update_deidentify_template_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.DeidentifyTemplate()
         )
-
         await client.update_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -2914,7 +2805,6 @@ def test_update_deidentify_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DeidentifyTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_deidentify_template(
@@ -2927,11 +2817,8 @@ def test_update_deidentify_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].deidentify_template == dlp.DeidentifyTemplate(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -2975,11 +2862,8 @@ async def test_update_deidentify_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].deidentify_template == dlp.DeidentifyTemplate(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -3019,23 +2903,17 @@ def test_get_deidentify_template(
             display_name="display_name_value",
             description="description_value",
         )
-
         response = client.get_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -3057,7 +2935,6 @@ def test_get_deidentify_template_empty_call():
         client.get_deidentify_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDeidentifyTemplateRequest()
 
 
@@ -3085,22 +2962,17 @@ async def test_get_deidentify_template_async(
                 description="description_value",
             )
         )
-
         response = await client.get_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DeidentifyTemplate)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
 
 
@@ -3115,6 +2987,7 @@ def test_get_deidentify_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3122,7 +2995,6 @@ def test_get_deidentify_template_field_headers():
         type(client.transport.get_deidentify_template), "__call__"
     ) as call:
         call.return_value = dlp.DeidentifyTemplate()
-
         client.get_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3142,6 +3014,7 @@ async def test_get_deidentify_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3151,7 +3024,6 @@ async def test_get_deidentify_template_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.DeidentifyTemplate()
         )
-
         await client.get_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3173,7 +3045,6 @@ def test_get_deidentify_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DeidentifyTemplate()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_deidentify_template(name="name_value",)
@@ -3182,7 +3053,6 @@ def test_get_deidentify_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -3219,7 +3089,6 @@ async def test_get_deidentify_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -3254,19 +3123,15 @@ def test_list_deidentify_templates(
         call.return_value = dlp.ListDeidentifyTemplatesResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_deidentify_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDeidentifyTemplatesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListDeidentifyTemplatesPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -3288,7 +3153,6 @@ def test_list_deidentify_templates_empty_call():
         client.list_deidentify_templates()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDeidentifyTemplatesRequest()
 
 
@@ -3314,18 +3178,15 @@ async def test_list_deidentify_templates_async(
                 next_page_token="next_page_token_value",
             )
         )
-
         response = await client.list_deidentify_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDeidentifyTemplatesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListDeidentifyTemplatesAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -3340,6 +3201,7 @@ def test_list_deidentify_templates_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListDeidentifyTemplatesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3347,7 +3209,6 @@ def test_list_deidentify_templates_field_headers():
         type(client.transport.list_deidentify_templates), "__call__"
     ) as call:
         call.return_value = dlp.ListDeidentifyTemplatesResponse()
-
         client.list_deidentify_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3367,6 +3228,7 @@ async def test_list_deidentify_templates_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListDeidentifyTemplatesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3376,7 +3238,6 @@ async def test_list_deidentify_templates_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListDeidentifyTemplatesResponse()
         )
-
         await client.list_deidentify_templates(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3398,7 +3259,6 @@ def test_list_deidentify_templates_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListDeidentifyTemplatesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_deidentify_templates(parent="parent_value",)
@@ -3407,7 +3267,6 @@ def test_list_deidentify_templates_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -3444,7 +3303,6 @@ async def test_list_deidentify_templates_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -3643,13 +3501,11 @@ def test_delete_deidentify_template(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
@@ -3674,7 +3530,6 @@ def test_delete_deidentify_template_empty_call():
         client.delete_deidentify_template()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDeidentifyTemplateRequest()
 
 
@@ -3696,13 +3551,11 @@ async def test_delete_deidentify_template_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDeidentifyTemplateRequest()
 
     # Establish that the response is the type that we expect.
@@ -3720,6 +3573,7 @@ def test_delete_deidentify_template_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3727,7 +3581,6 @@ def test_delete_deidentify_template_field_headers():
         type(client.transport.delete_deidentify_template), "__call__"
     ) as call:
         call.return_value = None
-
         client.delete_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3747,6 +3600,7 @@ async def test_delete_deidentify_template_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteDeidentifyTemplateRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3754,7 +3608,6 @@ async def test_delete_deidentify_template_field_headers_async():
         type(client.transport.delete_deidentify_template), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_deidentify_template(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3776,7 +3629,6 @@ def test_delete_deidentify_template_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_deidentify_template(name="name_value",)
@@ -3785,7 +3637,6 @@ def test_delete_deidentify_template_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -3820,7 +3671,6 @@ async def test_delete_deidentify_template_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -3865,25 +3715,18 @@ def test_create_job_trigger(
                 )
             ),
         )
-
         response = client.create_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -3905,7 +3748,6 @@ def test_create_job_trigger_empty_call():
         client.create_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateJobTriggerRequest()
 
 
@@ -3934,24 +3776,18 @@ async def test_create_job_trigger_async(
                 status=dlp.JobTrigger.Status.HEALTHY,
             )
         )
-
         response = await client.create_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -3966,6 +3802,7 @@ def test_create_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateJobTriggerRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -3973,7 +3810,6 @@ def test_create_job_trigger_field_headers():
         type(client.transport.create_job_trigger), "__call__"
     ) as call:
         call.return_value = dlp.JobTrigger()
-
         client.create_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -3993,6 +3829,7 @@ async def test_create_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateJobTriggerRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4000,7 +3837,6 @@ async def test_create_job_trigger_field_headers_async():
         type(client.transport.create_job_trigger), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.JobTrigger())
-
         await client.create_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4022,7 +3858,6 @@ def test_create_job_trigger_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.JobTrigger()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_job_trigger(
@@ -4033,9 +3868,7 @@ def test_create_job_trigger_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].job_trigger == dlp.JobTrigger(name="name_value")
 
 
@@ -4074,9 +3907,7 @@ async def test_create_job_trigger_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].job_trigger == dlp.JobTrigger(name="name_value")
 
 
@@ -4123,25 +3954,18 @@ def test_update_job_trigger(
                 )
             ),
         )
-
         response = client.update_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -4163,7 +3987,6 @@ def test_update_job_trigger_empty_call():
         client.update_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateJobTriggerRequest()
 
 
@@ -4192,24 +4015,18 @@ async def test_update_job_trigger_async(
                 status=dlp.JobTrigger.Status.HEALTHY,
             )
         )
-
         response = await client.update_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -4224,6 +4041,7 @@ def test_update_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4231,7 +4049,6 @@ def test_update_job_trigger_field_headers():
         type(client.transport.update_job_trigger), "__call__"
     ) as call:
         call.return_value = dlp.JobTrigger()
-
         client.update_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4251,6 +4068,7 @@ async def test_update_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4258,7 +4076,6 @@ async def test_update_job_trigger_field_headers_async():
         type(client.transport.update_job_trigger), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.JobTrigger())
-
         await client.update_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4280,7 +4097,6 @@ def test_update_job_trigger_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.JobTrigger()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_job_trigger(
@@ -4293,11 +4109,8 @@ def test_update_job_trigger_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].job_trigger == dlp.JobTrigger(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -4339,11 +4152,8 @@ async def test_update_job_trigger_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].job_trigger == dlp.JobTrigger(name="name_value")
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -4379,17 +4189,14 @@ def test_hybrid_inspect_job_trigger(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.HybridInspectResponse()
-
         response = client.hybrid_inspect_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.HybridInspectResponse)
 
 
@@ -4411,7 +4218,6 @@ def test_hybrid_inspect_job_trigger_empty_call():
         client.hybrid_inspect_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectJobTriggerRequest()
 
 
@@ -4435,13 +4241,11 @@ async def test_hybrid_inspect_job_trigger_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.HybridInspectResponse()
         )
-
         response = await client.hybrid_inspect_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
@@ -4459,6 +4263,7 @@ def test_hybrid_inspect_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.HybridInspectJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4466,7 +4271,6 @@ def test_hybrid_inspect_job_trigger_field_headers():
         type(client.transport.hybrid_inspect_job_trigger), "__call__"
     ) as call:
         call.return_value = dlp.HybridInspectResponse()
-
         client.hybrid_inspect_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4486,6 +4290,7 @@ async def test_hybrid_inspect_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.HybridInspectJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4495,7 +4300,6 @@ async def test_hybrid_inspect_job_trigger_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.HybridInspectResponse()
         )
-
         await client.hybrid_inspect_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4517,7 +4321,6 @@ def test_hybrid_inspect_job_trigger_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.HybridInspectResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.hybrid_inspect_job_trigger(name="name_value",)
@@ -4526,7 +4329,6 @@ def test_hybrid_inspect_job_trigger_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -4563,7 +4365,6 @@ async def test_hybrid_inspect_job_trigger_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -4606,25 +4407,18 @@ def test_get_job_trigger(
                 )
             ),
         )
-
         response = client.get_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -4644,7 +4438,6 @@ def test_get_job_trigger_empty_call():
         client.get_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetJobTriggerRequest()
 
 
@@ -4671,24 +4464,18 @@ async def test_get_job_trigger_async(
                 status=dlp.JobTrigger.Status.HEALTHY,
             )
         )
-
         response = await client.get_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.JobTrigger)
-
     assert response.name == "name_value"
-
     assert response.display_name == "display_name_value"
-
     assert response.description == "description_value"
-
     assert response.status == dlp.JobTrigger.Status.HEALTHY
 
 
@@ -4703,12 +4490,12 @@ def test_get_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_job_trigger), "__call__") as call:
         call.return_value = dlp.JobTrigger()
-
         client.get_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4728,12 +4515,12 @@ async def test_get_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_job_trigger), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.JobTrigger())
-
         await client.get_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4753,7 +4540,6 @@ def test_get_job_trigger_flattened():
     with mock.patch.object(type(client.transport.get_job_trigger), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.JobTrigger()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_job_trigger(name="name_value",)
@@ -4762,7 +4548,6 @@ def test_get_job_trigger_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -4795,7 +4580,6 @@ async def test_get_job_trigger_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -4830,19 +4614,15 @@ def test_list_job_triggers(
         call.return_value = dlp.ListJobTriggersResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_job_triggers(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListJobTriggersRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListJobTriggersPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -4864,7 +4644,6 @@ def test_list_job_triggers_empty_call():
         client.list_job_triggers()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListJobTriggersRequest()
 
 
@@ -4888,18 +4667,15 @@ async def test_list_job_triggers_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListJobTriggersResponse(next_page_token="next_page_token_value",)
         )
-
         response = await client.list_job_triggers(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListJobTriggersRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListJobTriggersAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -4914,6 +4690,7 @@ def test_list_job_triggers_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListJobTriggersRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4921,7 +4698,6 @@ def test_list_job_triggers_field_headers():
         type(client.transport.list_job_triggers), "__call__"
     ) as call:
         call.return_value = dlp.ListJobTriggersResponse()
-
         client.list_job_triggers(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4941,6 +4717,7 @@ async def test_list_job_triggers_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListJobTriggersRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -4950,7 +4727,6 @@ async def test_list_job_triggers_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListJobTriggersResponse()
         )
-
         await client.list_job_triggers(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -4972,7 +4748,6 @@ def test_list_job_triggers_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListJobTriggersResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_job_triggers(parent="parent_value",)
@@ -4981,7 +4756,6 @@ def test_list_job_triggers_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -5018,7 +4792,6 @@ async def test_list_job_triggers_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -5181,13 +4954,11 @@ def test_delete_job_trigger(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
@@ -5212,7 +4983,6 @@ def test_delete_job_trigger_empty_call():
         client.delete_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteJobTriggerRequest()
 
 
@@ -5234,13 +5004,11 @@ async def test_delete_job_trigger_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
@@ -5258,6 +5026,7 @@ def test_delete_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -5265,7 +5034,6 @@ def test_delete_job_trigger_field_headers():
         type(client.transport.delete_job_trigger), "__call__"
     ) as call:
         call.return_value = None
-
         client.delete_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5285,6 +5053,7 @@ async def test_delete_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -5292,7 +5061,6 @@ async def test_delete_job_trigger_field_headers_async():
         type(client.transport.delete_job_trigger), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5314,7 +5082,6 @@ def test_delete_job_trigger_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_job_trigger(name="name_value",)
@@ -5323,7 +5090,6 @@ def test_delete_job_trigger_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -5358,7 +5124,6 @@ async def test_delete_job_trigger_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -5403,25 +5168,18 @@ def test_activate_job_trigger(
                 )
             ),
         )
-
         response = client.activate_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ActivateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -5443,7 +5201,6 @@ def test_activate_job_trigger_empty_call():
         client.activate_job_trigger()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ActivateJobTriggerRequest()
 
 
@@ -5472,24 +5229,18 @@ async def test_activate_job_trigger_async(
                 job_trigger_name="job_trigger_name_value",
             )
         )
-
         response = await client.activate_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ActivateJobTriggerRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -5504,6 +5255,7 @@ def test_activate_job_trigger_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ActivateJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -5511,7 +5263,6 @@ def test_activate_job_trigger_field_headers():
         type(client.transport.activate_job_trigger), "__call__"
     ) as call:
         call.return_value = dlp.DlpJob()
-
         client.activate_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5531,6 +5282,7 @@ async def test_activate_job_trigger_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ActivateJobTriggerRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -5538,7 +5290,6 @@ async def test_activate_job_trigger_field_headers_async():
         type(client.transport.activate_job_trigger), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.DlpJob())
-
         await client.activate_job_trigger(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5576,25 +5327,18 @@ def test_create_dlp_job(transport: str = "grpc", request_type=dlp.CreateDlpJobRe
                 )
             ),
         )
-
         response = client.create_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDlpJobRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -5614,7 +5358,6 @@ def test_create_dlp_job_empty_call():
         client.create_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDlpJobRequest()
 
 
@@ -5641,24 +5384,18 @@ async def test_create_dlp_job_async(
                 job_trigger_name="job_trigger_name_value",
             )
         )
-
         response = await client.create_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateDlpJobRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -5673,12 +5410,12 @@ def test_create_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateDlpJobRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_dlp_job), "__call__") as call:
         call.return_value = dlp.DlpJob()
-
         client.create_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5698,12 +5435,12 @@ async def test_create_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateDlpJobRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.create_dlp_job), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.DlpJob())
-
         await client.create_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5723,7 +5460,6 @@ def test_create_dlp_job_flattened():
     with mock.patch.object(type(client.transport.create_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DlpJob()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_dlp_job(
@@ -5748,9 +5484,7 @@ def test_create_dlp_job_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].risk_job == dlp.RiskAnalysisJobConfig(
             privacy_metric=dlp.PrivacyMetric(
                 numerical_stats_config=dlp.PrivacyMetric.NumericalStatsConfig(
@@ -5820,9 +5554,7 @@ async def test_create_dlp_job_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].risk_job == dlp.RiskAnalysisJobConfig(
             privacy_metric=dlp.PrivacyMetric(
                 numerical_stats_config=dlp.PrivacyMetric.NumericalStatsConfig(
@@ -5874,19 +5606,15 @@ def test_list_dlp_jobs(transport: str = "grpc", request_type=dlp.ListDlpJobsRequ
         call.return_value = dlp.ListDlpJobsResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_dlp_jobs(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDlpJobsRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListDlpJobsPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -5906,7 +5634,6 @@ def test_list_dlp_jobs_empty_call():
         client.list_dlp_jobs()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDlpJobsRequest()
 
 
@@ -5928,18 +5655,15 @@ async def test_list_dlp_jobs_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListDlpJobsResponse(next_page_token="next_page_token_value",)
         )
-
         response = await client.list_dlp_jobs(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListDlpJobsRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListDlpJobsAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -5954,12 +5678,12 @@ def test_list_dlp_jobs_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListDlpJobsRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_dlp_jobs), "__call__") as call:
         call.return_value = dlp.ListDlpJobsResponse()
-
         client.list_dlp_jobs(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -5979,6 +5703,7 @@ async def test_list_dlp_jobs_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListDlpJobsRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -5986,7 +5711,6 @@ async def test_list_dlp_jobs_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListDlpJobsResponse()
         )
-
         await client.list_dlp_jobs(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6006,7 +5730,6 @@ def test_list_dlp_jobs_flattened():
     with mock.patch.object(type(client.transport.list_dlp_jobs), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListDlpJobsResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_dlp_jobs(parent="parent_value",)
@@ -6015,7 +5738,6 @@ def test_list_dlp_jobs_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -6050,7 +5772,6 @@ async def test_list_dlp_jobs_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -6193,25 +5914,18 @@ def test_get_dlp_job(transport: str = "grpc", request_type=dlp.GetDlpJobRequest)
                 )
             ),
         )
-
         response = client.get_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDlpJobRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -6231,7 +5945,6 @@ def test_get_dlp_job_empty_call():
         client.get_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDlpJobRequest()
 
 
@@ -6258,24 +5971,18 @@ async def test_get_dlp_job_async(
                 job_trigger_name="job_trigger_name_value",
             )
         )
-
         response = await client.get_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetDlpJobRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.DlpJob)
-
     assert response.name == "name_value"
-
     assert response.type_ == dlp.DlpJobType.INSPECT_JOB
-
     assert response.state == dlp.DlpJob.JobState.PENDING
-
     assert response.job_trigger_name == "job_trigger_name_value"
 
 
@@ -6290,12 +5997,12 @@ def test_get_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_dlp_job), "__call__") as call:
         call.return_value = dlp.DlpJob()
-
         client.get_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6315,12 +6022,12 @@ async def test_get_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_dlp_job), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.DlpJob())
-
         await client.get_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6340,7 +6047,6 @@ def test_get_dlp_job_flattened():
     with mock.patch.object(type(client.transport.get_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.DlpJob()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_dlp_job(name="name_value",)
@@ -6349,7 +6055,6 @@ def test_get_dlp_job_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -6382,7 +6087,6 @@ async def test_get_dlp_job_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -6411,13 +6115,11 @@ def test_delete_dlp_job(transport: str = "grpc", request_type=dlp.DeleteDlpJobRe
     with mock.patch.object(type(client.transport.delete_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -6440,7 +6142,6 @@ def test_delete_dlp_job_empty_call():
         client.delete_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDlpJobRequest()
 
 
@@ -6460,13 +6161,11 @@ async def test_delete_dlp_job_async(
     with mock.patch.object(type(client.transport.delete_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -6484,12 +6183,12 @@ def test_delete_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_dlp_job), "__call__") as call:
         call.return_value = None
-
         client.delete_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6509,12 +6208,12 @@ async def test_delete_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.delete_dlp_job), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6534,7 +6233,6 @@ def test_delete_dlp_job_flattened():
     with mock.patch.object(type(client.transport.delete_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_dlp_job(name="name_value",)
@@ -6543,7 +6241,6 @@ def test_delete_dlp_job_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -6576,7 +6273,6 @@ async def test_delete_dlp_job_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -6605,13 +6301,11 @@ def test_cancel_dlp_job(transport: str = "grpc", request_type=dlp.CancelDlpJobRe
     with mock.patch.object(type(client.transport.cancel_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.cancel_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CancelDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -6634,7 +6328,6 @@ def test_cancel_dlp_job_empty_call():
         client.cancel_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CancelDlpJobRequest()
 
 
@@ -6654,13 +6347,11 @@ async def test_cancel_dlp_job_async(
     with mock.patch.object(type(client.transport.cancel_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.cancel_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CancelDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -6678,12 +6369,12 @@ def test_cancel_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CancelDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.cancel_dlp_job), "__call__") as call:
         call.return_value = None
-
         client.cancel_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6703,12 +6394,12 @@ async def test_cancel_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CancelDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.cancel_dlp_job), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.cancel_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6738,19 +6429,15 @@ def test_create_stored_info_type(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType(name="name_value",)
-
         response = client.create_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -6772,7 +6459,6 @@ def test_create_stored_info_type_empty_call():
         client.create_stored_info_type()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateStoredInfoTypeRequest()
 
 
@@ -6796,18 +6482,15 @@ async def test_create_stored_info_type_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.StoredInfoType(name="name_value",)
         )
-
         response = await client.create_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.CreateStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -6822,6 +6505,7 @@ def test_create_stored_info_type_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateStoredInfoTypeRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -6829,7 +6513,6 @@ def test_create_stored_info_type_field_headers():
         type(client.transport.create_stored_info_type), "__call__"
     ) as call:
         call.return_value = dlp.StoredInfoType()
-
         client.create_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6849,6 +6532,7 @@ async def test_create_stored_info_type_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.CreateStoredInfoTypeRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -6856,7 +6540,6 @@ async def test_create_stored_info_type_field_headers_async():
         type(client.transport.create_stored_info_type), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.StoredInfoType())
-
         await client.create_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -6878,7 +6561,6 @@ def test_create_stored_info_type_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_stored_info_type(
@@ -6890,9 +6572,7 @@ def test_create_stored_info_type_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].config == dlp.StoredInfoTypeConfig(
             display_name="display_name_value"
         )
@@ -6934,9 +6614,7 @@ async def test_create_stored_info_type_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
-
         assert args[0].config == dlp.StoredInfoTypeConfig(
             display_name="display_name_value"
         )
@@ -6973,19 +6651,15 @@ def test_update_stored_info_type(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType(name="name_value",)
-
         response = client.update_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -7007,7 +6681,6 @@ def test_update_stored_info_type_empty_call():
         client.update_stored_info_type()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateStoredInfoTypeRequest()
 
 
@@ -7031,18 +6704,15 @@ async def test_update_stored_info_type_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.StoredInfoType(name="name_value",)
         )
-
         response = await client.update_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.UpdateStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -7057,6 +6727,7 @@ def test_update_stored_info_type_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7064,7 +6735,6 @@ def test_update_stored_info_type_field_headers():
         type(client.transport.update_stored_info_type), "__call__"
     ) as call:
         call.return_value = dlp.StoredInfoType()
-
         client.update_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7084,6 +6754,7 @@ async def test_update_stored_info_type_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.UpdateStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7091,7 +6762,6 @@ async def test_update_stored_info_type_field_headers_async():
         type(client.transport.update_stored_info_type), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.StoredInfoType())
-
         await client.update_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7113,7 +6783,6 @@ def test_update_stored_info_type_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.update_stored_info_type(
@@ -7126,13 +6795,10 @@ def test_update_stored_info_type_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].config == dlp.StoredInfoTypeConfig(
             display_name="display_name_value"
         )
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -7174,13 +6840,10 @@ async def test_update_stored_info_type_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
-
         assert args[0].config == dlp.StoredInfoTypeConfig(
             display_name="display_name_value"
         )
-
         assert args[0].update_mask == field_mask.FieldMask(paths=["paths_value"])
 
 
@@ -7216,19 +6879,15 @@ def test_get_stored_info_type(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType(name="name_value",)
-
         response = client.get_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -7250,7 +6909,6 @@ def test_get_stored_info_type_empty_call():
         client.get_stored_info_type()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetStoredInfoTypeRequest()
 
 
@@ -7274,18 +6932,15 @@ async def test_get_stored_info_type_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.StoredInfoType(name="name_value",)
         )
-
         response = await client.get_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.GetStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, dlp.StoredInfoType)
-
     assert response.name == "name_value"
 
 
@@ -7300,6 +6955,7 @@ def test_get_stored_info_type_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7307,7 +6963,6 @@ def test_get_stored_info_type_field_headers():
         type(client.transport.get_stored_info_type), "__call__"
     ) as call:
         call.return_value = dlp.StoredInfoType()
-
         client.get_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7327,6 +6982,7 @@ async def test_get_stored_info_type_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.GetStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7334,7 +6990,6 @@ async def test_get_stored_info_type_field_headers_async():
         type(client.transport.get_stored_info_type), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.StoredInfoType())
-
         await client.get_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7356,7 +7011,6 @@ def test_get_stored_info_type_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.StoredInfoType()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.get_stored_info_type(name="name_value",)
@@ -7365,7 +7019,6 @@ def test_get_stored_info_type_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -7400,7 +7053,6 @@ async def test_get_stored_info_type_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -7435,19 +7087,15 @@ def test_list_stored_info_types(
         call.return_value = dlp.ListStoredInfoTypesResponse(
             next_page_token="next_page_token_value",
         )
-
         response = client.list_stored_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListStoredInfoTypesRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, pagers.ListStoredInfoTypesPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -7469,7 +7117,6 @@ def test_list_stored_info_types_empty_call():
         client.list_stored_info_types()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListStoredInfoTypesRequest()
 
 
@@ -7493,18 +7140,15 @@ async def test_list_stored_info_types_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListStoredInfoTypesResponse(next_page_token="next_page_token_value",)
         )
-
         response = await client.list_stored_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.ListStoredInfoTypesRequest()
 
     # Establish that the response is the type that we expect.
     assert isinstance(response, pagers.ListStoredInfoTypesAsyncPager)
-
     assert response.next_page_token == "next_page_token_value"
 
 
@@ -7519,6 +7163,7 @@ def test_list_stored_info_types_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListStoredInfoTypesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7526,7 +7171,6 @@ def test_list_stored_info_types_field_headers():
         type(client.transport.list_stored_info_types), "__call__"
     ) as call:
         call.return_value = dlp.ListStoredInfoTypesResponse()
-
         client.list_stored_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7546,6 +7190,7 @@ async def test_list_stored_info_types_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.ListStoredInfoTypesRequest()
+
     request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7555,7 +7200,6 @@ async def test_list_stored_info_types_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.ListStoredInfoTypesResponse()
         )
-
         await client.list_stored_info_types(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7577,7 +7221,6 @@ def test_list_stored_info_types_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.ListStoredInfoTypesResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.list_stored_info_types(parent="parent_value",)
@@ -7586,7 +7229,6 @@ def test_list_stored_info_types_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -7623,7 +7265,6 @@ async def test_list_stored_info_types_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].parent == "parent_value"
 
 
@@ -7810,13 +7451,11 @@ def test_delete_stored_info_type(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.delete_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
@@ -7841,7 +7480,6 @@ def test_delete_stored_info_type_empty_call():
         client.delete_stored_info_type()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteStoredInfoTypeRequest()
 
 
@@ -7863,13 +7501,11 @@ async def test_delete_stored_info_type_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.delete_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.DeleteStoredInfoTypeRequest()
 
     # Establish that the response is the type that we expect.
@@ -7887,6 +7523,7 @@ def test_delete_stored_info_type_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7894,7 +7531,6 @@ def test_delete_stored_info_type_field_headers():
         type(client.transport.delete_stored_info_type), "__call__"
     ) as call:
         call.return_value = None
-
         client.delete_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7914,6 +7550,7 @@ async def test_delete_stored_info_type_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.DeleteStoredInfoTypeRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -7921,7 +7558,6 @@ async def test_delete_stored_info_type_field_headers_async():
         type(client.transport.delete_stored_info_type), "__call__"
     ) as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.delete_stored_info_type(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -7943,7 +7579,6 @@ def test_delete_stored_info_type_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.delete_stored_info_type(name="name_value",)
@@ -7952,7 +7587,6 @@ def test_delete_stored_info_type_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -7987,7 +7621,6 @@ async def test_delete_stored_info_type_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -8020,17 +7653,14 @@ def test_hybrid_inspect_dlp_job(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.HybridInspectResponse()
-
         response = client.hybrid_inspect_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectDlpJobRequest()
 
     # Establish that the response is the type that we expect.
-
     assert isinstance(response, dlp.HybridInspectResponse)
 
 
@@ -8052,7 +7682,6 @@ def test_hybrid_inspect_dlp_job_empty_call():
         client.hybrid_inspect_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectDlpJobRequest()
 
 
@@ -8076,13 +7705,11 @@ async def test_hybrid_inspect_dlp_job_async(
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.HybridInspectResponse()
         )
-
         response = await client.hybrid_inspect_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.HybridInspectDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -8100,6 +7727,7 @@ def test_hybrid_inspect_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.HybridInspectDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -8107,7 +7735,6 @@ def test_hybrid_inspect_dlp_job_field_headers():
         type(client.transport.hybrid_inspect_dlp_job), "__call__"
     ) as call:
         call.return_value = dlp.HybridInspectResponse()
-
         client.hybrid_inspect_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -8127,6 +7754,7 @@ async def test_hybrid_inspect_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.HybridInspectDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
@@ -8136,7 +7764,6 @@ async def test_hybrid_inspect_dlp_job_field_headers_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             dlp.HybridInspectResponse()
         )
-
         await client.hybrid_inspect_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -8158,7 +7785,6 @@ def test_hybrid_inspect_dlp_job_flattened():
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = dlp.HybridInspectResponse()
-
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.hybrid_inspect_dlp_job(name="name_value",)
@@ -8167,7 +7793,6 @@ def test_hybrid_inspect_dlp_job_flattened():
         # request object values.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -8204,7 +7829,6 @@ async def test_hybrid_inspect_dlp_job_flattened_async():
         # request object values.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0].name == "name_value"
 
 
@@ -8233,13 +7857,11 @@ def test_finish_dlp_job(transport: str = "grpc", request_type=dlp.FinishDlpJobRe
     with mock.patch.object(type(client.transport.finish_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = None
-
         response = client.finish_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls) == 1
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.FinishDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -8262,7 +7884,6 @@ def test_finish_dlp_job_empty_call():
         client.finish_dlp_job()
         call.assert_called()
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.FinishDlpJobRequest()
 
 
@@ -8282,13 +7903,11 @@ async def test_finish_dlp_job_async(
     with mock.patch.object(type(client.transport.finish_dlp_job), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         response = await client.finish_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
         assert len(call.mock_calls)
         _, args, _ = call.mock_calls[0]
-
         assert args[0] == dlp.FinishDlpJobRequest()
 
     # Establish that the response is the type that we expect.
@@ -8306,12 +7925,12 @@ def test_finish_dlp_job_field_headers():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.FinishDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.finish_dlp_job), "__call__") as call:
         call.return_value = None
-
         client.finish_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -8331,12 +7950,12 @@ async def test_finish_dlp_job_field_headers_async():
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
     request = dlp.FinishDlpJobRequest()
+
     request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.finish_dlp_job), "__call__") as call:
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
-
         await client.finish_dlp_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -8483,10 +8102,32 @@ def test_dlp_service_base_transport():
             getattr(transport, method)(request=object())
 
 
+@requires_google_auth_gte_1_25_0
 def test_dlp_service_base_transport_with_credentials_file():
     # Instantiate the base transport with a credentials file
     with mock.patch.object(
-        auth, "load_credentials_from_file"
+        auth, "load_credentials_from_file", autospec=True
+    ) as load_creds, mock.patch(
+        "google.cloud.dlp_v2.services.dlp_service.transports.DlpServiceTransport._prep_wrapped_messages"
+    ) as Transport:
+        Transport.return_value = None
+        load_creds.return_value = (credentials.AnonymousCredentials(), None)
+        transport = transports.DlpServiceTransport(
+            credentials_file="credentials.json", quota_project_id="octopus",
+        )
+        load_creds.assert_called_once_with(
+            "credentials.json",
+            scopes=None,
+            default_scopes=("https://www.googleapis.com/auth/cloud-platform",),
+            quota_project_id="octopus",
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_dlp_service_base_transport_with_credentials_file_old_google_auth():
+    # Instantiate the base transport with a credentials file
+    with mock.patch.object(
+        auth, "load_credentials_from_file", autospec=True
     ) as load_creds, mock.patch(
         "google.cloud.dlp_v2.services.dlp_service.transports.DlpServiceTransport._prep_wrapped_messages"
     ) as Transport:
@@ -8504,7 +8145,7 @@ def test_dlp_service_base_transport_with_credentials_file():
 
 def test_dlp_service_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
-    with mock.patch.object(auth, "default") as adc, mock.patch(
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch(
         "google.cloud.dlp_v2.services.dlp_service.transports.DlpServiceTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
@@ -8513,9 +8154,23 @@ def test_dlp_service_base_transport_with_adc():
         adc.assert_called_once()
 
 
+@requires_google_auth_gte_1_25_0
 def test_dlp_service_auth_adc():
     # If no credentials are provided, we should use ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        DlpServiceClient()
+        adc.assert_called_once_with(
+            scopes=None,
+            default_scopes=("https://www.googleapis.com/auth/cloud-platform",),
+            quota_project_id=None,
+        )
+
+
+@requires_google_auth_lt_1_25_0
+def test_dlp_service_auth_adc_old_google_auth():
+    # If no credentials are provided, we should use ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
         DlpServiceClient()
         adc.assert_called_once_with(
@@ -8524,17 +8179,141 @@ def test_dlp_service_auth_adc():
         )
 
 
-def test_dlp_service_transport_auth_adc():
+@pytest.mark.parametrize(
+    "transport_class",
+    [transports.DlpServiceGrpcTransport, transports.DlpServiceGrpcAsyncIOTransport,],
+)
+@requires_google_auth_gte_1_25_0
+def test_dlp_service_transport_auth_adc(transport_class):
     # If credentials and host are not provided, the transport class should use
     # ADC credentials.
-    with mock.patch.object(auth, "default") as adc:
+    with mock.patch.object(auth, "default", autospec=True) as adc:
         adc.return_value = (credentials.AnonymousCredentials(), None)
-        transports.DlpServiceGrpcTransport(
-            host="squid.clam.whelk", quota_project_id="octopus"
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+        adc.assert_called_once_with(
+            scopes=["1", "2"],
+            default_scopes=("https://www.googleapis.com/auth/cloud-platform",),
+            quota_project_id="octopus",
         )
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [transports.DlpServiceGrpcTransport, transports.DlpServiceGrpcAsyncIOTransport,],
+)
+@requires_google_auth_lt_1_25_0
+def test_dlp_service_transport_auth_adc_old_google_auth(transport_class):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        transport_class(quota_project_id="octopus")
         adc.assert_called_once_with(
             scopes=("https://www.googleapis.com/auth/cloud-platform",),
             quota_project_id="octopus",
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.DlpServiceGrpcTransport, grpc_helpers),
+        (transports.DlpServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_gte_1_26_0
+def test_dlp_service_transport_create_channel(transport_class, grpc_helpers):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "dlp.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            default_scopes=("https://www.googleapis.com/auth/cloud-platform",),
+            scopes=["1", "2"],
+            default_host="dlp.googleapis.com",
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.DlpServiceGrpcTransport, grpc_helpers),
+        (transports.DlpServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_dlp_service_transport_create_channel_old_api_core(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+        transport_class(quota_project_id="octopus")
+
+        create_channel.assert_called_with(
+            "dlp.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=("https://www.googleapis.com/auth/cloud-platform",),
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
+        )
+
+
+@pytest.mark.parametrize(
+    "transport_class,grpc_helpers",
+    [
+        (transports.DlpServiceGrpcTransport, grpc_helpers),
+        (transports.DlpServiceGrpcAsyncIOTransport, grpc_helpers_async),
+    ],
+)
+@requires_api_core_lt_1_26_0
+def test_dlp_service_transport_create_channel_user_scopes(
+    transport_class, grpc_helpers
+):
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default", autospec=True) as adc, mock.patch.object(
+        grpc_helpers, "create_channel", autospec=True
+    ) as create_channel:
+        creds = credentials.AnonymousCredentials()
+        adc.return_value = (creds, None)
+
+        transport_class(quota_project_id="octopus", scopes=["1", "2"])
+
+        create_channel.assert_called_with(
+            "dlp.googleapis.com",
+            credentials=creds,
+            credentials_file=None,
+            quota_project_id="octopus",
+            scopes=["1", "2"],
+            ssl_credentials=None,
+            options=[
+                ("grpc.max_send_message_length", -1),
+                ("grpc.max_receive_message_length", -1),
+            ],
         )
 
 
@@ -8717,7 +8496,6 @@ def test_dlp_service_transport_channel_mtls_with_adc(transport_class):
 def test_deidentify_template_path():
     organization = "squid"
     deidentify_template = "clam"
-
     expected = "organizations/{organization}/deidentifyTemplates/{deidentify_template}".format(
         organization=organization, deidentify_template=deidentify_template,
     )
@@ -8741,7 +8519,6 @@ def test_parse_deidentify_template_path():
 
 def test_dlp_content_path():
     project = "oyster"
-
     expected = "projects/{project}/dlpContent".format(project=project,)
     actual = DlpServiceClient.dlp_content_path(project)
     assert expected == actual
@@ -8761,7 +8538,6 @@ def test_parse_dlp_content_path():
 def test_dlp_job_path():
     project = "cuttlefish"
     dlp_job = "mussel"
-
     expected = "projects/{project}/dlpJobs/{dlp_job}".format(
         project=project, dlp_job=dlp_job,
     )
@@ -8785,7 +8561,6 @@ def test_finding_path():
     project = "scallop"
     location = "abalone"
     finding = "squid"
-
     expected = "projects/{project}/locations/{location}/findings/{finding}".format(
         project=project, location=location, finding=finding,
     )
@@ -8809,7 +8584,6 @@ def test_parse_finding_path():
 def test_inspect_template_path():
     organization = "oyster"
     inspect_template = "nudibranch"
-
     expected = "organizations/{organization}/inspectTemplates/{inspect_template}".format(
         organization=organization, inspect_template=inspect_template,
     )
@@ -8832,7 +8606,6 @@ def test_parse_inspect_template_path():
 def test_job_trigger_path():
     project = "winkle"
     job_trigger = "nautilus"
-
     expected = "projects/{project}/jobTriggers/{job_trigger}".format(
         project=project, job_trigger=job_trigger,
     )
@@ -8855,7 +8628,6 @@ def test_parse_job_trigger_path():
 def test_stored_info_type_path():
     organization = "squid"
     stored_info_type = "clam"
-
     expected = "organizations/{organization}/storedInfoTypes/{stored_info_type}".format(
         organization=organization, stored_info_type=stored_info_type,
     )
@@ -8877,7 +8649,6 @@ def test_parse_stored_info_type_path():
 
 def test_common_billing_account_path():
     billing_account = "oyster"
-
     expected = "billingAccounts/{billing_account}".format(
         billing_account=billing_account,
     )
@@ -8898,7 +8669,6 @@ def test_parse_common_billing_account_path():
 
 def test_common_folder_path():
     folder = "cuttlefish"
-
     expected = "folders/{folder}".format(folder=folder,)
     actual = DlpServiceClient.common_folder_path(folder)
     assert expected == actual
@@ -8917,7 +8687,6 @@ def test_parse_common_folder_path():
 
 def test_common_organization_path():
     organization = "winkle"
-
     expected = "organizations/{organization}".format(organization=organization,)
     actual = DlpServiceClient.common_organization_path(organization)
     assert expected == actual
@@ -8936,7 +8705,6 @@ def test_parse_common_organization_path():
 
 def test_common_project_path():
     project = "scallop"
-
     expected = "projects/{project}".format(project=project,)
     actual = DlpServiceClient.common_project_path(project)
     assert expected == actual
@@ -8956,7 +8724,6 @@ def test_parse_common_project_path():
 def test_common_location_path():
     project = "squid"
     location = "clam"
-
     expected = "projects/{project}/locations/{location}".format(
         project=project, location=location,
     )

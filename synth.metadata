@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8ff7d794576311d3d68d4df2ac6da93bbfcd7476",
-        "internalRef": "366472163"
+        "sha": "60e129d0672a1be2c70b41bf76aadc7ad1b1ca0f",
+        "internalRef": "370525906"
       }
     }
   ],
@@ -94,6 +94,7 @@
     "google/cloud/dlp/__init__.py",
     "google/cloud/dlp/py.typed",
     "google/cloud/dlp_v2/__init__.py",
+    "google/cloud/dlp_v2/gapic_metadata.json",
     "google/cloud/dlp_v2/proto/dlp.proto",
     "google/cloud/dlp_v2/proto/storage.proto",
     "google/cloud/dlp_v2/py.typed",
@@ -125,6 +126,9 @@
     "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
     "setup.cfg",
     "testing/.gitignore",
+    "tests/__init__.py",
+    "tests/unit/__init__.py",
+    "tests/unit/gapic/__init__.py",
     "tests/unit/gapic/dlp_v2/__init__.py",
     "tests/unit/gapic/dlp_v2/test_dlp_service.py"
   ]
