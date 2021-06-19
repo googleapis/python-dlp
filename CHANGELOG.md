@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-dlp/#history
 
+### [3.1.2](https://www.github.com/googleapis/python-dlp/compare/v3.1.1...v3.1.2) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-dlp/issues/1127)) ([#166](https://www.github.com/googleapis/python-dlp/issues/166)) ([e2e1c90](https://www.github.com/googleapis/python-dlp/commit/e2e1c90d65a2e2e9c1be1ed7921e138059401519))
+
 ### [3.1.1](https://www.github.com/googleapis/python-dlp/compare/v3.1.0...v3.1.1) (2021-06-16)
 
 
