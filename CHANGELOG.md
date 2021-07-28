@@ -7,14 +7,14 @@
 ### [3.2.2](https://www.github.com/googleapis/python-dlp/compare/v3.2.1...v3.2.2) (2021-07-27)
 
 
-### Features
-
-* add Samples section to CONTRIBUTING.rst ([#210](https://www.github.com/googleapis/python-dlp/issues/210)) ([566827b](https://www.github.com/googleapis/python-dlp/commit/566827ba4cead4a5237fed370da132dd6fb55602))
-
-
 ### Bug Fixes
 
 * enable self signed jwt for grpc ([#218](https://www.github.com/googleapis/python-dlp/issues/218)) ([584a887](https://www.github.com/googleapis/python-dlp/commit/584a887ac2bb648ebac439d4044f3fd8f12a01f4))
+
+
+### Documentation
+
+* add Samples section to CONTRIBUTING.rst ([#210](https://www.github.com/googleapis/python-dlp/issues/210)) ([566827b](https://www.github.com/googleapis/python-dlp/commit/566827ba4cead4a5237fed370da132dd6fb55602))
 
 
 ### Miscellaneous Chores
