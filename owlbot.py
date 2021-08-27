@@ -79,9 +79,10 @@ s.replace(
   "master",
   "main"
 )
+
 s.replace(
-  "samples/*",
-  "master",
-  "main"
+  "README.rst",
+  "google-cloud-python/blob/main/README.rst",
+  "google-cloud-python/blob/master/README.rst"
 )
 
