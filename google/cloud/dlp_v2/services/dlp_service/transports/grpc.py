@@ -13,9 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+import functools
 import warnings
 from typing import Callable, Dict, Optional, Sequence, Tuple, Union
 
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import grpc_helpers  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 import google.auth  # type: ignore
@@ -117,6 +119,8 @@ class DlpServiceGrpcTransport(DlpServiceTransport):
               and ``credentials_file`` are passed.
         """
         self._grpc_channel = None
+        self._default_channel = False
+        self._client_info = client_info
         self._ssl_channel_credentials = ssl_channel_credentials
         self._stubs: Dict[str, Callable] = {}
 
@@ -160,12 +164,17 @@ class DlpServiceGrpcTransport(DlpServiceTransport):
             credentials_file=credentials_file,
             scopes=scopes,
             quota_project_id=quota_project_id,
-            client_info=client_info,
+            client_info=self._client_info,
             always_use_jwt_access=always_use_jwt_access,
         )
 
         if not self._grpc_channel:
-            self._grpc_channel = type(self).create_channel(
+            self._default_channel = True
+
+            # Save the call made to create_channel
+            # so a channel can be re-created with the same settings
+            self.create_default_channel = functools.partial(
+                type(self).create_channel,
                 self._host,
                 credentials=self._credentials,
                 credentials_file=credentials_file,
@@ -177,9 +186,14 @@ class DlpServiceGrpcTransport(DlpServiceTransport):
                     ("grpc.max_receive_message_length", -1),
                 ],
             )
+            self._grpc_channel = self.create_default_channel()
+
+            # Subscribe to the gRPC channel and attempt
+            # to re-create the channel if it goes into SHUTDOWN
+            self._grpc_channel.subscribe(self._refresh_transport)
 
         # Wrap messages. This must be done after self._grpc_channel exists
-        self._prep_wrapped_messages(client_info)
+        self._prep_wrapped_messages(self._client_info)
 
     @classmethod
     def create_channel(
@@ -227,6 +241,23 @@ class DlpServiceGrpcTransport(DlpServiceTransport):
             default_host=cls.DEFAULT_HOST,
             **kwargs,
         )
+
+    def _refresh_transport(self, connectivity_state) -> None:
+        """Checks for a broken gRPC channel and creates a new one if
+        that is the case.
+        
+        Intended to be passed to ``on_error`` on ``google.api_core.retry.Retry``."""
+
+        print("CONNECTIVIY STATE:", connectivity_state)
+
+        if connectivity_state == grpc.ChannelConnectivity.SHUTDOWN:
+            self._grpc_channel = self.create_default_channel()
+
+            # Clear self._stubs and re-populate with methods
+            # that use the newly created channel.
+            self._stubs = {}
+            self._prep_wrapped_messages(self._client_info)
+            self._grpc_channel.subscribe(self._refresh_transport)
 
     @property
     def grpc_channel(self) -> grpc.Channel:
