@@ -13,6 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from google.cloud.dlp_v2.services.dlp_service.transports.grpc import (
+    DlpServiceGrpcTransport,
+)
 import os
 import mock
 import packaging.version
@@ -488,6 +491,51 @@ def test_dlp_service_client_client_options_from_dict():
             client_info=transports.base.DEFAULT_CLIENT_INFO,
             always_use_jwt_access=True,
         )
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [transports.DlpServiceGrpcTransport, transports.DlpServiceGrpcAsyncIOTransport,],
+)
+def test__refresh_transport(transport_class):
+    transport = transport_class()
+    original_channel = transport.grpc_channel
+
+    exc = core_exceptions.ServiceUnavailable("Socket Operation on non-socket")
+    transport._refresh_transport(exc)
+    new_channel = transport.grpc_channel
+
+    assert original_channel is not new_channel
+    assert len(transport._stubs) > 0
+    # Check stubs are associated with new channel
+    assert list(transport._stubs.values())[0]._channel == new_channel._channel
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [transports.DlpServiceGrpcTransport, transports.DlpServiceGrpcAsyncIOTransport,],
+)
+def test__refresh_transport_different_exception(transport_class):
+    transport = transport_class()
+    original_channel = transport.grpc_channel
+
+    exc = core_exceptions.ServiceUnavailable("Unrelated error message")
+    transport._refresh_transport(exc)
+    assert original_channel is transport.grpc_channel
+
+
+@pytest.mark.parametrize(
+    "transport_class",
+    [transports.DlpServiceGrpcTransport, transports.DlpServiceGrpcAsyncIOTransport,],
+)
+def test_reinitialize_grpc_channel_custom_channel(transport_class):
+    transport = transport_class(
+        channel=grpc_helpers.create_channel("foo.googleapis.com")
+    )
+    original_channel = transport.grpc_channel
+
+    transport.reinitialize_grpc_channel()
+    assert original_channel is transport.grpc_channel
 
 
 def test_inspect_content(
