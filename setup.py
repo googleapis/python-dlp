@@ -75,7 +75,7 @@ setuptools.setup(
     packages=packages,
     namespace_packages=namespaces,
     install_requires=dependencies,
-    extras_requires=extras,
+    extras_require=extras,
     python_requires=">=3.6",
     scripts=["scripts/fixup_dlp_v2_keywords.py"],
     include_package_data=True,
