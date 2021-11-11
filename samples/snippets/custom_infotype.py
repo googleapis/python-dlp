@@ -55,7 +55,7 @@ def inspect_string_with_exclusion_dict(
             "rules": [
                 {
                     "exclusion_rule": {
-                        "dictionary": {"word_list": {"words": exclusion_list},},
+                        "dictionary": {"word_list": {"words": exclusion_list}},
                         "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_FULL_MATCH,
                     }
                 }
@@ -131,7 +131,7 @@ def inspect_string_with_exclusion_regex(
             "rules": [
                 {
                     "exclusion_rule": {
-                        "regex": {"pattern": exclusion_regex,},
+                        "regex": {"pattern": exclusion_regex},
                         "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_FULL_MATCH,
                     }
                 }
@@ -207,7 +207,7 @@ def inspect_string_with_exclusion_dict_substring(
             "rules": [
                 {
                     "exclusion_rule": {
-                        "dictionary": {"word_list": {"words": exclusion_list},},
+                        "dictionary": {"word_list": {"words": exclusion_list}},
                         "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
                     }
                 }
@@ -286,7 +286,7 @@ def inspect_string_custom_excluding_substring(
             "rules": [
                 {
                     "exclusion_rule": {
-                        "dictionary": {"word_list": {"words": exclusion_list},},
+                        "dictionary": {"word_list": {"words": exclusion_list}},
                         "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
                     }
                 }
@@ -677,7 +677,7 @@ def inspect_string_multiple_rules(project, content_string):
 
     # Construct exclusion rules
     quasimodo_rule = {
-        "dictionary": {"word_list": {"words": ["quasimodo"]},},
+        "dictionary": {"word_list": {"words": ["quasimodo"]}},
         "matching_type": google.cloud.dlp_v2.MatchingType.MATCHING_TYPE_PARTIAL_MATCH,
     }
     redacted_rule = {
