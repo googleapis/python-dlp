@@ -476,7 +476,7 @@ def reidentify_with_deterministic(
     """Re-identifies content that was previously de-identified through deterministic encryption.
     Args:
         project: The Google Cloud project ID to use as a parent resource.
-        input_str: The string to be re-identified. Provide the entire token. Example: 
+        input_str: The string to be re-identified. Provide the entire token. Example:
             EMAIL_ADDRESS_TOKEN(52):AVAx2eIEnIQP5jbNEr2j9wLOAd5m4kpSBR/0jjjGdAOmryzZbE/q
         surrogate_type: The name of the surrogate custom infoType used
             during the encryption process.
