@@ -244,7 +244,11 @@ class ExcludeInfoTypes(proto.Message):
             finding, namely email address.
     """
 
-    info_types = proto.RepeatedField(proto.MESSAGE, number=1, message=storage.InfoType,)
+    info_types = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=storage.InfoType,
+    )
 
 
 class ExclusionRule(proto.Message):
@@ -272,14 +276,24 @@ class ExclusionRule(proto.Message):
     )
 
     regex = proto.Field(
-        proto.MESSAGE, number=2, oneof="type", message=storage.CustomInfoType.Regex,
+        proto.MESSAGE,
+        number=2,
+        oneof="type",
+        message=storage.CustomInfoType.Regex,
     )
 
     exclude_info_types = proto.Field(
-        proto.MESSAGE, number=3, oneof="type", message=ExcludeInfoTypes,
+        proto.MESSAGE,
+        number=3,
+        oneof="type",
+        message=ExcludeInfoTypes,
     )
 
-    matching_type = proto.Field(proto.ENUM, number=4, enum="MatchingType",)
+    matching_type = proto.Field(
+        proto.ENUM,
+        number=4,
+        enum="MatchingType",
+    )
 
 
 class InspectionRule(proto.Message):
@@ -301,7 +315,10 @@ class InspectionRule(proto.Message):
     )
 
     exclusion_rule = proto.Field(
-        proto.MESSAGE, number=2, oneof="type", message=ExclusionRule,
+        proto.MESSAGE,
+        number=2,
+        oneof="type",
+        message=ExclusionRule,
     )
 
 
@@ -319,9 +336,17 @@ class InspectionRuleSet(proto.Message):
             rules are applied in order.
     """
 
-    info_types = proto.RepeatedField(proto.MESSAGE, number=1, message=storage.InfoType,)
+    info_types = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=storage.InfoType,
+    )
 
-    rules = proto.RepeatedField(proto.MESSAGE, number=2, message=InspectionRule,)
+    rules = proto.RepeatedField(
+        proto.MESSAGE,
+        number=2,
+        message=InspectionRule,
+    )
 
 
 class InspectConfig(proto.Message):
@@ -408,7 +433,11 @@ class InspectConfig(proto.Message):
                     Max findings limit for the given infoType.
             """
 
-            info_type = proto.Field(proto.MESSAGE, number=1, message=storage.InfoType,)
+            info_type = proto.Field(
+                proto.MESSAGE,
+                number=1,
+                message=storage.InfoType,
+            )
 
             max_findings = proto.Field(proto.INT32, number=2)
 
@@ -422,23 +451,45 @@ class InspectConfig(proto.Message):
             message="InspectConfig.FindingLimits.InfoTypeLimit",
         )
 
-    info_types = proto.RepeatedField(proto.MESSAGE, number=1, message=storage.InfoType,)
+    info_types = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=storage.InfoType,
+    )
 
-    min_likelihood = proto.Field(proto.ENUM, number=2, enum=storage.Likelihood,)
+    min_likelihood = proto.Field(
+        proto.ENUM,
+        number=2,
+        enum=storage.Likelihood,
+    )
 
-    limits = proto.Field(proto.MESSAGE, number=3, message=FindingLimits,)
+    limits = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=FindingLimits,
+    )
 
     include_quote = proto.Field(proto.BOOL, number=4)
 
     exclude_info_types = proto.Field(proto.BOOL, number=5)
 
     custom_info_types = proto.RepeatedField(
-        proto.MESSAGE, number=6, message=storage.CustomInfoType,
+        proto.MESSAGE,
+        number=6,
+        message=storage.CustomInfoType,
     )
 
-    content_options = proto.RepeatedField(proto.ENUM, number=8, enum="ContentOption",)
+    content_options = proto.RepeatedField(
+        proto.ENUM,
+        number=8,
+        enum="ContentOption",
+    )
 
-    rule_set = proto.RepeatedField(proto.MESSAGE, number=10, message=InspectionRuleSet,)
+    rule_set = proto.RepeatedField(
+        proto.MESSAGE,
+        number=10,
+        message=InspectionRuleSet,
+    )
 
 
 class ByteContentItem(proto.Message):
@@ -467,7 +518,11 @@ class ByteContentItem(proto.Message):
         CSV = 12
         TSV = 13
 
-    type = proto.Field(proto.ENUM, number=1, enum=BytesType,)
+    type = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=BytesType,
+    )
 
     data = proto.Field(proto.BYTES, number=2)
 
@@ -489,10 +544,18 @@ class ContentItem(proto.Message):
 
     value = proto.Field(proto.STRING, number=3, oneof="data_item")
 
-    table = proto.Field(proto.MESSAGE, number=4, oneof="data_item", message="Table",)
+    table = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        oneof="data_item",
+        message="Table",
+    )
 
     byte_item = proto.Field(
-        proto.MESSAGE, number=5, oneof="data_item", message=ByteContentItem,
+        proto.MESSAGE,
+        number=5,
+        oneof="data_item",
+        message=ByteContentItem,
     )
 
 
@@ -517,11 +580,23 @@ class Table(proto.Message):
                 Individual cells.
         """
 
-        values = proto.RepeatedField(proto.MESSAGE, number=1, message="Value",)
+        values = proto.RepeatedField(
+            proto.MESSAGE,
+            number=1,
+            message="Value",
+        )
 
-    headers = proto.RepeatedField(proto.MESSAGE, number=1, message=storage.FieldId,)
+    headers = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=storage.FieldId,
+    )
 
-    rows = proto.RepeatedField(proto.MESSAGE, number=2, message=Row,)
+    rows = proto.RepeatedField(
+        proto.MESSAGE,
+        number=2,
+        message=Row,
+    )
 
 
 class InspectResult(proto.Message):
@@ -542,7 +617,11 @@ class InspectResult(proto.Message):
             batches.
     """
 
-    findings = proto.RepeatedField(proto.MESSAGE, number=1, message="Finding",)
+    findings = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message="Finding",
+    )
 
     findings_truncated = proto.Field(proto.BOOL, number=2)
 
@@ -610,15 +689,35 @@ class Finding(proto.Message):
 
     quote = proto.Field(proto.STRING, number=1)
 
-    info_type = proto.Field(proto.MESSAGE, number=2, message=storage.InfoType,)
+    info_type = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.InfoType,
+    )
 
-    likelihood = proto.Field(proto.ENUM, number=3, enum=storage.Likelihood,)
+    likelihood = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum=storage.Likelihood,
+    )
 
-    location = proto.Field(proto.MESSAGE, number=4, message="Location",)
+    location = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message="Location",
+    )
 
-    create_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=timestamp.Timestamp,
+    )
 
-    quote_info = proto.Field(proto.MESSAGE, number=7, message="QuoteInfo",)
+    quote_info = proto.Field(
+        proto.MESSAGE,
+        number=7,
+        message="QuoteInfo",
+    )
 
     resource_name = proto.Field(proto.STRING, number=8)
 
@@ -627,7 +726,9 @@ class Finding(proto.Message):
     labels = proto.MapField(proto.STRING, proto.STRING, number=10)
 
     job_create_time = proto.Field(
-        proto.MESSAGE, number=11, message=timestamp.Timestamp,
+        proto.MESSAGE,
+        number=11,
+        message=timestamp.Timestamp,
     )
 
     job_name = proto.Field(proto.STRING, number=13)
@@ -658,15 +759,29 @@ class Location(proto.Message):
             finding occurred, if available.
     """
 
-    byte_range = proto.Field(proto.MESSAGE, number=1, message="Range",)
-
-    codepoint_range = proto.Field(proto.MESSAGE, number=2, message="Range",)
-
-    content_locations = proto.RepeatedField(
-        proto.MESSAGE, number=7, message="ContentLocation",
+    byte_range = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="Range",
     )
 
-    container = proto.Field(proto.MESSAGE, number=8, message="Container",)
+    codepoint_range = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message="Range",
+    )
+
+    content_locations = proto.RepeatedField(
+        proto.MESSAGE,
+        number=7,
+        message="ContentLocation",
+    )
+
+    container = proto.Field(
+        proto.MESSAGE,
+        number=8,
+        message="Container",
+    )
 
 
 class ContentLocation(proto.Message):
@@ -709,23 +824,37 @@ class ContentLocation(proto.Message):
     container_name = proto.Field(proto.STRING, number=1)
 
     record_location = proto.Field(
-        proto.MESSAGE, number=2, oneof="location", message="RecordLocation",
+        proto.MESSAGE,
+        number=2,
+        oneof="location",
+        message="RecordLocation",
     )
 
     image_location = proto.Field(
-        proto.MESSAGE, number=3, oneof="location", message="ImageLocation",
+        proto.MESSAGE,
+        number=3,
+        oneof="location",
+        message="ImageLocation",
     )
 
     document_location = proto.Field(
-        proto.MESSAGE, number=5, oneof="location", message="DocumentLocation",
+        proto.MESSAGE,
+        number=5,
+        oneof="location",
+        message="DocumentLocation",
     )
 
     metadata_location = proto.Field(
-        proto.MESSAGE, number=8, oneof="location", message="MetadataLocation",
+        proto.MESSAGE,
+        number=8,
+        oneof="location",
+        message="MetadataLocation",
     )
 
     container_timestamp = proto.Field(
-        proto.MESSAGE, number=6, message=timestamp.Timestamp,
+        proto.MESSAGE,
+        number=6,
+        message=timestamp.Timestamp,
     )
 
     container_version = proto.Field(proto.STRING, number=7)
@@ -741,10 +870,17 @@ class MetadataLocation(proto.Message):
             Storage metadata.
     """
 
-    type = proto.Field(proto.ENUM, number=1, enum="MetadataType",)
+    type = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum="MetadataType",
+    )
 
     storage_label = proto.Field(
-        proto.MESSAGE, number=3, oneof="label", message="StorageMetadataLabel",
+        proto.MESSAGE,
+        number=3,
+        oneof="label",
+        message="StorageMetadataLabel",
     )
 
 
@@ -784,11 +920,23 @@ class RecordLocation(proto.Message):
             Location within a ``ContentItem.Table``.
     """
 
-    record_key = proto.Field(proto.MESSAGE, number=1, message=storage.RecordKey,)
+    record_key = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=storage.RecordKey,
+    )
 
-    field_id = proto.Field(proto.MESSAGE, number=2, message=storage.FieldId,)
+    field_id = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.FieldId,
+    )
 
-    table_location = proto.Field(proto.MESSAGE, number=3, message="TableLocation",)
+    table_location = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message="TableLocation",
+    )
 
 
 class TableLocation(proto.Message):
@@ -863,7 +1011,11 @@ class Container(proto.Message):
 
     relative_path = proto.Field(proto.STRING, number=5)
 
-    update_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=timestamp.Timestamp,
+    )
 
     version = proto.Field(proto.STRING, number=7)
 
@@ -895,7 +1047,9 @@ class ImageLocation(proto.Message):
     """
 
     bounding_boxes = proto.RepeatedField(
-        proto.MESSAGE, number=1, message="BoundingBox",
+        proto.MESSAGE,
+        number=1,
+        message="BoundingBox",
     )
 
 
@@ -970,26 +1124,43 @@ class RedactImageRequest(proto.Message):
         """
 
         info_type = proto.Field(
-            proto.MESSAGE, number=1, oneof="target", message=storage.InfoType,
+            proto.MESSAGE,
+            number=1,
+            oneof="target",
+            message=storage.InfoType,
         )
 
         redact_all_text = proto.Field(proto.BOOL, number=2, oneof="target")
 
-        redaction_color = proto.Field(proto.MESSAGE, number=3, message="Color",)
+        redaction_color = proto.Field(
+            proto.MESSAGE,
+            number=3,
+            message="Color",
+        )
 
     parent = proto.Field(proto.STRING, number=1)
 
     location_id = proto.Field(proto.STRING, number=8)
 
-    inspect_config = proto.Field(proto.MESSAGE, number=2, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=InspectConfig,
+    )
 
     image_redaction_configs = proto.RepeatedField(
-        proto.MESSAGE, number=5, message=ImageRedactionConfig,
+        proto.MESSAGE,
+        number=5,
+        message=ImageRedactionConfig,
     )
 
     include_findings = proto.Field(proto.BOOL, number=6)
 
-    byte_item = proto.Field(proto.MESSAGE, number=7, message=ByteContentItem,)
+    byte_item = proto.Field(
+        proto.MESSAGE,
+        number=7,
+        message=ByteContentItem,
+    )
 
 
 class Color(proto.Message):
@@ -1034,7 +1205,11 @@ class RedactImageResponse(proto.Message):
 
     extracted_text = proto.Field(proto.STRING, number=2)
 
-    inspect_result = proto.Field(proto.MESSAGE, number=3, message=InspectResult,)
+    inspect_result = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=InspectResult,
+    )
 
 
 class DeidentifyContentRequest(proto.Message):
@@ -1078,12 +1253,22 @@ class DeidentifyContentRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     deidentify_config = proto.Field(
-        proto.MESSAGE, number=2, message="DeidentifyConfig",
+        proto.MESSAGE,
+        number=2,
+        message="DeidentifyConfig",
     )
 
-    inspect_config = proto.Field(proto.MESSAGE, number=3, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=InspectConfig,
+    )
 
-    item = proto.Field(proto.MESSAGE, number=4, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=ContentItem,
+    )
 
     inspect_template_name = proto.Field(proto.STRING, number=5)
 
@@ -1102,9 +1287,17 @@ class DeidentifyContentResponse(proto.Message):
             An overview of the changes that were made on the ``item``.
     """
 
-    item = proto.Field(proto.MESSAGE, number=1, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=ContentItem,
+    )
 
-    overview = proto.Field(proto.MESSAGE, number=2, message="TransformationOverview",)
+    overview = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message="TransformationOverview",
+    )
 
 
 class ReidentifyContentRequest(proto.Message):
@@ -1156,12 +1349,22 @@ class ReidentifyContentRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     reidentify_config = proto.Field(
-        proto.MESSAGE, number=2, message="DeidentifyConfig",
+        proto.MESSAGE,
+        number=2,
+        message="DeidentifyConfig",
     )
 
-    inspect_config = proto.Field(proto.MESSAGE, number=3, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=InspectConfig,
+    )
 
-    item = proto.Field(proto.MESSAGE, number=4, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=ContentItem,
+    )
 
     inspect_template_name = proto.Field(proto.STRING, number=5)
 
@@ -1180,9 +1383,17 @@ class ReidentifyContentResponse(proto.Message):
             An overview of the changes that were made to the ``item``.
     """
 
-    item = proto.Field(proto.MESSAGE, number=1, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=ContentItem,
+    )
 
-    overview = proto.Field(proto.MESSAGE, number=2, message="TransformationOverview",)
+    overview = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message="TransformationOverview",
+    )
 
 
 class InspectContentRequest(proto.Message):
@@ -1214,9 +1425,17 @@ class InspectContentRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    inspect_config = proto.Field(proto.MESSAGE, number=2, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=InspectConfig,
+    )
 
-    item = proto.Field(proto.MESSAGE, number=3, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=ContentItem,
+    )
 
     inspect_template_name = proto.Field(proto.STRING, number=4)
 
@@ -1231,7 +1450,11 @@ class InspectContentResponse(proto.Message):
             The findings.
     """
 
-    result = proto.Field(proto.MESSAGE, number=1, message=InspectResult,)
+    result = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=InspectResult,
+    )
 
 
 class OutputStorageConfig(proto.Message):
@@ -1281,10 +1504,17 @@ class OutputStorageConfig(proto.Message):
         ALL_COLUMNS = 5
 
     table = proto.Field(
-        proto.MESSAGE, number=1, oneof="type", message=storage.BigQueryTable,
+        proto.MESSAGE,
+        number=1,
+        oneof="type",
+        message=storage.BigQueryTable,
     )
 
-    output_schema = proto.Field(proto.ENUM, number=3, enum=OutputSchema,)
+    output_schema = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum=OutputSchema,
+    )
 
 
 class InfoTypeStats(proto.Message):
@@ -1297,7 +1527,11 @@ class InfoTypeStats(proto.Message):
             Number of findings for this infoType.
     """
 
-    info_type = proto.Field(proto.MESSAGE, number=1, message=storage.InfoType,)
+    info_type = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=storage.InfoType,
+    )
 
     count = proto.Field(proto.INT64, number=2)
 
@@ -1324,10 +1558,16 @@ class InspectDataSourceDetails(proto.Message):
         """
 
         snapshot_inspect_template = proto.Field(
-            proto.MESSAGE, number=1, message="InspectTemplate",
+            proto.MESSAGE,
+            number=1,
+            message="InspectTemplate",
         )
 
-        job_config = proto.Field(proto.MESSAGE, number=3, message="InspectJobConfig",)
+        job_config = proto.Field(
+            proto.MESSAGE,
+            number=3,
+            message="InspectJobConfig",
+        )
 
     class Result(proto.Message):
         r"""All result fields mentioned below are updated while the job
@@ -1355,16 +1595,28 @@ class InspectDataSourceDetails(proto.Message):
         total_estimated_bytes = proto.Field(proto.INT64, number=2)
 
         info_type_stats = proto.RepeatedField(
-            proto.MESSAGE, number=3, message=InfoTypeStats,
+            proto.MESSAGE,
+            number=3,
+            message=InfoTypeStats,
         )
 
         hybrid_stats = proto.Field(
-            proto.MESSAGE, number=7, message="HybridInspectStatistics",
+            proto.MESSAGE,
+            number=7,
+            message="HybridInspectStatistics",
         )
 
-    requested_options = proto.Field(proto.MESSAGE, number=2, message=RequestedOptions,)
+    requested_options = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=RequestedOptions,
+    )
 
-    result = proto.Field(proto.MESSAGE, number=3, message=Result,)
+    result = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=Result,
+    )
 
 
 class HybridInspectStatistics(proto.Message):
@@ -1415,7 +1667,9 @@ class InfoTypeDescription(proto.Message):
     display_name = proto.Field(proto.STRING, number=2)
 
     supported_by = proto.RepeatedField(
-        proto.ENUM, number=3, enum="InfoTypeSupportedBy",
+        proto.ENUM,
+        number=3,
+        enum="InfoTypeSupportedBy",
     )
 
     description = proto.Field(proto.STRING, number=4)
@@ -1459,7 +1713,9 @@ class ListInfoTypesResponse(proto.Message):
     """
 
     info_types = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=InfoTypeDescription,
+        proto.MESSAGE,
+        number=1,
+        message=InfoTypeDescription,
     )
 
 
@@ -1478,11 +1734,23 @@ class RiskAnalysisJobConfig(proto.Message):
             job. Are executed in the order provided.
     """
 
-    privacy_metric = proto.Field(proto.MESSAGE, number=1, message="PrivacyMetric",)
+    privacy_metric = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="PrivacyMetric",
+    )
 
-    source_table = proto.Field(proto.MESSAGE, number=2, message=storage.BigQueryTable,)
+    source_table = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.BigQueryTable,
+    )
 
-    actions = proto.RepeatedField(proto.MESSAGE, number=3, message="Action",)
+    actions = proto.RepeatedField(
+        proto.MESSAGE,
+        number=3,
+        message="Action",
+    )
 
 
 class QuasiId(proto.Message):
@@ -1509,15 +1777,27 @@ class QuasiId(proto.Message):
             values in the input data
     """
 
-    field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+    field = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=storage.FieldId,
+    )
 
     info_type = proto.Field(
-        proto.MESSAGE, number=2, oneof="tag", message=storage.InfoType,
+        proto.MESSAGE,
+        number=2,
+        oneof="tag",
+        message=storage.InfoType,
     )
 
     custom_tag = proto.Field(proto.STRING, number=3, oneof="tag")
 
-    inferred = proto.Field(proto.MESSAGE, number=4, oneof="tag", message=empty.Empty,)
+    inferred = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        oneof="tag",
+        message=empty.Empty,
+    )
 
 
 class StatisticalTable(proto.Message):
@@ -1555,17 +1835,31 @@ class StatisticalTable(proto.Message):
                 the possible values of this column (below).
         """
 
-        field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+        field = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
+        )
 
         custom_tag = proto.Field(proto.STRING, number=2)
 
-    table = proto.Field(proto.MESSAGE, number=3, message=storage.BigQueryTable,)
-
-    quasi_ids = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=QuasiIdentifierField,
+    table = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=storage.BigQueryTable,
     )
 
-    relative_frequency = proto.Field(proto.MESSAGE, number=2, message=storage.FieldId,)
+    quasi_ids = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=QuasiIdentifierField,
+    )
+
+    relative_frequency = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.FieldId,
+    )
 
 
 class PrivacyMetric(proto.Message):
@@ -1597,7 +1891,11 @@ class PrivacyMetric(proto.Message):
                 datetime, timestamp, time.
         """
 
-        field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+        field = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
+        )
 
     class CategoricalStatsConfig(proto.Message):
         r"""Compute numerical stats over an individual column, including
@@ -1612,7 +1910,11 @@ class PrivacyMetric(proto.Message):
                 supported, depending on the data.
         """
 
-        field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+        field = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
+        )
 
     class KAnonymityConfig(proto.Message):
         r"""k-anonymity metric, used for analysis of reidentification
@@ -1642,10 +1944,16 @@ class PrivacyMetric(proto.Message):
         """
 
         quasi_ids = proto.RepeatedField(
-            proto.MESSAGE, number=1, message=storage.FieldId,
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
         )
 
-        entity_id = proto.Field(proto.MESSAGE, number=2, message=storage.EntityId,)
+        entity_id = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            message=storage.EntityId,
+        )
 
     class LDiversityConfig(proto.Message):
         r"""l-diversity metric, used for analysis of reidentification
@@ -1663,11 +1971,15 @@ class PrivacyMetric(proto.Message):
         """
 
         quasi_ids = proto.RepeatedField(
-            proto.MESSAGE, number=1, message=storage.FieldId,
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
         )
 
         sensitive_attribute = proto.Field(
-            proto.MESSAGE, number=2, message=storage.FieldId,
+            proto.MESSAGE,
+            number=2,
+            message=storage.FieldId,
         )
 
     class KMapEstimationConfig(proto.Message):
@@ -1719,16 +2031,26 @@ class PrivacyMetric(proto.Message):
                     values in the input data
             """
 
-            field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+            field = proto.Field(
+                proto.MESSAGE,
+                number=1,
+                message=storage.FieldId,
+            )
 
             info_type = proto.Field(
-                proto.MESSAGE, number=2, oneof="tag", message=storage.InfoType,
+                proto.MESSAGE,
+                number=2,
+                oneof="tag",
+                message=storage.InfoType,
             )
 
             custom_tag = proto.Field(proto.STRING, number=3, oneof="tag")
 
             inferred = proto.Field(
-                proto.MESSAGE, number=4, oneof="tag", message=empty.Empty,
+                proto.MESSAGE,
+                number=4,
+                oneof="tag",
+                message=empty.Empty,
             )
 
         class AuxiliaryTable(proto.Message):
@@ -1763,11 +2085,19 @@ class PrivacyMetric(proto.Message):
                         A auxiliary field.
                 """
 
-                field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+                field = proto.Field(
+                    proto.MESSAGE,
+                    number=1,
+                    message=storage.FieldId,
+                )
 
                 custom_tag = proto.Field(proto.STRING, number=2)
 
-            table = proto.Field(proto.MESSAGE, number=3, message=storage.BigQueryTable,)
+            table = proto.Field(
+                proto.MESSAGE,
+                number=3,
+                message=storage.BigQueryTable,
+            )
 
             quasi_ids = proto.RepeatedField(
                 proto.MESSAGE,
@@ -1776,7 +2106,9 @@ class PrivacyMetric(proto.Message):
             )
 
             relative_frequency = proto.Field(
-                proto.MESSAGE, number=2, message=storage.FieldId,
+                proto.MESSAGE,
+                number=2,
+                message=storage.FieldId,
             )
 
         quasi_ids = proto.RepeatedField(
@@ -1814,36 +2146,60 @@ class PrivacyMetric(proto.Message):
                 in exactly one field of one auxiliary table.
         """
 
-        quasi_ids = proto.RepeatedField(proto.MESSAGE, number=1, message=QuasiId,)
+        quasi_ids = proto.RepeatedField(
+            proto.MESSAGE,
+            number=1,
+            message=QuasiId,
+        )
 
         region_code = proto.Field(proto.STRING, number=2)
 
         auxiliary_tables = proto.RepeatedField(
-            proto.MESSAGE, number=3, message=StatisticalTable,
+            proto.MESSAGE,
+            number=3,
+            message=StatisticalTable,
         )
 
     numerical_stats_config = proto.Field(
-        proto.MESSAGE, number=1, oneof="type", message=NumericalStatsConfig,
+        proto.MESSAGE,
+        number=1,
+        oneof="type",
+        message=NumericalStatsConfig,
     )
 
     categorical_stats_config = proto.Field(
-        proto.MESSAGE, number=2, oneof="type", message=CategoricalStatsConfig,
+        proto.MESSAGE,
+        number=2,
+        oneof="type",
+        message=CategoricalStatsConfig,
     )
 
     k_anonymity_config = proto.Field(
-        proto.MESSAGE, number=3, oneof="type", message=KAnonymityConfig,
+        proto.MESSAGE,
+        number=3,
+        oneof="type",
+        message=KAnonymityConfig,
     )
 
     l_diversity_config = proto.Field(
-        proto.MESSAGE, number=4, oneof="type", message=LDiversityConfig,
+        proto.MESSAGE,
+        number=4,
+        oneof="type",
+        message=LDiversityConfig,
     )
 
     k_map_estimation_config = proto.Field(
-        proto.MESSAGE, number=5, oneof="type", message=KMapEstimationConfig,
+        proto.MESSAGE,
+        number=5,
+        oneof="type",
+        message=KMapEstimationConfig,
     )
 
     delta_presence_estimation_config = proto.Field(
-        proto.MESSAGE, number=6, oneof="type", message=DeltaPresenceEstimationConfig,
+        proto.MESSAGE,
+        number=6,
+        oneof="type",
+        message=DeltaPresenceEstimationConfig,
     )
 
 
@@ -1882,11 +2238,23 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
                 field values into 100 equal sized buckets.
         """
 
-        min_value = proto.Field(proto.MESSAGE, number=1, message="Value",)
+        min_value = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message="Value",
+        )
 
-        max_value = proto.Field(proto.MESSAGE, number=2, message="Value",)
+        max_value = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            message="Value",
+        )
 
-        quantile_values = proto.RepeatedField(proto.MESSAGE, number=4, message="Value",)
+        quantile_values = proto.RepeatedField(
+            proto.MESSAGE,
+            number=4,
+            message="Value",
+        )
 
     class CategoricalStatsResult(proto.Message):
         r"""Result of the categorical stats computation.
@@ -1924,7 +2292,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             bucket_size = proto.Field(proto.INT64, number=3)
 
             bucket_values = proto.RepeatedField(
-                proto.MESSAGE, number=4, message="ValueFrequency",
+                proto.MESSAGE,
+                number=4,
+                message="ValueFrequency",
             )
 
             bucket_value_count = proto.Field(proto.INT64, number=5)
@@ -1959,7 +2329,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             """
 
             quasi_ids_values = proto.RepeatedField(
-                proto.MESSAGE, number=1, message="Value",
+                proto.MESSAGE,
+                number=1,
+                message="Value",
             )
 
             equivalence_class_size = proto.Field(proto.INT64, number=2)
@@ -2035,7 +2407,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             """
 
             quasi_ids_values = proto.RepeatedField(
-                proto.MESSAGE, number=1, message="Value",
+                proto.MESSAGE,
+                number=1,
+                message="Value",
             )
 
             equivalence_class_size = proto.Field(proto.INT64, number=2)
@@ -2043,7 +2417,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             num_distinct_sensitive_values = proto.Field(proto.INT64, number=3)
 
             top_sensitive_values = proto.RepeatedField(
-                proto.MESSAGE, number=4, message="ValueFrequency",
+                proto.MESSAGE,
+                number=4,
+                message="ValueFrequency",
             )
 
         class LDiversityHistogramBucket(proto.Message):
@@ -2119,7 +2495,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             """
 
             quasi_ids_values = proto.RepeatedField(
-                proto.MESSAGE, number=1, message="Value",
+                proto.MESSAGE,
+                number=1,
+                message="Value",
             )
 
             estimated_anonymity = proto.Field(proto.INT64, number=2)
@@ -2206,7 +2584,9 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
             """
 
             quasi_ids_values = proto.RepeatedField(
-                proto.MESSAGE, number=1, message="Value",
+                proto.MESSAGE,
+                number=1,
+                message="Value",
             )
 
             estimated_probability = proto.Field(proto.DOUBLE, number=2)
@@ -2257,35 +2637,57 @@ class AnalyzeDataSourceRiskDetails(proto.Message):
         )
 
     requested_privacy_metric = proto.Field(
-        proto.MESSAGE, number=1, message=PrivacyMetric,
+        proto.MESSAGE,
+        number=1,
+        message=PrivacyMetric,
     )
 
     requested_source_table = proto.Field(
-        proto.MESSAGE, number=2, message=storage.BigQueryTable,
+        proto.MESSAGE,
+        number=2,
+        message=storage.BigQueryTable,
     )
 
     numerical_stats_result = proto.Field(
-        proto.MESSAGE, number=3, oneof="result", message=NumericalStatsResult,
+        proto.MESSAGE,
+        number=3,
+        oneof="result",
+        message=NumericalStatsResult,
     )
 
     categorical_stats_result = proto.Field(
-        proto.MESSAGE, number=4, oneof="result", message=CategoricalStatsResult,
+        proto.MESSAGE,
+        number=4,
+        oneof="result",
+        message=CategoricalStatsResult,
     )
 
     k_anonymity_result = proto.Field(
-        proto.MESSAGE, number=5, oneof="result", message=KAnonymityResult,
+        proto.MESSAGE,
+        number=5,
+        oneof="result",
+        message=KAnonymityResult,
     )
 
     l_diversity_result = proto.Field(
-        proto.MESSAGE, number=6, oneof="result", message=LDiversityResult,
+        proto.MESSAGE,
+        number=6,
+        oneof="result",
+        message=LDiversityResult,
     )
 
     k_map_estimation_result = proto.Field(
-        proto.MESSAGE, number=7, oneof="result", message=KMapEstimationResult,
+        proto.MESSAGE,
+        number=7,
+        oneof="result",
+        message=KMapEstimationResult,
     )
 
     delta_presence_estimation_result = proto.Field(
-        proto.MESSAGE, number=9, oneof="result", message=DeltaPresenceEstimationResult,
+        proto.MESSAGE,
+        number=9,
+        oneof="result",
+        message=DeltaPresenceEstimationResult,
     )
 
 
@@ -2300,7 +2702,11 @@ class ValueFrequency(proto.Message):
             field.
     """
 
-    value = proto.Field(proto.MESSAGE, number=1, message="Value",)
+    value = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="Value",
+    )
 
     count = proto.Field(proto.INT64, number=2)
 
@@ -2341,19 +2747,31 @@ class Value(proto.Message):
     boolean_value = proto.Field(proto.BOOL, number=4, oneof="type")
 
     timestamp_value = proto.Field(
-        proto.MESSAGE, number=5, oneof="type", message=timestamp.Timestamp,
+        proto.MESSAGE,
+        number=5,
+        oneof="type",
+        message=timestamp.Timestamp,
     )
 
     time_value = proto.Field(
-        proto.MESSAGE, number=6, oneof="type", message=timeofday.TimeOfDay,
+        proto.MESSAGE,
+        number=6,
+        oneof="type",
+        message=timeofday.TimeOfDay,
     )
 
     date_value = proto.Field(
-        proto.MESSAGE, number=7, oneof="type", message=gt_date.Date,
+        proto.MESSAGE,
+        number=7,
+        oneof="type",
+        message=gt_date.Date,
     )
 
     day_of_week_value = proto.Field(
-        proto.ENUM, number=8, oneof="type", enum=dayofweek.DayOfWeek,
+        proto.ENUM,
+        number=8,
+        oneof="type",
+        enum=dayofweek.DayOfWeek,
     )
 
 
@@ -2366,7 +2784,10 @@ class QuoteInfo(proto.Message):
     """
 
     date_time = proto.Field(
-        proto.MESSAGE, number=2, oneof="parsed_quote", message="DateTime",
+        proto.MESSAGE,
+        number=2,
+        oneof="parsed_quote",
+        message="DateTime",
     )
 
 
@@ -2398,13 +2819,29 @@ class DateTime(proto.Message):
 
         offset_minutes = proto.Field(proto.INT32, number=1)
 
-    date = proto.Field(proto.MESSAGE, number=1, message=gt_date.Date,)
+    date = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=gt_date.Date,
+    )
 
-    day_of_week = proto.Field(proto.ENUM, number=2, enum=dayofweek.DayOfWeek,)
+    day_of_week = proto.Field(
+        proto.ENUM,
+        number=2,
+        enum=dayofweek.DayOfWeek,
+    )
 
-    time = proto.Field(proto.MESSAGE, number=3, message=timeofday.TimeOfDay,)
+    time = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=timeofday.TimeOfDay,
+    )
 
-    time_zone = proto.Field(proto.MESSAGE, number=4, message=TimeZone,)
+    time_zone = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=TimeZone,
+    )
 
 
 class DeidentifyConfig(proto.Message):
@@ -2440,7 +2877,9 @@ class DeidentifyConfig(proto.Message):
     )
 
     transformation_error_handling = proto.Field(
-        proto.MESSAGE, number=3, message="TransformationErrorHandling",
+        proto.MESSAGE,
+        number=3,
+        message="TransformationErrorHandling",
     )
 
 
@@ -2474,11 +2913,17 @@ class TransformationErrorHandling(proto.Message):
         """
 
     throw_error = proto.Field(
-        proto.MESSAGE, number=1, oneof="mode", message=ThrowError,
+        proto.MESSAGE,
+        number=1,
+        oneof="mode",
+        message=ThrowError,
     )
 
     leave_untransformed = proto.Field(
-        proto.MESSAGE, number=2, oneof="mode", message=LeaveUntransformed,
+        proto.MESSAGE,
+        number=2,
+        oneof="mode",
+        message=LeaveUntransformed,
     )
 
 
@@ -2511,15 +2956,24 @@ class PrimitiveTransformation(proto.Message):
     """
 
     replace_config = proto.Field(
-        proto.MESSAGE, number=1, oneof="transformation", message="ReplaceValueConfig",
+        proto.MESSAGE,
+        number=1,
+        oneof="transformation",
+        message="ReplaceValueConfig",
     )
 
     redact_config = proto.Field(
-        proto.MESSAGE, number=2, oneof="transformation", message="RedactConfig",
+        proto.MESSAGE,
+        number=2,
+        oneof="transformation",
+        message="RedactConfig",
     )
 
     character_mask_config = proto.Field(
-        proto.MESSAGE, number=3, oneof="transformation", message="CharacterMaskConfig",
+        proto.MESSAGE,
+        number=3,
+        oneof="transformation",
+        message="CharacterMaskConfig",
     )
 
     crypto_replace_ffx_fpe_config = proto.Field(
@@ -2537,7 +2991,10 @@ class PrimitiveTransformation(proto.Message):
     )
 
     bucketing_config = proto.Field(
-        proto.MESSAGE, number=6, oneof="transformation", message="BucketingConfig",
+        proto.MESSAGE,
+        number=6,
+        oneof="transformation",
+        message="BucketingConfig",
     )
 
     replace_with_info_type_config = proto.Field(
@@ -2548,15 +3005,24 @@ class PrimitiveTransformation(proto.Message):
     )
 
     time_part_config = proto.Field(
-        proto.MESSAGE, number=8, oneof="transformation", message="TimePartConfig",
+        proto.MESSAGE,
+        number=8,
+        oneof="transformation",
+        message="TimePartConfig",
     )
 
     crypto_hash_config = proto.Field(
-        proto.MESSAGE, number=9, oneof="transformation", message="CryptoHashConfig",
+        proto.MESSAGE,
+        number=9,
+        oneof="transformation",
+        message="CryptoHashConfig",
     )
 
     date_shift_config = proto.Field(
-        proto.MESSAGE, number=11, oneof="transformation", message="DateShiftConfig",
+        proto.MESSAGE,
+        number=11,
+        oneof="transformation",
+        message="DateShiftConfig",
     )
 
     crypto_deterministic_config = proto.Field(
@@ -2586,7 +3052,11 @@ class TimePartConfig(proto.Message):
         WEEK_OF_YEAR = 5
         HOUR_OF_DAY = 6
 
-    part_to_extract = proto.Field(proto.ENUM, number=1, enum=TimePart,)
+    part_to_extract = proto.Field(
+        proto.ENUM,
+        number=1,
+        enum=TimePart,
+    )
 
 
 class CryptoHashConfig(proto.Message):
@@ -2604,7 +3074,11 @@ class CryptoHashConfig(proto.Message):
             The key used by the hash function.
     """
 
-    crypto_key = proto.Field(proto.MESSAGE, number=1, message="CryptoKey",)
+    crypto_key = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="CryptoKey",
+    )
 
 
 class CryptoDeterministicConfig(proto.Message):
@@ -2678,13 +3152,23 @@ class CryptoDeterministicConfig(proto.Message):
             non-structured ``ContentItem``\ s.
     """
 
-    crypto_key = proto.Field(proto.MESSAGE, number=1, message="CryptoKey",)
-
-    surrogate_info_type = proto.Field(
-        proto.MESSAGE, number=2, message=storage.InfoType,
+    crypto_key = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="CryptoKey",
     )
 
-    context = proto.Field(proto.MESSAGE, number=3, message=storage.FieldId,)
+    surrogate_info_type = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.InfoType,
+    )
+
+    context = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=storage.FieldId,
+    )
 
 
 class ReplaceValueConfig(proto.Message):
@@ -2695,7 +3179,11 @@ class ReplaceValueConfig(proto.Message):
             Value to replace it with.
     """
 
-    new_value = proto.Field(proto.MESSAGE, number=1, message=Value,)
+    new_value = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=Value,
+    )
 
 
 class ReplaceWithInfoTypeConfig(proto.Message):
@@ -2736,7 +3224,10 @@ class CharsToIgnore(proto.Message):
     characters_to_skip = proto.Field(proto.STRING, number=1, oneof="characters")
 
     common_characters_to_ignore = proto.Field(
-        proto.ENUM, number=2, oneof="characters", enum=CommonCharsToIgnore,
+        proto.ENUM,
+        number=2,
+        oneof="characters",
+        enum=CommonCharsToIgnore,
     )
 
 
@@ -2782,7 +3273,9 @@ class CharacterMaskConfig(proto.Message):
     reverse_order = proto.Field(proto.BOOL, number=3)
 
     characters_to_ignore = proto.RepeatedField(
-        proto.MESSAGE, number=4, message=CharsToIgnore,
+        proto.MESSAGE,
+        number=4,
+        message=CharsToIgnore,
     )
 
 
@@ -2826,9 +3319,17 @@ class FixedSizeBucketingConfig(proto.Message):
             decimals works.
     """
 
-    lower_bound = proto.Field(proto.MESSAGE, number=1, message=Value,)
+    lower_bound = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=Value,
+    )
 
-    upper_bound = proto.Field(proto.MESSAGE, number=2, message=Value,)
+    upper_bound = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=Value,
+    )
 
     bucket_size = proto.Field(proto.DOUBLE, number=3)
 
@@ -2865,13 +3366,29 @@ class BucketingConfig(proto.Message):
                 Required. Replacement value for this bucket.
         """
 
-        min = proto.Field(proto.MESSAGE, number=1, message=Value,)
+        min = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=Value,
+        )
 
-        max = proto.Field(proto.MESSAGE, number=2, message=Value,)
+        max = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            message=Value,
+        )
 
-        replacement_value = proto.Field(proto.MESSAGE, number=3, message=Value,)
+        replacement_value = proto.Field(
+            proto.MESSAGE,
+            number=3,
+            message=Value,
+        )
 
-    buckets = proto.RepeatedField(proto.MESSAGE, number=1, message=Bucket,)
+    buckets = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=Bucket,
+    )
 
 
 class CryptoReplaceFfxFpeConfig(proto.Message):
@@ -2975,12 +3492,23 @@ class CryptoReplaceFfxFpeConfig(proto.Message):
         UPPER_CASE_ALPHA_NUMERIC = 3
         ALPHA_NUMERIC = 4
 
-    crypto_key = proto.Field(proto.MESSAGE, number=1, message="CryptoKey",)
+    crypto_key = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="CryptoKey",
+    )
 
-    context = proto.Field(proto.MESSAGE, number=2, message=storage.FieldId,)
+    context = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.FieldId,
+    )
 
     common_alphabet = proto.Field(
-        proto.ENUM, number=4, oneof="alphabet", enum=FfxCommonNativeAlphabet,
+        proto.ENUM,
+        number=4,
+        oneof="alphabet",
+        enum=FfxCommonNativeAlphabet,
     )
 
     custom_alphabet = proto.Field(proto.STRING, number=5, oneof="alphabet")
@@ -2988,7 +3516,9 @@ class CryptoReplaceFfxFpeConfig(proto.Message):
     radix = proto.Field(proto.INT32, number=6, oneof="alphabet")
 
     surrogate_info_type = proto.Field(
-        proto.MESSAGE, number=8, message=storage.InfoType,
+        proto.MESSAGE,
+        number=8,
+        message=storage.InfoType,
     )
 
 
@@ -3009,15 +3539,24 @@ class CryptoKey(proto.Message):
     """
 
     transient = proto.Field(
-        proto.MESSAGE, number=1, oneof="source", message="TransientCryptoKey",
+        proto.MESSAGE,
+        number=1,
+        oneof="source",
+        message="TransientCryptoKey",
     )
 
     unwrapped = proto.Field(
-        proto.MESSAGE, number=2, oneof="source", message="UnwrappedCryptoKey",
+        proto.MESSAGE,
+        number=2,
+        oneof="source",
+        message="UnwrappedCryptoKey",
     )
 
     kms_wrapped = proto.Field(
-        proto.MESSAGE, number=3, oneof="source", message="KmsWrappedCryptoKey",
+        proto.MESSAGE,
+        number=3,
+        oneof="source",
+        message="KmsWrappedCryptoKey",
     )
 
 
@@ -3105,10 +3644,17 @@ class DateShiftConfig(proto.Message):
 
     lower_bound_days = proto.Field(proto.INT32, number=2)
 
-    context = proto.Field(proto.MESSAGE, number=3, message=storage.FieldId,)
+    context = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=storage.FieldId,
+    )
 
     crypto_key = proto.Field(
-        proto.MESSAGE, number=4, oneof="method", message=CryptoKey,
+        proto.MESSAGE,
+        number=4,
+        oneof="method",
+        message=CryptoKey,
     )
 
 
@@ -3141,15 +3687,21 @@ class InfoTypeTransformations(proto.Message):
         """
 
         info_types = proto.RepeatedField(
-            proto.MESSAGE, number=1, message=storage.InfoType,
+            proto.MESSAGE,
+            number=1,
+            message=storage.InfoType,
         )
 
         primitive_transformation = proto.Field(
-            proto.MESSAGE, number=2, message=PrimitiveTransformation,
+            proto.MESSAGE,
+            number=2,
+            message=PrimitiveTransformation,
         )
 
     transformations = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=InfoTypeTransformation,
+        proto.MESSAGE,
+        number=1,
+        message=InfoTypeTransformation,
     )
 
 
@@ -3180,9 +3732,17 @@ class FieldTransformation(proto.Message):
             selectively transform content that matches an ``InfoType``.
     """
 
-    fields = proto.RepeatedField(proto.MESSAGE, number=1, message=storage.FieldId,)
+    fields = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=storage.FieldId,
+    )
 
-    condition = proto.Field(proto.MESSAGE, number=3, message="RecordCondition",)
+    condition = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message="RecordCondition",
+    )
 
     primitive_transformation = proto.Field(
         proto.MESSAGE,
@@ -3214,11 +3774,15 @@ class RecordTransformations(proto.Message):
     """
 
     field_transformations = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=FieldTransformation,
+        proto.MESSAGE,
+        number=1,
+        message=FieldTransformation,
     )
 
     record_suppressions = proto.RepeatedField(
-        proto.MESSAGE, number=2, message="RecordSuppression",
+        proto.MESSAGE,
+        number=2,
+        message="RecordSuppression",
     )
 
 
@@ -3233,7 +3797,11 @@ class RecordSuppression(proto.Message):
             suppressed from the transformed content.
     """
 
-    condition = proto.Field(proto.MESSAGE, number=1, message="RecordCondition",)
+    condition = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message="RecordCondition",
+    )
 
 
 class RecordCondition(proto.Message):
@@ -3278,11 +3846,23 @@ class RecordCondition(proto.Message):
                 tests.]
         """
 
-        field = proto.Field(proto.MESSAGE, number=1, message=storage.FieldId,)
+        field = proto.Field(
+            proto.MESSAGE,
+            number=1,
+            message=storage.FieldId,
+        )
 
-        operator = proto.Field(proto.ENUM, number=3, enum="RelationalOperator",)
+        operator = proto.Field(
+            proto.ENUM,
+            number=3,
+            enum="RelationalOperator",
+        )
 
-        value = proto.Field(proto.MESSAGE, number=4, message=Value,)
+        value = proto.Field(
+            proto.MESSAGE,
+            number=4,
+            message=Value,
+        )
 
     class Conditions(proto.Message):
         r"""A collection of conditions.
@@ -3293,7 +3873,9 @@ class RecordCondition(proto.Message):
         """
 
         conditions = proto.RepeatedField(
-            proto.MESSAGE, number=1, message="RecordCondition.Condition",
+            proto.MESSAGE,
+            number=1,
+            message="RecordCondition.Condition",
         )
 
     class Expressions(proto.Message):
@@ -3313,14 +3895,23 @@ class RecordCondition(proto.Message):
             AND = 1
 
         logical_operator = proto.Field(
-            proto.ENUM, number=1, enum="RecordCondition.Expressions.LogicalOperator",
+            proto.ENUM,
+            number=1,
+            enum="RecordCondition.Expressions.LogicalOperator",
         )
 
         conditions = proto.Field(
-            proto.MESSAGE, number=3, oneof="type", message="RecordCondition.Conditions",
+            proto.MESSAGE,
+            number=3,
+            oneof="type",
+            message="RecordCondition.Conditions",
         )
 
-    expressions = proto.Field(proto.MESSAGE, number=3, message=Expressions,)
+    expressions = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=Expressions,
+    )
 
 
 class TransformationOverview(proto.Message):
@@ -3337,7 +3928,9 @@ class TransformationOverview(proto.Message):
     transformed_bytes = proto.Field(proto.INT64, number=2)
 
     transformation_summaries = proto.RepeatedField(
-        proto.MESSAGE, number=3, message="TransformationSummary",
+        proto.MESSAGE,
+        number=3,
+        message="TransformationSummary",
     )
 
 
@@ -3395,26 +3988,48 @@ class TransformationSummary(proto.Message):
         count = proto.Field(proto.INT64, number=1)
 
         code = proto.Field(
-            proto.ENUM, number=2, enum="TransformationSummary.TransformationResultCode",
+            proto.ENUM,
+            number=2,
+            enum="TransformationSummary.TransformationResultCode",
         )
 
         details = proto.Field(proto.STRING, number=3)
 
-    info_type = proto.Field(proto.MESSAGE, number=1, message=storage.InfoType,)
+    info_type = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=storage.InfoType,
+    )
 
-    field = proto.Field(proto.MESSAGE, number=2, message=storage.FieldId,)
+    field = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.FieldId,
+    )
 
     transformation = proto.Field(
-        proto.MESSAGE, number=3, message=PrimitiveTransformation,
+        proto.MESSAGE,
+        number=3,
+        message=PrimitiveTransformation,
     )
 
     field_transformations = proto.RepeatedField(
-        proto.MESSAGE, number=5, message=FieldTransformation,
+        proto.MESSAGE,
+        number=5,
+        message=FieldTransformation,
     )
 
-    record_suppress = proto.Field(proto.MESSAGE, number=6, message=RecordSuppression,)
+    record_suppress = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=RecordSuppression,
+    )
 
-    results = proto.RepeatedField(proto.MESSAGE, number=4, message=SummaryResult,)
+    results = proto.RepeatedField(
+        proto.MESSAGE,
+        number=4,
+        message=SummaryResult,
+    )
 
     transformed_bytes = proto.Field(proto.INT64, number=7)
 
@@ -3436,7 +4051,10 @@ class Schedule(proto.Message):
     """
 
     recurrence_period_duration = proto.Field(
-        proto.MESSAGE, number=1, oneof="option", message=duration.Duration,
+        proto.MESSAGE,
+        number=1,
+        oneof="option",
+        message=duration.Duration,
     )
 
 
@@ -3481,11 +4099,23 @@ class InspectTemplate(proto.Message):
 
     description = proto.Field(proto.STRING, number=3)
 
-    create_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message=timestamp.Timestamp,
+    )
 
-    inspect_config = proto.Field(proto.MESSAGE, number=6, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=InspectConfig,
+    )
 
 
 class DeidentifyTemplate(proto.Message):
@@ -3521,11 +4151,23 @@ class DeidentifyTemplate(proto.Message):
 
     description = proto.Field(proto.STRING, number=3)
 
-    create_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message=timestamp.Timestamp,
+    )
 
-    deidentify_config = proto.Field(proto.MESSAGE, number=6, message=DeidentifyConfig,)
+    deidentify_config = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=DeidentifyConfig,
+    )
 
 
 class Error(proto.Message):
@@ -3540,10 +4182,16 @@ class Error(proto.Message):
             The times the error occurred.
     """
 
-    details = proto.Field(proto.MESSAGE, number=1, message=gr_status.Status,)
+    details = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=gr_status.Status,
+    )
 
     timestamps = proto.RepeatedField(
-        proto.MESSAGE, number=2, message=timestamp.Timestamp,
+        proto.MESSAGE,
+        number=2,
+        message=timestamp.Timestamp,
     )
 
 
@@ -3620,10 +4268,18 @@ class JobTrigger(proto.Message):
         """
 
         schedule = proto.Field(
-            proto.MESSAGE, number=1, oneof="trigger", message=Schedule,
+            proto.MESSAGE,
+            number=1,
+            oneof="trigger",
+            message=Schedule,
         )
 
-        manual = proto.Field(proto.MESSAGE, number=2, oneof="trigger", message=Manual,)
+        manual = proto.Field(
+            proto.MESSAGE,
+            number=2,
+            oneof="trigger",
+            message=Manual,
+        )
 
     name = proto.Field(proto.STRING, number=1)
 
@@ -3632,20 +4288,47 @@ class JobTrigger(proto.Message):
     description = proto.Field(proto.STRING, number=3)
 
     inspect_job = proto.Field(
-        proto.MESSAGE, number=4, oneof="job", message="InspectJobConfig",
+        proto.MESSAGE,
+        number=4,
+        oneof="job",
+        message="InspectJobConfig",
     )
 
-    triggers = proto.RepeatedField(proto.MESSAGE, number=5, message=Trigger,)
+    triggers = proto.RepeatedField(
+        proto.MESSAGE,
+        number=5,
+        message=Trigger,
+    )
 
-    errors = proto.RepeatedField(proto.MESSAGE, number=6, message=Error,)
+    errors = proto.RepeatedField(
+        proto.MESSAGE,
+        number=6,
+        message=Error,
+    )
 
-    create_time = proto.Field(proto.MESSAGE, number=7, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=7,
+        message=timestamp.Timestamp,
+    )
 
-    update_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
+    update_time = proto.Field(
+        proto.MESSAGE,
+        number=8,
+        message=timestamp.Timestamp,
+    )
 
-    last_run_time = proto.Field(proto.MESSAGE, number=9, message=timestamp.Timestamp,)
+    last_run_time = proto.Field(
+        proto.MESSAGE,
+        number=9,
+        message=timestamp.Timestamp,
+    )
 
-    status = proto.Field(proto.ENUM, number=10, enum=Status,)
+    status = proto.Field(
+        proto.ENUM,
+        number=10,
+        enum=Status,
+    )
 
 
 class Action(proto.Message):
@@ -3683,7 +4366,9 @@ class Action(proto.Message):
         """
 
         output_config = proto.Field(
-            proto.MESSAGE, number=1, message=OutputStorageConfig,
+            proto.MESSAGE,
+            number=1,
+            message=OutputStorageConfig,
         )
 
     class PublishToPubSub(proto.Message):
@@ -3746,15 +4431,24 @@ class Action(proto.Message):
         """
 
     save_findings = proto.Field(
-        proto.MESSAGE, number=1, oneof="action", message=SaveFindings,
+        proto.MESSAGE,
+        number=1,
+        oneof="action",
+        message=SaveFindings,
     )
 
     pub_sub = proto.Field(
-        proto.MESSAGE, number=2, oneof="action", message=PublishToPubSub,
+        proto.MESSAGE,
+        number=2,
+        oneof="action",
+        message=PublishToPubSub,
     )
 
     publish_summary_to_cscc = proto.Field(
-        proto.MESSAGE, number=3, oneof="action", message=PublishSummaryToCscc,
+        proto.MESSAGE,
+        number=3,
+        oneof="action",
+        message=PublishSummaryToCscc,
     )
 
     publish_findings_to_cloud_data_catalog = proto.Field(
@@ -3765,11 +4459,17 @@ class Action(proto.Message):
     )
 
     job_notification_emails = proto.Field(
-        proto.MESSAGE, number=8, oneof="action", message=JobNotificationEmails,
+        proto.MESSAGE,
+        number=8,
+        oneof="action",
+        message=JobNotificationEmails,
     )
 
     publish_to_stackdriver = proto.Field(
-        proto.MESSAGE, number=9, oneof="action", message=PublishToStackdriver,
+        proto.MESSAGE,
+        number=9,
+        oneof="action",
+        message=PublishToStackdriver,
     )
 
 
@@ -3798,7 +4498,11 @@ class CreateInspectTemplateRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    inspect_template = proto.Field(proto.MESSAGE, number=2, message=InspectTemplate,)
+    inspect_template = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=InspectTemplate,
+    )
 
     template_id = proto.Field(proto.STRING, number=3)
 
@@ -3822,9 +4526,17 @@ class UpdateInspectTemplateRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    inspect_template = proto.Field(proto.MESSAGE, number=2, message=InspectTemplate,)
+    inspect_template = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=InspectTemplate,
+    )
 
-    update_mask = proto.Field(proto.MESSAGE, number=3, message=field_mask.FieldMask,)
+    update_mask = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=field_mask.FieldMask,
+    )
 
 
 class GetInspectTemplateRequest(proto.Message):
@@ -3907,7 +4619,9 @@ class ListInspectTemplatesResponse(proto.Message):
         return self
 
     inspect_templates = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=InspectTemplate,
+        proto.MESSAGE,
+        number=1,
+        message=InspectTemplate,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -3950,7 +4664,11 @@ class CreateJobTriggerRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    job_trigger = proto.Field(proto.MESSAGE, number=2, message=JobTrigger,)
+    job_trigger = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=JobTrigger,
+    )
 
     trigger_id = proto.Field(proto.STRING, number=3)
 
@@ -3985,9 +4703,17 @@ class UpdateJobTriggerRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    job_trigger = proto.Field(proto.MESSAGE, number=2, message=JobTrigger,)
+    job_trigger = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=JobTrigger,
+    )
 
-    update_mask = proto.Field(proto.MESSAGE, number=3, message=field_mask.FieldMask,)
+    update_mask = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=field_mask.FieldMask,
+    )
 
 
 class GetJobTriggerRequest(proto.Message):
@@ -4031,11 +4757,17 @@ class CreateDlpJobRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     inspect_job = proto.Field(
-        proto.MESSAGE, number=2, oneof="job", message="InspectJobConfig",
+        proto.MESSAGE,
+        number=2,
+        oneof="job",
+        message="InspectJobConfig",
     )
 
     risk_job = proto.Field(
-        proto.MESSAGE, number=3, oneof="job", message=RiskAnalysisJobConfig,
+        proto.MESSAGE,
+        number=3,
+        oneof="job",
+        message=RiskAnalysisJobConfig,
     )
 
     job_id = proto.Field(proto.STRING, number=4)
@@ -4149,7 +4881,11 @@ class ListJobTriggersResponse(proto.Message):
     def raw_page(self):
         return self
 
-    job_triggers = proto.RepeatedField(proto.MESSAGE, number=1, message=JobTrigger,)
+    job_triggers = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=JobTrigger,
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -4185,14 +4921,24 @@ class InspectJobConfig(proto.Message):
     """
 
     storage_config = proto.Field(
-        proto.MESSAGE, number=1, message=storage.StorageConfig,
+        proto.MESSAGE,
+        number=1,
+        message=storage.StorageConfig,
     )
 
-    inspect_config = proto.Field(proto.MESSAGE, number=2, message=InspectConfig,)
+    inspect_config = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=InspectConfig,
+    )
 
     inspect_template_name = proto.Field(proto.STRING, number=3)
 
-    actions = proto.RepeatedField(proto.MESSAGE, number=4, message=Action,)
+    actions = proto.RepeatedField(
+        proto.MESSAGE,
+        number=4,
+        message=Action,
+    )
 
 
 class DlpJob(proto.Message):
@@ -4235,27 +4981,57 @@ class DlpJob(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    type = proto.Field(proto.ENUM, number=2, enum="DlpJobType",)
+    type = proto.Field(
+        proto.ENUM,
+        number=2,
+        enum="DlpJobType",
+    )
 
-    state = proto.Field(proto.ENUM, number=3, enum=JobState,)
+    state = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum=JobState,
+    )
 
     risk_details = proto.Field(
-        proto.MESSAGE, number=4, oneof="details", message=AnalyzeDataSourceRiskDetails,
+        proto.MESSAGE,
+        number=4,
+        oneof="details",
+        message=AnalyzeDataSourceRiskDetails,
     )
 
     inspect_details = proto.Field(
-        proto.MESSAGE, number=5, oneof="details", message=InspectDataSourceDetails,
+        proto.MESSAGE,
+        number=5,
+        oneof="details",
+        message=InspectDataSourceDetails,
     )
 
-    create_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=6,
+        message=timestamp.Timestamp,
+    )
 
-    start_time = proto.Field(proto.MESSAGE, number=7, message=timestamp.Timestamp,)
+    start_time = proto.Field(
+        proto.MESSAGE,
+        number=7,
+        message=timestamp.Timestamp,
+    )
 
-    end_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
+    end_time = proto.Field(
+        proto.MESSAGE,
+        number=8,
+        message=timestamp.Timestamp,
+    )
 
     job_trigger_name = proto.Field(proto.STRING, number=10)
 
-    errors = proto.RepeatedField(proto.MESSAGE, number=11, message=Error,)
+    errors = proto.RepeatedField(
+        proto.MESSAGE,
+        number=11,
+        message=Error,
+    )
 
 
 class GetDlpJobRequest(proto.Message):
@@ -4351,7 +5127,11 @@ class ListDlpJobsRequest(proto.Message):
 
     page_token = proto.Field(proto.STRING, number=3)
 
-    type = proto.Field(proto.ENUM, number=5, enum="DlpJobType",)
+    type = proto.Field(
+        proto.ENUM,
+        number=5,
+        enum="DlpJobType",
+    )
 
     order_by = proto.Field(proto.STRING, number=6)
 
@@ -4373,7 +5153,11 @@ class ListDlpJobsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    jobs = proto.RepeatedField(proto.MESSAGE, number=1, message=DlpJob,)
+    jobs = proto.RepeatedField(
+        proto.MESSAGE,
+        number=1,
+        message=DlpJob,
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -4440,7 +5224,9 @@ class CreateDeidentifyTemplateRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     deidentify_template = proto.Field(
-        proto.MESSAGE, number=2, message=DeidentifyTemplate,
+        proto.MESSAGE,
+        number=2,
+        message=DeidentifyTemplate,
     )
 
     template_id = proto.Field(proto.STRING, number=3)
@@ -4466,10 +5252,16 @@ class UpdateDeidentifyTemplateRequest(proto.Message):
     name = proto.Field(proto.STRING, number=1)
 
     deidentify_template = proto.Field(
-        proto.MESSAGE, number=2, message=DeidentifyTemplate,
+        proto.MESSAGE,
+        number=2,
+        message=DeidentifyTemplate,
     )
 
-    update_mask = proto.Field(proto.MESSAGE, number=3, message=field_mask.FieldMask,)
+    update_mask = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=field_mask.FieldMask,
+    )
 
 
 class GetDeidentifyTemplateRequest(proto.Message):
@@ -4552,7 +5344,9 @@ class ListDeidentifyTemplatesResponse(proto.Message):
         return self
 
     deidentify_templates = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=DeidentifyTemplate,
+        proto.MESSAGE,
+        number=1,
+        message=DeidentifyTemplate,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -4597,15 +5391,23 @@ class LargeCustomDictionaryConfig(proto.Message):
     """
 
     output_path = proto.Field(
-        proto.MESSAGE, number=1, message=storage.CloudStoragePath,
+        proto.MESSAGE,
+        number=1,
+        message=storage.CloudStoragePath,
     )
 
     cloud_storage_file_set = proto.Field(
-        proto.MESSAGE, number=2, oneof="source", message=storage.CloudStorageFileSet,
+        proto.MESSAGE,
+        number=2,
+        oneof="source",
+        message=storage.CloudStorageFileSet,
     )
 
     big_query_field = proto.Field(
-        proto.MESSAGE, number=3, oneof="source", message=storage.BigQueryField,
+        proto.MESSAGE,
+        number=3,
+        oneof="source",
+        message=storage.BigQueryField,
     )
 
 
@@ -4648,7 +5450,10 @@ class StoredInfoTypeConfig(proto.Message):
     description = proto.Field(proto.STRING, number=2)
 
     large_custom_dictionary = proto.Field(
-        proto.MESSAGE, number=3, oneof="type", message=LargeCustomDictionaryConfig,
+        proto.MESSAGE,
+        number=3,
+        oneof="type",
+        message=LargeCustomDictionaryConfig,
     )
 
     dictionary = proto.Field(
@@ -4659,7 +5464,10 @@ class StoredInfoTypeConfig(proto.Message):
     )
 
     regex = proto.Field(
-        proto.MESSAGE, number=5, oneof="type", message=storage.CustomInfoType.Regex,
+        proto.MESSAGE,
+        number=5,
+        oneof="type",
+        message=storage.CustomInfoType.Regex,
     )
 
 
@@ -4673,7 +5481,10 @@ class StoredInfoTypeStats(proto.Message):
     """
 
     large_custom_dictionary = proto.Field(
-        proto.MESSAGE, number=1, oneof="type", message=LargeCustomDictionaryStats,
+        proto.MESSAGE,
+        number=1,
+        oneof="type",
+        message=LargeCustomDictionaryStats,
     )
 
 
@@ -4713,15 +5524,35 @@ class StoredInfoTypeVersion(proto.Message):
             Statistics about this storedInfoType version.
     """
 
-    config = proto.Field(proto.MESSAGE, number=1, message=StoredInfoTypeConfig,)
+    config = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=StoredInfoTypeConfig,
+    )
 
-    create_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+    create_time = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=timestamp.Timestamp,
+    )
 
-    state = proto.Field(proto.ENUM, number=3, enum="StoredInfoTypeState",)
+    state = proto.Field(
+        proto.ENUM,
+        number=3,
+        enum="StoredInfoTypeState",
+    )
 
-    errors = proto.RepeatedField(proto.MESSAGE, number=4, message=Error,)
+    errors = proto.RepeatedField(
+        proto.MESSAGE,
+        number=4,
+        message=Error,
+    )
 
-    stats = proto.Field(proto.MESSAGE, number=5, message=StoredInfoTypeStats,)
+    stats = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        message=StoredInfoTypeStats,
+    )
 
 
 class StoredInfoType(proto.Message):
@@ -4741,11 +5572,15 @@ class StoredInfoType(proto.Message):
     name = proto.Field(proto.STRING, number=1)
 
     current_version = proto.Field(
-        proto.MESSAGE, number=2, message=StoredInfoTypeVersion,
+        proto.MESSAGE,
+        number=2,
+        message=StoredInfoTypeVersion,
     )
 
     pending_versions = proto.RepeatedField(
-        proto.MESSAGE, number=3, message=StoredInfoTypeVersion,
+        proto.MESSAGE,
+        number=3,
+        message=StoredInfoTypeVersion,
     )
 
 
@@ -4775,7 +5610,11 @@ class CreateStoredInfoTypeRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    config = proto.Field(proto.MESSAGE, number=2, message=StoredInfoTypeConfig,)
+    config = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=StoredInfoTypeConfig,
+    )
 
     stored_info_type_id = proto.Field(proto.STRING, number=3)
 
@@ -4802,9 +5641,17 @@ class UpdateStoredInfoTypeRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    config = proto.Field(proto.MESSAGE, number=2, message=StoredInfoTypeConfig,)
+    config = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=StoredInfoTypeConfig,
+    )
 
-    update_mask = proto.Field(proto.MESSAGE, number=3, message=field_mask.FieldMask,)
+    update_mask = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message=field_mask.FieldMask,
+    )
 
 
 class GetStoredInfoTypeRequest(proto.Message):
@@ -4887,7 +5734,9 @@ class ListStoredInfoTypesResponse(proto.Message):
         return self
 
     stored_info_types = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=StoredInfoType,
+        proto.MESSAGE,
+        number=1,
+        message=StoredInfoType,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -4922,7 +5771,11 @@ class HybridInspectJobTriggerRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    hybrid_item = proto.Field(proto.MESSAGE, number=3, message="HybridContentItem",)
+    hybrid_item = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message="HybridContentItem",
+    )
 
 
 class HybridInspectDlpJobRequest(proto.Message):
@@ -4940,7 +5793,11 @@ class HybridInspectDlpJobRequest(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    hybrid_item = proto.Field(proto.MESSAGE, number=3, message="HybridContentItem",)
+    hybrid_item = proto.Field(
+        proto.MESSAGE,
+        number=3,
+        message="HybridContentItem",
+    )
 
 
 class HybridContentItem(proto.Message):
@@ -4955,10 +5812,16 @@ class HybridContentItem(proto.Message):
             to each finding.
     """
 
-    item = proto.Field(proto.MESSAGE, number=1, message=ContentItem,)
+    item = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=ContentItem,
+    )
 
     finding_details = proto.Field(
-        proto.MESSAGE, number=2, message="HybridFindingDetails",
+        proto.MESSAGE,
+        number=2,
+        message="HybridFindingDetails",
     )
 
 
@@ -5011,13 +5874,21 @@ class HybridFindingDetails(proto.Message):
             -  ``"pipeline" : "etl"``
     """
 
-    container_details = proto.Field(proto.MESSAGE, number=1, message=Container,)
+    container_details = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=Container,
+    )
 
     file_offset = proto.Field(proto.INT64, number=2)
 
     row_offset = proto.Field(proto.INT64, number=3)
 
-    table_options = proto.Field(proto.MESSAGE, number=4, message=storage.TableOptions,)
+    table_options = proto.Field(
+        proto.MESSAGE,
+        number=4,
+        message=storage.TableOptions,
+    )
 
     labels = proto.MapField(proto.STRING, proto.STRING, number=5)
 
