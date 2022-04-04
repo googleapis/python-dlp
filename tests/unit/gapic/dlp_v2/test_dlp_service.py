@@ -290,7 +290,9 @@ def test_dlp_service_client_client_options_scopes(
     client_class, transport_class, transport_name
 ):
     # Check the case scopes are provided.
-    options = client_options.ClientOptions(scopes=["1", "2"],)
+    options = client_options.ClientOptions(
+        scopes=["1", "2"],
+    )
     with mock.patch.object(transport_class, "__init__") as patched:
         patched.return_value = None
         client = client_class(client_options=options)
@@ -356,7 +358,8 @@ def test_inspect_content(
     transport: str = "grpc", request_type=dlp.InspectContentRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -387,7 +390,8 @@ def test_inspect_content_from_dict():
 @pytest.mark.asyncio
 async def test_inspect_content_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -416,7 +420,9 @@ async def test_inspect_content_async(transport: str = "grpc_asyncio"):
 
 
 def test_inspect_content_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -436,12 +442,17 @@ def test_inspect_content_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_inspect_content_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -465,12 +476,16 @@ async def test_inspect_content_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_redact_image(transport: str = "grpc", request_type=dlp.RedactImageRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -508,7 +523,8 @@ def test_redact_image_from_dict():
 @pytest.mark.asyncio
 async def test_redact_image_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -544,7 +560,9 @@ async def test_redact_image_async(transport: str = "grpc_asyncio"):
 
 
 def test_redact_image_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -564,12 +582,17 @@ def test_redact_image_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_redact_image_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -593,14 +616,18 @@ async def test_redact_image_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_deidentify_content(
     transport: str = "grpc", request_type=dlp.DeidentifyContentRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -633,7 +660,8 @@ def test_deidentify_content_from_dict():
 @pytest.mark.asyncio
 async def test_deidentify_content_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -662,7 +690,9 @@ async def test_deidentify_content_async(transport: str = "grpc_asyncio"):
 
 
 def test_deidentify_content_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -684,12 +714,17 @@ def test_deidentify_content_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_deidentify_content_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -713,14 +748,18 @@ async def test_deidentify_content_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_reidentify_content(
     transport: str = "grpc", request_type=dlp.ReidentifyContentRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -753,7 +792,8 @@ def test_reidentify_content_from_dict():
 @pytest.mark.asyncio
 async def test_reidentify_content_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -782,7 +822,9 @@ async def test_reidentify_content_async(transport: str = "grpc_asyncio"):
 
 
 def test_reidentify_content_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -804,12 +846,17 @@ def test_reidentify_content_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_reidentify_content_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -833,14 +880,18 @@ async def test_reidentify_content_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_info_types(
     transport: str = "grpc", request_type=dlp.ListInfoTypesRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -871,7 +922,8 @@ def test_list_info_types_from_dict():
 @pytest.mark.asyncio
 async def test_list_info_types_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -900,7 +952,9 @@ async def test_list_info_types_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_info_types_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_info_types), "__call__") as call:
@@ -909,7 +963,9 @@ def test_list_info_types_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_info_types(parent="parent_value",)
+        client.list_info_types(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -920,19 +976,24 @@ def test_list_info_types_flattened():
 
 
 def test_list_info_types_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_info_types(
-            dlp.ListInfoTypesRequest(), parent="parent_value",
+            dlp.ListInfoTypesRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_info_types_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -946,7 +1007,9 @@ async def test_list_info_types_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_info_types(parent="parent_value",)
+        response = await client.list_info_types(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -958,13 +1021,16 @@ async def test_list_info_types_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_info_types_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_info_types(
-            dlp.ListInfoTypesRequest(), parent="parent_value",
+            dlp.ListInfoTypesRequest(),
+            parent="parent_value",
         )
 
 
@@ -972,7 +1038,8 @@ def test_create_inspect_template(
     transport: str = "grpc", request_type=dlp.CreateInspectTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1015,7 +1082,8 @@ def test_create_inspect_template_from_dict():
 @pytest.mark.asyncio
 async def test_create_inspect_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1054,7 +1122,9 @@ async def test_create_inspect_template_async(transport: str = "grpc_asyncio"):
 
 
 def test_create_inspect_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1076,12 +1146,17 @@ def test_create_inspect_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_inspect_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1103,11 +1178,16 @@ async def test_create_inspect_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_inspect_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1134,7 +1214,9 @@ def test_create_inspect_template_flattened():
 
 
 def test_create_inspect_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1148,7 +1230,9 @@ def test_create_inspect_template_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_inspect_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1177,7 +1261,9 @@ async def test_create_inspect_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_inspect_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1193,7 +1279,8 @@ def test_update_inspect_template(
     transport: str = "grpc", request_type=dlp.UpdateInspectTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1236,7 +1323,8 @@ def test_update_inspect_template_from_dict():
 @pytest.mark.asyncio
 async def test_update_inspect_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1275,7 +1363,9 @@ async def test_update_inspect_template_async(transport: str = "grpc_asyncio"):
 
 
 def test_update_inspect_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1297,12 +1387,17 @@ def test_update_inspect_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_update_inspect_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1324,11 +1419,16 @@ async def test_update_inspect_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_update_inspect_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1358,7 +1458,9 @@ def test_update_inspect_template_flattened():
 
 
 def test_update_inspect_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1373,7 +1475,9 @@ def test_update_inspect_template_flattened_error():
 
 @pytest.mark.asyncio
 async def test_update_inspect_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1405,7 +1509,9 @@ async def test_update_inspect_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_update_inspect_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1422,7 +1528,8 @@ def test_get_inspect_template(
     transport: str = "grpc", request_type=dlp.GetInspectTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1465,7 +1572,8 @@ def test_get_inspect_template_from_dict():
 @pytest.mark.asyncio
 async def test_get_inspect_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1504,7 +1612,9 @@ async def test_get_inspect_template_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_inspect_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1526,12 +1636,17 @@ def test_get_inspect_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_inspect_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1553,11 +1668,16 @@ async def test_get_inspect_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_inspect_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1568,7 +1688,9 @@ def test_get_inspect_template_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_inspect_template(name="name_value",)
+        client.get_inspect_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1579,19 +1701,24 @@ def test_get_inspect_template_flattened():
 
 
 def test_get_inspect_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_inspect_template(
-            dlp.GetInspectTemplateRequest(), name="name_value",
+            dlp.GetInspectTemplateRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_inspect_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1603,7 +1730,9 @@ async def test_get_inspect_template_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.InspectTemplate())
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_inspect_template(name="name_value",)
+        response = await client.get_inspect_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1615,13 +1744,16 @@ async def test_get_inspect_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_inspect_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_inspect_template(
-            dlp.GetInspectTemplateRequest(), name="name_value",
+            dlp.GetInspectTemplateRequest(),
+            name="name_value",
         )
 
 
@@ -1629,7 +1761,8 @@ def test_list_inspect_templates(
     transport: str = "grpc", request_type=dlp.ListInspectTemplatesRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1666,7 +1799,8 @@ def test_list_inspect_templates_from_dict():
 @pytest.mark.asyncio
 async def test_list_inspect_templates_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1679,7 +1813,9 @@ async def test_list_inspect_templates_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.ListInspectTemplatesResponse(next_page_token="next_page_token_value",)
+            dlp.ListInspectTemplatesResponse(
+                next_page_token="next_page_token_value",
+            )
         )
 
         response = await client.list_inspect_templates(request)
@@ -1697,7 +1833,9 @@ async def test_list_inspect_templates_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_inspect_templates_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1719,12 +1857,17 @@ def test_list_inspect_templates_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_inspect_templates_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1748,11 +1891,16 @@ async def test_list_inspect_templates_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_inspect_templates_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1763,7 +1911,9 @@ def test_list_inspect_templates_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_inspect_templates(parent="parent_value",)
+        client.list_inspect_templates(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1774,19 +1924,24 @@ def test_list_inspect_templates_flattened():
 
 
 def test_list_inspect_templates_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_inspect_templates(
-            dlp.ListInspectTemplatesRequest(), parent="parent_value",
+            dlp.ListInspectTemplatesRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_inspect_templates_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1800,7 +1955,9 @@ async def test_list_inspect_templates_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_inspect_templates(parent="parent_value",)
+        response = await client.list_inspect_templates(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1812,18 +1969,23 @@ async def test_list_inspect_templates_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_inspect_templates_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_inspect_templates(
-            dlp.ListInspectTemplatesRequest(), parent="parent_value",
+            dlp.ListInspectTemplatesRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_inspect_templates_pager():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1840,13 +2002,20 @@ def test_list_inspect_templates_pager():
                 next_page_token="abc",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[], next_page_token="def",
+                inspect_templates=[],
+                next_page_token="def",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(),], next_page_token="ghi",
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(), dlp.InspectTemplate(),],
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                    dlp.InspectTemplate(),
+                ],
             ),
             RuntimeError,
         )
@@ -1865,7 +2034,9 @@ def test_list_inspect_templates_pager():
 
 
 def test_list_inspect_templates_pages():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1882,13 +2053,20 @@ def test_list_inspect_templates_pages():
                 next_page_token="abc",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[], next_page_token="def",
+                inspect_templates=[],
+                next_page_token="def",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(),], next_page_token="ghi",
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(), dlp.InspectTemplate(),],
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                    dlp.InspectTemplate(),
+                ],
             ),
             RuntimeError,
         )
@@ -1899,7 +2077,9 @@ def test_list_inspect_templates_pages():
 
 @pytest.mark.asyncio
 async def test_list_inspect_templates_async_pager():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1918,17 +2098,26 @@ async def test_list_inspect_templates_async_pager():
                 next_page_token="abc",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[], next_page_token="def",
+                inspect_templates=[],
+                next_page_token="def",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(),], next_page_token="ghi",
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(), dlp.InspectTemplate(),],
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                    dlp.InspectTemplate(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_inspect_templates(request={},)
+        async_pager = await client.list_inspect_templates(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -1940,7 +2129,9 @@ async def test_list_inspect_templates_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_inspect_templates_async_pages():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1959,13 +2150,20 @@ async def test_list_inspect_templates_async_pages():
                 next_page_token="abc",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[], next_page_token="def",
+                inspect_templates=[],
+                next_page_token="def",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(),], next_page_token="ghi",
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListInspectTemplatesResponse(
-                inspect_templates=[dlp.InspectTemplate(), dlp.InspectTemplate(),],
+                inspect_templates=[
+                    dlp.InspectTemplate(),
+                    dlp.InspectTemplate(),
+                ],
             ),
             RuntimeError,
         )
@@ -1980,7 +2178,8 @@ def test_delete_inspect_template(
     transport: str = "grpc", request_type=dlp.DeleteInspectTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2013,7 +2212,8 @@ def test_delete_inspect_template_from_dict():
 @pytest.mark.asyncio
 async def test_delete_inspect_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2040,7 +2240,9 @@ async def test_delete_inspect_template_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_inspect_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2062,12 +2264,17 @@ def test_delete_inspect_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_inspect_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2089,11 +2296,16 @@ async def test_delete_inspect_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_inspect_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2104,7 +2316,9 @@ def test_delete_inspect_template_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_inspect_template(name="name_value",)
+        client.delete_inspect_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2115,19 +2329,24 @@ def test_delete_inspect_template_flattened():
 
 
 def test_delete_inspect_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_inspect_template(
-            dlp.DeleteInspectTemplateRequest(), name="name_value",
+            dlp.DeleteInspectTemplateRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_inspect_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2139,7 +2358,9 @@ async def test_delete_inspect_template_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_inspect_template(name="name_value",)
+        response = await client.delete_inspect_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2151,13 +2372,16 @@ async def test_delete_inspect_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_inspect_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_inspect_template(
-            dlp.DeleteInspectTemplateRequest(), name="name_value",
+            dlp.DeleteInspectTemplateRequest(),
+            name="name_value",
         )
 
 
@@ -2165,7 +2389,8 @@ def test_create_deidentify_template(
     transport: str = "grpc", request_type=dlp.CreateDeidentifyTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2208,7 +2433,8 @@ def test_create_deidentify_template_from_dict():
 @pytest.mark.asyncio
 async def test_create_deidentify_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2247,7 +2473,9 @@ async def test_create_deidentify_template_async(transport: str = "grpc_asyncio")
 
 
 def test_create_deidentify_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2269,12 +2497,17 @@ def test_create_deidentify_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_deidentify_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2298,11 +2531,16 @@ async def test_create_deidentify_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_deidentify_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2329,7 +2567,9 @@ def test_create_deidentify_template_flattened():
 
 
 def test_create_deidentify_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -2343,7 +2583,9 @@ def test_create_deidentify_template_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_deidentify_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2374,7 +2616,9 @@ async def test_create_deidentify_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_deidentify_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -2390,7 +2634,8 @@ def test_update_deidentify_template(
     transport: str = "grpc", request_type=dlp.UpdateDeidentifyTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2433,7 +2678,8 @@ def test_update_deidentify_template_from_dict():
 @pytest.mark.asyncio
 async def test_update_deidentify_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2472,7 +2718,9 @@ async def test_update_deidentify_template_async(transport: str = "grpc_asyncio")
 
 
 def test_update_deidentify_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2494,12 +2742,17 @@ def test_update_deidentify_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_update_deidentify_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2523,11 +2776,16 @@ async def test_update_deidentify_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_update_deidentify_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2557,7 +2815,9 @@ def test_update_deidentify_template_flattened():
 
 
 def test_update_deidentify_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -2572,7 +2832,9 @@ def test_update_deidentify_template_flattened_error():
 
 @pytest.mark.asyncio
 async def test_update_deidentify_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2606,7 +2868,9 @@ async def test_update_deidentify_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_update_deidentify_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -2623,7 +2887,8 @@ def test_get_deidentify_template(
     transport: str = "grpc", request_type=dlp.GetDeidentifyTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2666,7 +2931,8 @@ def test_get_deidentify_template_from_dict():
 @pytest.mark.asyncio
 async def test_get_deidentify_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2705,7 +2971,9 @@ async def test_get_deidentify_template_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_deidentify_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2727,12 +2995,17 @@ def test_get_deidentify_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_deidentify_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2756,11 +3029,16 @@ async def test_get_deidentify_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_deidentify_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2771,7 +3049,9 @@ def test_get_deidentify_template_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_deidentify_template(name="name_value",)
+        client.get_deidentify_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2782,19 +3062,24 @@ def test_get_deidentify_template_flattened():
 
 
 def test_get_deidentify_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_deidentify_template(
-            dlp.GetDeidentifyTemplateRequest(), name="name_value",
+            dlp.GetDeidentifyTemplateRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_deidentify_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2808,7 +3093,9 @@ async def test_get_deidentify_template_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_deidentify_template(name="name_value",)
+        response = await client.get_deidentify_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2820,13 +3107,16 @@ async def test_get_deidentify_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_deidentify_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_deidentify_template(
-            dlp.GetDeidentifyTemplateRequest(), name="name_value",
+            dlp.GetDeidentifyTemplateRequest(),
+            name="name_value",
         )
 
 
@@ -2834,7 +3124,8 @@ def test_list_deidentify_templates(
     transport: str = "grpc", request_type=dlp.ListDeidentifyTemplatesRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2871,7 +3162,8 @@ def test_list_deidentify_templates_from_dict():
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2904,7 +3196,9 @@ async def test_list_deidentify_templates_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_deidentify_templates_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2926,12 +3220,17 @@ def test_list_deidentify_templates_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2955,11 +3254,16 @@ async def test_list_deidentify_templates_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_deidentify_templates_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2970,7 +3274,9 @@ def test_list_deidentify_templates_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_deidentify_templates(parent="parent_value",)
+        client.list_deidentify_templates(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2981,19 +3287,24 @@ def test_list_deidentify_templates_flattened():
 
 
 def test_list_deidentify_templates_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_deidentify_templates(
-            dlp.ListDeidentifyTemplatesRequest(), parent="parent_value",
+            dlp.ListDeidentifyTemplatesRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3007,7 +3318,9 @@ async def test_list_deidentify_templates_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_deidentify_templates(parent="parent_value",)
+        response = await client.list_deidentify_templates(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3019,18 +3332,23 @@ async def test_list_deidentify_templates_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_deidentify_templates(
-            dlp.ListDeidentifyTemplatesRequest(), parent="parent_value",
+            dlp.ListDeidentifyTemplatesRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_deidentify_templates_pager():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3047,10 +3365,14 @@ def test_list_deidentify_templates_pager():
                 next_page_token="abc",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[], next_page_token="def",
+                deidentify_templates=[],
+                next_page_token="def",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[dlp.DeidentifyTemplate(),], next_page_token="ghi",
+                deidentify_templates=[
+                    dlp.DeidentifyTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListDeidentifyTemplatesResponse(
                 deidentify_templates=[
@@ -3075,7 +3397,9 @@ def test_list_deidentify_templates_pager():
 
 
 def test_list_deidentify_templates_pages():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3092,10 +3416,14 @@ def test_list_deidentify_templates_pages():
                 next_page_token="abc",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[], next_page_token="def",
+                deidentify_templates=[],
+                next_page_token="def",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[dlp.DeidentifyTemplate(),], next_page_token="ghi",
+                deidentify_templates=[
+                    dlp.DeidentifyTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListDeidentifyTemplatesResponse(
                 deidentify_templates=[
@@ -3112,7 +3440,9 @@ def test_list_deidentify_templates_pages():
 
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_async_pager():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3131,10 +3461,14 @@ async def test_list_deidentify_templates_async_pager():
                 next_page_token="abc",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[], next_page_token="def",
+                deidentify_templates=[],
+                next_page_token="def",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[dlp.DeidentifyTemplate(),], next_page_token="ghi",
+                deidentify_templates=[
+                    dlp.DeidentifyTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListDeidentifyTemplatesResponse(
                 deidentify_templates=[
@@ -3144,7 +3478,9 @@ async def test_list_deidentify_templates_async_pager():
             ),
             RuntimeError,
         )
-        async_pager = await client.list_deidentify_templates(request={},)
+        async_pager = await client.list_deidentify_templates(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -3156,7 +3492,9 @@ async def test_list_deidentify_templates_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_deidentify_templates_async_pages():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3175,10 +3513,14 @@ async def test_list_deidentify_templates_async_pages():
                 next_page_token="abc",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[], next_page_token="def",
+                deidentify_templates=[],
+                next_page_token="def",
             ),
             dlp.ListDeidentifyTemplatesResponse(
-                deidentify_templates=[dlp.DeidentifyTemplate(),], next_page_token="ghi",
+                deidentify_templates=[
+                    dlp.DeidentifyTemplate(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListDeidentifyTemplatesResponse(
                 deidentify_templates=[
@@ -3199,7 +3541,8 @@ def test_delete_deidentify_template(
     transport: str = "grpc", request_type=dlp.DeleteDeidentifyTemplateRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3232,7 +3575,8 @@ def test_delete_deidentify_template_from_dict():
 @pytest.mark.asyncio
 async def test_delete_deidentify_template_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3259,7 +3603,9 @@ async def test_delete_deidentify_template_async(transport: str = "grpc_asyncio")
 
 
 def test_delete_deidentify_template_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3281,12 +3627,17 @@ def test_delete_deidentify_template_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_deidentify_template_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3308,11 +3659,16 @@ async def test_delete_deidentify_template_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_deidentify_template_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3323,7 +3679,9 @@ def test_delete_deidentify_template_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_deidentify_template(name="name_value",)
+        client.delete_deidentify_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3334,19 +3692,24 @@ def test_delete_deidentify_template_flattened():
 
 
 def test_delete_deidentify_template_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_deidentify_template(
-            dlp.DeleteDeidentifyTemplateRequest(), name="name_value",
+            dlp.DeleteDeidentifyTemplateRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_deidentify_template_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3358,7 +3721,9 @@ async def test_delete_deidentify_template_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_deidentify_template(name="name_value",)
+        response = await client.delete_deidentify_template(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3370,13 +3735,16 @@ async def test_delete_deidentify_template_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_deidentify_template_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_deidentify_template(
-            dlp.DeleteDeidentifyTemplateRequest(), name="name_value",
+            dlp.DeleteDeidentifyTemplateRequest(),
+            name="name_value",
         )
 
 
@@ -3384,7 +3752,8 @@ def test_create_job_trigger(
     transport: str = "grpc", request_type=dlp.CreateJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3437,7 +3806,8 @@ def test_create_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_create_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3479,7 +3849,9 @@ async def test_create_job_trigger_async(transport: str = "grpc_asyncio"):
 
 
 def test_create_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3501,12 +3873,17 @@ def test_create_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3528,11 +3905,16 @@ async def test_create_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_job_trigger_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3544,7 +3926,8 @@ def test_create_job_trigger_flattened():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_job_trigger(
-            parent="parent_value", job_trigger=dlp.JobTrigger(name="name_value"),
+            parent="parent_value",
+            job_trigger=dlp.JobTrigger(name="name_value"),
         )
 
         # Establish that the underlying call was made with the expected
@@ -3558,7 +3941,9 @@ def test_create_job_trigger_flattened():
 
 
 def test_create_job_trigger_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3572,7 +3957,9 @@ def test_create_job_trigger_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_job_trigger_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3585,7 +3972,8 @@ async def test_create_job_trigger_flattened_async():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         response = await client.create_job_trigger(
-            parent="parent_value", job_trigger=dlp.JobTrigger(name="name_value"),
+            parent="parent_value",
+            job_trigger=dlp.JobTrigger(name="name_value"),
         )
 
         # Establish that the underlying call was made with the expected
@@ -3600,7 +3988,9 @@ async def test_create_job_trigger_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_job_trigger_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3616,7 +4006,8 @@ def test_update_job_trigger(
     transport: str = "grpc", request_type=dlp.UpdateJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3669,7 +4060,8 @@ def test_update_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_update_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3711,7 +4103,9 @@ async def test_update_job_trigger_async(transport: str = "grpc_asyncio"):
 
 
 def test_update_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3733,12 +4127,17 @@ def test_update_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_update_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3760,11 +4159,16 @@ async def test_update_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_update_job_trigger_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3794,7 +4198,9 @@ def test_update_job_trigger_flattened():
 
 
 def test_update_job_trigger_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3809,7 +4215,9 @@ def test_update_job_trigger_flattened_error():
 
 @pytest.mark.asyncio
 async def test_update_job_trigger_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3841,7 +4249,9 @@ async def test_update_job_trigger_flattened_async():
 
 @pytest.mark.asyncio
 async def test_update_job_trigger_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3858,7 +4268,8 @@ def test_hybrid_inspect_job_trigger(
     transport: str = "grpc", request_type=dlp.HybridInspectJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3891,7 +4302,8 @@ def test_hybrid_inspect_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_hybrid_inspect_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3920,7 +4332,9 @@ async def test_hybrid_inspect_job_trigger_async(transport: str = "grpc_asyncio")
 
 
 def test_hybrid_inspect_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3942,12 +4356,17 @@ def test_hybrid_inspect_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3971,11 +4390,16 @@ async def test_hybrid_inspect_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_hybrid_inspect_job_trigger_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3986,7 +4410,9 @@ def test_hybrid_inspect_job_trigger_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.hybrid_inspect_job_trigger(name="name_value",)
+        client.hybrid_inspect_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3997,19 +4423,24 @@ def test_hybrid_inspect_job_trigger_flattened():
 
 
 def test_hybrid_inspect_job_trigger_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.hybrid_inspect_job_trigger(
-            dlp.HybridInspectJobTriggerRequest(), name="name_value",
+            dlp.HybridInspectJobTriggerRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_job_trigger_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4023,7 +4454,9 @@ async def test_hybrid_inspect_job_trigger_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.hybrid_inspect_job_trigger(name="name_value",)
+        response = await client.hybrid_inspect_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4035,13 +4468,16 @@ async def test_hybrid_inspect_job_trigger_flattened_async():
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_job_trigger_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.hybrid_inspect_job_trigger(
-            dlp.HybridInspectJobTriggerRequest(), name="name_value",
+            dlp.HybridInspectJobTriggerRequest(),
+            name="name_value",
         )
 
 
@@ -4049,7 +4485,8 @@ def test_get_job_trigger(
     transport: str = "grpc", request_type=dlp.GetJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4100,7 +4537,8 @@ def test_get_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_get_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4142,7 +4580,9 @@ async def test_get_job_trigger_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4162,12 +4602,17 @@ def test_get_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4189,11 +4634,16 @@ async def test_get_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_job_trigger_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_job_trigger), "__call__") as call:
@@ -4202,7 +4652,9 @@ def test_get_job_trigger_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_job_trigger(name="name_value",)
+        client.get_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4213,19 +4665,24 @@ def test_get_job_trigger_flattened():
 
 
 def test_get_job_trigger_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_job_trigger(
-            dlp.GetJobTriggerRequest(), name="name_value",
+            dlp.GetJobTriggerRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_job_trigger_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4237,7 +4694,9 @@ async def test_get_job_trigger_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.JobTrigger())
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_job_trigger(name="name_value",)
+        response = await client.get_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4249,13 +4708,16 @@ async def test_get_job_trigger_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_job_trigger_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_job_trigger(
-            dlp.GetJobTriggerRequest(), name="name_value",
+            dlp.GetJobTriggerRequest(),
+            name="name_value",
         )
 
 
@@ -4263,7 +4725,8 @@ def test_list_job_triggers(
     transport: str = "grpc", request_type=dlp.ListJobTriggersRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4300,7 +4763,8 @@ def test_list_job_triggers_from_dict():
 @pytest.mark.asyncio
 async def test_list_job_triggers_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4313,7 +4777,9 @@ async def test_list_job_triggers_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.ListJobTriggersResponse(next_page_token="next_page_token_value",)
+            dlp.ListJobTriggersResponse(
+                next_page_token="next_page_token_value",
+            )
         )
 
         response = await client.list_job_triggers(request)
@@ -4331,7 +4797,9 @@ async def test_list_job_triggers_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_job_triggers_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4353,12 +4821,17 @@ def test_list_job_triggers_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_job_triggers_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4382,11 +4855,16 @@ async def test_list_job_triggers_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_job_triggers_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4397,7 +4875,9 @@ def test_list_job_triggers_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_job_triggers(parent="parent_value",)
+        client.list_job_triggers(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4408,19 +4888,24 @@ def test_list_job_triggers_flattened():
 
 
 def test_list_job_triggers_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_job_triggers(
-            dlp.ListJobTriggersRequest(), parent="parent_value",
+            dlp.ListJobTriggersRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_job_triggers_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4434,7 +4919,9 @@ async def test_list_job_triggers_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_job_triggers(parent="parent_value",)
+        response = await client.list_job_triggers(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4446,18 +4933,23 @@ async def test_list_job_triggers_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_job_triggers_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_job_triggers(
-            dlp.ListJobTriggersRequest(), parent="parent_value",
+            dlp.ListJobTriggersRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_job_triggers_pager():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4466,15 +4958,28 @@ def test_list_job_triggers_pager():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
                 next_page_token="abc",
             ),
-            dlp.ListJobTriggersResponse(job_triggers=[], next_page_token="def",),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(),], next_page_token="ghi",
+                job_triggers=[],
+                next_page_token="def",
             ),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListJobTriggersResponse(
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
             ),
             RuntimeError,
         )
@@ -4493,7 +4998,9 @@ def test_list_job_triggers_pager():
 
 
 def test_list_job_triggers_pages():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4502,15 +5009,28 @@ def test_list_job_triggers_pages():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
                 next_page_token="abc",
             ),
-            dlp.ListJobTriggersResponse(job_triggers=[], next_page_token="def",),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(),], next_page_token="ghi",
+                job_triggers=[],
+                next_page_token="def",
             ),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListJobTriggersResponse(
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
             ),
             RuntimeError,
         )
@@ -4521,7 +5041,9 @@ def test_list_job_triggers_pages():
 
 @pytest.mark.asyncio
 async def test_list_job_triggers_async_pager():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4532,19 +5054,34 @@ async def test_list_job_triggers_async_pager():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
                 next_page_token="abc",
             ),
-            dlp.ListJobTriggersResponse(job_triggers=[], next_page_token="def",),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(),], next_page_token="ghi",
+                job_triggers=[],
+                next_page_token="def",
             ),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListJobTriggersResponse(
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_job_triggers(request={},)
+        async_pager = await client.list_job_triggers(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -4556,7 +5093,9 @@ async def test_list_job_triggers_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_job_triggers_async_pages():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4567,15 +5106,28 @@ async def test_list_job_triggers_async_pages():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
                 next_page_token="abc",
             ),
-            dlp.ListJobTriggersResponse(job_triggers=[], next_page_token="def",),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(),], next_page_token="ghi",
+                job_triggers=[],
+                next_page_token="def",
             ),
             dlp.ListJobTriggersResponse(
-                job_triggers=[dlp.JobTrigger(), dlp.JobTrigger(),],
+                job_triggers=[
+                    dlp.JobTrigger(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListJobTriggersResponse(
+                job_triggers=[
+                    dlp.JobTrigger(),
+                    dlp.JobTrigger(),
+                ],
             ),
             RuntimeError,
         )
@@ -4590,7 +5142,8 @@ def test_delete_job_trigger(
     transport: str = "grpc", request_type=dlp.DeleteJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4623,7 +5176,8 @@ def test_delete_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_delete_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4650,7 +5204,9 @@ async def test_delete_job_trigger_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4672,12 +5228,17 @@ def test_delete_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4699,11 +5260,16 @@ async def test_delete_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_job_trigger_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4714,7 +5280,9 @@ def test_delete_job_trigger_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_job_trigger(name="name_value",)
+        client.delete_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4725,19 +5293,24 @@ def test_delete_job_trigger_flattened():
 
 
 def test_delete_job_trigger_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_job_trigger(
-            dlp.DeleteJobTriggerRequest(), name="name_value",
+            dlp.DeleteJobTriggerRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_job_trigger_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4749,7 +5322,9 @@ async def test_delete_job_trigger_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_job_trigger(name="name_value",)
+        response = await client.delete_job_trigger(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4761,13 +5336,16 @@ async def test_delete_job_trigger_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_job_trigger_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_job_trigger(
-            dlp.DeleteJobTriggerRequest(), name="name_value",
+            dlp.DeleteJobTriggerRequest(),
+            name="name_value",
         )
 
 
@@ -4775,7 +5353,8 @@ def test_activate_job_trigger(
     transport: str = "grpc", request_type=dlp.ActivateJobTriggerRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4828,7 +5407,8 @@ def test_activate_job_trigger_from_dict():
 @pytest.mark.asyncio
 async def test_activate_job_trigger_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4870,7 +5450,9 @@ async def test_activate_job_trigger_async(transport: str = "grpc_asyncio"):
 
 
 def test_activate_job_trigger_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4892,12 +5474,17 @@ def test_activate_job_trigger_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_activate_job_trigger_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4919,12 +5506,16 @@ async def test_activate_job_trigger_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_create_dlp_job(transport: str = "grpc", request_type=dlp.CreateDlpJobRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4975,7 +5566,8 @@ def test_create_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_create_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5017,7 +5609,9 @@ async def test_create_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_create_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5037,12 +5631,17 @@ def test_create_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5064,11 +5663,16 @@ async def test_create_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_dlp_job_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.create_dlp_job), "__call__") as call:
@@ -5112,7 +5716,9 @@ def test_create_dlp_job_flattened():
 
 
 def test_create_dlp_job_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -5139,7 +5745,9 @@ def test_create_dlp_job_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_dlp_job_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5187,7 +5795,9 @@ async def test_create_dlp_job_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_dlp_job_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -5214,7 +5824,8 @@ async def test_create_dlp_job_flattened_error_async():
 
 def test_list_dlp_jobs(transport: str = "grpc", request_type=dlp.ListDlpJobsRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5249,7 +5860,8 @@ def test_list_dlp_jobs_from_dict():
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5262,7 +5874,9 @@ async def test_list_dlp_jobs_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.ListDlpJobsResponse(next_page_token="next_page_token_value",)
+            dlp.ListDlpJobsResponse(
+                next_page_token="next_page_token_value",
+            )
         )
 
         response = await client.list_dlp_jobs(request)
@@ -5280,7 +5894,9 @@ async def test_list_dlp_jobs_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_dlp_jobs_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5300,12 +5916,17 @@ def test_list_dlp_jobs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5329,11 +5950,16 @@ async def test_list_dlp_jobs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_dlp_jobs_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_dlp_jobs), "__call__") as call:
@@ -5342,7 +5968,9 @@ def test_list_dlp_jobs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_dlp_jobs(parent="parent_value",)
+        client.list_dlp_jobs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5353,19 +5981,24 @@ def test_list_dlp_jobs_flattened():
 
 
 def test_list_dlp_jobs_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_dlp_jobs(
-            dlp.ListDlpJobsRequest(), parent="parent_value",
+            dlp.ListDlpJobsRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5379,7 +6012,9 @@ async def test_list_dlp_jobs_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_dlp_jobs(parent="parent_value",)
+        response = await client.list_dlp_jobs(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5391,29 +6026,52 @@ async def test_list_dlp_jobs_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_dlp_jobs(
-            dlp.ListDlpJobsRequest(), parent="parent_value",
+            dlp.ListDlpJobsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_dlp_jobs_pager():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_dlp_jobs), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListDlpJobsResponse(
-                jobs=[dlp.DlpJob(), dlp.DlpJob(), dlp.DlpJob(),], next_page_token="abc",
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+                next_page_token="abc",
             ),
-            dlp.ListDlpJobsResponse(jobs=[], next_page_token="def",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(),], next_page_token="ghi",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(), dlp.DlpJob(),],),
+            dlp.ListDlpJobsResponse(
+                jobs=[],
+                next_page_token="def",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+            ),
             RuntimeError,
         )
 
@@ -5431,18 +6089,38 @@ def test_list_dlp_jobs_pager():
 
 
 def test_list_dlp_jobs_pages():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_dlp_jobs), "__call__") as call:
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListDlpJobsResponse(
-                jobs=[dlp.DlpJob(), dlp.DlpJob(), dlp.DlpJob(),], next_page_token="abc",
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+                next_page_token="abc",
             ),
-            dlp.ListDlpJobsResponse(jobs=[], next_page_token="def",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(),], next_page_token="ghi",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(), dlp.DlpJob(),],),
+            dlp.ListDlpJobsResponse(
+                jobs=[],
+                next_page_token="def",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+            ),
             RuntimeError,
         )
         pages = list(client.list_dlp_jobs(request={}).pages)
@@ -5452,7 +6130,9 @@ def test_list_dlp_jobs_pages():
 
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_async_pager():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5463,14 +6143,34 @@ async def test_list_dlp_jobs_async_pager():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListDlpJobsResponse(
-                jobs=[dlp.DlpJob(), dlp.DlpJob(), dlp.DlpJob(),], next_page_token="abc",
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+                next_page_token="abc",
             ),
-            dlp.ListDlpJobsResponse(jobs=[], next_page_token="def",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(),], next_page_token="ghi",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(), dlp.DlpJob(),],),
+            dlp.ListDlpJobsResponse(
+                jobs=[],
+                next_page_token="def",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+            ),
             RuntimeError,
         )
-        async_pager = await client.list_dlp_jobs(request={},)
+        async_pager = await client.list_dlp_jobs(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -5482,7 +6182,9 @@ async def test_list_dlp_jobs_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_dlp_jobs_async_pages():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5493,11 +6195,29 @@ async def test_list_dlp_jobs_async_pages():
         # Set the response to a series of pages.
         call.side_effect = (
             dlp.ListDlpJobsResponse(
-                jobs=[dlp.DlpJob(), dlp.DlpJob(), dlp.DlpJob(),], next_page_token="abc",
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+                next_page_token="abc",
             ),
-            dlp.ListDlpJobsResponse(jobs=[], next_page_token="def",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(),], next_page_token="ghi",),
-            dlp.ListDlpJobsResponse(jobs=[dlp.DlpJob(), dlp.DlpJob(),],),
+            dlp.ListDlpJobsResponse(
+                jobs=[],
+                next_page_token="def",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                ],
+                next_page_token="ghi",
+            ),
+            dlp.ListDlpJobsResponse(
+                jobs=[
+                    dlp.DlpJob(),
+                    dlp.DlpJob(),
+                ],
+            ),
             RuntimeError,
         )
         pages = []
@@ -5509,7 +6229,8 @@ async def test_list_dlp_jobs_async_pages():
 
 def test_get_dlp_job(transport: str = "grpc", request_type=dlp.GetDlpJobRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5560,7 +6281,8 @@ def test_get_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_get_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5602,7 +6324,9 @@ async def test_get_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5622,12 +6346,17 @@ def test_get_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5649,11 +6378,16 @@ async def test_get_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_dlp_job_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_dlp_job), "__call__") as call:
@@ -5662,7 +6396,9 @@ def test_get_dlp_job_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_dlp_job(name="name_value",)
+        client.get_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5673,19 +6409,24 @@ def test_get_dlp_job_flattened():
 
 
 def test_get_dlp_job_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_dlp_job(
-            dlp.GetDlpJobRequest(), name="name_value",
+            dlp.GetDlpJobRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_dlp_job_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5697,7 +6438,9 @@ async def test_get_dlp_job_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.DlpJob())
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_dlp_job(name="name_value",)
+        response = await client.get_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5709,19 +6452,23 @@ async def test_get_dlp_job_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_dlp_job_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_dlp_job(
-            dlp.GetDlpJobRequest(), name="name_value",
+            dlp.GetDlpJobRequest(),
+            name="name_value",
         )
 
 
 def test_delete_dlp_job(transport: str = "grpc", request_type=dlp.DeleteDlpJobRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5752,7 +6499,8 @@ def test_delete_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_delete_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5779,7 +6527,9 @@ async def test_delete_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5799,12 +6549,17 @@ def test_delete_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5826,11 +6581,16 @@ async def test_delete_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_dlp_job_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.delete_dlp_job), "__call__") as call:
@@ -5839,7 +6599,9 @@ def test_delete_dlp_job_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_dlp_job(name="name_value",)
+        client.delete_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5850,19 +6612,24 @@ def test_delete_dlp_job_flattened():
 
 
 def test_delete_dlp_job_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_dlp_job(
-            dlp.DeleteDlpJobRequest(), name="name_value",
+            dlp.DeleteDlpJobRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_dlp_job_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5874,7 +6641,9 @@ async def test_delete_dlp_job_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_dlp_job(name="name_value",)
+        response = await client.delete_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5886,19 +6655,23 @@ async def test_delete_dlp_job_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_dlp_job_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_dlp_job(
-            dlp.DeleteDlpJobRequest(), name="name_value",
+            dlp.DeleteDlpJobRequest(),
+            name="name_value",
         )
 
 
 def test_cancel_dlp_job(transport: str = "grpc", request_type=dlp.CancelDlpJobRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5929,7 +6702,8 @@ def test_cancel_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_cancel_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5956,7 +6730,9 @@ async def test_cancel_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_cancel_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5976,12 +6752,17 @@ def test_cancel_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_cancel_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6003,14 +6784,18 @@ async def test_cancel_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_create_stored_info_type(
     transport: str = "grpc", request_type=dlp.CreateStoredInfoTypeRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6022,7 +6807,9 @@ def test_create_stored_info_type(
         type(client._transport.create_stored_info_type), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = dlp.StoredInfoType(name="name_value",)
+        call.return_value = dlp.StoredInfoType(
+            name="name_value",
+        )
 
         response = client.create_stored_info_type(request)
 
@@ -6045,7 +6832,8 @@ def test_create_stored_info_type_from_dict():
 @pytest.mark.asyncio
 async def test_create_stored_info_type_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6058,7 +6846,9 @@ async def test_create_stored_info_type_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.StoredInfoType(name="name_value",)
+            dlp.StoredInfoType(
+                name="name_value",
+            )
         )
 
         response = await client.create_stored_info_type(request)
@@ -6076,7 +6866,9 @@ async def test_create_stored_info_type_async(transport: str = "grpc_asyncio"):
 
 
 def test_create_stored_info_type_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6098,12 +6890,17 @@ def test_create_stored_info_type_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_stored_info_type_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6125,11 +6922,16 @@ async def test_create_stored_info_type_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_stored_info_type_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6158,7 +6960,9 @@ def test_create_stored_info_type_flattened():
 
 
 def test_create_stored_info_type_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -6172,7 +6976,9 @@ def test_create_stored_info_type_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_stored_info_type_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6203,7 +7009,9 @@ async def test_create_stored_info_type_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_stored_info_type_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -6219,7 +7027,8 @@ def test_update_stored_info_type(
     transport: str = "grpc", request_type=dlp.UpdateStoredInfoTypeRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6231,7 +7040,9 @@ def test_update_stored_info_type(
         type(client._transport.update_stored_info_type), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = dlp.StoredInfoType(name="name_value",)
+        call.return_value = dlp.StoredInfoType(
+            name="name_value",
+        )
 
         response = client.update_stored_info_type(request)
 
@@ -6254,7 +7065,8 @@ def test_update_stored_info_type_from_dict():
 @pytest.mark.asyncio
 async def test_update_stored_info_type_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6267,7 +7079,9 @@ async def test_update_stored_info_type_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.StoredInfoType(name="name_value",)
+            dlp.StoredInfoType(
+                name="name_value",
+            )
         )
 
         response = await client.update_stored_info_type(request)
@@ -6285,7 +7099,9 @@ async def test_update_stored_info_type_async(transport: str = "grpc_asyncio"):
 
 
 def test_update_stored_info_type_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6307,12 +7123,17 @@ def test_update_stored_info_type_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_update_stored_info_type_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6334,11 +7155,16 @@ async def test_update_stored_info_type_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_update_stored_info_type_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6370,7 +7196,9 @@ def test_update_stored_info_type_flattened():
 
 
 def test_update_stored_info_type_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -6385,7 +7213,9 @@ def test_update_stored_info_type_flattened_error():
 
 @pytest.mark.asyncio
 async def test_update_stored_info_type_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6419,7 +7249,9 @@ async def test_update_stored_info_type_flattened_async():
 
 @pytest.mark.asyncio
 async def test_update_stored_info_type_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -6436,7 +7268,8 @@ def test_get_stored_info_type(
     transport: str = "grpc", request_type=dlp.GetStoredInfoTypeRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6448,7 +7281,9 @@ def test_get_stored_info_type(
         type(client._transport.get_stored_info_type), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = dlp.StoredInfoType(name="name_value",)
+        call.return_value = dlp.StoredInfoType(
+            name="name_value",
+        )
 
         response = client.get_stored_info_type(request)
 
@@ -6471,7 +7306,8 @@ def test_get_stored_info_type_from_dict():
 @pytest.mark.asyncio
 async def test_get_stored_info_type_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6484,7 +7320,9 @@ async def test_get_stored_info_type_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.StoredInfoType(name="name_value",)
+            dlp.StoredInfoType(
+                name="name_value",
+            )
         )
 
         response = await client.get_stored_info_type(request)
@@ -6502,7 +7340,9 @@ async def test_get_stored_info_type_async(transport: str = "grpc_asyncio"):
 
 
 def test_get_stored_info_type_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6524,12 +7364,17 @@ def test_get_stored_info_type_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_stored_info_type_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6551,11 +7396,16 @@ async def test_get_stored_info_type_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_stored_info_type_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6566,7 +7416,9 @@ def test_get_stored_info_type_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_stored_info_type(name="name_value",)
+        client.get_stored_info_type(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -6577,19 +7429,24 @@ def test_get_stored_info_type_flattened():
 
 
 def test_get_stored_info_type_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_stored_info_type(
-            dlp.GetStoredInfoTypeRequest(), name="name_value",
+            dlp.GetStoredInfoTypeRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_stored_info_type_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6601,7 +7458,9 @@ async def test_get_stored_info_type_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(dlp.StoredInfoType())
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_stored_info_type(name="name_value",)
+        response = await client.get_stored_info_type(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -6613,13 +7472,16 @@ async def test_get_stored_info_type_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_stored_info_type_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_stored_info_type(
-            dlp.GetStoredInfoTypeRequest(), name="name_value",
+            dlp.GetStoredInfoTypeRequest(),
+            name="name_value",
         )
 
 
@@ -6627,7 +7489,8 @@ def test_list_stored_info_types(
     transport: str = "grpc", request_type=dlp.ListStoredInfoTypesRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6664,7 +7527,8 @@ def test_list_stored_info_types_from_dict():
 @pytest.mark.asyncio
 async def test_list_stored_info_types_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -6677,7 +7541,9 @@ async def test_list_stored_info_types_async(transport: str = "grpc_asyncio"):
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            dlp.ListStoredInfoTypesResponse(next_page_token="next_page_token_value",)
+            dlp.ListStoredInfoTypesResponse(
+                next_page_token="next_page_token_value",
+            )
         )
 
         response = await client.list_stored_info_types(request)
@@ -6695,7 +7561,9 @@ async def test_list_stored_info_types_async(transport: str = "grpc_asyncio"):
 
 
 def test_list_stored_info_types_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6717,12 +7585,17 @@ def test_list_stored_info_types_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_stored_info_types_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -6746,11 +7619,16 @@ async def test_list_stored_info_types_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_stored_info_types_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6761,7 +7639,9 @@ def test_list_stored_info_types_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_stored_info_types(parent="parent_value",)
+        client.list_stored_info_types(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -6772,19 +7652,24 @@ def test_list_stored_info_types_flattened():
 
 
 def test_list_stored_info_types_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_stored_info_types(
-            dlp.ListStoredInfoTypesRequest(), parent="parent_value",
+            dlp.ListStoredInfoTypesRequest(),
+            parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_stored_info_types_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6798,7 +7683,9 @@ async def test_list_stored_info_types_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_stored_info_types(parent="parent_value",)
+        response = await client.list_stored_info_types(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -6810,18 +7697,23 @@ async def test_list_stored_info_types_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_stored_info_types_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_stored_info_types(
-            dlp.ListStoredInfoTypesRequest(), parent="parent_value",
+            dlp.ListStoredInfoTypesRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_stored_info_types_pager():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6838,13 +7730,20 @@ def test_list_stored_info_types_pager():
                 next_page_token="abc",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[], next_page_token="def",
+                stored_info_types=[],
+                next_page_token="def",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(),], next_page_token="ghi",
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(), dlp.StoredInfoType(),],
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                    dlp.StoredInfoType(),
+                ],
             ),
             RuntimeError,
         )
@@ -6863,7 +7762,9 @@ def test_list_stored_info_types_pager():
 
 
 def test_list_stored_info_types_pages():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6880,13 +7781,20 @@ def test_list_stored_info_types_pages():
                 next_page_token="abc",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[], next_page_token="def",
+                stored_info_types=[],
+                next_page_token="def",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(),], next_page_token="ghi",
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(), dlp.StoredInfoType(),],
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                    dlp.StoredInfoType(),
+                ],
             ),
             RuntimeError,
         )
@@ -6897,7 +7805,9 @@ def test_list_stored_info_types_pages():
 
 @pytest.mark.asyncio
 async def test_list_stored_info_types_async_pager():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6916,17 +7826,26 @@ async def test_list_stored_info_types_async_pager():
                 next_page_token="abc",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[], next_page_token="def",
+                stored_info_types=[],
+                next_page_token="def",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(),], next_page_token="ghi",
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(), dlp.StoredInfoType(),],
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                    dlp.StoredInfoType(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_stored_info_types(request={},)
+        async_pager = await client.list_stored_info_types(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -6938,7 +7857,9 @@ async def test_list_stored_info_types_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_stored_info_types_async_pages():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -6957,13 +7878,20 @@ async def test_list_stored_info_types_async_pages():
                 next_page_token="abc",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[], next_page_token="def",
+                stored_info_types=[],
+                next_page_token="def",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(),], next_page_token="ghi",
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                ],
+                next_page_token="ghi",
             ),
             dlp.ListStoredInfoTypesResponse(
-                stored_info_types=[dlp.StoredInfoType(), dlp.StoredInfoType(),],
+                stored_info_types=[
+                    dlp.StoredInfoType(),
+                    dlp.StoredInfoType(),
+                ],
             ),
             RuntimeError,
         )
@@ -6978,7 +7906,8 @@ def test_delete_stored_info_type(
     transport: str = "grpc", request_type=dlp.DeleteStoredInfoTypeRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7011,7 +7940,8 @@ def test_delete_stored_info_type_from_dict():
 @pytest.mark.asyncio
 async def test_delete_stored_info_type_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7038,7 +7968,9 @@ async def test_delete_stored_info_type_async(transport: str = "grpc_asyncio"):
 
 
 def test_delete_stored_info_type_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7060,12 +7992,17 @@ def test_delete_stored_info_type_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_stored_info_type_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7087,11 +8024,16 @@ async def test_delete_stored_info_type_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_stored_info_type_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -7102,7 +8044,9 @@ def test_delete_stored_info_type_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_stored_info_type(name="name_value",)
+        client.delete_stored_info_type(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -7113,19 +8057,24 @@ def test_delete_stored_info_type_flattened():
 
 
 def test_delete_stored_info_type_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_stored_info_type(
-            dlp.DeleteStoredInfoTypeRequest(), name="name_value",
+            dlp.DeleteStoredInfoTypeRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_stored_info_type_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -7137,7 +8086,9 @@ async def test_delete_stored_info_type_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_stored_info_type(name="name_value",)
+        response = await client.delete_stored_info_type(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -7149,13 +8100,16 @@ async def test_delete_stored_info_type_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_stored_info_type_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_stored_info_type(
-            dlp.DeleteStoredInfoTypeRequest(), name="name_value",
+            dlp.DeleteStoredInfoTypeRequest(),
+            name="name_value",
         )
 
 
@@ -7163,7 +8117,8 @@ def test_hybrid_inspect_dlp_job(
     transport: str = "grpc", request_type=dlp.HybridInspectDlpJobRequest
 ):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7196,7 +8151,8 @@ def test_hybrid_inspect_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_hybrid_inspect_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7225,7 +8181,9 @@ async def test_hybrid_inspect_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_hybrid_inspect_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7247,12 +8205,17 @@ def test_hybrid_inspect_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7276,11 +8239,16 @@ async def test_hybrid_inspect_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_hybrid_inspect_dlp_job_flattened():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -7291,7 +8259,9 @@ def test_hybrid_inspect_dlp_job_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.hybrid_inspect_dlp_job(name="name_value",)
+        client.hybrid_inspect_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -7302,19 +8272,24 @@ def test_hybrid_inspect_dlp_job_flattened():
 
 
 def test_hybrid_inspect_dlp_job_flattened_error():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.hybrid_inspect_dlp_job(
-            dlp.HybridInspectDlpJobRequest(), name="name_value",
+            dlp.HybridInspectDlpJobRequest(),
+            name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_dlp_job_flattened_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -7328,7 +8303,9 @@ async def test_hybrid_inspect_dlp_job_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.hybrid_inspect_dlp_job(name="name_value",)
+        response = await client.hybrid_inspect_dlp_job(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -7340,19 +8317,23 @@ async def test_hybrid_inspect_dlp_job_flattened_async():
 
 @pytest.mark.asyncio
 async def test_hybrid_inspect_dlp_job_flattened_error_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.hybrid_inspect_dlp_job(
-            dlp.HybridInspectDlpJobRequest(), name="name_value",
+            dlp.HybridInspectDlpJobRequest(),
+            name="name_value",
         )
 
 
 def test_finish_dlp_job(transport: str = "grpc", request_type=dlp.FinishDlpJobRequest):
     client = DlpServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7383,7 +8364,8 @@ def test_finish_dlp_job_from_dict():
 @pytest.mark.asyncio
 async def test_finish_dlp_job_async(transport: str = "grpc_asyncio"):
     client = DlpServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -7410,7 +8392,9 @@ async def test_finish_dlp_job_async(transport: str = "grpc_asyncio"):
 
 
 def test_finish_dlp_job_field_headers():
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7430,12 +8414,17 @@ def test_finish_dlp_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_finish_dlp_job_field_headers_async():
-    client = DlpServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
+    client = DlpServiceAsyncClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -7457,7 +8446,10 @@ async def test_finish_dlp_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_credentials_transport_error():
@@ -7467,7 +8459,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = DlpServiceClient(
-            credentials=credentials.AnonymousCredentials(), transport=transport,
+            credentials=credentials.AnonymousCredentials(),
+            transport=transport,
         )
 
     # It is an error to provide a credentials file and a transport instance.
@@ -7486,7 +8479,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = DlpServiceClient(
-            client_options={"scopes": ["1", "2"]}, transport=transport,
+            client_options={"scopes": ["1", "2"]},
+            transport=transport,
         )
 
 
@@ -7516,8 +8510,13 @@ def test_transport_get_channel():
 
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
-    client = DlpServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client._transport, transports.DlpServiceGrpcTransport,)
+    client = DlpServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
+    assert isinstance(
+        client._transport,
+        transports.DlpServiceGrpcTransport,
+    )
 
 
 def test_dlp_service_base_transport_error():
@@ -7592,7 +8591,8 @@ def test_dlp_service_base_transport_with_credentials_file():
         Transport.return_value = None
         load_creds.return_value = (credentials.AnonymousCredentials(), None)
         transport = transports.DlpServiceTransport(
-            credentials_file="credentials.json", quota_project_id="octopus",
+            credentials_file="credentials.json",
+            quota_project_id="octopus",
         )
         load_creds.assert_called_once_with(
             "credentials.json",
@@ -7827,7 +8827,8 @@ def test_job_trigger_path():
     job_trigger = "clam"
 
     expected = "projects/{project}/jobTriggers/{job_trigger}".format(
-        project=project, job_trigger=job_trigger,
+        project=project,
+        job_trigger=job_trigger,
     )
     actual = DlpServiceClient.job_trigger_path(project, job_trigger)
     assert expected == actual
@@ -7849,8 +8850,11 @@ def test_inspect_template_path():
     organization = "squid"
     inspect_template = "clam"
 
-    expected = "organizations/{organization}/inspectTemplates/{inspect_template}".format(
-        organization=organization, inspect_template=inspect_template,
+    expected = (
+        "organizations/{organization}/inspectTemplates/{inspect_template}".format(
+            organization=organization,
+            inspect_template=inspect_template,
+        )
     )
     actual = DlpServiceClient.inspect_template_path(organization, inspect_template)
     assert expected == actual
@@ -7872,8 +8876,11 @@ def test_deidentify_template_path():
     organization = "squid"
     deidentify_template = "clam"
 
-    expected = "organizations/{organization}/deidentifyTemplates/{deidentify_template}".format(
-        organization=organization, deidentify_template=deidentify_template,
+    expected = (
+        "organizations/{organization}/deidentifyTemplates/{deidentify_template}".format(
+            organization=organization,
+            deidentify_template=deidentify_template,
+        )
     )
     actual = DlpServiceClient.deidentify_template_path(
         organization, deidentify_template

@@ -31,7 +31,9 @@ from google.protobuf import empty_pb2 as empty  # type: ignore
 
 try:
     _client_info = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-dlp",).version,
+        gapic_version=pkg_resources.get_distribution(
+            "google-cloud-dlp",
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     _client_info = gapic_v1.client_info.ClientInfo()
@@ -106,7 +108,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -119,7 +122,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -132,7 +136,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -145,7 +150,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -158,7 +164,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -181,7 +188,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -194,7 +202,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -207,7 +216,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -230,7 +240,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -243,7 +254,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -256,7 +268,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -284,7 +297,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -297,7 +311,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -310,7 +325,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -322,7 +338,9 @@ class DlpServiceTransport(abc.ABC):
                 client_info=_client_info,
             ),
             self.create_dlp_job: gapic_v1.method.wrap_method(
-                self.create_dlp_job, default_timeout=300.0, client_info=_client_info,
+                self.create_dlp_job,
+                default_timeout=300.0,
+                client_info=_client_info,
             ),
             self.list_dlp_jobs: gapic_v1.method.wrap_method(
                 self.list_dlp_jobs,
@@ -331,7 +349,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -344,7 +363,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -357,14 +377,17 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
                 client_info=_client_info,
             ),
             self.cancel_dlp_job: gapic_v1.method.wrap_method(
-                self.cancel_dlp_job, default_timeout=300.0, client_info=_client_info,
+                self.cancel_dlp_job,
+                default_timeout=300.0,
+                client_info=_client_info,
             ),
             self.create_stored_info_type: gapic_v1.method.wrap_method(
                 self.create_stored_info_type,
@@ -383,7 +406,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -396,7 +420,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -409,7 +434,8 @@ class DlpServiceTransport(abc.ABC):
                     maximum=60.0,
                     multiplier=1.3,
                     predicate=retries.if_exception_type(
-                        exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
+                        exceptions.DeadlineExceeded,
+                        exceptions.ServiceUnavailable,
                     ),
                 ),
                 default_timeout=300.0,
@@ -421,7 +447,9 @@ class DlpServiceTransport(abc.ABC):
                 client_info=_client_info,
             ),
             self.finish_dlp_job: gapic_v1.method.wrap_method(
-                self.finish_dlp_job, default_timeout=300.0, client_info=_client_info,
+                self.finish_dlp_job,
+                default_timeout=300.0,
+                client_info=_client_info,
             ),
         }
 
