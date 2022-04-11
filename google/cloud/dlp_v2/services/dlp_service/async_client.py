@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -245,7 +245,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/inspecting-images and
         https://cloud.google.com/dlp/docs/inspecting-text,
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -290,8 +289,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -334,7 +332,6 @@ class DlpServiceAsyncClient:
         this request, the system will automatically choose what
         detectors to run. By default this may be all types, but
         may change over time as detectors are updated.
-
 
         .. code-block:: python
 
@@ -381,8 +378,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -425,7 +421,6 @@ class DlpServiceAsyncClient:
         this request, the system will automatically choose what
         detectors to run. By default this may be all types, but
         may change over time as detectors are updated.
-
 
         .. code-block:: python
 
@@ -473,8 +468,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -510,7 +504,6 @@ class DlpServiceAsyncClient:
         r"""Re-identifies content that has been de-identified. See
         https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
         to learn more.
-
 
         .. code-block:: python
 
@@ -556,8 +549,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -595,7 +587,6 @@ class DlpServiceAsyncClient:
         that the DLP API supports. See
         https://cloud.google.com/dlp/docs/infotypes-reference to
         learn more.
-
 
         .. code-block:: python
 
@@ -668,8 +659,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -703,7 +693,6 @@ class DlpServiceAsyncClient:
         storage. See
         https://cloud.google.com/dlp/docs/creating-templates to
         learn more.
-
 
         .. code-block:: python
 
@@ -840,7 +829,6 @@ class DlpServiceAsyncClient:
         See https://cloud.google.com/dlp/docs/creating-templates
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -961,7 +949,6 @@ class DlpServiceAsyncClient:
         See https://cloud.google.com/dlp/docs/creating-templates
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -1037,8 +1024,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1075,7 +1061,6 @@ class DlpServiceAsyncClient:
         r"""Lists InspectTemplates.
         See https://cloud.google.com/dlp/docs/creating-templates
         to learn more.
-
 
         .. code-block:: python
 
@@ -1171,8 +1156,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1218,7 +1202,6 @@ class DlpServiceAsyncClient:
         r"""Deletes an InspectTemplate.
         See https://cloud.google.com/dlp/docs/creating-templates
         to learn more.
-
 
         .. code-block:: python
 
@@ -1281,8 +1264,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1319,7 +1301,6 @@ class DlpServiceAsyncClient:
         and storage. See
         https://cloud.google.com/dlp/docs/creating-templates-deid
         to learn more.
-
 
         .. code-block:: python
 
@@ -1455,7 +1436,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-templates-deid
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -1575,7 +1555,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-templates-deid
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -1649,8 +1628,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1688,7 +1666,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-templates-deid
         to learn more.
-
 
         .. code-block:: python
 
@@ -1784,8 +1761,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1832,7 +1808,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-templates-deid
         to learn more.
-
 
         .. code-block:: python
 
@@ -1895,8 +1870,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -1933,7 +1907,6 @@ class DlpServiceAsyncClient:
         schedule. See
         https://cloud.google.com/dlp/docs/creating-job-triggers
         to learn more.
-
 
         .. code-block:: python
 
@@ -2065,7 +2038,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-job-triggers
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -2183,7 +2155,6 @@ class DlpServiceAsyncClient:
         asynchronously. To review the findings monitor the jobs
         within the trigger.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -2283,7 +2254,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-job-triggers
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -2354,8 +2324,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -2393,7 +2362,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-job-triggers
         to learn more.
-
 
         .. code-block:: python
 
@@ -2482,8 +2450,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -2530,7 +2497,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-job-triggers
         to learn more.
-
 
         .. code-block:: python
 
@@ -2592,8 +2558,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -2626,7 +2591,6 @@ class DlpServiceAsyncClient:
         r"""Activate a job trigger. Causes the immediate execute
         of a trigger instead of waiting on the trigger event to
         occur.
-
 
         .. code-block:: python
 
@@ -2711,7 +2675,6 @@ class DlpServiceAsyncClient:
         inspect jobs, the system will automatically choose what
         detectors to run. By default this may be all types, but
         may change over time as detectors are updated.
-
 
         .. code-block:: python
 
@@ -2850,7 +2813,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/compute-risk-analysis
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -2940,8 +2902,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -2989,7 +2950,6 @@ class DlpServiceAsyncClient:
         and
         https://cloud.google.com/dlp/docs/compute-risk-analysis
         to learn more.
-
 
         .. code-block:: python
 
@@ -3059,8 +3019,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -3101,7 +3060,6 @@ class DlpServiceAsyncClient:
         and
         https://cloud.google.com/dlp/docs/compute-risk-analysis
         to learn more.
-
 
         .. code-block:: python
 
@@ -3162,8 +3120,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -3200,7 +3157,6 @@ class DlpServiceAsyncClient:
         and
         https://cloud.google.com/dlp/docs/compute-risk-analysis
         to learn more.
-
 
         .. code-block:: python
 
@@ -3267,7 +3223,6 @@ class DlpServiceAsyncClient:
         inspection. See
         https://cloud.google.com/dlp/docs/creating-stored-infotypes
         to learn more.
-
 
         .. code-block:: python
 
@@ -3402,7 +3357,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-stored-infotypes
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -3524,7 +3478,6 @@ class DlpServiceAsyncClient:
         https://cloud.google.com/dlp/docs/creating-stored-infotypes
         to learn more.
 
-
         .. code-block:: python
 
             from google.cloud import dlp_v2
@@ -3596,8 +3549,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -3635,7 +3587,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-stored-infotypes
         to learn more.
-
 
         .. code-block:: python
 
@@ -3731,8 +3682,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -3779,7 +3729,6 @@ class DlpServiceAsyncClient:
         See
         https://cloud.google.com/dlp/docs/creating-stored-infotypes
         to learn more.
-
 
         .. code-block:: python
 
@@ -3842,8 +3791,7 @@ class DlpServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    core_exceptions.DeadlineExceeded,
-                    core_exceptions.ServiceUnavailable,
+                    core_exceptions.GoogleAPICallError,
                 ),
                 deadline=300.0,
             ),
@@ -3877,7 +3825,6 @@ class DlpServiceAsyncClient:
         r"""Inspect hybrid content and store findings to a job.
         To review the findings, inspect the job. Inspection will
         occur asynchronously.
-
 
         .. code-block:: python
 
@@ -3975,7 +3922,6 @@ class DlpServiceAsyncClient:
         r"""Finish a running hybrid DlpJob. Triggers the
         finalization steps and running of any enabled actions
         that have not yet run.
-
 
         .. code-block:: python
 
