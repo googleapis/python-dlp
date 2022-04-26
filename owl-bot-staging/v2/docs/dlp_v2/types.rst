@@ -1,7 +1,0 @@
-Types for Google Cloud Dlp v2 API
-=================================
-
-.. automodule:: google.cloud.dlp_v2.types
-    :members:
-    :undoc-members:
-    :show-inheritance:
