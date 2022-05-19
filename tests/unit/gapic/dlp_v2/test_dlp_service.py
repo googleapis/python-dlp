@@ -33,7 +33,10 @@ from google.type import dayofweek_pb2  # type: ignore
 from google.type import timeofday_pb2  # type: ignore
 import grpc
 from grpc.experimental import aio
-import mock
+try:
+    from unittest import mock
+except ImportError:
+    import mock
 from proto.marshal.rules.dates import DurationRule, TimestampRule
 import pytest
 
