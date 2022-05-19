@@ -23,7 +23,7 @@ import shutil
 import nox
 
 
-BLACK_VERSION = "black==19.3b0"
+BLACK_VERSION = "black==22.3.0"
 BLACK_PATHS = ["docs", "google", "tests", "noxfile.py", "setup.py"]
 
 if os.path.exists("samples"):
@@ -74,7 +74,6 @@ def default(session):
     session.run(
         "py.test",
         "--quiet",
-        "--cov=google.cloud.dlp",
         "--cov=google.cloud",
         "--cov=tests.unit",
         "--cov-append",
@@ -112,8 +111,8 @@ def system(session):
 
     # Install all test dependencies, then install this package into the
     # virtualenv's dist-packages.
-    session.install("mock", "pytest", "google-cloud-testutils")
-    session.install("-e", "test_utils")
+    session.install("mock", "pytest")
+
     session.install("-e", ".")
 
     # Run py.test against the system tests.
@@ -141,7 +140,7 @@ def docs(session):
     """Build the docs for this library."""
 
     session.install("-e", ".")
-    session.install("sphinx<3.0.0", "Jinja2<3.1", "alabaster", "recommonmark")
+    session.install("sphinx<3.0.0", "jinja2<3.1", "alabaster", "recommonmark")
 
     shutil.rmtree(os.path.join("docs", "_build"), ignore_errors=True)
     session.run(
