@@ -9664,7 +9664,6 @@ def test_dlp_service_transport_auth_adc(transport_class):
     [
         transports.DlpServiceGrpcTransport,
         transports.DlpServiceGrpcAsyncIOTransport,
-        transports.DlpServiceRestTransport,
     ],
 )
 def test_dlp_service_transport_auth_gdch_credentials(transport_class):
