@@ -3,7 +3,7 @@ Python Client for Cloud Data Loss Prevention API
 
 |stable| |pypi| |versions|
 
-`Cloud Data Loss Prevention API`_: 
+`Cloud Data Loss Prevention API`_: provides programmatic access to a powerful detection engine for personally identifiable information and other privacy-sensitive data in unstructured data streams, like text blocks and images.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
@@ -66,6 +66,9 @@ Python >= 3.7
 Unsupported Python Versions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Python <= 3.6
+
+If you are using an [end-of-life](https://devguide.python.org/devcycle/#end-of-life-branches)
+version of Python, we recommend that you update as soon as possible to an actively supported version.
 
 If you are using an `end-of-life`_
 version of Python, we recommend that you update as soon as possible to an actively supported version.
