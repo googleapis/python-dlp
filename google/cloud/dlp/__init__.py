@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from google.cloud.dlp import gapic_version as package_version
+
+__version__ = package_version.__version__
+
 
 from google.cloud.dlp_v2.services.dlp_service.async_client import DlpServiceAsyncClient
 from google.cloud.dlp_v2.services.dlp_service.client import DlpServiceClient
