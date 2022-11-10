@@ -90,7 +90,7 @@ class InfoType(proto.Message):
             at https://cloud.google.com/dlp/docs/infotypes-reference
             when specifying a built-in type. When sending Cloud DLP
             results to Data Catalog, infoType names should conform to
-            the pattern ``[A-Za-z0-9$-_]{1,64}``.
+            the pattern ``[A-Za-z0-9$_-]{1,64}``.
         version (str):
             Optional version name for this InfoType.
     """

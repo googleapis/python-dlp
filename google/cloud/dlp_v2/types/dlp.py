@@ -43,6 +43,7 @@ __protobuf__ = proto.module(
         "ResourceVisibility",
         "EncryptionStatus",
         "ExcludeInfoTypes",
+        "ExcludeByHotword",
         "ExclusionRule",
         "InspectionRule",
         "InspectionRuleSet",
@@ -334,6 +335,37 @@ class ExcludeInfoTypes(proto.Message):
     )
 
 
+class ExcludeByHotword(proto.Message):
+    r"""The rule to exclude findings based on a hotword. For record
+    inspection of tables, column names are considered hotwords. An
+    example of this is to exclude a finding if a BigQuery column
+    matches a specific pattern.
+
+    Attributes:
+        hotword_regex (google.cloud.dlp_v2.types.CustomInfoType.Regex):
+            Regular expression pattern defining what
+            qualifies as a hotword.
+        proximity (google.cloud.dlp_v2.types.CustomInfoType.DetectionRule.Proximity):
+            Range of characters within which the entire
+            hotword must reside. The total length of the
+            window cannot exceed 1000 characters. The
+            windowBefore property in proximity should be set
+            to 1 if the hotword needs to be included in a
+            column header.
+    """
+
+    hotword_regex: storage.CustomInfoType.Regex = proto.Field(
+        proto.MESSAGE,
+        number=1,
+        message=storage.CustomInfoType.Regex,
+    )
+    proximity: storage.CustomInfoType.DetectionRule.Proximity = proto.Field(
+        proto.MESSAGE,
+        number=2,
+        message=storage.CustomInfoType.DetectionRule.Proximity,
+    )
+
+
 class ExclusionRule(proto.Message):
     r"""The rule that specifies conditions when findings of infoTypes
     specified in ``InspectionRuleSet`` are removed from results.
@@ -359,6 +391,12 @@ class ExclusionRule(proto.Message):
             affect this rule.
 
             This field is a member of `oneof`_ ``type``.
+        exclude_by_hotword (google.cloud.dlp_v2.types.ExcludeByHotword):
+            Drop if the hotword rule is contained in the
+            proximate context. For tabular data, the context
+            includes the column name.
+
+            This field is a member of `oneof`_ ``type``.
         matching_type (google.cloud.dlp_v2.types.MatchingType):
             How the rule is applied, see MatchingType
             documentation for details.
@@ -381,6 +419,12 @@ class ExclusionRule(proto.Message):
         number=3,
         oneof="type",
         message="ExcludeInfoTypes",
+    )
+    exclude_by_hotword: "ExcludeByHotword" = proto.Field(
+        proto.MESSAGE,
+        number=5,
+        oneof="type",
+        message="ExcludeByHotword",
     )
     matching_type: "MatchingType" = proto.Field(
         proto.ENUM,
@@ -658,7 +702,7 @@ class ByteContentItem(proto.Message):
 
 
 class ContentItem(proto.Message):
-    r"""Container structure for the content to inspect.
+    r"""
 
     This message has `oneof`_ fields (mutually exclusive fields).
     For each oneof, at most one member field can be set at the same time.
@@ -1498,8 +1542,14 @@ class DeidentifyContentRequest(proto.Message):
             override the template referenced by the
             inspect_template_name argument.
         item (google.cloud.dlp_v2.types.ContentItem):
-            The item to de-identify. Will be treated as
-            text.
+            The item to de-identify. Will be treated as text.
+
+            This value must be of type
+            [Table][google.privacy.dlp.v2.Table] if your
+            [deidentify_config][google.privacy.dlp.v2.DeidentifyContentRequest.deidentify_config]
+            is a
+            [RecordTransformations][google.privacy.dlp.v2.RecordTransformations]
+            object.
         inspect_template_name (str):
             Template to use. Any configuration directly specified in
             inspect_config will override those set in the template.
@@ -2093,6 +2143,7 @@ class InfoTypeCategory(proto.Message):
         URUGUAY = 38
         VENEZUELA = 39
         INTERNAL = 40
+        NEW_ZEALAND = 41
 
     class IndustryCategory(proto.Enum):
         r"""Enum of the current industries in the category.
@@ -5606,8 +5657,9 @@ class Action(proto.Message):
 
             This field is a member of `oneof`_ ``action``.
         job_notification_emails (google.cloud.dlp_v2.types.Action.JobNotificationEmails):
-            Enable email notification for project owners
-            and editors on job's completion/failure.
+            Sends an email when the job completes. The email goes to IAM
+            project owners and technical `Essential
+            Contacts <https://cloud.google.com/resource-manager/docs/managing-notification-contacts>`__.
 
             This field is a member of `oneof`_ ``action``.
         publish_to_stackdriver (google.cloud.dlp_v2.types.Action.PublishToStackdriver):
@@ -7988,7 +8040,8 @@ class TableDataProfile(proto.Message):
             generated.
         row_count (int):
             Number of rows in the table when the profile
-            was generated.
+            was generated. This will not be populated for
+            BigLake tables.
         encryption_status (google.cloud.dlp_v2.types.EncryptionStatus):
             How the table is encrypted.
         resource_visibility (google.cloud.dlp_v2.types.ResourceVisibility):
