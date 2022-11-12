@@ -7,7 +7,7 @@
         "google/cloud/dlp/gapic_version.py",
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_dlp_v2.json",
+          "path": "samples/generated_samples/snippet_metadata_google.privacy.dlp.v2.json",
           "jsonpath": "$.clientLibrary.version"
         }
       ]
