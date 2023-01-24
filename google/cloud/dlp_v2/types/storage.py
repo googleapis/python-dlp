@@ -57,17 +57,17 @@ class Likelihood(proto.Enum):
 
     Values:
         LIKELIHOOD_UNSPECIFIED (0):
-
+            Default value; same as POSSIBLE.
         VERY_UNLIKELY (1):
-
+            Few matching elements.
         UNLIKELY (2):
-
+            No description available.
         POSSIBLE (3):
-
+            Some matching elements.
         LIKELY (4):
-
+            No description available.
         VERY_LIKELY (5):
-
+            Many matching elements.
     """
     LIKELIHOOD_UNSPECIFIED = 0
     VERY_UNLIKELY = 1
@@ -110,11 +110,11 @@ class FileType(proto.Enum):
         WORD (5):
             Word files >30 MB will be scanned as binary
             files. Included file extensions:
-            docx, dotx, docm, dotm
+              docx, dotx, docm, dotm
         PDF (6):
             PDF files >30 MB will be scanned as binary
             files. Included file extensions:
-            pdf
+              pdf
         AVRO (7):
             Included file extensions:
             avro
@@ -127,11 +127,11 @@ class FileType(proto.Enum):
         POWERPOINT (11):
             Powerpoint files >30 MB will be scanned as
             binary files. Included file extensions:
-            pptx, pptm, potx, potm, pot
+              pptx, pptm, potx, potm, pot
         EXCEL (12):
             Excel files >30 MB will be scanned as binary
             files. Included file extensions:
-            xlsx, xlsm, xltx, xltm
+              xlsx, xlsm, xltx, xltm
     """
     FILE_TYPE_UNSPECIFIED = 0
     BINARY_FILE = 1
@@ -806,7 +806,7 @@ class CloudStorageOptions(proto.Message):
 
         Values:
             SAMPLE_METHOD_UNSPECIFIED (0):
-
+                No description available.
             TOP (1):
                 Scan from the top (default).
             RANDOM_START (2):
@@ -952,7 +952,7 @@ class BigQueryOptions(proto.Message):
 
         Values:
             SAMPLE_METHOD_UNSPECIFIED (0):
-
+                No description available.
             TOP (1):
                 Scan groups of rows in the order BigQuery
                 provides (default). Multiple groups of rows may
