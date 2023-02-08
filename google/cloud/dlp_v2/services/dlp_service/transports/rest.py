@@ -14,24 +14,21 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -39,11 +36,12 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.dlp_v2.types import dlp
 from google.protobuf import empty_pb2  # type: ignore
 
-from .base import DlpServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from google.cloud.dlp_v2.types import dlp
 
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import DlpServiceTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -316,7 +314,12 @@ class DlpServiceRestInterceptor:
 
 
     """
-    def pre_activate_job_trigger(self, request: dlp.ActivateJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ActivateJobTriggerRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_activate_job_trigger(
+        self,
+        request: dlp.ActivateJobTriggerRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.ActivateJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for activate_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -332,7 +335,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_cancel_dlp_job(self, request: dlp.CancelDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CancelDlpJobRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_cancel_dlp_job(
+        self, request: dlp.CancelDlpJobRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.CancelDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for cancel_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -340,7 +346,11 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_create_deidentify_template(self, request: dlp.CreateDeidentifyTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CreateDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
+    def pre_create_deidentify_template(
+        self,
+        request: dlp.CreateDeidentifyTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.CreateDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_deidentify_template
 
         Override in a subclass to manipulate the request or metadata
@@ -348,7 +358,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_create_deidentify_template(self, response: dlp.DeidentifyTemplate) -> dlp.DeidentifyTemplate:
+    def post_create_deidentify_template(
+        self, response: dlp.DeidentifyTemplate
+    ) -> dlp.DeidentifyTemplate:
         """Post-rpc interceptor for create_deidentify_template
 
         Override in a subclass to manipulate the response
@@ -356,7 +368,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_create_dlp_job(self, request: dlp.CreateDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CreateDlpJobRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_dlp_job(
+        self, request: dlp.CreateDlpJobRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.CreateDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -372,7 +387,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_create_inspect_template(self, request: dlp.CreateInspectTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CreateInspectTemplateRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_inspect_template(
+        self,
+        request: dlp.CreateInspectTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.CreateInspectTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_inspect_template
 
         Override in a subclass to manipulate the request or metadata
@@ -380,7 +400,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_create_inspect_template(self, response: dlp.InspectTemplate) -> dlp.InspectTemplate:
+    def post_create_inspect_template(
+        self, response: dlp.InspectTemplate
+    ) -> dlp.InspectTemplate:
         """Post-rpc interceptor for create_inspect_template
 
         Override in a subclass to manipulate the response
@@ -388,7 +410,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_create_job_trigger(self, request: dlp.CreateJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CreateJobTriggerRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_job_trigger(
+        self, request: dlp.CreateJobTriggerRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.CreateJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -404,7 +429,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_create_stored_info_type(self, request: dlp.CreateStoredInfoTypeRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.CreateStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_stored_info_type(
+        self,
+        request: dlp.CreateStoredInfoTypeRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.CreateStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for create_stored_info_type
 
         Override in a subclass to manipulate the request or metadata
@@ -412,7 +442,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_create_stored_info_type(self, response: dlp.StoredInfoType) -> dlp.StoredInfoType:
+    def post_create_stored_info_type(
+        self, response: dlp.StoredInfoType
+    ) -> dlp.StoredInfoType:
         """Post-rpc interceptor for create_stored_info_type
 
         Override in a subclass to manipulate the response
@@ -420,7 +452,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_deidentify_content(self, request: dlp.DeidentifyContentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeidentifyContentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_deidentify_content(
+        self, request: dlp.DeidentifyContentRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.DeidentifyContentRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for deidentify_content
 
         Override in a subclass to manipulate the request or metadata
@@ -428,7 +463,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_deidentify_content(self, response: dlp.DeidentifyContentResponse) -> dlp.DeidentifyContentResponse:
+    def post_deidentify_content(
+        self, response: dlp.DeidentifyContentResponse
+    ) -> dlp.DeidentifyContentResponse:
         """Post-rpc interceptor for deidentify_content
 
         Override in a subclass to manipulate the response
@@ -436,7 +473,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_delete_deidentify_template(self, request: dlp.DeleteDeidentifyTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeleteDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_delete_deidentify_template(
+        self,
+        request: dlp.DeleteDeidentifyTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.DeleteDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_deidentify_template
 
         Override in a subclass to manipulate the request or metadata
@@ -444,7 +486,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_delete_dlp_job(self, request: dlp.DeleteDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeleteDlpJobRequest, Sequence[Tuple[str, str]]]:
+    def pre_delete_dlp_job(
+        self, request: dlp.DeleteDlpJobRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.DeleteDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -452,7 +496,11 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_delete_inspect_template(self, request: dlp.DeleteInspectTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeleteInspectTemplateRequest, Sequence[Tuple[str, str]]]:
+    def pre_delete_inspect_template(
+        self,
+        request: dlp.DeleteInspectTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.DeleteInspectTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_inspect_template
 
         Override in a subclass to manipulate the request or metadata
@@ -460,7 +508,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_delete_job_trigger(self, request: dlp.DeleteJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeleteJobTriggerRequest, Sequence[Tuple[str, str]]]:
+    def pre_delete_job_trigger(
+        self, request: dlp.DeleteJobTriggerRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.DeleteJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -468,7 +518,11 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_delete_stored_info_type(self, request: dlp.DeleteStoredInfoTypeRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.DeleteStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
+    def pre_delete_stored_info_type(
+        self,
+        request: dlp.DeleteStoredInfoTypeRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.DeleteStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for delete_stored_info_type
 
         Override in a subclass to manipulate the request or metadata
@@ -476,7 +530,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_finish_dlp_job(self, request: dlp.FinishDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.FinishDlpJobRequest, Sequence[Tuple[str, str]]]:
+    def pre_finish_dlp_job(
+        self, request: dlp.FinishDlpJobRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.FinishDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for finish_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -484,7 +540,11 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def pre_get_deidentify_template(self, request: dlp.GetDeidentifyTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.GetDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
+    def pre_get_deidentify_template(
+        self,
+        request: dlp.GetDeidentifyTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.GetDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_deidentify_template
 
         Override in a subclass to manipulate the request or metadata
@@ -492,7 +552,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_deidentify_template(self, response: dlp.DeidentifyTemplate) -> dlp.DeidentifyTemplate:
+    def post_get_deidentify_template(
+        self, response: dlp.DeidentifyTemplate
+    ) -> dlp.DeidentifyTemplate:
         """Post-rpc interceptor for get_deidentify_template
 
         Override in a subclass to manipulate the response
@@ -500,7 +562,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_dlp_job(self, request: dlp.GetDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.GetDlpJobRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_dlp_job(
+        self, request: dlp.GetDlpJobRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.GetDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -516,7 +581,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_inspect_template(self, request: dlp.GetInspectTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.GetInspectTemplateRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_inspect_template(
+        self,
+        request: dlp.GetInspectTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.GetInspectTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_inspect_template
 
         Override in a subclass to manipulate the request or metadata
@@ -524,7 +594,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_inspect_template(self, response: dlp.InspectTemplate) -> dlp.InspectTemplate:
+    def post_get_inspect_template(
+        self, response: dlp.InspectTemplate
+    ) -> dlp.InspectTemplate:
         """Post-rpc interceptor for get_inspect_template
 
         Override in a subclass to manipulate the response
@@ -532,7 +604,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_job_trigger(self, request: dlp.GetJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.GetJobTriggerRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_job_trigger(
+        self, request: dlp.GetJobTriggerRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.GetJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -548,7 +623,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_stored_info_type(self, request: dlp.GetStoredInfoTypeRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.GetStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_stored_info_type(
+        self, request: dlp.GetStoredInfoTypeRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.GetStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_stored_info_type
 
         Override in a subclass to manipulate the request or metadata
@@ -556,7 +634,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_stored_info_type(self, response: dlp.StoredInfoType) -> dlp.StoredInfoType:
+    def post_get_stored_info_type(
+        self, response: dlp.StoredInfoType
+    ) -> dlp.StoredInfoType:
         """Post-rpc interceptor for get_stored_info_type
 
         Override in a subclass to manipulate the response
@@ -564,7 +644,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_hybrid_inspect_dlp_job(self, request: dlp.HybridInspectDlpJobRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.HybridInspectDlpJobRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_hybrid_inspect_dlp_job(
+        self,
+        request: dlp.HybridInspectDlpJobRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.HybridInspectDlpJobRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for hybrid_inspect_dlp_job
 
         Override in a subclass to manipulate the request or metadata
@@ -572,7 +657,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_hybrid_inspect_dlp_job(self, response: dlp.HybridInspectResponse) -> dlp.HybridInspectResponse:
+    def post_hybrid_inspect_dlp_job(
+        self, response: dlp.HybridInspectResponse
+    ) -> dlp.HybridInspectResponse:
         """Post-rpc interceptor for hybrid_inspect_dlp_job
 
         Override in a subclass to manipulate the response
@@ -580,7 +667,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_hybrid_inspect_job_trigger(self, request: dlp.HybridInspectJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.HybridInspectJobTriggerRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_hybrid_inspect_job_trigger(
+        self,
+        request: dlp.HybridInspectJobTriggerRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.HybridInspectJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for hybrid_inspect_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -588,7 +680,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_hybrid_inspect_job_trigger(self, response: dlp.HybridInspectResponse) -> dlp.HybridInspectResponse:
+    def post_hybrid_inspect_job_trigger(
+        self, response: dlp.HybridInspectResponse
+    ) -> dlp.HybridInspectResponse:
         """Post-rpc interceptor for hybrid_inspect_job_trigger
 
         Override in a subclass to manipulate the response
@@ -596,7 +690,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_inspect_content(self, request: dlp.InspectContentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.InspectContentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_inspect_content(
+        self, request: dlp.InspectContentRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.InspectContentRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for inspect_content
 
         Override in a subclass to manipulate the request or metadata
@@ -604,7 +701,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_inspect_content(self, response: dlp.InspectContentResponse) -> dlp.InspectContentResponse:
+    def post_inspect_content(
+        self, response: dlp.InspectContentResponse
+    ) -> dlp.InspectContentResponse:
         """Post-rpc interceptor for inspect_content
 
         Override in a subclass to manipulate the response
@@ -612,7 +711,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_deidentify_templates(self, request: dlp.ListDeidentifyTemplatesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListDeidentifyTemplatesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_deidentify_templates(
+        self,
+        request: dlp.ListDeidentifyTemplatesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.ListDeidentifyTemplatesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_deidentify_templates
 
         Override in a subclass to manipulate the request or metadata
@@ -620,7 +724,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_deidentify_templates(self, response: dlp.ListDeidentifyTemplatesResponse) -> dlp.ListDeidentifyTemplatesResponse:
+    def post_list_deidentify_templates(
+        self, response: dlp.ListDeidentifyTemplatesResponse
+    ) -> dlp.ListDeidentifyTemplatesResponse:
         """Post-rpc interceptor for list_deidentify_templates
 
         Override in a subclass to manipulate the response
@@ -628,7 +734,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_dlp_jobs(self, request: dlp.ListDlpJobsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListDlpJobsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_dlp_jobs(
+        self, request: dlp.ListDlpJobsRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.ListDlpJobsRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_dlp_jobs
 
         Override in a subclass to manipulate the request or metadata
@@ -636,7 +745,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_dlp_jobs(self, response: dlp.ListDlpJobsResponse) -> dlp.ListDlpJobsResponse:
+    def post_list_dlp_jobs(
+        self, response: dlp.ListDlpJobsResponse
+    ) -> dlp.ListDlpJobsResponse:
         """Post-rpc interceptor for list_dlp_jobs
 
         Override in a subclass to manipulate the response
@@ -644,7 +755,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_info_types(self, request: dlp.ListInfoTypesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListInfoTypesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_info_types(
+        self, request: dlp.ListInfoTypesRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.ListInfoTypesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_info_types
 
         Override in a subclass to manipulate the request or metadata
@@ -652,7 +766,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_info_types(self, response: dlp.ListInfoTypesResponse) -> dlp.ListInfoTypesResponse:
+    def post_list_info_types(
+        self, response: dlp.ListInfoTypesResponse
+    ) -> dlp.ListInfoTypesResponse:
         """Post-rpc interceptor for list_info_types
 
         Override in a subclass to manipulate the response
@@ -660,7 +776,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_inspect_templates(self, request: dlp.ListInspectTemplatesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListInspectTemplatesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_inspect_templates(
+        self,
+        request: dlp.ListInspectTemplatesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.ListInspectTemplatesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_inspect_templates
 
         Override in a subclass to manipulate the request or metadata
@@ -668,7 +789,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_inspect_templates(self, response: dlp.ListInspectTemplatesResponse) -> dlp.ListInspectTemplatesResponse:
+    def post_list_inspect_templates(
+        self, response: dlp.ListInspectTemplatesResponse
+    ) -> dlp.ListInspectTemplatesResponse:
         """Post-rpc interceptor for list_inspect_templates
 
         Override in a subclass to manipulate the response
@@ -676,7 +799,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_job_triggers(self, request: dlp.ListJobTriggersRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListJobTriggersRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_job_triggers(
+        self, request: dlp.ListJobTriggersRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.ListJobTriggersRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_job_triggers
 
         Override in a subclass to manipulate the request or metadata
@@ -684,7 +810,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_job_triggers(self, response: dlp.ListJobTriggersResponse) -> dlp.ListJobTriggersResponse:
+    def post_list_job_triggers(
+        self, response: dlp.ListJobTriggersResponse
+    ) -> dlp.ListJobTriggersResponse:
         """Post-rpc interceptor for list_job_triggers
 
         Override in a subclass to manipulate the response
@@ -692,7 +820,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_stored_info_types(self, request: dlp.ListStoredInfoTypesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ListStoredInfoTypesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_stored_info_types(
+        self,
+        request: dlp.ListStoredInfoTypesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.ListStoredInfoTypesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_stored_info_types
 
         Override in a subclass to manipulate the request or metadata
@@ -700,7 +833,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_stored_info_types(self, response: dlp.ListStoredInfoTypesResponse) -> dlp.ListStoredInfoTypesResponse:
+    def post_list_stored_info_types(
+        self, response: dlp.ListStoredInfoTypesResponse
+    ) -> dlp.ListStoredInfoTypesResponse:
         """Post-rpc interceptor for list_stored_info_types
 
         Override in a subclass to manipulate the response
@@ -708,7 +843,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_redact_image(self, request: dlp.RedactImageRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.RedactImageRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_redact_image(
+        self, request: dlp.RedactImageRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.RedactImageRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for redact_image
 
         Override in a subclass to manipulate the request or metadata
@@ -716,7 +854,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_redact_image(self, response: dlp.RedactImageResponse) -> dlp.RedactImageResponse:
+    def post_redact_image(
+        self, response: dlp.RedactImageResponse
+    ) -> dlp.RedactImageResponse:
         """Post-rpc interceptor for redact_image
 
         Override in a subclass to manipulate the response
@@ -724,7 +864,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_reidentify_content(self, request: dlp.ReidentifyContentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.ReidentifyContentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_reidentify_content(
+        self, request: dlp.ReidentifyContentRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.ReidentifyContentRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for reidentify_content
 
         Override in a subclass to manipulate the request or metadata
@@ -732,7 +875,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_reidentify_content(self, response: dlp.ReidentifyContentResponse) -> dlp.ReidentifyContentResponse:
+    def post_reidentify_content(
+        self, response: dlp.ReidentifyContentResponse
+    ) -> dlp.ReidentifyContentResponse:
         """Post-rpc interceptor for reidentify_content
 
         Override in a subclass to manipulate the response
@@ -740,7 +885,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_deidentify_template(self, request: dlp.UpdateDeidentifyTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.UpdateDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_deidentify_template(
+        self,
+        request: dlp.UpdateDeidentifyTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.UpdateDeidentifyTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for update_deidentify_template
 
         Override in a subclass to manipulate the request or metadata
@@ -748,7 +898,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_update_deidentify_template(self, response: dlp.DeidentifyTemplate) -> dlp.DeidentifyTemplate:
+    def post_update_deidentify_template(
+        self, response: dlp.DeidentifyTemplate
+    ) -> dlp.DeidentifyTemplate:
         """Post-rpc interceptor for update_deidentify_template
 
         Override in a subclass to manipulate the response
@@ -756,7 +908,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_inspect_template(self, request: dlp.UpdateInspectTemplateRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.UpdateInspectTemplateRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_inspect_template(
+        self,
+        request: dlp.UpdateInspectTemplateRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.UpdateInspectTemplateRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for update_inspect_template
 
         Override in a subclass to manipulate the request or metadata
@@ -764,7 +921,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_update_inspect_template(self, response: dlp.InspectTemplate) -> dlp.InspectTemplate:
+    def post_update_inspect_template(
+        self, response: dlp.InspectTemplate
+    ) -> dlp.InspectTemplate:
         """Post-rpc interceptor for update_inspect_template
 
         Override in a subclass to manipulate the response
@@ -772,7 +931,10 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_job_trigger(self, request: dlp.UpdateJobTriggerRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.UpdateJobTriggerRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_job_trigger(
+        self, request: dlp.UpdateJobTriggerRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[dlp.UpdateJobTriggerRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for update_job_trigger
 
         Override in a subclass to manipulate the request or metadata
@@ -788,7 +950,12 @@ class DlpServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_stored_info_type(self, request: dlp.UpdateStoredInfoTypeRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[dlp.UpdateStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_stored_info_type(
+        self,
+        request: dlp.UpdateStoredInfoTypeRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[dlp.UpdateStoredInfoTypeRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for update_stored_info_type
 
         Override in a subclass to manipulate the request or metadata
@@ -796,7 +963,9 @@ class DlpServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_update_stored_info_type(self, response: dlp.StoredInfoType) -> dlp.StoredInfoType:
+    def post_update_stored_info_type(
+        self, response: dlp.StoredInfoType
+    ) -> dlp.StoredInfoType:
         """Post-rpc interceptor for update_stored_info_type
 
         Override in a subclass to manipulate the response
@@ -835,20 +1004,21 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'dlp.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[DlpServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "dlp.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[DlpServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -887,7 +1057,9 @@ class DlpServiceRestTransport(DlpServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -898,10 +1070,11 @@ class DlpServiceRestTransport(DlpServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or DlpServiceRestInterceptor()
@@ -911,19 +1084,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ActivateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ActivateJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DlpJob:
+        def __call__(
+            self,
+            request: dlp.ActivateJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DlpJob:
             r"""Call the activate job trigger method over HTTP.
 
             Args:
@@ -944,51 +1122,56 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/jobTriggers/*}:activate',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/locations/*/jobTriggers/*}:activate',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/jobTriggers/*}:activate",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/locations/*/jobTriggers/*}:activate",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_activate_job_trigger(request, metadata)
+            request, metadata = self._interceptor.pre_activate_job_trigger(
+                request, metadata
+            )
             pb_request = dlp.ActivateJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1007,19 +1190,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CancelDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CancelDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.CancelDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the cancel dlp job method over HTTP.
 
             Args:
@@ -1034,16 +1222,17 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/dlpJobs/*}:cancel',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/locations/*/dlpJobs/*}:cancel',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/dlpJobs/*}:cancel",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/locations/*/dlpJobs/*}:cancel",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_cancel_dlp_job(request, metadata)
             pb_request = dlp.CancelDlpJobRequest.pb(request)
@@ -1052,33 +1241,35 @@ class DlpServiceRestTransport(DlpServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1089,98 +1280,108 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CreateDeidentifyTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DeidentifyTemplate:
+        def __call__(
+            self,
+            request: dlp.CreateDeidentifyTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DeidentifyTemplate:
             r"""Call the create deidentify
-        template method over HTTP.
+            template method over HTTP.
 
-            Args:
-                request (~.dlp.CreateDeidentifyTemplateRequest):
-                    The request object. Request message for
-                CreateDeidentifyTemplate.
+                Args:
+                    request (~.dlp.CreateDeidentifyTemplateRequest):
+                        The request object. Request message for
+                    CreateDeidentifyTemplate.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.dlp.DeidentifyTemplate:
-                    DeidentifyTemplates contains
-                instructions on how to de-identify
-                content. See
-                https://cloud.google.com/dlp/docs/concepts-templates
-                to learn more.
+                Returns:
+                    ~.dlp.DeidentifyTemplate:
+                        DeidentifyTemplates contains
+                    instructions on how to de-identify
+                    content. See
+                    https://cloud.google.com/dlp/docs/concepts-templates
+                    to learn more.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*}/deidentifyTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*/locations/*}/deidentifyTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/deidentifyTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/deidentifyTemplates',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*}/deidentifyTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/deidentifyTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/deidentifyTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/deidentifyTemplates",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_deidentify_template(request, metadata)
+            request, metadata = self._interceptor.pre_create_deidentify_template(
+                request, metadata
+            )
             pb_request = dlp.CreateDeidentifyTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1199,19 +1400,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CreateDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DlpJob:
+        def __call__(
+            self,
+            request: dlp.CreateDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DlpJob:
             r"""Call the create dlp job method over HTTP.
 
             Args:
@@ -1235,16 +1441,17 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/dlpJobs',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/dlpJobs',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/dlpJobs",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/dlpJobs",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_create_dlp_job(request, metadata)
             pb_request = dlp.CreateDlpJobRequest.pb(request)
@@ -1253,33 +1460,35 @@ class DlpServiceRestTransport(DlpServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1298,19 +1507,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CreateInspectTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.InspectTemplate:
+        def __call__(
+            self,
+            request: dlp.CreateInspectTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.InspectTemplate:
             r"""Call the create inspect template method over HTTP.
 
             Args:
@@ -1336,61 +1550,66 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*}/inspectTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*/locations/*}/inspectTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/inspectTemplates',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/inspectTemplates',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*}/inspectTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/inspectTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/inspectTemplates",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/inspectTemplates",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_inspect_template(request, metadata)
+            request, metadata = self._interceptor.pre_create_inspect_template(
+                request, metadata
+            )
             pb_request = dlp.CreateInspectTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1409,19 +1628,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CreateJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.JobTrigger:
+        def __call__(
+            self,
+            request: dlp.CreateJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.JobTrigger:
             r"""Call the create job trigger method over HTTP.
 
             Args:
@@ -1442,56 +1666,61 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/jobTriggers',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/jobTriggers',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*/locations/*}/jobTriggers',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/jobTriggers",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/jobTriggers",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/jobTriggers",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_job_trigger(request, metadata)
+            request, metadata = self._interceptor.pre_create_job_trigger(
+                request, metadata
+            )
             pb_request = dlp.CreateJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1510,19 +1739,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.CreateStoredInfoTypeRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.StoredInfoType:
+        def __call__(
+            self,
+            request: dlp.CreateStoredInfoTypeRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.StoredInfoType:
             r"""Call the create stored info type method over HTTP.
 
             Args:
@@ -1544,61 +1778,66 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*}/storedInfoTypes',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=organizations/*/locations/*}/storedInfoTypes',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/storedInfoTypes',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/storedInfoTypes',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*}/storedInfoTypes",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/storedInfoTypes",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/storedInfoTypes",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/storedInfoTypes",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_stored_info_type(request, metadata)
+            request, metadata = self._interceptor.pre_create_stored_info_type(
+                request, metadata
+            )
             pb_request = dlp.CreateStoredInfoTypeRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1617,12 +1856,14 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeidentifyContent")
 
-        def __call__(self,
-                request: dlp.DeidentifyContentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DeidentifyContentResponse:
+        def __call__(
+            self,
+            request: dlp.DeidentifyContentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DeidentifyContentResponse:
             r"""Call the deidentify content method over HTTP.
 
             Args:
@@ -1641,50 +1882,55 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/content:deidentify',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/content:deidentify',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/content:deidentify",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/content:deidentify",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_deidentify_content(request, metadata)
+            request, metadata = self._interceptor.pre_deidentify_content(
+                request, metadata
+            )
             pb_request = dlp.DeidentifyContentRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1703,77 +1949,87 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.DeleteDeidentifyTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.DeleteDeidentifyTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete deidentify
-        template method over HTTP.
+            template method over HTTP.
 
-            Args:
-                request (~.dlp.DeleteDeidentifyTemplateRequest):
-                    The request object. Request message for
-                DeleteDeidentifyTemplate.
+                Args:
+                    request (~.dlp.DeleteDeidentifyTemplateRequest):
+                        The request object. Request message for
+                    DeleteDeidentifyTemplate.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/locations/*/deidentifyTemplates/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/locations/*/deidentifyTemplates/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_deidentify_template(request, metadata)
+            request, metadata = self._interceptor.pre_delete_deidentify_template(
+                request, metadata
+            )
             pb_request = dlp.DeleteDeidentifyTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1784,19 +2040,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.DeleteDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.DeleteDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete dlp job method over HTTP.
 
             Args:
@@ -1811,41 +2072,44 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/dlpJobs/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/locations/*/dlpJobs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/dlpJobs/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/locations/*/dlpJobs/*}",
+                },
             ]
             request, metadata = self._interceptor.pre_delete_dlp_job(request, metadata)
             pb_request = dlp.DeleteDlpJobRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1856,19 +2120,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.DeleteInspectTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.DeleteInspectTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete inspect template method over HTTP.
 
             Args:
@@ -1883,49 +2152,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/inspectTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/locations/*/inspectTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/inspectTemplates/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/locations/*/inspectTemplates/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/locations/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/locations/*/inspectTemplates/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_inspect_template(request, metadata)
+            request, metadata = self._interceptor.pre_delete_inspect_template(
+                request, metadata
+            )
             pb_request = dlp.DeleteInspectTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1936,19 +2210,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.DeleteJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.DeleteJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete job trigger method over HTTP.
 
             Args:
@@ -1961,45 +2240,50 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/jobTriggers/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/locations/*/jobTriggers/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/locations/*/jobTriggers/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/jobTriggers/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/locations/*/jobTriggers/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/locations/*/jobTriggers/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_job_trigger(request, metadata)
+            request, metadata = self._interceptor.pre_delete_job_trigger(
+                request, metadata
+            )
             pb_request = dlp.DeleteJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2010,19 +2294,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.DeleteStoredInfoTypeRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.DeleteStoredInfoTypeRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the delete stored info type method over HTTP.
 
             Args:
@@ -2037,49 +2326,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=organizations/*/locations/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'delete',
-                'uri': '/v2/{name=projects/*/locations/*/storedInfoTypes/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=organizations/*/locations/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "delete",
+                    "uri": "/v2/{name=projects/*/locations/*/storedInfoTypes/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_stored_info_type(request, metadata)
+            request, metadata = self._interceptor.pre_delete_stored_info_type(
+                request, metadata
+            )
             pb_request = dlp.DeleteStoredInfoTypeRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2090,19 +2384,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("FinishDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.FinishDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: dlp.FinishDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the finish dlp job method over HTTP.
 
             Args:
@@ -2117,11 +2416,12 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/locations/*/dlpJobs/*}:finish',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/locations/*/dlpJobs/*}:finish",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_finish_dlp_job(request, metadata)
             pb_request = dlp.FinishDlpJobRequest.pb(request)
@@ -2130,33 +2430,35 @@ class DlpServiceRestTransport(DlpServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2167,19 +2469,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.GetDeidentifyTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DeidentifyTemplate:
+        def __call__(
+            self,
+            request: dlp.GetDeidentifyTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DeidentifyTemplate:
             r"""Call the get deidentify template method over HTTP.
 
             Args:
@@ -2203,49 +2510,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/deidentifyTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/locations/*/deidentifyTemplates/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/deidentifyTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/locations/*/deidentifyTemplates/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_deidentify_template(request, metadata)
+            request, metadata = self._interceptor.pre_get_deidentify_template(
+                request, metadata
+            )
             pb_request = dlp.GetDeidentifyTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2264,19 +2576,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.GetDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DlpJob:
+        def __call__(
+            self,
+            request: dlp.GetDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DlpJob:
             r"""Call the get dlp job method over HTTP.
 
             Args:
@@ -2295,41 +2612,44 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/dlpJobs/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/locations/*/dlpJobs/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/dlpJobs/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/locations/*/dlpJobs/*}",
+                },
             ]
             request, metadata = self._interceptor.pre_get_dlp_job(request, metadata)
             pb_request = dlp.GetDlpJobRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2348,19 +2668,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.GetInspectTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.InspectTemplate:
+        def __call__(
+            self,
+            request: dlp.GetInspectTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.InspectTemplate:
             r"""Call the get inspect template method over HTTP.
 
             Args:
@@ -2386,49 +2711,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/inspectTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/locations/*/inspectTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/inspectTemplates/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/locations/*/inspectTemplates/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/locations/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/inspectTemplates/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/locations/*/inspectTemplates/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_inspect_template(request, metadata)
+            request, metadata = self._interceptor.pre_get_inspect_template(
+                request, metadata
+            )
             pb_request = dlp.GetInspectTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2447,19 +2777,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.GetJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.JobTrigger:
+        def __call__(
+            self,
+            request: dlp.GetJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.JobTrigger:
             r"""Call the get job trigger method over HTTP.
 
             Args:
@@ -2480,45 +2815,48 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/jobTriggers/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/locations/*/jobTriggers/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/locations/*/jobTriggers/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/jobTriggers/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/locations/*/jobTriggers/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/locations/*/jobTriggers/*}",
+                },
             ]
             request, metadata = self._interceptor.pre_get_job_trigger(request, metadata)
             pb_request = dlp.GetJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2537,19 +2875,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.GetStoredInfoTypeRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.StoredInfoType:
+        def __call__(
+            self,
+            request: dlp.GetStoredInfoTypeRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.StoredInfoType:
             r"""Call the get stored info type method over HTTP.
 
             Args:
@@ -2571,49 +2914,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=organizations/*/locations/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/storedInfoTypes/*}',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{name=projects/*/locations/*/storedInfoTypes/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=organizations/*/locations/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/storedInfoTypes/*}",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{name=projects/*/locations/*/storedInfoTypes/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_stored_info_type(request, metadata)
+            request, metadata = self._interceptor.pre_get_stored_info_type(
+                request, metadata
+            )
             pb_request = dlp.GetStoredInfoTypeRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2632,19 +2980,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("HybridInspectDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.HybridInspectDlpJobRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.HybridInspectResponse:
+        def __call__(
+            self,
+            request: dlp.HybridInspectDlpJobRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.HybridInspectResponse:
             r"""Call the hybrid inspect dlp job method over HTTP.
 
             Args:
@@ -2665,46 +3018,51 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/locations/*/dlpJobs/*}:hybridInspect',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/locations/*/dlpJobs/*}:hybridInspect",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_hybrid_inspect_dlp_job(request, metadata)
+            request, metadata = self._interceptor.pre_hybrid_inspect_dlp_job(
+                request, metadata
+            )
             pb_request = dlp.HybridInspectDlpJobRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2723,80 +3081,90 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("HybridInspectJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.HybridInspectJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.HybridInspectResponse:
+        def __call__(
+            self,
+            request: dlp.HybridInspectJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.HybridInspectResponse:
             r"""Call the hybrid inspect job
-        trigger method over HTTP.
+            trigger method over HTTP.
 
-            Args:
-                request (~.dlp.HybridInspectJobTriggerRequest):
-                    The request object. Request to search for potentially
-                sensitive info in a custom location.
+                Args:
+                    request (~.dlp.HybridInspectJobTriggerRequest):
+                        The request object. Request to search for potentially
+                    sensitive info in a custom location.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.dlp.HybridInspectResponse:
-                    Quota exceeded errors will be thrown
-                once quota has been met.
+                Returns:
+                    ~.dlp.HybridInspectResponse:
+                        Quota exceeded errors will be thrown
+                    once quota has been met.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{name=projects/*/locations/*/jobTriggers/*}:hybridInspect',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{name=projects/*/locations/*/jobTriggers/*}:hybridInspect",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_hybrid_inspect_job_trigger(request, metadata)
+            request, metadata = self._interceptor.pre_hybrid_inspect_job_trigger(
+                request, metadata
+            )
             pb_request = dlp.HybridInspectJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2815,12 +3183,14 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("InspectContent")
 
-        def __call__(self,
-                request: dlp.InspectContentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.InspectContentResponse:
+        def __call__(
+            self,
+            request: dlp.InspectContentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.InspectContentResponse:
             r"""Call the inspect content method over HTTP.
 
             Args:
@@ -2839,16 +3209,17 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     Results of inspecting an item.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/content:inspect',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/content:inspect',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/content:inspect",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/content:inspect",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_inspect_content(request, metadata)
             pb_request = dlp.InspectContentRequest.pb(request)
@@ -2857,32 +3228,34 @@ class DlpServiceRestTransport(DlpServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2901,19 +3274,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListDeidentifyTemplates")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ListDeidentifyTemplatesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListDeidentifyTemplatesResponse:
+        def __call__(
+            self,
+            request: dlp.ListDeidentifyTemplatesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListDeidentifyTemplatesResponse:
             r"""Call the list deidentify templates method over HTTP.
 
             Args:
@@ -2934,49 +3312,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*}/deidentifyTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*/locations/*}/deidentifyTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*}/deidentifyTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*/locations/*}/deidentifyTemplates',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*}/deidentifyTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/deidentifyTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*}/deidentifyTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*/locations/*}/deidentifyTemplates",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_deidentify_templates(request, metadata)
+            request, metadata = self._interceptor.pre_list_deidentify_templates(
+                request, metadata
+            )
             pb_request = dlp.ListDeidentifyTemplatesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -2995,19 +3378,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListDlpJobs")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ListDlpJobsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListDlpJobsResponse:
+        def __call__(
+            self,
+            request: dlp.ListDlpJobsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListDlpJobsResponse:
             r"""Call the list dlp jobs method over HTTP.
 
             Args:
@@ -3028,45 +3416,48 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*}/dlpJobs',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*/locations/*}/dlpJobs',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*/locations/*}/dlpJobs',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*}/dlpJobs",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*/locations/*}/dlpJobs",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/dlpJobs",
+                },
             ]
             request, metadata = self._interceptor.pre_list_dlp_jobs(request, metadata)
             pb_request = dlp.ListDlpJobsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3085,12 +3476,14 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListInfoTypes")
 
-        def __call__(self,
-                request: dlp.ListInfoTypesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListInfoTypesResponse:
+        def __call__(
+            self,
+            request: dlp.ListInfoTypesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListInfoTypesResponse:
             r"""Call the list info types method over HTTP.
 
             Args:
@@ -3109,40 +3502,43 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/infoTypes',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=locations/*}/infoTypes',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/infoTypes",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=locations/*}/infoTypes",
+                },
             ]
             request, metadata = self._interceptor.pre_list_info_types(request, metadata)
             pb_request = dlp.ListInfoTypesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3161,19 +3557,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListInspectTemplates")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ListInspectTemplatesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListInspectTemplatesResponse:
+        def __call__(
+            self,
+            request: dlp.ListInspectTemplatesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListInspectTemplatesResponse:
             r"""Call the list inspect templates method over HTTP.
 
             Args:
@@ -3194,49 +3595,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*}/inspectTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*/locations/*}/inspectTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*}/inspectTemplates',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*/locations/*}/inspectTemplates',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*}/inspectTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/inspectTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*}/inspectTemplates",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*/locations/*}/inspectTemplates",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_inspect_templates(request, metadata)
+            request, metadata = self._interceptor.pre_list_inspect_templates(
+                request, metadata
+            )
             pb_request = dlp.ListInspectTemplatesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3255,19 +3661,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListJobTriggers")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ListJobTriggersRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListJobTriggersResponse:
+        def __call__(
+            self,
+            request: dlp.ListJobTriggersRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListJobTriggersResponse:
             r"""Call the list job triggers method over HTTP.
 
             Args:
@@ -3284,45 +3695,50 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     Response message for ListJobTriggers.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*}/jobTriggers',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*/locations/*}/jobTriggers',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*/locations/*}/jobTriggers',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*}/jobTriggers",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*/locations/*}/jobTriggers",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/jobTriggers",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_job_triggers(request, metadata)
+            request, metadata = self._interceptor.pre_list_job_triggers(
+                request, metadata
+            )
             pb_request = dlp.ListJobTriggersRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3341,19 +3757,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListStoredInfoTypes")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ListStoredInfoTypesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ListStoredInfoTypesResponse:
+        def __call__(
+            self,
+            request: dlp.ListStoredInfoTypesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ListStoredInfoTypesResponse:
             r"""Call the list stored info types method over HTTP.
 
             Args:
@@ -3374,49 +3795,54 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*}/storedInfoTypes',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=organizations/*/locations/*}/storedInfoTypes',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*}/storedInfoTypes',
-            },
-{
-                'method': 'get',
-                'uri': '/v2/{parent=projects/*/locations/*}/storedInfoTypes',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*}/storedInfoTypes",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=organizations/*/locations/*}/storedInfoTypes",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*}/storedInfoTypes",
+                },
+                {
+                    "method": "get",
+                    "uri": "/v2/{parent=projects/*/locations/*}/storedInfoTypes",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_stored_info_types(request, metadata)
+            request, metadata = self._interceptor.pre_list_stored_info_types(
+                request, metadata
+            )
             pb_request = dlp.ListStoredInfoTypesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3435,12 +3861,14 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("RedactImage")
 
-        def __call__(self,
-                request: dlp.RedactImageRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.RedactImageResponse:
+        def __call__(
+            self,
+            request: dlp.RedactImageRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.RedactImageResponse:
             r"""Call the redact image method over HTTP.
 
             Args:
@@ -3460,16 +3888,17 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     Results of redacting an image.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/image:redact',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/image:redact',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/image:redact",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/image:redact",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_redact_image(request, metadata)
             pb_request = dlp.RedactImageRequest.pb(request)
@@ -3478,32 +3907,34 @@ class DlpServiceRestTransport(DlpServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3522,19 +3953,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ReidentifyContent")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.ReidentifyContentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.ReidentifyContentResponse:
+        def __call__(
+            self,
+            request: dlp.ReidentifyContentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.ReidentifyContentResponse:
             r"""Call the reidentify content method over HTTP.
 
             Args:
@@ -3551,51 +3987,56 @@ class DlpServiceRestTransport(DlpServiceTransport):
                     Results of re-identifying an item.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*}/content:reidentify',
-                'body': '*',
-            },
-{
-                'method': 'post',
-                'uri': '/v2/{parent=projects/*/locations/*}/content:reidentify',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*}/content:reidentify",
+                    "body": "*",
+                },
+                {
+                    "method": "post",
+                    "uri": "/v2/{parent=projects/*/locations/*}/content:reidentify",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_reidentify_content(request, metadata)
+            request, metadata = self._interceptor.pre_reidentify_content(
+                request, metadata
+            )
             pb_request = dlp.ReidentifyContentRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3614,98 +4055,108 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.UpdateDeidentifyTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.DeidentifyTemplate:
+        def __call__(
+            self,
+            request: dlp.UpdateDeidentifyTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.DeidentifyTemplate:
             r"""Call the update deidentify
-        template method over HTTP.
+            template method over HTTP.
 
-            Args:
-                request (~.dlp.UpdateDeidentifyTemplateRequest):
-                    The request object. Request message for
-                UpdateDeidentifyTemplate.
+                Args:
+                    request (~.dlp.UpdateDeidentifyTemplateRequest):
+                        The request object. Request message for
+                    UpdateDeidentifyTemplate.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.dlp.DeidentifyTemplate:
-                    DeidentifyTemplates contains
-                instructions on how to de-identify
-                content. See
-                https://cloud.google.com/dlp/docs/concepts-templates
-                to learn more.
+                Returns:
+                    ~.dlp.DeidentifyTemplate:
+                        DeidentifyTemplates contains
+                    instructions on how to de-identify
+                    content. See
+                    https://cloud.google.com/dlp/docs/concepts-templates
+                    to learn more.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/deidentifyTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/deidentifyTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/locations/*/deidentifyTemplates/*}',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/deidentifyTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/locations/*/deidentifyTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/deidentifyTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/locations/*/deidentifyTemplates/*}",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_deidentify_template(request, metadata)
+            request, metadata = self._interceptor.pre_update_deidentify_template(
+                request, metadata
+            )
             pb_request = dlp.UpdateDeidentifyTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3724,19 +4175,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.UpdateInspectTemplateRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.InspectTemplate:
+        def __call__(
+            self,
+            request: dlp.UpdateInspectTemplateRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.InspectTemplate:
             r"""Call the update inspect template method over HTTP.
 
             Args:
@@ -3762,61 +4218,66 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/inspectTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/locations/*/inspectTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/inspectTemplates/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/locations/*/inspectTemplates/*}',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/inspectTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/locations/*/inspectTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/inspectTemplates/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/locations/*/inspectTemplates/*}",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_inspect_template(request, metadata)
+            request, metadata = self._interceptor.pre_update_inspect_template(
+                request, metadata
+            )
             pb_request = dlp.UpdateInspectTemplateRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3835,19 +4296,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.UpdateJobTriggerRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.JobTrigger:
+        def __call__(
+            self,
+            request: dlp.UpdateJobTriggerRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.JobTrigger:
             r"""Call the update job trigger method over HTTP.
 
             Args:
@@ -3868,56 +4334,61 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/jobTriggers/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/locations/*/jobTriggers/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/locations/*/jobTriggers/*}',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/jobTriggers/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/locations/*/jobTriggers/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/locations/*/jobTriggers/*}",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_job_trigger(request, metadata)
+            request, metadata = self._interceptor.pre_update_job_trigger(
+                request, metadata
+            )
             pb_request = dlp.UpdateJobTriggerRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -3936,19 +4407,24 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: dlp.UpdateStoredInfoTypeRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> dlp.StoredInfoType:
+        def __call__(
+            self,
+            request: dlp.UpdateStoredInfoTypeRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> dlp.StoredInfoType:
             r"""Call the update stored info type method over HTTP.
 
             Args:
@@ -3970,61 +4446,66 @@ class DlpServiceRestTransport(DlpServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/storedInfoTypes/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=organizations/*/locations/*/storedInfoTypes/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/storedInfoTypes/*}',
-                'body': '*',
-            },
-{
-                'method': 'patch',
-                'uri': '/v2/{name=projects/*/locations/*/storedInfoTypes/*}',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/storedInfoTypes/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=organizations/*/locations/*/storedInfoTypes/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/storedInfoTypes/*}",
+                    "body": "*",
+                },
+                {
+                    "method": "patch",
+                    "uri": "/v2/{name=projects/*/locations/*/storedInfoTypes/*}",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_stored_info_type(request, metadata)
+            request, metadata = self._interceptor.pre_update_stored_info_type(
+                request, metadata
+            )
             pb_request = dlp.UpdateStoredInfoTypeRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -4040,276 +4521,266 @@ class DlpServiceRestTransport(DlpServiceTransport):
             return resp
 
     @property
-    def activate_job_trigger(self) -> Callable[
-            [dlp.ActivateJobTriggerRequest],
-            dlp.DlpJob]:
+    def activate_job_trigger(
+        self,
+    ) -> Callable[[dlp.ActivateJobTriggerRequest], dlp.DlpJob]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ActivateJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._ActivateJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def cancel_dlp_job(self) -> Callable[
-            [dlp.CancelDlpJobRequest],
-            empty_pb2.Empty]:
+    def cancel_dlp_job(self) -> Callable[[dlp.CancelDlpJobRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CancelDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._CancelDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_deidentify_template(self) -> Callable[
-            [dlp.CreateDeidentifyTemplateRequest],
-            dlp.DeidentifyTemplate]:
+    def create_deidentify_template(
+        self,
+    ) -> Callable[[dlp.CreateDeidentifyTemplateRequest], dlp.DeidentifyTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateDeidentifyTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateDeidentifyTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_dlp_job(self) -> Callable[
-            [dlp.CreateDlpJobRequest],
-            dlp.DlpJob]:
+    def create_dlp_job(self) -> Callable[[dlp.CreateDlpJobRequest], dlp.DlpJob]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_inspect_template(self) -> Callable[
-            [dlp.CreateInspectTemplateRequest],
-            dlp.InspectTemplate]:
+    def create_inspect_template(
+        self,
+    ) -> Callable[[dlp.CreateInspectTemplateRequest], dlp.InspectTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateInspectTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateInspectTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_job_trigger(self) -> Callable[
-            [dlp.CreateJobTriggerRequest],
-            dlp.JobTrigger]:
+    def create_job_trigger(
+        self,
+    ) -> Callable[[dlp.CreateJobTriggerRequest], dlp.JobTrigger]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def create_stored_info_type(self) -> Callable[
-            [dlp.CreateStoredInfoTypeRequest],
-            dlp.StoredInfoType]:
+    def create_stored_info_type(
+        self,
+    ) -> Callable[[dlp.CreateStoredInfoTypeRequest], dlp.StoredInfoType]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateStoredInfoType(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateStoredInfoType(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def deidentify_content(self) -> Callable[
-            [dlp.DeidentifyContentRequest],
-            dlp.DeidentifyContentResponse]:
+    def deidentify_content(
+        self,
+    ) -> Callable[[dlp.DeidentifyContentRequest], dlp.DeidentifyContentResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeidentifyContent(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeidentifyContent(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_deidentify_template(self) -> Callable[
-            [dlp.DeleteDeidentifyTemplateRequest],
-            empty_pb2.Empty]:
+    def delete_deidentify_template(
+        self,
+    ) -> Callable[[dlp.DeleteDeidentifyTemplateRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteDeidentifyTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteDeidentifyTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_dlp_job(self) -> Callable[
-            [dlp.DeleteDlpJobRequest],
-            empty_pb2.Empty]:
+    def delete_dlp_job(self) -> Callable[[dlp.DeleteDlpJobRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_inspect_template(self) -> Callable[
-            [dlp.DeleteInspectTemplateRequest],
-            empty_pb2.Empty]:
+    def delete_inspect_template(
+        self,
+    ) -> Callable[[dlp.DeleteInspectTemplateRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteInspectTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteInspectTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_job_trigger(self) -> Callable[
-            [dlp.DeleteJobTriggerRequest],
-            empty_pb2.Empty]:
+    def delete_job_trigger(
+        self,
+    ) -> Callable[[dlp.DeleteJobTriggerRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_stored_info_type(self) -> Callable[
-            [dlp.DeleteStoredInfoTypeRequest],
-            empty_pb2.Empty]:
+    def delete_stored_info_type(
+        self,
+    ) -> Callable[[dlp.DeleteStoredInfoTypeRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteStoredInfoType(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteStoredInfoType(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def finish_dlp_job(self) -> Callable[
-            [dlp.FinishDlpJobRequest],
-            empty_pb2.Empty]:
+    def finish_dlp_job(self) -> Callable[[dlp.FinishDlpJobRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._FinishDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._FinishDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_deidentify_template(self) -> Callable[
-            [dlp.GetDeidentifyTemplateRequest],
-            dlp.DeidentifyTemplate]:
+    def get_deidentify_template(
+        self,
+    ) -> Callable[[dlp.GetDeidentifyTemplateRequest], dlp.DeidentifyTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetDeidentifyTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetDeidentifyTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_dlp_job(self) -> Callable[
-            [dlp.GetDlpJobRequest],
-            dlp.DlpJob]:
+    def get_dlp_job(self) -> Callable[[dlp.GetDlpJobRequest], dlp.DlpJob]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_inspect_template(self) -> Callable[
-            [dlp.GetInspectTemplateRequest],
-            dlp.InspectTemplate]:
+    def get_inspect_template(
+        self,
+    ) -> Callable[[dlp.GetInspectTemplateRequest], dlp.InspectTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetInspectTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetInspectTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_job_trigger(self) -> Callable[
-            [dlp.GetJobTriggerRequest],
-            dlp.JobTrigger]:
+    def get_job_trigger(self) -> Callable[[dlp.GetJobTriggerRequest], dlp.JobTrigger]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_stored_info_type(self) -> Callable[
-            [dlp.GetStoredInfoTypeRequest],
-            dlp.StoredInfoType]:
+    def get_stored_info_type(
+        self,
+    ) -> Callable[[dlp.GetStoredInfoTypeRequest], dlp.StoredInfoType]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetStoredInfoType(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetStoredInfoType(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def hybrid_inspect_dlp_job(self) -> Callable[
-            [dlp.HybridInspectDlpJobRequest],
-            dlp.HybridInspectResponse]:
+    def hybrid_inspect_dlp_job(
+        self,
+    ) -> Callable[[dlp.HybridInspectDlpJobRequest], dlp.HybridInspectResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._HybridInspectDlpJob(self._session, self._host, self._interceptor) # type: ignore
+        return self._HybridInspectDlpJob(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def hybrid_inspect_job_trigger(self) -> Callable[
-            [dlp.HybridInspectJobTriggerRequest],
-            dlp.HybridInspectResponse]:
+    def hybrid_inspect_job_trigger(
+        self,
+    ) -> Callable[[dlp.HybridInspectJobTriggerRequest], dlp.HybridInspectResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._HybridInspectJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._HybridInspectJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def inspect_content(self) -> Callable[
-            [dlp.InspectContentRequest],
-            dlp.InspectContentResponse]:
+    def inspect_content(
+        self,
+    ) -> Callable[[dlp.InspectContentRequest], dlp.InspectContentResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._InspectContent(self._session, self._host, self._interceptor) # type: ignore
+        return self._InspectContent(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_deidentify_templates(self) -> Callable[
-            [dlp.ListDeidentifyTemplatesRequest],
-            dlp.ListDeidentifyTemplatesResponse]:
+    def list_deidentify_templates(
+        self,
+    ) -> Callable[
+        [dlp.ListDeidentifyTemplatesRequest], dlp.ListDeidentifyTemplatesResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListDeidentifyTemplates(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListDeidentifyTemplates(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_dlp_jobs(self) -> Callable[
-            [dlp.ListDlpJobsRequest],
-            dlp.ListDlpJobsResponse]:
+    def list_dlp_jobs(
+        self,
+    ) -> Callable[[dlp.ListDlpJobsRequest], dlp.ListDlpJobsResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListDlpJobs(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListDlpJobs(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_info_types(self) -> Callable[
-            [dlp.ListInfoTypesRequest],
-            dlp.ListInfoTypesResponse]:
+    def list_info_types(
+        self,
+    ) -> Callable[[dlp.ListInfoTypesRequest], dlp.ListInfoTypesResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListInfoTypes(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListInfoTypes(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_inspect_templates(self) -> Callable[
-            [dlp.ListInspectTemplatesRequest],
-            dlp.ListInspectTemplatesResponse]:
+    def list_inspect_templates(
+        self,
+    ) -> Callable[[dlp.ListInspectTemplatesRequest], dlp.ListInspectTemplatesResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListInspectTemplates(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListInspectTemplates(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_job_triggers(self) -> Callable[
-            [dlp.ListJobTriggersRequest],
-            dlp.ListJobTriggersResponse]:
+    def list_job_triggers(
+        self,
+    ) -> Callable[[dlp.ListJobTriggersRequest], dlp.ListJobTriggersResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListJobTriggers(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListJobTriggers(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_stored_info_types(self) -> Callable[
-            [dlp.ListStoredInfoTypesRequest],
-            dlp.ListStoredInfoTypesResponse]:
+    def list_stored_info_types(
+        self,
+    ) -> Callable[[dlp.ListStoredInfoTypesRequest], dlp.ListStoredInfoTypesResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListStoredInfoTypes(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListStoredInfoTypes(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def redact_image(self) -> Callable[
-            [dlp.RedactImageRequest],
-            dlp.RedactImageResponse]:
+    def redact_image(
+        self,
+    ) -> Callable[[dlp.RedactImageRequest], dlp.RedactImageResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._RedactImage(self._session, self._host, self._interceptor) # type: ignore
+        return self._RedactImage(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def reidentify_content(self) -> Callable[
-            [dlp.ReidentifyContentRequest],
-            dlp.ReidentifyContentResponse]:
+    def reidentify_content(
+        self,
+    ) -> Callable[[dlp.ReidentifyContentRequest], dlp.ReidentifyContentResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ReidentifyContent(self._session, self._host, self._interceptor) # type: ignore
+        return self._ReidentifyContent(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_deidentify_template(self) -> Callable[
-            [dlp.UpdateDeidentifyTemplateRequest],
-            dlp.DeidentifyTemplate]:
+    def update_deidentify_template(
+        self,
+    ) -> Callable[[dlp.UpdateDeidentifyTemplateRequest], dlp.DeidentifyTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateDeidentifyTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateDeidentifyTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_inspect_template(self) -> Callable[
-            [dlp.UpdateInspectTemplateRequest],
-            dlp.InspectTemplate]:
+    def update_inspect_template(
+        self,
+    ) -> Callable[[dlp.UpdateInspectTemplateRequest], dlp.InspectTemplate]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateInspectTemplate(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateInspectTemplate(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_job_trigger(self) -> Callable[
-            [dlp.UpdateJobTriggerRequest],
-            dlp.JobTrigger]:
+    def update_job_trigger(
+        self,
+    ) -> Callable[[dlp.UpdateJobTriggerRequest], dlp.JobTrigger]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateJobTrigger(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateJobTrigger(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_stored_info_type(self) -> Callable[
-            [dlp.UpdateStoredInfoTypeRequest],
-            dlp.StoredInfoType]:
+    def update_stored_info_type(
+        self,
+    ) -> Callable[[dlp.UpdateStoredInfoTypeRequest], dlp.StoredInfoType]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateStoredInfoType(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateStoredInfoType(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -4319,6 +4790,4 @@ class DlpServiceRestTransport(DlpServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'DlpServiceRestTransport',
-)
+__all__ = ("DlpServiceRestTransport",)
