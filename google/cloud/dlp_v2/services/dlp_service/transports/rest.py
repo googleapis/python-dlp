@@ -17,7 +17,7 @@
 import dataclasses
 import json  # type: ignore
 import re
-from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
 
 from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
@@ -1085,7 +1085,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ActivateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1191,7 +1191,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CancelDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1281,7 +1281,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1401,7 +1401,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1508,7 +1508,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1629,7 +1629,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1740,7 +1740,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("CreateStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -1950,7 +1950,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2041,7 +2041,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2121,7 +2121,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2211,7 +2211,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2295,7 +2295,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("DeleteStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2385,7 +2385,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("FinishDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2470,7 +2470,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2577,7 +2577,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2669,7 +2669,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2778,7 +2778,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2876,7 +2876,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("GetStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -2981,7 +2981,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("HybridInspectDlpJob")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3082,7 +3082,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("HybridInspectJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3275,7 +3275,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListDeidentifyTemplates")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3379,7 +3379,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListDlpJobs")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3558,7 +3558,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListInspectTemplates")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3662,7 +3662,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListJobTriggers")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3758,7 +3758,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ListStoredInfoTypes")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -3954,7 +3954,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("ReidentifyContent")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -4056,7 +4056,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateDeidentifyTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -4176,7 +4176,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateInspectTemplate")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -4297,7 +4297,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateJobTrigger")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
@@ -4408,7 +4408,7 @@ class DlpServiceRestTransport(DlpServiceTransport):
         def __hash__(self):
             return hash("UpdateStoredInfoType")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, Any] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
