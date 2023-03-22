@@ -112,11 +112,11 @@ class FileType(proto.Enum):
         WORD (5):
             Word files >30 MB will be scanned as binary
             files. Included file extensions:
-            docx, dotx, docm, dotm
+              docx, dotx, docm, dotm
         PDF (6):
             PDF files >30 MB will be scanned as binary
             files. Included file extensions:
-            pdf
+              pdf
         AVRO (7):
             Included file extensions:
             avro
@@ -129,11 +129,11 @@ class FileType(proto.Enum):
         POWERPOINT (11):
             Powerpoint files >30 MB will be scanned as
             binary files. Included file extensions:
-            pptx, pptm, potx, potm, pot
+              pptx, pptm, potx, potm, pot
         EXCEL (12):
             Excel files >30 MB will be scanned as binary
             files. Included file extensions:
-            xlsx, xlsm, xltx, xltm
+              xlsx, xlsm, xltx, xltm
     """
     FILE_TYPE_UNSPECIFIED = 0
     BINARY_FILE = 1
